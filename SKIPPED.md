@@ -1,0 +1,43 @@
+# 略過的檔案
+
+存檔時略過 1 MB 以上的單一檔案（多為音樂、影片、字型、大圖）以及純展示用的資料夾。SKILL 的說明與程式碼都完整；需要這些素材時，到來源 repo 的對應 commit 取回。
+
+- `creative-design/beautiful-html-templates`：`screenshots/`（展示用截圖，32 MB）
+- `creative-design/impeccable`（來源 pbakaus/impeccable）
+  - `scripts/data/font-index.json`：1.1 MB
+- `creative-design/huashu-design`（來源 alchaincyf/huashu-design）
+  - `assets/bgm-tech.mp3`：4.8 MB
+  - `assets/bgm-tutorial.mp3`：5.5 MB
+  - `assets/bgm-educational.mp3`：4.0 MB
+  - `assets/bgm-tutorial-alt.mp3`：3.9 MB
+  - `assets/bgm-educational-alt.mp3`：4.5 MB
+  - `assets/bgm-ad.mp3`：5.0 MB
+- `creative-design/guizang-ppt-skill`（來源 op7418/guizang-ppt-skill）
+  - `assets/ppt-skill-showcase.png`：3.6 MB
+- `creative-design/nothing-design-skill`（來源 dominikmartn/nothing-design-skill）
+  - `preview.gif`：1.6 MB
+- `animation-video/openmontage`（來源 OpenMontageInc/OpenMontage）
+  - `hyperframes-animation/examples/assets/hyperframes-showcase-hypecard.mp4`：20.8 MB
+  - `hyperframes-animation/examples/assets/background-tech-data-flow.mp4`：16.7 MB
+  - `hyperframes-animation/examples/assets/logo-hyperframes.png`：1.4 MB
+- `animation-video/video-shotcraft`（來源 Vincentwei1021/video-shotcraft）
+  - `videos/`：demo/展示用資料夾
+  - `assets/audio/bgm/bgm-tech-house.mp3`：9.2 MB
+  - `assets/audio/bgm/g-eazy-nba-type.mp3`：3.3 MB
+  - `assets/audio/bgm/house-vibez.mp3`：4.5 MB
+  - `assets/audio/bgm/tonight-hiphop.mp3`：3.6 MB
+  - `assets/audio/bgm/cat-walk.mp3`：4.0 MB
+  - `assets/readme/`：demo/展示用資料夾
+  - `demos/`：demo/展示用資料夾
+  - `gallery/`：demo/展示用資料夾
+  - `template/public/textures/live/detail-experiments.png`：3.3 MB
+- `animation-video/claude-animated-shorts`（來源 mromidev/claude-animated-shorts）
+  - `references/sheets/short17_sheet.jpg`：1.1 MB
+- `animation-video/anything2explainer`（來源 Vincentwei1021/anything2explainer）
+  - `examples/`：demo/展示用資料夾
+  - `template/public/fonts/NotoSansSC.ttf`：17.8 MB
+- `animation-video/oil-motion`（來源 oil-oil/oil-motion）
+  - `assets/demo/oil-motion-demo.mp4`：1.1 MB
+  - `assets/readme/source/hero-illustration-crop-v1.png`：1.2 MB
+- `3d-gamedev/anatomy`（來源 wheresryan22/anatomy）
+  - `examples/`：demo/展示用資料夾

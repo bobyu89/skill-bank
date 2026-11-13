@@ -1,0 +1,355 @@
+{
+ "categories": [
+  [
+   "research-academic",
+   "研究／學術",
+   "文獻搜尋、論文寫作、APA、統計、EBP、報告指引、同儕審查"
+  ],
+  [
+   "clinical-nursing",
+   "臨床／護理",
+   "臨床照護、護理紀錄、個案報告、考試與臨床教學"
+  ],
+  [
+   "tech-dev",
+   "技術／開發",
+   "程式開發、AI/Agent、MCP、自動化、資料分析"
+  ],
+  [
+   "creative-design",
+   "創意／設計",
+   "插畫、視覺設計、UI、簡報、品牌、logo、影像 prompt"
+  ],
+  [
+   "animation-video",
+   "動畫／影片",
+   "程式化影片、AI 影片、網頁動效、動畫製作"
+  ],
+  [
+   "3d-gamedev",
+   "3D／遊戲",
+   "3D 建模與物件、遊戲引擎、遊戲開發與 mod"
+  ],
+  [
+   "writing-communication",
+   "寫作／溝通",
+   "一般寫作、電子報、內部溝通、語氣潤飾、翻譯"
+  ],
+  [
+   "productivity-workflow",
+   "效率／工作流",
+   "筆記、知識管理、排程、文件格式處理"
+  ],
+  [
+   "thinking-learning",
+   "思考／學習",
+   "批判思考、學習方法、哲學、決策框架"
+  ]
+ ],
+ "entries": [
+  {
+   "path": "creative-design/anthropics",
+   "repo": "anthropics/skills",
+   "commit": "2c5958e",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "Anthropic 官方：前端設計、畫布視覺、演算法藝術、品牌規範、主題配色、Slack GIF",
+   "keywords": "frontend, canvas, 海報, 品牌, 主題"
+  },
+  {
+   "path": "tech-dev/anthropics",
+   "repo": "anthropics/skills",
+   "commit": "2c5958e",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "Anthropic 官方：Claude API、MCP 伺服器開發、SKILL 製作、網頁測試、複雜 artifact",
+   "keywords": "claude api, mcp, skill-creator, playwright"
+  },
+  {
+   "path": "productivity-workflow/anthropics",
+   "repo": "anthropics/skills",
+   "commit": "2c5958e",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "Anthropic 官方：Word、PDF、PowerPoint、Excel 檔案處理",
+   "keywords": "docx, pdf, pptx, xlsx"
+  },
+  {
+   "path": "writing-communication/anthropics",
+   "repo": "anthropics/skills",
+   "commit": "2c5958e",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "Anthropic 官方：文件共筆流程、內部溝通文稿",
+   "keywords": "共筆, 公告, 週報"
+  },
+  {
+   "path": "thinking-learning/anthropics",
+   "repo": "anthropics/skills",
+   "commit": "2c5958e",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "Anthropic 官方：academy-guide、discernment-nudge",
+   "keywords": "學習, 判斷"
+  },
+  {
+   "path": "creative-design/impeccable",
+   "repo": "pbakaus/impeccable",
+   "commit": "c4cd192",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "前端設計品質工具：polish、bolder、critique、audit 等指令，避免 AI 味的介面",
+   "keywords": "/polish, /bolder, /critique, UI 打磨"
+  },
+  {
+   "path": "creative-design/open-design",
+   "repo": "nexu-io/open-design",
+   "commit": "e427ad9",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "open-design 設計工作區內建的 SKILL 大全：簡報、海報、社群圖卡、動效、Figma、影像生成等",
+   "keywords": "設計, 簡報, 圖卡, figma, 影像生成"
+  },
+  {
+   "path": "creative-design/hallmark",
+   "repo": "Nutlope/hallmark",
+   "commit": "04977e1",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "讓設計不像 AI 做的：有辨識度的版面與視覺",
+   "keywords": "反 AI 味, 版面, 視覺風格"
+  },
+  {
+   "path": "creative-design/huashu-design",
+   "repo": "alchaincyf/huashu-design",
+   "commit": "e8d1148",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "花叔設計：一句話產出完整設計（高保真原型、簡報、動畫、資訊圖）",
+   "keywords": "一句話出設計, 原型, 簡報, 動畫"
+  },
+  {
+   "path": "creative-design/guizang-ppt-skill",
+   "repo": "op7418/guizang-ppt-skill",
+   "commit": "93d21bf",
+   "license": "AGPL-3.0",
+   "date": "2026-11-13",
+   "zh": "歸藏 PPT：雜誌風與瑞士風的 HTML 簡報",
+   "keywords": "簡報, 雜誌風, swiss style"
+  },
+  {
+   "path": "creative-design/stitch-skills",
+   "repo": "google-labs-code/stitch-skills",
+   "commit": "0337446",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "Google Stitch 的 UI 設計 SKILL：設計、建置、工具三組",
+   "keywords": "stitch, UI 設計, design system"
+  },
+  {
+   "path": "creative-design/architecture-diagram-generator",
+   "repo": "Cocoon-AI/architecture-diagram-generator",
+   "commit": "4b9087d",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "描述系統就產出乾淨的架構圖（HTML/SVG）",
+   "keywords": "架構圖, diagram"
+  },
+  {
+   "path": "creative-design/logo-design",
+   "repo": "kaankiziltug/logo-design-skill",
+   "commit": "bbf31e5",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "從 brief 到 SVG logo 再到品牌指南",
+   "keywords": "logo, SVG, 品牌指南"
+  },
+  {
+   "path": "creative-design/nothing-design-skill",
+   "repo": "dominikmartn/nothing-design-skill",
+   "commit": "6bec3c7",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Nothing 風格：單色、點陣字的 UI",
+   "keywords": "單色, dot-matrix, UI 風格"
+  },
+  {
+   "path": "animation-video/hyperframes",
+   "repo": "heygen-com/hyperframes",
+   "commit": "ff687fe",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "HeyGen HyperFrames：寫 HTML 產出影片；含官方 SKILL 與專案內部的剪輯手法 SKILL",
+   "keywords": "HTML 轉影片, 字幕, 轉場"
+  },
+  {
+   "path": "animation-video/openmontage",
+   "repo": "OpenMontageInc/OpenMontage",
+   "commit": "fecb9a1",
+   "license": "AGPL-3.0",
+   "date": "2026-11-13",
+   "zh": "OpenMontage 影片工作室用到的全部 SKILL：AI 影片生成、配音、字幕、Manim、Three.js、GSAP、Remotion 等",
+   "keywords": "AI 影片, TTS, manim, threejs, ffmpeg"
+  },
+  {
+   "path": "animation-video/video-shotcraft",
+   "repo": "Vincentwei1021/video-shotcraft",
+   "commit": "6700db2",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "電影感的產品宣傳影片（Remotion 模板與分鏡打磨流程）",
+   "keywords": "產品宣傳片, 分鏡, remotion"
+  },
+  {
+   "path": "animation-video/claude-animated-shorts",
+   "repo": "mromidev/claude-animated-shorts",
+   "commit": "e3b817b",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "3D 世界風格的卡通短影音製作流程",
+   "keywords": "短影音, 卡通, 3D"
+  },
+  {
+   "path": "animation-video/gsap-skills",
+   "repo": "greensock/gsap-skills",
+   "commit": "aed9cfd",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "GSAP 官方：核心、timeline、ScrollTrigger、外掛、React、效能",
+   "keywords": "gsap, easing, scroll 動畫"
+  },
+  {
+   "path": "animation-video/garden-skills",
+   "repo": "ConardLi/garden-skills",
+   "commit": "08150e7",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "動態 showreel、網頁影片簡報、網頁設計工程、美化文章、GPT 生圖、知識庫檢索",
+   "keywords": "showreel, 影片簡報, 網頁設計"
+  },
+  {
+   "path": "animation-video/pixelfx",
+   "repo": "patch-gg/pixelfx",
+   "commit": "5294518",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "244 種以程式寫成的像素特效",
+   "keywords": "pixel 特效, shader, canvas"
+  },
+  {
+   "path": "animation-video/anything2explainer",
+   "repo": "Vincentwei1021/anything2explainer",
+   "commit": "0b85f6c",
+   "license": "自訂授權（見 LICENSE）",
+   "date": "2026-11-13",
+   "zh": "給主題就產出解說影片（Remotion 模板）",
+   "keywords": "解說影片, explainer"
+  },
+  {
+   "path": "animation-video/oil-motion",
+   "repo": "oil-oil/oil-motion",
+   "commit": "07e31f2",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "跟隨捲動與滑鼠的網頁動畫",
+   "keywords": "scroll 動畫, 滑鼠互動"
+  },
+  {
+   "path": "3d-gamedev/anatomy",
+   "repo": "wheresryan22/anatomy",
+   "commit": "1482e84",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "把任何點子做成可互動的 3D 物件",
+   "keywords": "3D 物件, three.js"
+  },
+  {
+   "path": "3d-gamedev/unity-mcp",
+   "repo": "CoplayDev/unity-mcp",
+   "commit": "e2fd09c",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "讓 Claude 操作 Unity 編輯器；另含 Blender 轉 Unity 流程",
+   "keywords": "unity, mcp, blender"
+  },
+  {
+   "path": "3d-gamedev/universal-modder",
+   "repo": "rehan-remade/universal-modder",
+   "commit": "3c4ac6c",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "替自己擁有的 PC 遊戲做 mod：偵查、逆向、素材管線、發佈",
+   "keywords": "遊戲 mod, 逆向工程"
+  },
+  {
+   "path": "3d-gamedev/gamedev-skills",
+   "repo": "gamedev-skills/awesome-gamedev-agent-skills",
+   "commit": "c6ca6c4",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "遊戲開發 SKILL 大全：Godot、Unity、Unreal、網頁引擎、遊戲類型、各職能、工作流",
+   "keywords": "godot, unity, unreal, three.js, 遊戲設計"
+  },
+  {
+   "path": "animation-video/remotion",
+   "repo": "remotion-dev/skills",
+   "commit": "7e541aa",
+   "license": "見 remotion-license",
+   "date": "2026-11-13",
+   "zh": "Remotion 官方：用 React 做影片（建立、畫面與動畫、字幕、地圖、輸出、升級、授權）",
+   "keywords": "remotion, react 影片, 字幕, render",
+   "version": "v4.0.543"
+  },
+  {
+   "path": "animation-video/motion",
+   "repo": "motiondivision/ai-kit",
+   "commit": "1e42494",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Motion（前 Framer Motion）與 CSS 動畫：最佳實務、文件與範例搜尋、CSS spring、效能稽核",
+   "keywords": "motion/react, framer-motion, CSS spring, UI 動畫"
+  },
+  {
+   "path": "creative-design/beautiful-html-templates",
+   "repo": "zarazhangrui/beautiful-html-templates",
+   "commit": "e5e204f",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "34 套 HTML 簡報模板；依場合與氛圍挑候選、做封面預覽、再套入內容",
+   "keywords": "HTML 簡報, slide deck, pitch",
+   "entry": "AGENTS.md"
+  }
+ ],
+ "references": [
+  {
+   "repo": "godotengine/godot",
+   "what": "開源 2D／3D 遊戲引擎",
+   "note": "相關 SKILL 見 `3d-gamedev/gamedev-skills/godot`",
+   "date": "2026-11-13"
+  },
+  {
+   "repo": "opentoonz/opentoonz",
+   "what": "開源 2D 動畫製作軟體",
+   "note": "",
+   "date": "2026-11-13"
+  },
+  {
+   "repo": "juliangarnier/anime",
+   "what": "Anime.js，JavaScript 動畫函式庫",
+   "note": "",
+   "date": "2026-11-13"
+  },
+  {
+   "repo": "motiondivision/motion",
+   "what": "Motion 動畫函式庫本體，[450+ 官方範例](https://motion.dev/examples)",
+   "note": "對應的 SKILL 已存為 `motion`",
+   "date": "2026-11-13"
+  },
+  {
+   "repo": "ahujasid/mcp-for-blender",
+   "what": "Blender MCP：讓 Claude 操作 Blender 的 MCP 伺服器與外掛",
+   "note": "是 MCP 伺服器，repo 內沒有 SKILL",
+   "date": "2026-11-13"
+  }
+ ]
+}
