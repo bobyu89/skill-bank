@@ -1,6 +1,6 @@
 # Skill Bank
 
-SKILL 收藏庫，依功能與用途分類，目前共 447 個。
+SKILL 收藏庫，依功能與用途分類，目前共 1020 個。
 
 **找 SKILL 的方法**：在本頁用 Ctrl/Cmd + F 搜尋關鍵字（中文用途、英文名稱、原始說明都在表格裡），或從下方分類進去。
 
@@ -10,19 +10,224 @@ SKILL 收藏庫，依功能與用途分類，目前共 447 個。
 
 | 分類 | 收什麼 | 數量 |
 |---|---|---|
-| [研究／學術](#研究學術-research-academic) | 文獻搜尋、論文寫作、APA、統計、EBP、報告指引、同儕審查 | 0 |
+| [研究／學術](#研究學術-research-academic) | 文獻搜尋、論文寫作、APA、統計、EBP、報告指引、同儕審查 | 183 |
 | [臨床／護理](#臨床護理-clinical-nursing) | 臨床照護、護理紀錄、個案報告、考試與臨床教學 | 0 |
-| [技術／開發](#技術開發-tech-dev) | 程式開發、AI/Agent、MCP、自動化、資料分析 | 5 |
-| [創意／設計](#創意設計-creative-design) | 插畫、視覺設計、UI、簡報、品牌、logo、影像 prompt | 199 |
-| [動畫／影片](#動畫影片-animation-video) | 程式化影片、AI 影片、網頁動效、動畫製作 | 140 |
+| [技術／開發](#技術開發-tech-dev) | 程式開發、AI/Agent、MCP、自動化、資料分析 | 101 |
+| [創意／設計](#創意設計-creative-design) | 插畫、視覺設計、UI、簡報、品牌、logo、影像 prompt | 234 |
+| [動畫／影片](#動畫影片-animation-video) | 程式化影片、AI 影片、網頁動效、動畫製作 | 141 |
 | [3D／遊戲](#3d遊戲-3d-gamedev) | 3D 建模與物件、遊戲引擎、遊戲開發與 mod | 95 |
-| [寫作／溝通](#寫作溝通-writing-communication) | 一般寫作、電子報、內部溝通、語氣潤飾、翻譯 | 2 |
-| [效率／工作流](#效率工作流-productivity-workflow) | 筆記、知識管理、排程、文件格式處理 | 4 |
+| [行銷／商務](#行銷商務-marketing-business) | 行銷文案、SEO、廣告、市場與趨勢調研 | 54 |
+| [寫作／溝通](#寫作溝通-writing-communication) | 一般寫作、電子報、內部溝通、語氣潤飾、翻譯 | 27 |
+| [效率／工作流](#效率工作流-productivity-workflow) | 筆記、知識管理、排程、文件格式處理 | 183 |
 | [思考／學習](#思考學習-thinking-learning) | 批判思考、學習方法、哲學、決策框架 | 2 |
 
 ## 研究／學術 (`research-academic`)
 
-尚無。
+| 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
+|---|---|---|---|---|---|
+| [academic-research-skills](#research-academic-academic-research-skills) | 5 | 學術研究全流程：深度研究、論文寫作、模擬審稿、系統性回顧篩選、整合 pipeline | 查文獻, 寫論文, 模擬審稿, systematic review | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) `c67a7be`（CC BY-NC 4.0） | 2026-11-13 |
+| [figures4papers](skills/research-academic/figures4papers/SKILL.md) | 1 | 論文用科學圖表製作 | 論文圖表, matplotlib, figure | [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) `e78584f`（CC BY-NC 4.0） | 2026-11-13 |
+| [scientific-agent-skills](#research-academic-scientific-agent-skills) | 177 | 科研助手合集：生物、化學、醫學資料庫與分析工具、科學寫作與簡報 | 生資, 化學, 資料庫, 統計, 科學寫作 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) `2d2065f`（MIT） | 2026-11-13 |
+
+<a id="research-academic-academic-research-skills"></a>
+
+### academic-research-skills（5 個）
+
+學術研究全流程：深度研究、論文寫作、模擬審稿、系統性回顧篩選、整合 pipeline。資料夾：[`skills/research-academic/academic-research-skills`](skills/research-academic/academic-research-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [academic-paper](skills/research-academic/academic-research-skills/academic-paper/SKILL.md) | 12-agent academic paper writing pipeline. 11 modes (full/plan/outline/revision/revision-coach/abstract/lit-review/format-convert/citation-check/disclosure/rebuttal-audit). 6 paper… |
+| [academic-paper-reviewer](skills/research-academic/academic-research-skills/academic-paper-reviewer/SKILL.md) | Multi-perspective academic paper review with dynamic reviewer personas. Runs a 5-seat, role-separated review panel (Journal-Fit Reviewer + 3 peer-review roles + Devil's Advocate)… |
+| [academic-pipeline](skills/research-academic/academic-research-skills/academic-pipeline/SKILL.md) | Orchestrator for the full academic research pipeline: research -> write -> integrity check -> review -> revise -> re-review -> re-revise -> final integrity check -> finalize. Coor… |
+| [deep-research](skills/research-academic/academic-research-skills/deep-research/SKILL.md) | Universal deep research agent team. 13-agent pipeline for rigorous academic research on any topic. 8 modes: full research, quick brief, paper review, lit-review, fact-check, three… |
+| [sr-screener](skills/research-academic/academic-research-skills/sr-screener/SKILL.md) | Protocol-driven study screening for systematic, scoping and rapid reviews. Turns a proposal or PROSPERO protocol into confirmed eligibility rules, then screens titles/abstracts an… |
+
+<a id="research-academic-scientific-agent-skills"></a>
+
+### scientific-agent-skills（177 個）
+
+科研助手合集：生物、化學、醫學資料庫與分析工具、科學寫作與簡報。資料夾：[`skills/research-academic/scientific-agent-skills`](skills/research-academic/scientific-agent-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [13c-metabolic-flux](skills/research-academic/scientific-agent-skills/13c-metabolic-flux/SKILL.md) | Estimates intracellular metabolic fluxes from steady-state carbon-13 isotope-tracing measurements using validated atom maps, mfapy isotope simulation, constrained multistart fitti… |
+| [adaptyv](skills/research-academic/scientific-agent-skills/adaptyv/SKILL.md) | Uses the Adaptyv Bio Foundry API and Python SDK to design protein characterization experiments, estimate costs, submit sequences, monitor laboratory progress, and retrieve results… |
+| [aeon](skills/research-academic/scientific-agent-skills/aeon/SKILL.md) | This skill should be used for time series machine learning tasks including classification, regression, clustering, forecasting, anomaly detection, segmentation, and similarity sea… |
+| [alphagenome](skills/research-academic/scientific-agent-skills/alphagenome/SKILL.md) | Looks up precomputed AlphaGenome Atlas effects for any GRCh38 single-nucleotide variant (AVI score with Phred and 18 SHAP feature attributions, plus raw and quantile scores for RN… |
+| [analytical-method-validation](skills/research-academic/scientific-agent-skills/analytical-method-validation/SKILL.md) | Plans, executes, and documents validation, verification, and transfer of analytical procedures under the governing framework - ICH Q2(R2) and Q14, USP <1220>/<1225>/<1226>, ICH M1… |
+| [anndata](skills/research-academic/scientific-agent-skills/anndata/SKILL.md) | Handles annotated matrices in single-cell analysis, .h5ad and Zarr files, and integration with the scverse ecosystem. This is the data format skill—for analysis workflows use scan… |
+| [arbor](skills/research-academic/scientific-agent-skills/arbor/SKILL.md) | Applies Arbor Hypothesis Tree Refinement to research artifacts with repeatable evaluators, including model training, agent harnesses, data synthesis and benchmark optimization. Us… |
+| [arboreto](skills/research-academic/scientific-agent-skills/arboreto/SKILL.md) | Infers candidate gene regulatory networks from bulk or single-cell expression data using AertsLab Arboreto GRNBoost2 and GENIE3. Use for transcription factor-target association ra… |
+| [astropy](skills/research-academic/scientific-agent-skills/astropy/SKILL.md) | Core Python library for astronomy and astrophysics workflows that need Astropy APIs, including units/quantities, coordinates, FITS I/O, tables, time systems, WCS, and cosmology. U… |
+| [autoskill](skills/research-academic/scientific-agent-skills/autoskill/SKILL.md) | Analyzes user-requested Screenpipe history windows to detect repeated research workflows, match existing scientific skills, and stage new skill drafts or composition recipes for r… |
+| [benchling-integration](skills/research-academic/scientific-agent-skills/benchling-integration/SKILL.md) | Benchling Python SDK and REST API integration for registry entities, inventory, ELN entries, workflows, Benchling Apps, and Data Warehouse queries. Use when automating lab data wi… |
+| [bgpt-paper-search](skills/research-academic/scientific-agent-skills/bgpt-paper-search/SKILL.md) | Searches BGPT scientific papers by topic or DOI and retrieves claim-level evidence extracted from full text, including experiments, reported statistics, scope, limitations, and pr… |
+| [bids](skills/research-academic/scientific-agent-skills/bids/SKILL.md) | Organizes, queries, validates, and converts Brain Imaging Data Structure (BIDS) datasets. Supports organizing neuroscience and biomedical data (MRI, EEG, MEG, iEEG, PET, microscop… |
+| [biopython](skills/research-academic/scientific-agent-skills/biopython/SKILL.md) | Provides Biopython workflows for sequence manipulation, file parsing (FASTA/GenBank/PDB), phylogenetics, and programmatic NCBI/PubMed access (Bio.Entrez). Supports batch processin… |
+| [bioservices](skills/research-academic/scientific-agent-skills/bioservices/SKILL.md) | Provides a Python interface to bioinformatics services including UniProt, KEGG, ChEMBL, Reactome, QuickGO, and UniChem. Used for cross-database protein annotation, pathway retriev… |
+| [bulk-rnaseq](skills/research-academic/scientific-agent-skills/bulk-rnaseq/SKILL.md) | Prepares bulk RNA-seq FASTQ, Salmon, STAR or featureCounts output for gene-level differential expression. Covers nf-core/rnaseq and standalone quantification, biological replicati… |
+| [cantera](skills/research-academic/scientific-agent-skills/cantera/SKILL.md) | Runs Cantera homogeneous chemical reactors and evaluates ignition delay with mechanism provenance, conservation checks, and numerical refinement. Use for combustion kinetics, clos… |
+| [cellprofiler](skills/research-academic/scientific-agent-skills/cellprofiler/SKILL.md) | Runs reproducible CellProfiler microscopy pipelines for nuclear segmentation, cell counts, and per-object fluorescence measurements. Supports image/channel manifests, headless bat… |
+| [cellxgene-census](skills/research-academic/scientific-agent-skills/cellxgene-census/SKILL.md) | Queries the CZ CELLxGENE Census programmatically for versioned public single-cell and spatial transcriptomics data. Use when you need population-scale cell metadata, gene expressi… |
+| [cirq](skills/research-academic/scientific-agent-skills/cirq/SKILL.md) | Google quantum computing framework. Use when targeting Google Quantum AI hardware, designing noise-aware circuits, or running quantum characterization experiments. Best for Google… |
+| [citation-management](skills/research-academic/scientific-agent-skills/citation-management/SKILL.md) | Comprehensive citation management for academic research. Search OpenAlex, PubMed, and Google Scholar for papers, extract accurate metadata, validate citations, and generate proper… |
+| [clinical-decision-support](skills/research-academic/scientific-agent-skills/clinical-decision-support/SKILL.md) | Prepares and validates research-only clinical decision-support evaluation, evidence-profile, cohort, survival, biomarker/model, privacy, and governance artifacts. Supports aggrega… |
+| [clinical-reports](skills/research-academic/scientific-agent-skills/clinical-reports/SKILL.md) | Creates safety-bounded draft structures and runs local deterministic checks for clinical case, diagnostic, trial, safety, and aggregate research reports. Use only with synthetic,… |
+| [cobrapy](skills/research-academic/scientific-agent-skills/cobrapy/SKILL.md) | Performs constraint-based metabolic modeling with COBRApy, including FBA, pFBA, FVA, gene knockouts, flux sampling, growth media, production envelopes, gap filling, and SBML model… |
+| [consciousness-council](skills/research-academic/scientific-agent-skills/consciousness-council/SKILL.md) | Structures a multi-perspective council exercise for decisions, research trade-offs, and creative challenges. Simulates thinking archetypes, separates evidence from assumptions and… |
+| [dask](skills/research-academic/scientific-agent-skills/dask/SKILL.md) | Scales pandas, NumPy, and custom Python research workflows beyond memory or across clusters with Dask. Covers DataFrames, Arrays, Bags, Futures, chunking, schedulers, and distribu… |
+| [database-lookup](skills/research-academic/scientific-agent-skills/database-lookup/SKILL.md) | Queries documented public database APIs with explicit endpoints, filters, pagination, and provenance. Used when a scientific, regulatory, financial, or other database-backed fact… |
+| [datalad](skills/research-academic/scientific-agent-skills/datalad/SKILL.md) | Retrieves, versions, and publishes scientific datasets with DataLad and git-annex, and captures computational provenance with datalad run, rerun, and containers-run. Use when clon… |
+| [datamol](skills/research-academic/scientific-agent-skills/datamol/SKILL.md) | Pythonic wrapper around RDKit with simplified interface and sensible defaults. Preferred for standard drug discovery including SMILES parsing, standardization, descriptors, finger… |
+| [deepchem](skills/research-academic/scientific-agent-skills/deepchem/SKILL.md) | Builds molecular property prediction and MoleculeNet workflows with DeepChem, including SMILES featurization, scaffold or grouped holdouts, masked labels, graph models and explici… |
+| [deepspot-m](skills/research-academic/scientific-agent-skills/deepspot-m/SKILL.md) | Generates transcriptome-wide virtual spatial transcriptomics from H&E histology with DeepSpot-M. Used for predicted log1p-CPM expression from 224x224 tiles at about 20x, querying… |
+| [deeptools](skills/research-academic/scientific-agent-skills/deeptools/SKILL.md) | NGS analysis toolkit. BAM to bigWig conversion, QC (correlation, PCA, fingerprints), heatmaps/profiles (TSS, peaks), for ChIP-seq, RNA-seq, ATAC-seq visualization. |
+| [depmap](skills/research-academic/scientific-agent-skills/depmap/SKILL.md) | Retrieves and analyzes Cancer Dependency Map (DepMap) release data, including CRISPR Chronos gene effects, cancer model annotations, omics biomarkers, and PRISM drug sensitivity.… |
+| [dhdna-profiler](skills/research-academic/scientific-agent-skills/dhdna-profiler/SKILL.md) | Applies the DHDNA framework as an exploratory rubric for reasoning and writing patterns in supplied text. Used for explicit requests for DHDNA, cognitive-style reflection, a think… |
+| [diffdock](skills/research-academic/scientific-agent-skills/diffdock/SKILL.md) | Predicts protein-small-molecule binding poses with DiffDock and DiffDock-L from PDB or sequence plus SMILES/SDF/MOL2. Covers batch docking, pose triage, confidence interpretation,… |
+| [dnanexus-integration](skills/research-academic/scientific-agent-skills/dnanexus-integration/SKILL.md) | Builds and operates reproducible genomics workloads on DNAnexus with the dx CLI, dxpy, apps/applets, native workflows, dxCompiler, and Nextflow. Supports DNAnexus data transfers,… |
+| [esm](skills/research-academic/scientific-agent-skills/esm/SKILL.md) | Uses the Biohub esm Python SDK for ESM3 protein generation, ESMC embeddings, and ESMFold2 all-atom folding. Applies to local model inference and Biohub hosted clients, including f… |
+| [etetoolkit](skills/research-academic/scientific-agent-skills/etetoolkit/SKILL.md) | Analyzes, manipulates, compares, annotates, and visualizes phylogenetic or other hierarchical trees with ETE 4. Supports Newick/Nexus tree I/O, topology edits and pattern matching… |
+| [exa-search](skills/research-academic/scientific-agent-skills/exa-search/SKILL.md) | Searches scientific and technical web content with Exa and extracts page or PDF text from URLs in batches. Supports scholarly discovery with the publication category and academic… |
+| [experimental-design](skills/research-academic/scientific-agent-skills/experimental-design/SKILL.md) | Designs experiments and studies BEFORE data is collected — choosing a design, randomizing, blocking, and laying out treatment combinations so results are interpretable. Use whenev… |
+| [exploratory-data-analysis](skills/research-academic/scientific-agent-skills/exploratory-data-analysis/SKILL.md) | Performs bounded, local exploratory analysis of explicitly supported scientific files. Supports redacted CSV/TSV/JSON profiles; optional NumPy, HDF5, FASTA/FASTQ, and basic image… |
+| [fictiv](skills/research-academic/scientific-agent-skills/fictiv/SKILL.md) | Operates Fictiv (app.fictiv.com), the on-demand manufacturing platform, end to end in the user's browser. Covers uploading CAD parts, configuring process, material, finish, thread… |
+| [flowio](skills/research-academic/scientific-agent-skills/flowio/SKILL.md) | Reads, inspects, and writes Flow Cytometry Standard (FCS) 2.0, 3.0, and 3.1 files with FlowIO. Use for low-level FCS metadata and channel inspection, NumPy event extraction, multi… |
+| [flowkit](skills/research-academic/scientific-agent-skills/flowkit/SKILL.md) | Analyzes flow cytometry data with FlowKit, including spillover compensation, logicle and biexponential transforms, hierarchical gating, GatingML strategies, and supported FlowJo 1… |
+| [fluidsim](skills/research-academic/scientific-agent-skills/fluidsim/SKILL.md) | Plans, configures, inspects, restarts, and analyzes bounded FluidSim computational-fluid-dynamics simulations with explicit numerical-validity and HPC safety checks. Use for Fluid… |
+| [folklore-variant-evidence](skills/research-academic/scientific-agent-skills/folklore-variant-evidence/SKILL.md) | Retrieves ClinGen gene-disease validity assertions for a public gene or disease, and reviews source-linked public evidence and literature for one supported GRCh38 germline nuclear… |
+| [generate-image](skills/research-academic/scientific-agent-skills/generate-image/SKILL.md) | Generates or edits images with AI models through the OpenRouter Image API (Gemini, Seedream, Recraft, GPT-Image, Riverflow). Use for photos, illustrations, artwork, concept art, v… |
+| [geniml](skills/research-academic/scientific-agent-skills/geniml/SKILL.md) | Supports audited local Geniml genomic-interval workflows: validate BED and universe contracts, plan Region2Vec or scEmbed runs, inspect model/tokenizer compatibility, and assess c… |
+| [genomic-coordinates](skills/research-academic/scientific-agent-skills/genomic-coordinates/SKILL.md) | Converts genomic intervals between coordinate conventions, normalises and compares variant representations, and detects assembly or contig-naming mismatches before they corrupt an… |
+| [genomic-intelligence](skills/research-academic/scientific-agent-skills/genomic-intelligence/SKILL.md) | Predicts regulatory features, gene structure, and expression directly from DNA sequence using Genomic Intelligence's hosted transformer DNA language models — no local GPU or model… |
+| [geomaster](skills/research-academic/scientific-agent-skills/geomaster/SKILL.md) | Supports geospatial research workflows for remote sensing, vector and raster GIS, spatial statistics, terrain and network analysis, and machine learning for Earth observation. Use… |
+| [geopandas](skills/research-academic/scientific-agent-skills/geopandas/SKILL.md) | Guidance and local audit tools for Python workflows that directly use GeoPandas GeoSeries, GeoDataFrame, spatial operations, or vector-data I/O. |
+| [get-available-resources](skills/research-academic/scientific-agent-skills/get-available-resources/SKILL.md) | Detects host inventory and effective CPU, memory, disk, scheduler, container, and accelerator limits when a user asks for resource-aware planning or before a clearly resource-sens… |
+| [gget](skills/research-academic/scientific-agent-skills/gget/SKILL.md) | Queries 20+ bioinformatics resources through CLI/Python. Supports quick lookups of gene info, BLAST/BLAT, viral sequence downloads, PDB/mmCIF structures, G2P residue annotations,… |
+| [ginkgo-cloud-lab](skills/research-academic/scientific-agent-skills/ginkgo-cloud-lab/SKILL.md) | Guides protocol selection, input preparation, pricing checks, and browser ordering on Ginkgo Bioworks Cloud Lab (cloud.ginkgo.bio). Applies to cell-free, E. coli, and Pichia prote… |
+| [glycoengineering](skills/research-academic/scientific-agent-skills/glycoengineering/SKILL.md) | Analyzes and engineers protein glycosylation by scanning canonical N-glycosylation sequons, describing S/T-rich regions, checking curated glycan evidence, and preparing NetNGlyc,… |
+| [gtars](skills/research-academic/scientific-agent-skills/gtars/SKILL.md) | Supports Gtars for local genomic interval models and set algebra, overlaps and counts, consensus and coverage, tokenization, fragment processing, and refget/BEDbase planning acros… |
+| [histolab](skills/research-academic/scientific-agent-skills/histolab/SKILL.md) | Extracts and preprocesses whole-slide histology image tiles with Histolab. Use for WSI inspection, tissue masks, random/grid/score-based tile extraction, H&E stain normalization,… |
+| [hugging-science](skills/research-academic/scientific-agent-skills/hugging-science/SKILL.md) | Discovers and evaluates scientific datasets, models, methodology posts, and Spaces through the Hugging Science catalog. Used when selecting scientific ML resources in biology, che… |
+| [hypogenic](skills/research-academic/scientific-agent-skills/hypogenic/SKILL.md) | Plans and audits use of ChicagoHAI HypoGeniC/HypoRefine for LLM-assisted hypothesis generation from labeled text datasets. Use for the `hypogenic` package, its task configs, hypot… |
+| [hypothesis-generation](skills/research-academic/scientific-agent-skills/hypothesis-generation/SKILL.md) | Formulates evidence-bounded scientific questions, candidate hypotheses, rival explanations, causal or associational claims, discriminating predictions, measurements, and preregist… |
+| [imaging-data-commons](skills/research-academic/scientific-agent-skills/imaging-data-commons/SKILL.md) | Queries and downloads public cancer imaging data from NCI Imaging Data Commons. Supports IDC collection discovery, DICOM access, radiology (CT, MR, PET) and pathology AI datasets,… |
+| [infographics](skills/research-academic/scientific-agent-skills/infographics/SKILL.md) | Creates and reviews infographics with Nano Banana 2 via OpenRouter. Use for statistical summaries, timelines, comparisons, processes, and visual explanations with supplied data or… |
+| [iso-standards-readiness](skills/research-academic/scientific-agent-skills/iso-standards-readiness/SKILL.md) | Prepares and structurally reviews readiness evidence for ISO management-system and laboratory-competence standards - ISO 13485 medical device QMS, ISO 14971 device risk management… |
+| [lab-hardware-cad](skills/research-academic/scientific-agent-skills/lab-hardware-cad/SKILL.md) | Designs custom laboratory hardware as parametric build123d models and exports fabrication artifacts as STEP, STL, and DXF files - microfluidic chips and molds, optomechanical moun… |
+| [labarchive-integration](skills/research-academic/scientific-agent-skills/labarchive-integration/SKILL.md) | Integrates with the official LabArchives ELN REST-like API and Inventory API v1. Supports regional endpoint selection, signed-request construction, user authorization and UID flow… |
+| [lamindb](skills/research-academic/scientific-agent-skills/lamindb/SKILL.md) | Manages biological datasets and models with LaminDB, including artifact registration, lineage tracking, schema validation, Bionty ontology annotation, query/search, collections, b… |
+| [latchbio-integration](skills/research-academic/scientific-agent-skills/latchbio-integration/SKILL.md) | Builds, registers, debugs, and operates bioinformatics workflows on Latch using the Python SDK, CLI, Latch Data and Registry, Nextflow, Snakemake, programmatic execution, and Latc… |
+| [latex-posters](skills/research-academic/scientific-agent-skills/latex-posters/SKILL.md) | Creates research posters in LaTeX using beamerposter, tikzposter, or baposter. Use for conference posters, academic presentations, multi-column scientific layouts, figure integrat… |
+| [liteparse](skills/research-academic/scientific-agent-skills/liteparse/SKILL.md) | Local document and PDF parsing that returns spatial text with bounding boxes. Use for extracting text from PDFs, DOCX, Office files, and images; running OCR on scans; producing la… |
+| [literature-review](skills/research-academic/scientific-agent-skills/literature-review/SKILL.md) | Conducts systematic, scoping, and narrative literature reviews using PubMed, arXiv, bioRxiv, Semantic Scholar, and other appropriate sources. Use for research synthesis, reproduci… |
+| [mageck](skills/research-academic/scientific-agent-skills/mageck/SKILL.md) | Analyzes pooled CRISPR screen FASTQ reads and guide-count matrices with MAGeCK, validates guide libraries and contrasts, measures replicate and library QC, and produces gene hit r… |
+| [marine-carbonate-chemistry](skills/research-academic/scientific-agent-skills/marine-carbonate-chemistry/SKILL.md) | Solves seawater carbonate chemistry with PyCO2SYS for chemical oceanography, ocean acidification, and marine carbon-cycle research. Use for paired total alkalinity, dissolved inor… |
+| [markdown-mermaid-writing](skills/research-academic/scientific-agent-skills/markdown-mermaid-writing/SKILL.md) | Writes scientific Markdown documentation and Mermaid diagrams for workflows, relationships, timelines, and schemas. Provides syntax references, document templates, accessibility g… |
+| [market-research-reports](skills/research-academic/scientific-agent-skills/market-research-reports/SKILL.md) | Builds evidence-traceable market research reports and assumption-driven market sizing or forecast scenarios. Use for market definition, industry and customer evidence, competitive… |
+| [markitdown](skills/research-academic/scientific-agent-skills/markitdown/SKILL.md) | Converts heterogeneous documents and selected URIs to Markdown with Microsoft MarkItDown for text analysis, search, and LLM/RAG ingestion. Covers safe local conversion, streams, O… |
+| [matchms](skills/research-academic/scientific-agent-skills/matchms/SKILL.md) | Processes, cleans, compares, and searches tandem mass spectra with matchms. Use for MS/MS file I/O, metadata harmonization, peak filtering, spectral similarity, library matching,… |
+| [matlab](skills/research-academic/scientific-agent-skills/matlab/SKILL.md) | Builds, reviews, migrates, and plans MATLAB or GNU Octave numerical workflows. Use for arrays, tabular/time data, tests, projects, graphics, MAT files, and explicit Python interop… |
+| [matplotlib](skills/research-academic/scientific-agent-skills/matplotlib/SKILL.md) | Creates and customizes scientific plots with Matplotlib. Used for fine-grained control over plot elements, novel plot types, and scientific workflows. Export to PNG/PDF/SVG for pu… |
+| [medchem](skills/research-academic/scientific-agent-skills/medchem/SKILL.md) | Applies medicinal chemistry filters for compound triage, using drug-likeness rules (Lipinski, Veber, CNS), structural alert catalogs (PAINS, NIBR, ChEMBL), complexity metrics, and… |
+| [modal](skills/research-academic/scientific-agent-skills/modal/SKILL.md) | Modal is a serverless cloud platform for running Python on demand, including on-demand GPUs. Use when deploying or serving AI/ML models, running GPU-accelerated workloads (trainin… |
+| [molecular-dynamics](skills/research-academic/scientific-agent-skills/molecular-dynamics/SKILL.md) | Runs and analyzes molecular dynamics simulations with OpenMM and MDAnalysis. Sets up protein/small molecule systems, defines force fields, runs energy minimization and production… |
+| [molfeat](skills/research-academic/scientific-agent-skills/molfeat/SKILL.md) | Featurizes small molecules with Molfeat for QSAR/QSPR, chemical similarity, virtual screening, and molecular ML. Covers ECFP/MACCS fingerprints, RDKit descriptors, pharmacophores,… |
+| [ncats-arax](skills/research-academic/scientific-agent-skills/ncats-arax/SKILL.md) | Queries the NCATS Translator ARAX production API for bounded, typed, provenance-rich one-hop and endpoint-pinned two-hop biomedical knowledge-graph relationships. Use for Biolink-… |
+| [networkx](skills/research-academic/scientific-agent-skills/networkx/SKILL.md) | Creates, analyzes, and visualizes complex networks and graphs in Python with NetworkX. Use when working with network/graph data structures, computing graph algorithms (shortest pa… |
+| [neurokit2](skills/research-academic/scientific-agent-skills/neurokit2/SKILL.md) | Builds and audits reproducible NeuroKit2 research workflows for physiological time-series preprocessing, event/interval analysis, multimodal alignment, variability, and complexity… |
+| [neuropixels-analysis](skills/research-academic/scientific-agent-skills/neuropixels-analysis/SKILL.md) | Analyzes Neuropixels extracellular recordings end-to-end with SpikeInterface. Covers loading SpikeGLX/Open Ephys/NWB data, preprocessing, drift/motion correction, Kilosort4 (and C… |
+| [nextflow](skills/research-academic/scientific-agent-skills/nextflow/SKILL.md) | Builds, runs, and debugs Nextflow DSL2 pipelines and nf-core workflows. Use for Nextflow, nf-core, .nf files, nextflow.config, processes/channels/operators, samplesheets, nf-test,… |
+| [nmrglue](skills/research-academic/scientific-agent-skills/nmrglue/SKILL.md) | Processes calibrated one-dimensional complex NMR free-induction decays with nmrglue into phased spectra, peak candidates, and signed integration regions. Use for raw 1D NMR proces… |
+| [nwb-conversion](skills/research-academic/scientific-agent-skills/nwb-conversion/SKILL.md) | Converts neuroscience acquisition data to Neurodata Without Borders files with NeuroConv and PyNWB, preserves metadata and timebases, checks evidence-based clock alignment, and pr… |
+| [omero-integration](skills/research-academic/scientific-agent-skills/omero-integration/SKILL.md) | Inspects and automates microscopy data workflows against OMERO.server with omero-py, BlitzGateway, OMERO CLI, tables, annotations, ROIs, rendering, and documented OMERO.web APIs.… |
+| [onekgpd](skills/research-academic/scientific-agent-skills/onekgpd/SKILL.md) | Queries the 1000 Genomes Project dataset (3,202 whole-genome-sequenced individuals, GRCh38) at the level of individual participants. Use when a question is about individuals or va… |
+| [ontology-term-resolution](skills/research-academic/scientific-agent-skills/ontology-term-resolution/SKILL.md) | Resolves free-text scientific labels to ontology term IDs and validates existing CURIEs against the EBI Ontology Lookup Service (OLS4). Also looks up prefixes in Bioregistry, reso… |
+| [open-notebook](skills/research-academic/scientific-agent-skills/open-notebook/SKILL.md) | Organizes research with the self-hosted Open Notebook alternative to NotebookLM. Supports source ingestion (PDFs, web pages, audio, video, and Office documents), cited document ch… |
+| [openpiv](skills/research-academic/scientific-agent-skills/openpiv/SKILL.md) | Performs Particle Image Velocimetry (PIV) analysis with OpenPIV. Use when extracting velocity fields from PIV image pairs, analyzing fluid dynamics or flow visualization experimen… |
+| [opentrons-integration](skills/research-academic/scientific-agent-skills/opentrons-integration/SKILL.md) | Authors, reviews, migrates, simulates, and troubleshoots official Opentrons Python Protocol API v2 protocols for Flex and OT-2 robots. Use for robot-specific liquid handling, deck… |
+| [optimize-for-gpu](skills/research-academic/scientific-agent-skills/optimize-for-gpu/SKILL.md) | GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct and faster. Use for CUDA/GPU optimization; CPU-bound NumPy, SciPy, pandas, scikit-lear… |
+| [pacsomatic](skills/research-academic/scientific-agent-skills/pacsomatic/SKILL.md) | Prepares and launches nf-core/pacsomatic matched tumor-normal PacBio HiFi genomics workflows from unaligned BAM inputs. Supports samplesheet generation, pinned Nextflow launch art… |
+| [paper-lookup](skills/research-academic/scientific-agent-skills/paper-lookup/SKILL.md) | Searches 18 scholarly APIs for papers, preprints, citations, open-access full text, repository records, and journal OA status, and returns results with reproducible provenance. Co… |
+| [paperclip](skills/research-academic/scientific-agent-skills/paperclip/SKILL.md) | Searches and reads biomedical papers, FDA/PMDA/EMA documents, clinical trials, and protein records with the GXL Paperclip CLI and Python SDK. Supports source-scoped search, full-t… |
+| [paperzilla](skills/research-academic/scientific-agent-skills/paperzilla/SKILL.md) | Reads projects, searches project feeds, and retrieves recommendations and canonical papers in Paperzilla through the pz CLI. Supports recent recommendations, paper details, markdo… |
+| [parallel-web](skills/research-academic/scientific-agent-skills/parallel-web/SKILL.md) | Uses Parallel CLI for web search, URL extraction, deep research, structured data enrichment, entity discovery, and recurring web monitoring. Best for requests that explicitly need… |
+| [pathml](skills/research-academic/scientific-agent-skills/pathml/SKILL.md) | Supports local computational pathology research with PathML: slide loading and tiling, preprocessing and QC, h5path storage, multiplex quantification, spatial graphs, and bounded… |
+| [pathogen-variant-surveillance](skills/research-academic/scientific-agent-skills/pathogen-variant-surveillance/SKILL.md) | Queries public GenSpectrum LAPIS data for pathogen genomic surveillance, current lineage nomenclature, weekly sequence proportions, reporting delays, and descriptive mutation freq… |
+| [pathway-enrichment](skills/research-academic/scientific-agent-skills/pathway-enrichment/SKILL.md) | Performs pathway and gene-set enrichment analysis on gene lists or ranked gene data and interprets the results. Used when the user has a set of genes (differentially expressed gen… |
+| [peer-review](skills/research-academic/scientific-agent-skills/peer-review/SKILL.md) | Prepares evidence-bounded, constructive peer-review drafts and structured manuscript assessments. Supports authorized review of scientific manuscripts, protocols, preprints, or re… |
+| [pennylane](skills/research-academic/scientific-agent-skills/pennylane/SKILL.md) | Builds and differentiates PennyLane quantum circuits, hybrid PyTorch or JAX models, molecular VQE and QAOA workflows. Use for variational quantum algorithms, quantum machine learn… |
+| [phylogenetics](skills/research-academic/scientific-agent-skills/phylogenetics/SKILL.md) | Builds and analyzes phylogenetic trees using MAFFT multiple sequence alignment, IQ-TREE maximum likelihood with ModelFinder and branch support, and FastTree approximate inference.… |
+| [pi-agent](skills/research-academic/scientific-agent-skills/pi-agent/SKILL.md) | Builds with and operates Pi, the minimal terminal coding harness. Use for installing Pi, configuring providers/models/settings/environment variables, creating Pi skills/extensions… |
+| [pkpd-modeling](skills/research-academic/scientific-agent-skills/pkpd-modeling/SKILL.md) | Pharmacokinetic and pharmacodynamic modelling and simulation - non-compartmental analysis, compartmental and population PK, PK/PD and exposure-response, TMDD, PBPK orientation, bi… |
+| [polars](skills/research-academic/scientific-agent-skills/polars/SKILL.md) | High-performance DataFrame library for Python ETL, analytics, and pandas migration. It supports expression-based data manipulation with lazy query optimization, parallel execution… |
+| [polars-bio](skills/research-academic/scientific-agent-skills/polars-bio/SKILL.md) | Performs genomic interval overlap, nearest, merge, coverage, complement and subtraction on Polars DataFrames, and reads or writes BED, VCF, BCF, BAM, CRAM, GFF, GTF, FASTA and FAS… |
+| [pptx-posters](skills/research-academic/scientific-agent-skills/pptx-posters/SKILL.md) | Creates and audits editable scientific posters in macro-free PowerPoint (.pptx) from author-approved local content and assets. Used when the requested deliverable is a PowerPoint… |
+| [primekg](skills/research-academic/scientific-agent-skills/primekg/SKILL.md) | Queries a pinned Precision Medicine Knowledge Graph (PrimeKG) CSV for typed gene, drug, disease, and phenotype nodes, direct associations, disease context, and one- or two-hop pat… |
+| [primer-design](skills/research-academic/scientific-agent-skills/primer-design/SKILL.md) | Designs and audits PCR and RT-qPCR primers with Primer3, explicit thermodynamic conditions, reference-based off-target amplification searches, and traceable sequence coordinates.… |
+| [protocolsio-integration](skills/research-academic/scientific-agent-skills/protocolsio-integration/SKILL.md) | Reads, validates, and safely exports protocols.io data with current official REST/MCP contracts, or creates non-executing mutation plans. The bundled client makes bounded official… |
+| [pufferlib](skills/research-academic/scientific-agent-skills/pufferlib/SKILL.md) | Version-aware guidance for PufferLib reinforcement-learning environments, vectorization, policies, PuffeRL training, evaluation, and safe checkpoint review. Covers the native 5.0… |
+| [pybamm](skills/research-academic/scientific-agent-skills/pybamm/SKILL.md) | Simulates lithium-ion battery charge, discharge and rest experiments with PyBaMM, records parameter-set provenance, checks mesh and solver sensitivity, and compares predicted volt… |
+| [pycalphad](skills/research-academic/scientific-agent-skills/pycalphad/SKILL.md) | Computes finite-temperature CALPHAD equilibria, phase fractions, and phase compositions from thermodynamic TDB databases using pycalphad. Use for alloy phase stability, equilibriu… |
+| [pydeseq2](skills/research-academic/scientific-agent-skills/pydeseq2/SKILL.md) | Performs bulk RNA-seq differential expression analysis with PyDESeq2, including count validation, formula designs, explicit contrasts, Wald tests, FDR correction, coefficient-matc… |
+| [pydicom](skills/research-academic/scientific-agent-skills/pydicom/SKILL.md) | Reads, inspects, writes, transforms, and preflights local DICOM datasets and pixel data. Applies to DICOM metadata, transfer syntaxes, compression plugins, frames, private element… |
+| [pyhealth](skills/research-academic/scientific-agent-skills/pyhealth/SKILL.md) | Builds and validates PyHealth clinical machine-learning pipelines for EHR, signals, imaging, and medical codes. Use for PyHealth dataset loading, MIMIC-III/IV, eICU or OMOP predic… |
+| [pylabrobot](skills/research-academic/scientific-agent-skills/pylabrobot/SKILL.md) | Develops and reviews PyLabRobot lab-automation resources, liquid-handling plans, offline simulations, and supported-device integrations. Supports PyLabRobot protocols and API ques… |
+| [pymatgen](skills/research-academic/scientific-agent-skills/pymatgen/SKILL.md) | Analyzes, validates, converts, and transforms materials structures and computed materials data with pymatgen. Use for local phase diagrams, symmetry sensitivity, electronic-struct… |
+| [pymc](skills/research-academic/scientific-agent-skills/pymc/SKILL.md) | Builds and checks Bayesian models with PyMC, including hierarchical models, NUTS MCMC, variational inference, mutable-data predictions, posterior predictive checks, diagnostics, a… |
+| [pymoo](skills/research-academic/scientific-agent-skills/pymoo/SKILL.md) | Solves and validates single-, multi-, and many-objective optimization with pymoo, including NSGA-II, NSGA-III, MOEA/D, constraints, Pareto approximations, reference directions, an… |
+| [pyopenms](skills/research-academic/scientific-agent-skills/pyopenms/SKILL.md) | Processes mass spectrometry data with pyOpenMS. Supports proteomics and metabolomics workflows—feature detection, peptide/protein identification, label-free quantification, adduct… |
+| [pysam](skills/research-academic/scientific-agent-skills/pysam/SKILL.md) | Provides Python/HTSlib workflows for genomic files. Used when reading, querying, filtering, or writing SAM/BAM/CRAM, VCF/BCF, FASTA/FASTQ, or tabix data with pysam, including pile… |
+| [pytdc](skills/research-academic/scientific-agent-skills/pytdc/SKILL.md) | Provides Therapeutics Data Commons workflows through PyTDC for registry discovery, dataset access, task-aware splits, evaluator metrics, benchmark groups, and bounded molecular-or… |
+| [pytorch-lightning](skills/research-academic/scientific-agent-skills/pytorch-lightning/SKILL.md) | Deep learning framework (PyTorch Lightning / lightning package). Organize PyTorch code into LightningModules, configure Trainers for multi-GPU/TPU, implement data pipelines, callb… |
+| [pyzotero](skills/research-academic/scientific-agent-skills/pyzotero/SKILL.md) | Manages Zotero reference libraries using the pyzotero Python client: retrieves, creates, updates, and deletes items, collections, tags, and attachments via the Zotero Web API v3 o… |
+| [qiime2-amplicon](skills/research-academic/scientific-agent-skills/qiime2-amplicon/SKILL.md) | Processes paired-end 16S amplicon reads into QIIME 2 ASVs and taxonomy with retained artifact provenance. Checks paired FASTQ manifests, primer orientation diagnostics, predicted… |
+| [qiskit](skills/research-academic/scientific-agent-skills/qiskit/SKILL.md) | Builds, simulates, transpiles, and executes quantum circuits with Qiskit and IBM Quantum Runtime. Use for Qiskit 2.x circuits and operators, V2 Sampler or Estimator primitives, ta… |
+| [qutip](skills/research-academic/scientific-agent-skills/qutip/SKILL.md) | Simulate and audit closed and open quantum-system models with QuTiP 5, including deterministic, trajectory, steady-state, spectral, and phase-space workflows. Use for local quantu… |
+| [rdkit](skills/research-academic/scientific-agent-skills/rdkit/SKILL.md) | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW, LogP, TPSA), fingerprints, substructure search, 2D/3D generation, similarity, reac… |
+| [relion](skills/research-academic/scientific-agent-skills/relion/SKILL.md) | Validates and executes RELION single-particle cryo-EM refinement and half-map postprocessing. Supports STAR optics/acquisition checks, particle-stack consistency, gold-standard ha… |
+| [relsa-severity-assessment](skills/research-academic/scientific-agent-skills/relsa-severity-assessment/SKILL.md) | Supports multivariate severity assessment and exploratory endpoint-time score forecasting for laboratory animal studies using the RELSA (RELative Severity Assessment) score and AR… |
+| [research-grants](skills/research-academic/scientific-agent-skills/research-grants/SKILL.md) | Supports research proposal preparation and review for NSF, NIH, DOE, DARPA, and Taiwan NSTC, including opportunity-specific requirements, aims, review criteria, budgets, broader i… |
+| [research-lookup](skills/research-academic/scientific-agent-skills/research-lookup/SKILL.md) | Compiles current scholarly evidence for a scientific manuscript or research brief when the user explicitly asks to gather literature, references, background evidence, competing fi… |
+| [rowan](skills/research-academic/scientific-agent-skills/rowan/SKILL.md) | Rowan is a cloud-native molecular modeling and medicinal-chemistry workflow platform with a Python API. Use for pKa and macropKa prediction, conformer and tautomer ensembles, dock… |
+| [scanpy](skills/research-academic/scientific-agent-skills/scanpy/SKILL.md) | Performs Scanpy single-cell RNA-seq QC, normalization, HVG selection, PCA/UMAP/t-SNE, clustering, exploratory marker ranking, pseudobulk preparation, visualization, and Seurat or… |
+| [scholar-evaluation](skills/research-academic/scientific-agent-skills/scholar-evaluation/SKILL.md) | Provides qualitative-first, evidence-traceable developmental review of scholarly works and audit low-stakes research-assessment rubrics with optional local quality controls. Never… |
+| [scientific-brainstorming](skills/research-academic/scientific-agent-skills/scientific-brainstorming/SKILL.md) | Facilitates evidence-aware scientific ideation with independent generation, structured discussion, explicit assumptions, transparent evaluation, adversarial review, and decision l… |
+| [scientific-critical-thinking](skills/research-academic/scientific-agent-skills/scientific-critical-thinking/SKILL.md) | Evaluates scientific claims and evidence quality. Applies to experimental design validity, biases and confounders, statistical interpretation, evidence grading frameworks (GRADE,… |
+| [scientific-schematics](skills/research-academic/scientific-agent-skills/scientific-schematics/SKILL.md) | Generates scientific diagram drafts using Nano Banana 2 AI with smart iterative refinement. Uses Gemini 3.7 Flash for quality review. Refines when the review requests improvement,… |
+| [scientific-slides](skills/research-academic/scientific-agent-skills/scientific-slides/SKILL.md) | Builds slide decks and presentations for research talks. Used for making PowerPoint slides, conference presentations, seminar talks, research presentations, thesis defense slides,… |
+| [scientific-visualization](skills/research-academic/scientific-agent-skills/scientific-visualization/SKILL.md) | Creates and audits truthful, accessible, publication-ready scientific figures with Matplotlib, Seaborn, or Plotly. Use it for figure design, multi-panel layouts, uncertainty and m… |
+| [scientific-writing](skills/research-academic/scientific-agent-skills/scientific-writing/SKILL.md) | Drafts, revises, and audits scientific manuscripts or reports with explicit evidence provenance, reporting-guideline coverage, authorship accountability, confidentiality controls,… |
+| [scikit-bio](skills/research-academic/scientific-agent-skills/scikit-bio/SKILL.md) | Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (alpha/beta, UniFrac), ordination (PCoA), PERMANOVA, FASTA/Newick I/O, for microbiome… |
+| [scikit-learn](skills/research-academic/scientific-agent-skills/scikit-learn/SKILL.md) | Supports machine learning in Python with scikit-learn. Applies when working with supervised learning (classification, regression), unsupervised learning (clustering, dimensionalit… |
+| [scikit-survival](skills/research-academic/scientific-agent-skills/scikit-survival/SKILL.md) | Builds, evaluates, and audits right-censored or competing-risk survival workflows with scikit-survival, including leakage-safe preprocessing, model selection, probability predicti… |
+| [scvelo](skills/research-academic/scientific-agent-skills/scvelo/SKILL.md) | Performs RNA velocity analysis with scVelo from spliced and unspliced single-cell RNA counts. Fits deterministic or dynamical models, examines gene phase portraits, builds velocit… |
+| [scvi-tools](skills/research-academic/scientific-agent-skills/scvi-tools/SKILL.md) | Fits probabilistic models for single-cell omics, including scVI batch integration, scANVI annotation, totalVI CITE-seq, MultiVI RNA/ATAC integration, and posterior differential ex… |
+| [seaborn](skills/research-academic/scientific-agent-skills/seaborn/SKILL.md) | Creates Seaborn statistical visualizations with pandas integration for distributions, relationships, categorical comparisons, regression displays, pair plots, and heatmaps. Suppor… |
+| [shap](skills/research-academic/scientific-agent-skills/shap/SKILL.md) | Explain and audit machine-learning predictions with SHAP. Use for selecting SHAP explainers and maskers, computing and validating feature attributions, handling multi-output expla… |
+| [simpy](skills/research-academic/scientific-agent-skills/simpy/SKILL.md) | Builds, inspects, tests, and analyzes bounded process-based discrete-event simulations with SimPy. Use for event scheduling, resource queues, interrupts, monitoring, independent r… |
+| [stable-baselines3](skills/research-academic/scientific-agent-skills/stable-baselines3/SKILL.md) | Trains and evaluates single-agent reinforcement learning with Stable Baselines3 (PPO, SAC, DQN, TD3, DDPG, A2C), Gymnasium custom environments, vectorized rollouts, callbacks, and… |
+| [statistical-analysis](skills/research-academic/scientific-agent-skills/statistical-analysis/SKILL.md) | Guided statistical analysis for research data - test selection, assumption checking, effect sizes, power analysis, Bayesian alternatives, and APA-formatted reporting. Use whenever… |
+| [statistical-power](skills/research-academic/scientific-agent-skills/statistical-power/SKILL.md) | Calculates sample sizes and statistical power for study planning. Applies when someone asks "how many subjects/samples/replicates do I need", wants an a priori power analysis, a m… |
+| [statsmodels](skills/research-academic/scientific-agent-skills/statsmodels/SKILL.md) | Fits and diagnoses Python statistical models including OLS, GLM, discrete and mixed models, ARIMA and SARIMAX. Supports coefficient inference, marginal effects, model comparison a… |
+| [sympy](skills/research-academic/scientific-agent-skills/sympy/SKILL.md) | Performs exact symbolic mathematics with SymPy for algebra, calculus, equation solving, symbolic linear algebra, physics, and lambdify or LaTeX code generation. Use when a task ne… |
+| [tamarind](skills/research-academic/scientific-agent-skills/tamarind/SKILL.md) | Provides access to a collection of open-source molecular design and structural biology tools on the Tamarind Bio platform, via its REST API or MCP server — no local GPUs required.… |
+| [tellurium](skills/research-academic/scientific-agent-skills/tellurium/SKILL.md) | Simulates biochemical kinetic models from SBML or Antimony with Tellurium and libRoadRunner, checks model units, compares deterministic parameter perturbations, and exports and re… |
+| [tiledbvcf](skills/research-academic/scientific-agent-skills/tiledbvcf/SKILL.md) | Stores and retrieves genomic variant calls with TileDB-VCF. Use for indexed single-sample VCF/BCF ingestion, incremental cohorts, region and sample queries, streaming results, all… |
+| [timesfm-forecasting](skills/research-academic/scientific-agent-skills/timesfm-forecasting/SKILL.md) | Performs zero-shot time-series forecasting with Google's TimesFM, including regular-grid CSV preparation, quantile forecasts, XReg covariates, and held-out evaluation. Uses the Ap… |
+| [torch-geometric](skills/research-academic/scientific-agent-skills/torch-geometric/SKILL.md) | Supports PyTorch Geometric (PyG) graph neural networks — node/link/graph classification, message passing (GCN, GAT, GraphSAGE, GIN), heterogeneous graphs, neighbor sampling, and c… |
+| [torchdrug](skills/research-academic/scientific-agent-skills/torchdrug/SKILL.md) | Builds and troubleshoots TorchDrug 0.2.1 workflows for molecular graphs, property prediction, self-supervised pretraining, molecule generation, retrosynthesis, protein representat… |
+| [transformers](skills/research-academic/scientific-agent-skills/transformers/SKILL.md) | Hugging Face Transformers for loading Hub models, running pipeline inference, text generation, and Trainer fine-tuning on NLP, vision, audio, and multimodal tasks. Applies when wo… |
+| [treatment-plans](skills/research-academic/scientific-agent-skills/treatment-plans/SKILL.md) | Formats and structurally validates local treatment-plan documentation after clinical decisions have already been supplied and verified by authorized licensed professionals. Use fo… |
+| [umap-learn](skills/research-academic/scientific-agent-skills/umap-learn/SKILL.md) | Applies UMAP-learn to nonlinear dimensionality reduction, 2D/3D embeddings, clustering preprocessing, supervised or semi-supervised UMAP, DensMAP, AlignedUMAP, and Parametric UMAP… |
+| [uncertainty-and-units](skills/research-academic/scientific-agent-skills/uncertainty-and-units/SKILL.md) | Tracks physical units and propagates measurement uncertainty in scientific calculations using pint and uncertainties. Use for unit conversion and dimensional checking, GUM uncerta… |
+| [usfiscaldata](skills/research-academic/scientific-agent-skills/usfiscaldata/SKILL.md) | Queries the U.S. Treasury Fiscal Data REST API for federal financial data. No API key required. Use for national debt (Debt to the Penny), Daily Treasury Statements, Monthly Treas… |
+| [vaex](skills/research-academic/scientific-agent-skills/vaex/SKILL.md) | Processes large tabular scientific datasets with Vaex expressions, filtered views, streamed statistics, binned visualizations, and file conversion. Use for larger-than-RAM HDF5, A… |
+| [venue-templates](skills/research-academic/scientific-agent-skills/venue-templates/SKILL.md) | Prepares journal manuscripts, conference papers, research posters, and grant documents using venue-specific formatting guidance and bundled LaTeX scaffolds. Supports selecting an… |
+| [waypoint-bio](skills/research-academic/scientific-agent-skills/waypoint-bio/SKILL.md) | Supports work with Outpost Bio's open microbiome foundation models - the Waypoint checkpoints (Waypoint-6m, Waypoint-45m, Waypoint-170m), the Atlas pretraining corpus, the Compass… |
+| [what-if-oracle](skills/research-academic/scientific-agent-skills/what-if-oracle/SKILL.md) | Supports structured what-if scenario analysis for research planning, experimental contingencies, and scientific project decisions. Explores favorable, reference, adverse, wild-car… |
+| [zarr-python](skills/research-academic/scientific-agent-skills/zarr-python/SKILL.md) | Stores and queries chunked N-D scientific arrays with Zarr-Python 3, including codecs, sharding, S3/GCS storage, and NumPy/Dask/Xarray integration. Use for array layout, bounded I… |
 
 ## 臨床／護理 (`clinical-nursing`)
 
@@ -32,7 +237,58 @@ SKILL 收藏庫，依功能與用途分類，目前共 447 個。
 
 | 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
 |---|---|---|---|---|---|
+| [addyosmani-agent-skills](#tech-dev-addyosmani-agent-skills) | 25 | Addy Osmani 整理的工程規範：API 設計、context 管理、品質檢查等 | 工程規範, API 設計, 測試, 團隊 | [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) `301b02b`（MIT） | 2026-11-13 |
+| [andrej-karpathy-skills](#tech-dev-andrej-karpathy-skills) | 1 | Karpathy 式專案規則：先想清楚再動手、只改該改的地方 | coding 規則, CLAUDE.md | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) `2c60614`（MIT（README 標示）） | 2026-11-13 |
 | [anthropics](#tech-dev-anthropics) | 5 | Anthropic 官方：Claude API、MCP 伺服器開發、SKILL 製作、網頁測試、複雜 artifact | claude api, mcp, skill-creator, playwright | [anthropics/skills](https://github.com/anthropics/skills) `2c5958e`（Apache-2.0） | 2026-11-13 |
+| [graphify](skills/tech-dev/graphify/skill.md) | 1 | 把程式碼、文件、資料庫結構轉成知識圖譜（各 agent 版本的 skill 檔） | 知識圖譜, 程式碼理解, 呼叫關係 | [Graphify-Labs/graphify](https://github.com/Graphify-Labs/graphify) `52cb282`（Apache-2.0） | 2026-11-13 |
+| [mattpocock-skills](#tech-dev-mattpocock-skills) | 39 | Matt Pocock 的工程 SKILL：需求追問、架構釐清、除錯、重構，另含生產力與雜項 | 需求釐清, 架構, debug, refactor, typescript | [mattpocock/skills](https://github.com/mattpocock/skills) `5863806`（MIT） | 2026-11-13 |
+| [ponytail](#tech-dev-ponytail) | 6 | 像最懶的資深工程師：不加不必要的抽象，挑出過度設計與技術債 | 過度設計, 技術債, 簡化 | [DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail) `96608e0`（MIT） | 2026-11-13 |
+| [superpowers](#tech-dev-superpowers) | 15 | 開發流程：腦力激盪、寫計畫、TDD、code review、除錯 | brainstorm, plan, TDD, code review | [obra/superpowers](https://github.com/obra/superpowers) `22f0b46`（MIT） | 2026-11-13 |
+| [understand-anything](#tech-dev-understand-anything) | 9 | 把程式碼變成可互動的圖譜並解釋業務流程 | 讀程式碼, onboarding, 開源專案 | [Egonex-AI/Understand-Anything](https://github.com/Egonex-AI/Understand-Anything) `5cc4aad`（MIT） | 2026-11-13 |
+
+<a id="tech-dev-addyosmani-agent-skills"></a>
+
+### addyosmani-agent-skills（25 個）
+
+Addy Osmani 整理的工程規範：API 設計、context 管理、品質檢查等。資料夾：[`skills/tech-dev/addyosmani-agent-skills`](skills/tech-dev/addyosmani-agent-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/api-and-interface-design](skills/tech-dev/addyosmani-agent-skills/skills/api-and-interface-design/SKILL.md) | Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts b… |
+| [skills/browser-testing-with-devtools](skills/tech-dev/addyosmani-agent-skills/skills/browser-testing-with-devtools/SKILL.md) | Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analy… |
+| [skills/ci-cd-and-automation](skills/tech-dev/addyosmani-agent-skills/skills/ci-cd-and-automation/SKILL.md) | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or esta… |
+| [skills/code-review-and-quality](skills/tech-dev/addyosmani-agent-skills/skills/code-review-and-quality/SKILL.md) | Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality ac… |
+| [skills/code-simplification](skills/tech-dev/addyosmani-agent-skills/skills/code-simplification/SKILL.md) | Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use… |
+| [skills/constraint-driven-development](skills/tech-dev/addyosmani-agent-skills/skills/constraint-driven-development/SKILL.md) | Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on which dimensions matter, supplies sane default thresholds wh… |
+| [skills/context-engineering](skills/tech-dev/addyosmani-agent-skills/skills/context-engineering/SKILL.md) | Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and con… |
+| [skills/debugging-and-error-recovery](skills/tech-dev/addyosmani-agent-skills/skills/debugging-and-error-recovery/SKILL.md) | Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpec… |
+| [skills/deprecation-and-migration](skills/tech-dev/addyosmani-agent-skills/skills/deprecation-and-migration/SKILL.md) | Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when migrating a database sch… |
+| [skills/documentation-and-adrs](skills/tech-dev/addyosmani-agent-skills/skills/documentation-and-adrs/SKILL.md) | Records decisions and documentation. Use when you need to document an architecture decision (ADR) or the reasoning behind a design choice, when changing public APIs, shipping feat… |
+| [skills/doubt-driven-development](skills/tech-dev/addyosmani-agent-skills/skills/doubt-driven-development/SKILL.md) | Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when you want every assumption cross-examined before proceeding, when stress-testin… |
+| [skills/frontend-ui-engineering](skills/tech-dev/addyosmani-agent-skills/skills/frontend-ui-engineering/SKILL.md) | Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG acc… |
+| [skills/git-workflow-and-versioning](skills/tech-dev/addyosmani-agent-skills/skills/git-workflow-and-versioning/SKILL.md) | Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted work in a messy working tree into cl… |
+| [skills/idea-refine](skills/tech-dev/addyosmani-agent-skills/skills/idea-refine/SKILL.md) | Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions b… |
+| [skills/incremental-implementation](skills/tech-dev/addyosmani-agent-skills/skills/incremental-implementation/SKILL.md) | Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more than one file, or when picking up the next task from a pla… |
+| [skills/interview-me](skills/tech-dev/addyosmani-agent-skills/skills/interview-me/SKILL.md) | Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlyin… |
+| [skills/observability-and-instrumentation](skills/tech-dev/addyosmani-agent-skills/skills/observability-and-instrumentation/SKILL.md) | Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production a… |
+| [skills/performance-optimization](skills/tech-dev/addyosmani-agent-skills/skills/performance-optimization/SKILL.md) | Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core We… |
+| [skills/planning-and-task-breakdown](skills/tech-dev/addyosmani-agent-skills/skills/planning-and-task-breakdown/SKILL.md) | Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you… |
+| [skills/security-and-hardening](skills/tech-dev/addyosmani-agent-skills/skills/security-and-hardening/SKILL.md) | Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or… |
+| [skills/shipping-and-launch](skills/tech-dev/addyosmani-agent-skills/skills/shipping-and-launch/SKILL.md) | Prepares production launches. Use when preparing to deploy to production, or when asking what needs to be in place before shipping. Use when you need a pre-launch checklist, when… |
+| [skills/source-driven-development](skills/tech-dev/addyosmani-agent-skills/skills/source-driven-development/SKILL.md) | Grounds every implementation decision in official documentation. Use when you want to verify an approach against the official docs before implementing it, or when you want authori… |
+| [skills/spec-driven-development](skills/tech-dev/addyosmani-agent-skills/skills/spec-driven-development/SKILL.md) | Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when drafting a PRD or requirements document with… |
+| [skills/test-driven-development](skills/tech-dev/addyosmani-agent-skills/skills/test-driven-development/SKILL.md) | Drives development with tests using the red-green-refactor loop. Use when implementing any logic, fixing any bug, or changing any behavior. Use when you need to prove that code wo… |
+| [skills/using-agent-skills](skills/tech-dev/addyosmani-agent-skills/skills/using-agent-skills/SKILL.md) | Discovers and invokes agent skills. Use when starting a session, or when you need to decide which skill or workflow applies to the piece of work at hand. This is the meta-skill th… |
+
+<a id="tech-dev-andrej-karpathy-skills"></a>
+
+### andrej-karpathy-skills（1 個）
+
+Karpathy 式專案規則：先想清楚再動手、只改該改的地方。資料夾：[`skills/tech-dev/andrej-karpathy-skills`](skills/tech-dev/andrej-karpathy-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/karpathy-guidelines](skills/tech-dev/andrej-karpathy-skills/skills/karpathy-guidelines/SKILL.md) | Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or refactoring code to avoid overcomplication, make surgical changes, surface assumptions,… |
 
 <a id="tech-dev-anthropics"></a>
 
@@ -48,21 +304,147 @@ Anthropic 官方：Claude API、MCP 伺服器開發、SKILL 製作、網頁測�
 | [web-artifacts-builder](skills/tech-dev/anthropics/web-artifacts-builder/SKILL.md) | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts… |
 | [webapp-testing](skills/tech-dev/anthropics/webapp-testing/SKILL.md) | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots,… |
 
+<a id="tech-dev-mattpocock-skills"></a>
+
+### mattpocock-skills（39 個）
+
+Matt Pocock 的工程 SKILL：需求追問、架構釐清、除錯、重構，另含生產力與雜項。資料夾：[`skills/tech-dev/mattpocock-skills`](skills/tech-dev/mattpocock-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [engineering/ask-matt](skills/tech-dev/mattpocock-skills/engineering/ask-matt/SKILL.md) | Ask which skill or flow fits your situation. A router over the skills in this repo. |
+| [engineering/code-review](skills/tech-dev/mattpocock-skills/engineering/code-review/SKILL.md) | Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (doe… |
+| [engineering/codebase-design](skills/tech-dev/mattpocock-skills/engineering/codebase-design/SKILL.md) | Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code… |
+| [engineering/diagnosing-bugs](skills/tech-dev/mattpocock-skills/engineering/diagnosing-bugs/SKILL.md) | Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow. |
+| [engineering/domain-modeling](skills/tech-dev/mattpocock-skills/engineering/domain-modeling/SKILL.md) | Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR. |
+| [engineering/grill-with-docs](skills/tech-dev/mattpocock-skills/engineering/grill-with-docs/SKILL.md) | A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go. |
+| [engineering/implement](skills/tech-dev/mattpocock-skills/engineering/implement/SKILL.md) | Implement a piece of work based on a spec or set of tickets. |
+| [engineering/implement-spec](skills/tech-dev/mattpocock-skills/engineering/implement-spec/SKILL.md) | Implement the result of /to-spec and /to-tickets in code. |
+| [engineering/improve-codebase-architecture](skills/tech-dev/mattpocock-skills/engineering/improve-codebase-architecture/SKILL.md) | Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick. |
+| [engineering/pr](skills/tech-dev/mattpocock-skills/engineering/pr/SKILL.md) | Use when writing a PR body. |
+| [engineering/prototype](skills/tech-dev/mattpocock-skills/engineering/prototype/SKILL.md) | Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like. |
+| [engineering/research](skills/tech-dev/mattpocock-skills/engineering/research/SKILL.md) | Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts ga… |
+| [engineering/retro](skills/tech-dev/mattpocock-skills/engineering/retro/SKILL.md) | Conduct a retrospective on a coding session. |
+| [engineering/setup-matt-pocock-skills](skills/tech-dev/mattpocock-skills/engineering/setup-matt-pocock-skills/SKILL.md) | Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills. |
+| [engineering/tdd](skills/tech-dev/mattpocock-skills/engineering/tdd/SKILL.md) | Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests. |
+| [engineering/to-spec](skills/tech-dev/mattpocock-skills/engineering/to-spec/SKILL.md) | Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed. |
+| [engineering/to-tickets](skills/tech-dev/mattpocock-skills/engineering/to-tickets/SKILL.md) | Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one f… |
+| [engineering/triage](skills/tech-dev/mattpocock-skills/engineering/triage/SKILL.md) | Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs. |
+| [engineering/wayfinder](skills/tech-dev/mattpocock-skills/engineering/wayfinder/SKILL.md) | Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the des… |
+| [engineering/wizard](skills/tech-dev/mattpocock-skills/engineering/wizard/SKILL.md) | Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an… |
+| [in-progress/chief-of-staff](skills/tech-dev/mattpocock-skills/in-progress/chief-of-staff/SKILL.md) | Pursue a long-running goal in a single session by co-ordinating subagents. |
+| [in-progress/claude-handoff](skills/tech-dev/mattpocock-skills/in-progress/claude-handoff/SKILL.md) | Hand the current conversation off to a fresh background agent that picks up the work immediately. |
+| [in-progress/loop-me](skills/tech-dev/mattpocock-skills/in-progress/loop-me/SKILL.md) | Grill me about specs for the workflows I want to build, within this workspace. |
+| [in-progress/setup-ts-deep-modules](skills/tech-dev/mattpocock-skills/in-progress/setup-ts-deep-modules/SKILL.md) | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-in… |
+| [in-progress/software-factory](skills/tech-dev/mattpocock-skills/in-progress/software-factory/SKILL.md) | Shared language for designing a software factory: the tasks it runs and the services it plugs into. |
+| [in-progress/writing-beats](skills/tech-dev/mattpocock-skills/in-progress/writing-beats/SKILL.md) | Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it. |
+| [in-progress/writing-fragments](skills/tech-dev/mattpocock-skills/in-progress/writing-fragments/SKILL.md) | Writing, explore: mine raw fragments, no structure yet. |
+| [in-progress/writing-shape](skills/tech-dev/mattpocock-skills/in-progress/writing-shape/SKILL.md) | Writing, exploit: shape raw material into an article, paragraph by paragraph. |
+| [misc/git-guardrails-claude-code](skills/tech-dev/mattpocock-skills/misc/git-guardrails-claude-code/SKILL.md) | Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operation… |
+| [misc/migrate-to-shoehorn](skills/tech-dev/mattpocock-skills/misc/migrate-to-shoehorn/SKILL.md) | Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data. |
+| [misc/scaffold-exercises](skills/tech-dev/mattpocock-skills/misc/scaffold-exercises/SKILL.md) | Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set… |
+| [misc/setup-pre-commit](skills/tech-dev/mattpocock-skills/misc/setup-pre-commit/SKILL.md) | Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-… |
+| [productivity/grill-me](skills/tech-dev/mattpocock-skills/productivity/grill-me/SKILL.md) | A relentless interview to sharpen a plan or design. |
+| [productivity/grilling](skills/tech-dev/mattpocock-skills/productivity/grilling/SKILL.md) | Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases. |
+| [productivity/handoff](skills/tech-dev/mattpocock-skills/productivity/handoff/SKILL.md) | Compact the current conversation into a handoff document for another agent to pick up. |
+| [productivity/teach](skills/tech-dev/mattpocock-skills/productivity/teach/SKILL.md) | Teach the user a new skill or concept, within this workspace. |
+| [productivity/to-questionnaire](skills/tech-dev/mattpocock-skills/productivity/to-questionnaire/SKILL.md) | Turn a decision you can't fully answer into a questionnaire for someone else to fill in. |
+| [productivity/wait-what](skills/tech-dev/mattpocock-skills/productivity/wait-what/SKILL.md) | Stop. That last message did not land: re-pitch it. |
+| [productivity/writing-for-agents](skills/tech-dev/mattpocock-skills/productivity/writing-for-agents/SKILL.md) | Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md. |
+
+<a id="tech-dev-ponytail"></a>
+
+### ponytail（6 個）
+
+像最懶的資深工程師：不加不必要的抽象，挑出過度設計與技術債。資料夾：[`skills/tech-dev/ponytail`](skills/tech-dev/ponytail)
+
+| SKILL | 原始說明 |
+|---|---|
+| [ponytail](skills/tech-dev/ponytail/ponytail/SKILL.md) | Lazy senior dev mode: the smallest change that fully solves the task, and a reply a busy human understands in one read. Use on any coding task (writing, fixing, refactoring, revie… |
+| [ponytail-audit](skills/tech-dev/ponytail/ponytail-audit/SKILL.md) | Quality audit of a whole repo: bugs, security holes, what breaks under real load, risky code without tests, slow paths, and what to delete, merge or split. Ranked, each finding ex… |
+| [ponytail-debt](skills/tech-dev/ponytail/ponytail-debt/SKILL.md) | List every `shortcut:` comment (and older `ponytail:` ones) as a debt ledger. One-shot report, changes nothing. Use for "ponytail debt", "what did ponytail defer", "list the short… |
+| [ponytail-gain](skills/tech-dev/ponytail/ponytail-gain/SKILL.md) | Show ponytail's measured savings (code, cost, speed) from the benchmark. One-shot display. Use for /ponytail-gain, "what does ponytail save", "ponytail impact". |
+| [ponytail-help](skills/tech-dev/ponytail/ponytail-help/SKILL.md) | Quick reference for ponytail levels, skills and commands. One-shot display. Use for /ponytail-help, "ponytail help", "how do I use ponytail". |
+| [ponytail-review](skills/tech-dev/ponytail/ponytail-review/SKILL.md) | Quality review of a change: is the logic right, is it safe, does it hold under real load, is risky code tested, is it fast enough, and is every line needed. Reads the connected co… |
+
+<a id="tech-dev-superpowers"></a>
+
+### superpowers（15 個）
+
+開發流程：腦力激盪、寫計畫、TDD、code review、除錯。資料夾：[`skills/tech-dev/superpowers`](skills/tech-dev/superpowers)
+
+| SKILL | 原始說明 |
+|---|---|
+| [brainstorming](skills/tech-dev/superpowers/brainstorming/SKILL.md) | You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (… |
+| [diagnosing-superpowers](skills/tech-dev/superpowers/diagnosing-superpowers/SKILL.md) | Use when a superpowers session went wrong and your human partner wants to know why — repeated work, ignored plans, stumbles, poor results, a skill that didn't fire, "it took too l… |
+| [dispatching-parallel-agents](skills/tech-dev/superpowers/dispatching-parallel-agents/SKILL.md) | Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies |
+| [executing-plans](skills/tech-dev/superpowers/executing-plans/SKILL.md) | Use when executing an implementation plan in the current session as the implementer yourself — your human partner chose inline execution, or no subagent tool is available |
+| [finishing-a-development-branch](skills/tech-dev/superpowers/finishing-a-development-branch/SKILL.md) | Use when implementation is complete, all tests pass, and you need to decide how to integrate the work |
+| [receiving-code-review](skills/tech-dev/superpowers/receiving-code-review/SKILL.md) | Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verificat… |
+| [requesting-code-review](skills/tech-dev/superpowers/requesting-code-review/SKILL.md) | Use when completing tasks, implementing major features, or before merging to verify work meets requirements |
+| [subagent-driven-development](skills/tech-dev/superpowers/subagent-driven-development/SKILL.md) | Use when executing implementation plans with independent tasks in the current session |
+| [systematic-debugging](skills/tech-dev/superpowers/systematic-debugging/SKILL.md) | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes |
+| [test-driven-development](skills/tech-dev/superpowers/test-driven-development/SKILL.md) | Use when implementing any feature or bugfix, before writing implementation code |
+| [using-git-worktrees](skills/tech-dev/superpowers/using-git-worktrees/SKILL.md) | Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git… |
+| [using-superpowers](skills/tech-dev/superpowers/using-superpowers/SKILL.md) | Use when starting any conversation - establishes how to find and use skills, requiring skill invocation before ANY response including clarifying questions |
+| [verification-before-completion](skills/tech-dev/superpowers/verification-before-completion/SKILL.md) | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any suc… |
+| [writing-plans](skills/tech-dev/superpowers/writing-plans/SKILL.md) | Use when you have a spec or requirements for a multi-step task, before touching code |
+| [writing-skills](skills/tech-dev/superpowers/writing-skills/SKILL.md) | Use when creating new skills, editing existing skills, or verifying skills work before deployment |
+
+<a id="tech-dev-understand-anything"></a>
+
+### understand-anything（9 個）
+
+把程式碼變成可互動的圖譜並解釋業務流程。資料夾：[`skills/tech-dev/understand-anything`](skills/tech-dev/understand-anything)
+
+| SKILL | 原始說明 |
+|---|---|
+| [understand](skills/tech-dev/understand-anything/understand/SKILL.md) | Analyze a codebase to produce an interactive knowledge graph for understanding architecture, components, and relationships |
+| [understand-chat](skills/tech-dev/understand-anything/understand-chat/SKILL.md) | Use when you need to ask questions about a codebase or understand code using a knowledge graph |
+| [understand-dashboard](skills/tech-dev/understand-anything/understand-dashboard/SKILL.md) | Launch the interactive web dashboard to visualize a codebase's knowledge graph |
+| [understand-diff](skills/tech-dev/understand-anything/understand-diff/SKILL.md) | Use when you need to analyze git diffs or pull requests to understand what changed, affected components, and risks |
+| [understand-domain](skills/tech-dev/understand-anything/understand-domain/SKILL.md) | Extract business domain knowledge from a codebase and generate an interactive domain flow graph. Works standalone (lightweight scan) or derives from an existing /understand knowle… |
+| [understand-explain](skills/tech-dev/understand-anything/understand-explain/SKILL.md) | Use when you need a deep-dive explanation of a specific file, function, or module in the codebase |
+| [understand-figma](skills/tech-dev/understand-anything/understand-figma/SKILL.md) | Analyze a Figma file via the Figma REST API and generate an interactive design knowledge graph (pages, screens, components, component sets, instances, design tokens) with a kind:"… |
+| [understand-knowledge](skills/tech-dev/understand-anything/understand-knowledge/SKILL.md) | Analyze a Karpathy-pattern LLM wiki knowledge base and generate an interactive knowledge graph with entity extraction, implicit relationships, and topic clustering. |
+| [understand-onboard](skills/tech-dev/understand-anything/understand-onboard/SKILL.md) | Use when you need to generate an onboarding guide for new team members joining a project |
+
 ## 創意／設計 (`creative-design`)
 
 | 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
 |---|---|---|---|---|---|
+| [ai-design-skills](#creative-design-ai-design-skills) | 2 | elayadesign 的 AI 設計 SKILL | 設計 | [elayadesign/ai-design-skills](https://github.com/elayadesign/ai-design-skills) `456d9e0`（MIT） | 2026-11-13 |
 | [anthropics](#creative-design-anthropics) | 6 | Anthropic 官方：前端設計、畫布視覺、演算法藝術、品牌規範、主題配色、Slack GIF | frontend, canvas, 海報, 品牌, 主題 | [anthropics/skills](https://github.com/anthropics/skills) `2c5958e`（Apache-2.0） | 2026-11-13 |
 | [architecture-diagram-generator](#creative-design-architecture-diagram-generator) | 1 | 描述系統就產出乾淨的架構圖（HTML/SVG） | 架構圖, diagram | [Cocoon-AI/architecture-diagram-generator](https://github.com/Cocoon-AI/architecture-diagram-generator) `4b9087d`（MIT） | 2026-11-13 |
+| [awesome-design-md](skills/creative-design/awesome-design-md/README.md) | 1 | 84 個知名品牌的 DESIGN.md，丟給 agent 就能做出該品牌的視覺風格（不是 SKILL 格式） | DESIGN.md, 品牌風格, apple, airbnb, stripe | [VoltAgent/awesome-design-md](https://github.com/VoltAgent/awesome-design-md) `fcc7028`（MIT） | 2026-11-13 |
 | [beautiful-html-templates](skills/creative-design/beautiful-html-templates/AGENTS.md) | 1 | 34 套 HTML 簡報模板；依場合與氛圍挑候選、做封面預覽、再套入內容 | HTML 簡報, slide deck, pitch | [zarazhangrui/beautiful-html-templates](https://github.com/zarazhangrui/beautiful-html-templates) `e5e204f`（MIT） | 2026-11-13 |
+| [diagram-design](skills/creative-design/diagram-design/SKILL.md) | 1 | 四十多種圖表，直接輸出成 HTML | 架構圖, 流程圖, 技術文件圖表 | [cathrynlavery/diagram-design](https://github.com/cathrynlavery/diagram-design) `f6db0de`（MIT） | 2026-11-13 |
+| [emilkowalski-skills](#creative-design-emilkowalski-skills) | 19 | Emil Kowalski（sonner 作者）的手勢、動效與 UI 細節 SKILL，附 UI 與效能速查表 | 手勢, 動效, UI 細節, animation | [emilkowalski/skills](https://github.com/emilkowalski/skills) `f7ce8c0`（MIT） | 2026-11-13 |
+| [extract-design-system](#creative-design-extract-design-system) | 1 | 從任何網站擷取顏色、字體、間距成為 design system | design tokens, 擷取網站風格 | [arvindrk/extract-design-system](https://github.com/arvindrk/extract-design-system) `1873741`（MIT） | 2026-11-13 |
 | [guizang-ppt-skill](skills/creative-design/guizang-ppt-skill/SKILL.md) | 1 | 歸藏 PPT：雜誌風與瑞士風的 HTML 簡報 | 簡報, 雜誌風, swiss style | [op7418/guizang-ppt-skill](https://github.com/op7418/guizang-ppt-skill) `93d21bf`（AGPL-3.0） | 2026-11-13 |
 | [hallmark](#creative-design-hallmark) | 1 | 讓設計不像 AI 做的：有辨識度的版面與視覺 | 反 AI 味, 版面, 視覺風格 | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) `04977e1`（MIT） | 2026-11-13 |
 | [huashu-design](skills/creative-design/huashu-design/SKILL.md) | 1 | 花叔設計：一句話產出完整設計（高保真原型、簡報、動畫、資訊圖） | 一句話出設計, 原型, 簡報, 動畫 | [alchaincyf/huashu-design](https://github.com/alchaincyf/huashu-design) `e8d1148`（MIT） | 2026-11-13 |
 | [impeccable](skills/creative-design/impeccable/SKILL.md) | 1 | 前端設計品質工具：polish、bolder、critique、audit 等指令，避免 AI 味的介面 | /polish, /bolder, /critique, UI 打磨 | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) `c4cd192`（Apache-2.0） | 2026-11-13 |
+| [kubai-icons](skills/creative-design/kubai-icons/SKILL.md) | 1 | Kubai 圖示庫的使用與繪製規範 | icon, 圖示, SVG | [kubai087/kubai-icons](https://github.com/kubai087/kubai-icons) `32bd8ee`（Kubai Icons License（見 LICENSING.md）） | 2026-11-13 |
 | [logo-design](skills/creative-design/logo-design/SKILL.md) | 1 | 從 brief 到 SVG logo 再到品牌指南 | logo, SVG, 品牌指南 | [kaankiziltug/logo-design-skill](https://github.com/kaankiziltug/logo-design-skill) `bbf31e5`（MIT） | 2026-11-13 |
 | [nothing-design-skill](#creative-design-nothing-design-skill) | 1 | Nothing 風格：單色、點陣字的 UI | 單色, dot-matrix, UI 風格 | [dominikmartn/nothing-design-skill](https://github.com/dominikmartn/nothing-design-skill) `6bec3c7`（MIT） | 2026-11-13 |
+| [oil-ui](skills/creative-design/oil-ui/SKILL.md) | 1 | 做 UI 前先出三個不同方向再選定 | UI 方向探索, 三選一 | [oil-oil/oil-ui](https://github.com/oil-oil/oil-ui) `28948c3`（MIT） | 2026-11-13 |
 | [open-design](#creative-design-open-design) | 169 | open-design 設計工作區內建的 SKILL 大全：簡報、海報、社群圖卡、動效、Figma、影像生成等 | 設計, 簡報, 圖卡, figma, 影像生成 | [nexu-io/open-design](https://github.com/nexu-io/open-design) `e427ad9`（Apache-2.0） | 2026-11-13 |
 | [stitch-skills](#creative-design-stitch-skills) | 16 | Google Stitch 的 UI 設計 SKILL：設計、建置、工具三組 | stitch, UI 設計, design system | [google-labs-code/stitch-skills](https://github.com/google-labs-code/stitch-skills) `0337446`（Apache-2.0） | 2026-11-13 |
+| [taste-skill](skills/creative-design/taste-skill/SKILL.md) | 1 | 替 AI 補審美：排版、參考圖、動效，附大量參考圖 | 審美, 官網首頁, 作品集 | [LeonxLnx/taste-skill](https://github.com/LeonxLnx/taste-skill) `f6b7657`（MIT） | 2026-11-13 |
+| [ui-ux-pro-max](#creative-design-ui-ux-pro-max) | 7 | UI/UX 設計資料庫：風格、配色、字體搭配、互動規範，另含品牌、簡報、banner、design system | 配色, 字體搭配, landing page, dashboard, app UI | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) `6ae86f6`（MIT） | 2026-11-13 |
+| [unslop](#creative-design-unslop) | 1 | 把 vibe coding 做出來的介面改成有設計感的介面 | 去 AI 味, UI 修整 | [heydamir/unslop](https://github.com/heydamir/unslop) `97daa3e`（CC BY 4.0） | 2026-11-13 |
+
+<a id="creative-design-ai-design-skills"></a>
+
+### ai-design-skills（2 個）
+
+elayadesign 的 AI 設計 SKILL。資料夾：[`skills/creative-design/ai-design-skills`](skills/creative-design/ai-design-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [figma-designer](skills/creative-design/ai-design-skills/figma-designer/SKILL.md) | Design inside Figma the way this designer does: real variables, text styles, auto layout and components, on a fixed visual system (Tailwind type and radius scale, spacing tokens,… |
+| [landing-page-design](skills/creative-design/ai-design-skills/landing-page-design/SKILL.md) | Complete system for building high converting landing pages: intake questions, page structure, layout selection, conversion copywriting, SEO, plus strict visual rules for typograph… |
 
 <a id="creative-design-anthropics"></a>
 
@@ -88,6 +470,44 @@ Anthropic 官方：前端設計、畫布視覺、演算法藝術、品牌規範�
 | SKILL | 原始說明 |
 |---|---|
 | [architecture-diagram](skills/creative-design/architecture-diagram-generator/architecture-diagram/SKILL.md) | Create polished dark-themed architecture diagrams as self-contained HTML+SVG files. Use when the user asks for system, infrastructure, cloud, security, or network topology diagram… |
+
+<a id="creative-design-emilkowalski-skills"></a>
+
+### emilkowalski-skills（19 個）
+
+Emil Kowalski（sonner 作者）的手勢、動效與 UI 細節 SKILL，附 UI 與效能速查表。資料夾：[`skills/creative-design/emilkowalski-skills`](skills/creative-design/emilkowalski-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/animate](skills/creative-design/emilkowalski-skills/skills/animate/SKILL.md) | Build an animation from scratch, making the decisions in the order that determines whether it feels right — should it animate at all, what purpose, which tool, which properties, w… |
+| [skills/animate-expo](skills/creative-design/emilkowalski-skills/skills/animate-expo/SKILL.md) | Build animations in React Native and Expo, making the decisions in the order that determines whether they feel right — should it animate, which thread it runs on, which properties… |
+| [skills/animation-performance](skills/creative-design/emilkowalski-skills/skills/animation-performance/SKILL.md) | Keep web animations inside the frame budget — animate composite-only properties, keep motion off the main thread when the page is busy, and find the cause when an animation drops… |
+| [skills/animation-vocabulary](skills/creative-design/emilkowalski-skills/skills/animation-vocabulary/SKILL.md) | Reverse-lookup glossary that turns a vague description of a web animation or motion effect into its exact term ("the bouncy thing when a popover opens" → Pop in; "the iOS rubber-b… |
+| [skills/apple-design](skills/creative-design/emilkowalski-skills/skills/apple-design/SKILL.md) | Apple's approach to interface design and fluid, physical motion, translated for the web. Use when building or reviewing gesture-driven UI, spring animations, drag/swipe/sheet inte… |
+| [skills/ask-sonner](skills/creative-design/emilkowalski-skills/skills/ask-sonner/SKILL.md) | Guide to Sonner, the React toast library — install and wire up the Toaster, pick the right toast() call, promise and loading toasts, updating, dismissing and persisting toasts, st… |
+| [skills/break-ui](skills/creative-design/emilkowalski-skills/skills/break-ui/SKILL.md) | Try to break a piece of UI by feeding it worst-case data — long names, unbreakable emails, one-letter names, missing fields, huge counts, zero items, long labels, non-Latin text,… |
+| [skills/choreograph](skills/creative-design/emilkowalski-skills/skills/choreograph/SKILL.md) | Coordinate several elements that animate together — decide what moves, in what order, how much they overlap, and what stays still — so a group reads as one intentional motion inst… |
+| [skills/emil-design-eng](skills/creative-design/emilkowalski-skills/skills/emil-design-eng/SKILL.md) | This skill encodes Emil Kowalski's philosophy on UI polish, component design, animation decisions, and the invisible details that make software feel great. |
+| [skills/find-animation-opportunities](skills/creative-design/emilkowalski-skills/skills/find-animation-opportunities/SKILL.md) | Search a codebase or UI for places that don't animate but should, and reject everything that shouldn't. Read-only; it proposes motion with exact values, it does not implement it.… |
+| [skills/gestures](skills/creative-design/emilkowalski-skills/skills/gestures/SKILL.md) | Build drag, swipe, and sheet interactions that track the finger 1:1 and stay interruptible. Use when building or fixing anything the user drags, swipes, flings, holds, or dismisse… |
+| [skills/improve-animations](skills/creative-design/emilkowalski-skills/skills/improve-animations/SKILL.md) | Survey a codebase's animation and motion code as a senior motion advisor, then produce a prioritized audit and self-contained implementation plans for other agents (or cheaper mod… |
+| [skills/learn-taste](skills/creative-design/emilkowalski-skills/skills/learn-taste/SKILL.md) | Turn the design corrections a user made during a session into rules the next agent follows. Collects every correction (explicit ones, edits the user made to files you wrote, repea… |
+| [skills/mobile-native](skills/creative-design/emilkowalski-skills/skills/mobile-native/SKILL.md) | Make a web app feel native on a phone — the small CSS and meta-tag fixes that separate "a website in a browser" from something that feels installed. Covers sticky hover states, ta… |
+| [skills/pick-ui-library](skills/creative-design/emilkowalski-skills/skills/pick-ui-library/SKILL.md) | Pick the right library for a given frontend task from a curated, opinionated list — numbers, OTP inputs, charts, command menus, virtualization, drag and drop, toasts, state, styli… |
+| [skills/prototype](skills/creative-design/emilkowalski-skills/skills/prototype/SKILL.md) | Build multiple genuinely different versions of a UI piece you describe, rendered behind a visual picker so you can flip through them live and promote the one that feels right. Onl… |
+| [skills/remove-animations](skills/creative-design/emilkowalski-skills/skills/remove-animations/SKILL.md) | Find the animations an interface doesn't need and remove them — motion on keyboard actions, high-frequency surfaces, functional data, and decoration with no purpose — then clean u… |
+| [skills/review-animations](skills/creative-design/emilkowalski-skills/skills/review-animations/SKILL.md) | Reviews animation and motion code against a high craft bar derived from Emil Kowalski's design engineering philosophy. Default to flagging; approval is earned. |
+| [skills/write-swift](skills/creative-design/emilkowalski-skills/skills/write-swift/SKILL.md) | How to write modern Swift well — modeling with value types, Swift 6 data-race safety and approachable concurrency (@concurrent, main-actor-by-default, actors, task groups), protoc… |
+
+<a id="creative-design-extract-design-system"></a>
+
+### extract-design-system（1 個）
+
+從任何網站擷取顏色、字體、間距成為 design system。資料夾：[`skills/creative-design/extract-design-system`](skills/creative-design/extract-design-system)
+
+| SKILL | 原始說明 |
+|---|---|
+| [extract-design-system](skills/creative-design/extract-design-system/extract-design-system/SKILL.md) | Extract design primitives from a public website and generate starter token files for your project. |
 
 <a id="creative-design-hallmark"></a>
 
@@ -312,6 +732,32 @@ Google Stitch 的 UI 設計 SKILL：設計、建置、工具三組。資料夾�
 | [stitch-utilities/skills/stitch-loop](skills/creative-design/stitch-skills/stitch-utilities/skills/stitch-loop/SKILL.md) | Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop pattern |
 | [stitch-utilities/skills/taste-design](skills/creative-design/stitch-skills/stitch-utilities/skills/taste-design/SKILL.md) | Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards — strict typography, calibrated color, asy… |
 
+<a id="creative-design-ui-ux-pro-max"></a>
+
+### ui-ux-pro-max（7 個）
+
+UI/UX 設計資料庫：風格、配色、字體搭配、互動規範，另含品牌、簡報、banner、design system。資料夾：[`skills/creative-design/ui-ux-pro-max`](skills/creative-design/ui-ux-pro-max)
+
+| SKILL | 原始說明 |
+|---|---|
+| [banner-design](skills/creative-design/ui-ux-pro-max/banner-design/SKILL.md) | Design banners for social media, ads, website heroes, creative assets, and print. Multiple art direction options with optional generated or supplied visuals. Actions: design, crea… |
+| [brand](skills/creative-design/ui-ux-pro-max/brand/SKILL.md) | Brand voice, visual identity, messaging frameworks, asset management, brand consistency. Activate for branded content, tone of voice, marketing assets, brand compliance, style gui… |
+| [design](skills/creative-design/ui-ux-pro-max/design/SKILL.md) | Comprehensive design skill: brand identity, design tokens, UI styling, logo generation (55 styles, Gemini, Atlas Cloud, or MuAPI AI), corporate identity program (50 deliverables,… |
+| [design-system](skills/creative-design/ui-ux-pro-max/design-system/SKILL.md) | Token architecture, component specifications, and slide generation. Three-layer tokens (primitive→semantic→component), CSS variables, spacing/typography scales, component specs, s… |
+| [slides](skills/creative-design/ui-ux-pro-max/slides/SKILL.md) | Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies. |
+| [ui-styling](skills/creative-design/ui-ux-pro-max/ui-styling/SKILL.md) | Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use whe… |
+| [ui-ux-pro-max](skills/creative-design/ui-ux-pro-max/ui-ux-pro-max/SKILL.md) | UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designing, building, reviewing, or fixing interfaces, including pages, components, design sy… |
+
+<a id="creative-design-unslop"></a>
+
+### unslop（1 個）
+
+把 vibe coding 做出來的介面改成有設計感的介面。資料夾：[`skills/creative-design/unslop`](skills/creative-design/unslop)
+
+| SKILL | 原始說明 |
+|---|---|
+| [unslop](skills/creative-design/unslop/unslop/SKILL.md) | Turns vibecoded, AI-looking UI into a designed interface with its own character. Finds a direction from the product itself, then fixes spacing, color, icons, copy, type, layout, d… |
+
 ## 動畫／影片 (`animation-video`)
 
 | 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
@@ -322,6 +768,7 @@ Google Stitch 的 UI 設計 SKILL：設計、建置、工具三組。資料夾�
 | [gsap-skills](#animation-video-gsap-skills) | 8 | GSAP 官方：核心、timeline、ScrollTrigger、外掛、React、效能 | gsap, easing, scroll 動畫 | [greensock/gsap-skills](https://github.com/greensock/gsap-skills) `aed9cfd`（MIT） | 2026-11-13 |
 | [hyperframes](#animation-video-hyperframes) | 15 | HeyGen HyperFrames：寫 HTML 產出影片；含官方 SKILL 與專案內部的剪輯手法 SKILL | HTML 轉影片, 字幕, 轉場 | [heygen-com/hyperframes](https://github.com/heygen-com/hyperframes) `ff687fe`（Apache-2.0） | 2026-11-13 |
 | [motion](skills/animation-video/motion/SKILL.md) | 1 | Motion（前 Framer Motion）與 CSS 動畫：最佳實務、文件與範例搜尋、CSS spring、效能稽核 | motion/react, framer-motion, CSS spring, UI 動畫 | [motiondivision/ai-kit](https://github.com/motiondivision/ai-kit) `1e42494`（MIT） | 2026-11-13 |
+| [motion-prompt](#animation-video-motion-prompt) | 1 | 動效提示詞庫的 SKILL | motion prompt, 動效描述 | [showheyohtaki/motion-prompt](https://github.com/showheyohtaki/motion-prompt) `da14d9c`（MIT） | 2026-11-13 |
 | [oil-motion](skills/animation-video/oil-motion/SKILL.md) | 1 | 跟隨捲動與滑鼠的網頁動畫 | scroll 動畫, 滑鼠互動 | [oil-oil/oil-motion](https://github.com/oil-oil/oil-motion) `07e31f2`（MIT） | 2026-11-13 |
 | [openmontage](#animation-video-openmontage) | 92 | OpenMontage 影片工作室用到的全部 SKILL：AI 影片生成、配音、字幕、Manim、Three.js、GSAP、Remotion 等 | AI 影片, TTS, manim, threejs, ffmpeg | [OpenMontageInc/OpenMontage](https://github.com/OpenMontageInc/OpenMontage) `fecb9a1`（AGPL-3.0） | 2026-11-13 |
 | [pixelfx](skills/animation-video/pixelfx/SKILL.md) | 1 | 244 種以程式寫成的像素特效 | pixel 特效, shader, canvas | [patch-gg/pixelfx](https://github.com/patch-gg/pixelfx) `5294518`（MIT） | 2026-11-13 |
@@ -383,6 +830,16 @@ HeyGen HyperFrames：寫 HTML 產出影片；含官方 SKILL 與專案內部的�
 | [skills/reverse-any-video](skills/animation-video/hyperframes/skills/reverse-any-video/SKILL.md) | Rebuild any video file as an editable HyperFrames project - motion graphics, talking heads, live action or AI-generated footage - checked against the original frame by frame. Use… |
 | [skills/slideshow](skills/animation-video/hyperframes/skills/slideshow/SKILL.md) | Build a HyperFrames slideshow to present live - slides, fragment reveals, branching hotspots and presenter mode with speaker notes, served by `hyperframes present` - or turn an ex… |
 | [skills/style-sampling](skills/animation-video/hyperframes/skills/style-sampling/SKILL.md) | Make a new episode in a proven video style - Collage Explainer, Finance Explainer, Animated Science Explainer, 3D Brand Explainer, 3D True Crime - on the person's topic. Use for "… |
+
+<a id="animation-video-motion-prompt"></a>
+
+### motion-prompt（1 個）
+
+動效提示詞庫的 SKILL。資料夾：[`skills/animation-video/motion-prompt`](skills/animation-video/motion-prompt)
+
+| SKILL | 原始說明 |
+|---|---|
+| [motion-prompt](skills/animation-video/motion-prompt/motion-prompt/SKILL.md) | Motion Prompt (showheyohtaki.github.io/motion-prompt) is a numbered library of names for motion-graphics moves, camera moves and transitions, UI components, landing-page and web e… |
 
 <a id="animation-video-openmontage"></a>
 
@@ -637,11 +1094,84 @@ Remotion 官方：用 React 做影片（建立、畫面與動畫、字幕、地�
 | [share-field-notes](skills/3d-gamedev/universal-modder/share-field-notes/SKILL.md) | Search and contribute to the shared AI-modding knowledge base, where field notes record how specific games were modded, decompiled or reverse-engineered (exact versions, route, en… |
 | [showcase-video](skills/3d-gamedev/universal-modder/showcase-video/SKILL.md) | Record and cut a short showcase video of a game mod, or a compilation of clips, ready to post on X/YouTube. Records the game window with only the game's own audio, picks moments f… |
 
+## 行銷／商務 (`marketing-business`)
+
+| 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
+|---|---|---|---|---|---|
+| [last30days](skills/marketing-business/last30days/SKILL.md) | 1 | 彙整 Reddit、X、YouTube 近 30 天的討論 | 選題, 追熱點, 競品調研 | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) `b4eb381`（MIT） | 2026-11-13 |
+| [marketingskills](#marketing-business-marketingskills) | 53 | 行銷 SKILL 合集：文案、SEO、CRO、廣告、數據分析 | 行銷, 文案, SEO, CRO | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) `1f83744`（MIT） | 2026-11-13 |
+
+<a id="marketing-business-marketingskills"></a>
+
+### marketingskills（53 個）
+
+行銷 SKILL 合集：文案、SEO、CRO、廣告、數據分析。資料夾：[`skills/marketing-business/marketingskills`](skills/marketing-business/marketingskills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [ab-testing](skills/marketing-business/marketingskills/ab-testing/SKILL.md) | When the user wants to plan, run, or read A/B tests, or asks a judgement call on one: is the result real, can we stop, which version won, is this worth testing at all: sample size… |
+| [ad-creative](skills/marketing-business/marketingskills/ad-creative/SKILL.md) | When the user wants to write or judge ad creative, or asks which ad, hook, or angle to run or kill: headlines, primary text, and variations for Google, Meta, LinkedIn, and TikTok,… |
+| [ads](skills/marketing-business/marketingskills/ads/SKILL.md) | When the user wants to plan, run, or fix paid ads on Google, Meta, and LinkedIn, or asks a judgement call on them: are ads worth it, which channel or budget split, why CPA rose, k… |
+| [ai-seo](skills/marketing-business/marketingskills/ai-seo/SKILL.md) | When the user wants to get cited and recommended in AI answers (ChatGPT, Perplexity, AI Overviews), or asks why AI cites a competitor, which content gets cited, or whether llms.tx… |
+| [analytics](skills/marketing-business/marketingskills/analytics/SKILL.md) | When the user wants to set up or audit analytics, or asks whether a metric or number is calculated right, what to track, or how to name events: tracking plans, GA4, GTM, Mixpanel,… |
+| [aso](skills/marketing-business/marketingskills/aso/SKILL.md) | When the user wants to audit or optimize an App Store or Google Play listing, or asks which title, keywords, or screenshots to pick or why downloads are low: subtitle, description… |
+| [attribution](skills/marketing-business/marketingskills/attribution/SKILL.md) | When the user wants to work out which marketing drives revenue, or asks whether a channel is really working, which numbers to trust, or how to credit podcasts and dark social: att… |
+| [churn-prevention](skills/marketing-business/marketingskills/churn-prevention/SKILL.md) | When the user wants to reduce churn, or asks why customers cancel, whether to offer a discount or pause: cancellation flows, exit surveys, save offers, dunning and failed-payment… |
+| [co-marketing](skills/marketing-business/marketingskills/co-marketing/SKILL.md) | When the user wants co-marketing partners or joint campaigns, or asks whether a partner fits, a size mismatch matters, or how to split work and leads: integration partners, cross-… |
+| [cold-email](skills/marketing-business/marketingskills/cold-email/SKILL.md) | When the user wants to write or run B2B cold outbound, or asks whether an opener, reason to reach out, or email works or why nobody replies: cold emails, follow-ups, sending domai… |
+| [community-marketing](skills/marketing-business/marketingskills/community-marketing/SKILL.md) | When the user wants to build or grow an online community, or asks whether a community is worth it, where to host it, or why members stay quiet: Discord, Slack, forums, participati… |
+| [competitor-profiling](skills/marketing-business/marketingskills/competitor-profiling/SKILL.md) | When the user wants to research competitors into dated profiles, or asks what a rival charges, claims, or is doing, or whether a conclusion about them is fair: positioning, pricin… |
+| [competitors](skills/marketing-business/marketingskills/competitors/SKILL.md) | When the user wants to create or audit comparison and alternative pages ('X vs Y', 'X alternative', 'best X alternatives'), or asks what a public page may say about a competitor:… |
+| [content-strategy](skills/marketing-business/marketingskills/content-strategy/SKILL.md) | When the user wants to plan content, or asks which topic or piece to prioritize, what to write about, or why posts bring no customers: topic clusters, editorial calendars, roadmap… |
+| [conversion-tracking](skills/marketing-business/marketingskills/conversion-tracking/SKILL.md) | When the user wants to set up, audit, or fix conversion tracking to Google Ads, Meta, GA4, LinkedIn, and TikTok, or asks why conversions are missing or doubled: GTM, pixels, CAPI,… |
+| [copy-editing](skills/marketing-business/marketingskills/copy-editing/SKILL.md) | When the user wants to edit, tighten, proofread, or refresh existing copy, or asks whether to keep, cut, or change a line in it, without rewriting from scratch. Every edit removes… |
+| [copywriting](skills/marketing-business/marketingskills/copywriting/SKILL.md) | When the user wants to write or rewrite page copy (homepage, landing, pricing, feature), or asks which headline, promise, or message to lead with. Diagnoses the input first (blank… |
+| [cro](skills/marketing-business/marketingskills/cro/SKILL.md) | When the user wants more conversions from a page or form, or asks why a page isn't converting, what to change first, or whether to add or remove a field or element: landing and pr… |
+| [customer-research](skills/marketing-business/marketingskills/customer-research/SKILL.md) | When the user wants to run or synthesize customer research, or asks what customer quotes, reviews, or feedback really mean, what is safe to conclude, and what to ask next: intervi… |
+| [directory-submissions](skills/marketing-business/marketingskills/directory-submissions/SKILL.md) | When the user wants to list a product in startup, SaaS, AI, MCP, and review directories, or asks which directories are worth it or whether listings are working: Product Hunt, G2,… |
+| [emails](skills/marketing-business/marketingskills/emails/SKILL.md) | When the user wants to create or improve automated email sequences, or asks what to send, when, or whether an email or flow is working: welcome, onboarding, nurture, and win-back… |
+| [events](skills/marketing-business/marketingskills/events/SKILL.md) | When the user wants to plan, run, sponsor, or speak at events, or asks whether an event or booth is worth the money: webinars, conferences, booths, meetups, show-up rates, and fol… |
+| [free-tools](skills/marketing-business/marketingskills/free-tools/SKILL.md) | When the user wants to plan or build a free tool as marketing, or asks whether a tool idea is worth building or which one to pick: calculators, graders, generators, and other inte… |
+| [image](skills/marketing-business/marketingskills/image/SKILL.md) | When the user wants to create, generate, edit, or optimize marketing images, or asks which approach to take (generate, design, or photograph): blog heroes, social graphics, produc… |
+| [influencer-marketing](skills/marketing-business/marketingskills/influencer-marketing/SKILL.md) | When the user wants creator, influencer, or ambassador partnerships, or asks which creators fit, what to pay, which rights to buy, or whether a sponsorship worked: vetting, contra… |
+| [launch](skills/marketing-business/marketingskills/launch/SKILL.md) | When the user wants to plan a product or feature launch, or asks whether it's ready, when to announce, or how to get noticed: Product Hunt, beta and early access, waitlists, relea… |
+| [lead-magnets](skills/marketing-business/marketingskills/lead-magnets/SKILL.md) | When the user wants to plan or improve a lead magnet, or asks what to give away for emails or how much to ask in return (gating, form fields): checklists, templates, ebooks, gated… |
+| [link-building](skills/marketing-business/marketingskills/link-building/SKILL.md) | When the user wants backlinks and mentions that lift rankings and AI citations, or asks how to get sites to link or whether a link tactic is safe: link gaps, unlinked mentions, br… |
+| [marketing-council](skills/marketing-business/marketingskills/marketing-council/SKILL.md) | When the user wants several expert takes on a marketing decision, or asks what a famous marketer would say about it: a simulated board (Seth Godin, David Ogilvy, April Dunford, By… |
+| [marketing-ideas](skills/marketing-business/marketingskills/marketing-ideas/SKILL.md) | When the user wants marketing ideas or growth tactics for a software product, or asks what to try to get attention or the next customers with little time or budget, or after the o… |
+| [marketing-loops](skills/marketing-business/marketingskills/marketing-loops/SKILL.md) | When the user wants a recurring marketing job an AI agent runs on a cadence or trigger, or asks what a weekly or daily automated check should do, remember, and when it should stop… |
+| [marketing-plan](skills/marketing-business/marketingskills/marketing-plan/SKILL.md) | When the user wants a full marketing or go-to-market plan for a client, an advised company, or their own product, or asks how to sequence or prioritize several initiatives with a… |
+| [marketing-psychology](skills/marketing-business/marketingskills/marketing-psychology/SKILL.md) | When the user wants to apply psychology to marketing, or asks why buyers behave or value things as they do, or whether a persuasion tactic is honest: biases, mental models, anchor… |
+| [offers](skills/marketing-business/marketingskills/offers/SKILL.md) | When the user wants to design or improve the offer itself, or asks why it isn't selling or how to add urgency honestly: value stacking, bonuses, guarantees, scarcity, payment plan… |
+| [onboarding](skills/marketing-business/marketingskills/onboarding/SKILL.md) | When the user wants better onboarding and activation, or asks why new users don't stick or what the first session should do: first-run experience, aha moments, checklists, empty s… |
+| [paywalls](skills/marketing-business/marketingskills/paywalls/SKILL.md) | When the user wants to create or improve in-app paywalls and upgrade moments, or asks when or how hard to ask free users to pay (after they've seen value): upgrade screens, upsell… |
+| [popups](skills/marketing-business/marketingskills/popups/SKILL.md) | When the user wants to create or improve popups, modals, slide-ins, sticky bars, and banners, or asks whether one will help or annoy and when to show it: exit intent, email captur… |
+| [pricing](skills/marketing-business/marketingskills/pricing/SKILL.md) | When the user wants to set pricing and packaging, or asks what to charge, whether to raise prices, or how to move existing customers: tiers, value metrics, per-seat vs usage, free… |
+| [product-marketing](skills/marketing-business/marketingskills/product-marketing/SKILL.md) | When the user wants to create or update the product marketing context doc (.agents/product-marketing.md), or asks what belongs in it or whether positioning or ICP is clear enough:… |
+| [programmatic-seo](skills/marketing-business/marketingskills/programmatic-seo/SKILL.md) | When the user wants SEO pages at scale from templates and data, or asks whether a page set will rank or look thin: location, integration, comparison, directory, and '[X] for [Y]'… |
+| [prospecting](skills/marketing-business/marketingskills/prospecting/SKILL.md) | When the user wants to find and qualify prospects for outbound, or asks who to target first, which signal to prioritize, or where to spot buyers with the problem: buying signals,… |
+| [public-relations](skills/marketing-business/marketingskills/public-relations/SKILL.md) | When the user wants press and media coverage, or asks what to say to a reporter, whether a story is newsworthy, or how to handle a crisis: pitches, press releases, media lists, HA… |
+| [referrals](skills/marketing-business/marketingskills/referrals/SKILL.md) | When the user wants referral and affiliate programs or word of mouth, or asks what to reward, how much to pay, or which loop to start with: refer-a-friend incentives, commissions… |
+| [reverse-engineer-marketing](skills/marketing-business/marketingskills/reverse-engineer-marketing/SKILL.md) | When the user wants to know how another company grew and what to copy, or asks what a competitor did and when: a dated log of their moves against their traffic from public data, a… |
+| [revops](skills/marketing-business/marketingskills/revops/SKILL.md) | When the user wants to design revenue operations, or asks when a lead is ready for sales or why sales and marketing disagree on lead quality: lifecycle stages, MQL and SQL, scorin… |
+| [sales-enablement](skills/marketing-business/marketingskills/sales-enablement/SKILL.md) | When the user wants sales collateral, or asks what to give a champion or rep, or how to answer an objection or make the case: decks, one-pagers, objection handling, demo scripts,… |
+| [schema](skills/marketing-business/marketingskills/schema/SKILL.md) | When the user wants to add, fix, or validate schema markup (JSON-LD), or asks which type fits a page or whether some markup is allowed: product, review, recipe, FAQ, rich result e… |
+| [seo-audit](skills/marketing-business/marketingskills/seo-audit/SKILL.md) | When the user wants to audit or diagnose SEO, or asks why traffic dropped, a page won't rank, or whether a setup like canonicals, hreflang, or redirects is right: technical SEO, i… |
+| [signup](skills/marketing-business/marketingskills/signup/SKILL.md) | When the user wants better signup, registration, and trial start flows, or asks which fields or steps to cut or whether to require a card: SSO and drop-off before an account exist… |
+| [site-architecture](skills/marketing-business/marketingskills/site-architecture/SKILL.md) | When the user wants to plan or restructure a website, or asks which pages they need or where something belongs: hierarchy, navigation, URL structure, internal linking, website bui… |
+| [sms](skills/marketing-business/marketingskills/sms/SKILL.md) | When the user wants SMS, MMS, or WhatsApp marketing, or asks whether texting is worth it or a message is allowed: abandoned cart, win-back, and promo texts, WhatsApp templates and… |
+| [social](skills/marketing-business/marketingskills/social/SKILL.md) | When the user wants organic social content for LinkedIn, X, Instagram, TikTok, or Facebook, or asks what to post, which format to favor, or from which account: posts, threads, car… |
+| [video](skills/marketing-business/marketingskills/video/SKILL.md) | When the user wants to create video with AI tools or code, or asks which approach to use (screen recording, AI avatar, generated, or templated) or how to make videos repeatably: p… |
+
 ## 寫作／溝通 (`writing-communication`)
 
 | 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
 |---|---|---|---|---|---|
 | [anthropics](#writing-communication-anthropics) | 2 | Anthropic 官方：文件共筆流程、內部溝通文稿 | 共筆, 公告, 週報 | [anthropics/skills](https://github.com/anthropics/skills) `2c5958e`（Apache-2.0） | 2026-11-13 |
+| [caveman](#writing-communication-caveman) | 22 | 讓 AI 用最少的字回答，省 token | 精簡回答, 省 token | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) `ad47375`（Apache-2.0） | 2026-11-13 |
+| [humanizer](skills/writing-communication/humanizer/SKILL.md) | 1 | 去掉文字裡的 AI 痕跡：套話、固定句式 | 去 AI 味, humanize, 文章潤飾 | [blader/humanizer](https://github.com/blader/humanizer) `b48c832`（MIT） | 2026-11-13 |
+| [i-have-adhd](#writing-communication-i-have-adhd) | 1 | 先說結論和下一步，再給細節 | 結論先行, ADHD, 回答格式 | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) `1ecea19`（MIT） | 2026-11-13 |
+| [lieflat-less-ai-tone](skills/writing-communication/lieflat-less-ai-tone/SKILL.md) | 1 | 降低中文文字的 AI 腔，附偵測方法與研究筆記 | 去 AI 味, 中文寫作, 潤稿 | [larashero3-dotcom/lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone) `fe77df0`（CC BY-NC 4.0） | 2026-11-13 |
 
 <a id="writing-communication-anthropics"></a>
 
@@ -654,11 +1184,89 @@ Anthropic 官方：文件共筆流程、內部溝通文稿。資料夾：[`skill
 | [doc-coauthoring](skills/writing-communication/anthropics/doc-coauthoring/SKILL.md) | Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structu… |
 | [internal-comms](skills/writing-communication/anthropics/internal-comms/SKILL.md) | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some… |
 
+<a id="writing-communication-caveman"></a>
+
+### caveman（22 個）
+
+讓 AI 用最少的字回答，省 token。資料夾：[`skills/writing-communication/caveman`](skills/writing-communication/caveman)
+
+| SKILL | 原始說明 |
+|---|---|
+| [cavecrew](skills/writing-communication/caveman/cavecrew/SKILL.md) | When to delegate to `cavecrew-investigator` (locate code), `cavecrew-builder` (1-2 file edit) or `cavecrew-reviewer` (diff review) instead of working inline or using `Explore`. Th… |
+| [caveman](skills/writing-communication/caveman/caveman/SKILL.md) | Terse caveman voice: answer first, fluff gone, every technical fact kept. Use for /caveman, "caveman mode", "talk like caveman", "be brief", "less tokens". Stays on until "stop ca… |
+| [caveman-commit](skills/writing-communication/caveman/caveman-commit/SKILL.md) | Write a Conventional Commits message compressed to intent only. Use for "write a commit", "commit message", /commit or /caveman-commit. |
+| [caveman-compress](skills/writing-communication/caveman/caveman-compress/SKILL.md) | Compress a memory file such as CLAUDE.md or a todo list into caveman format to save input tokens, keeping a readable backup. Sends the file's text to the configured model provider… |
+| [caveman-discover](skills/writing-communication/caveman/caveman-discover/SKILL.md) | Find and label every LLM workflow in the repository so Caveman Cloud groups spend by workflow instead of one bucket. Use for "discover workflows" or breaking LLM spend down by wor… |
+| [caveman-evidence-review](skills/writing-communication/caveman/caveman-evidence-review/SKILL.md) | Read-only review of Caveman Cloud evidence: cost, Cave Score, workflows, traces, latency, errors, routing, savings. Use when asked what Caveman found or where LLM spend goes. |
+| [caveman-explore](skills/writing-communication/caveman/caveman-explore/SKILL.md) | Read-only repository explorer for cold-start orientation, broad cross-file localization, or when a direct search failed. Skip it when the exact file or symbol is already named. Re… |
+| [caveman-help](skills/writing-communication/caveman/caveman-help/SKILL.md) | Quick-reference card for the three caveman skills and their commands. Trigger: /caveman-help or "caveman help". |
+| [caveman-learn](skills/writing-communication/caveman/caveman-learn/SKILL.md) | Act on a Caveman learn report - review the ranked token sinks, apply cost-lowering fixes with per-edit consent, and report what those fixes returned. Use when asked to lower an ag… |
+| [caveman-manage](skills/writing-communication/caveman/caveman-manage/SKILL.md) | Inspect Caveman Cloud's experiment lifecycle and block unsafe execution. Use when asked to start, approve, cancel, promote or roll back a Caveman experiment. |
+| [caveman-optimize](skills/writing-communication/caveman/caveman-optimize/SKILL.md) | Turn a Caveman optimization observation into an operator-chosen candidate with a paired baseline evaluation. Use when asked to inspect or evaluate a Caveman optimization report. N… |
+| [caveman-review](skills/writing-communication/caveman/caveman-review/SKILL.md) | Compressed code review - one line per finding with location, problem and fix. Use for /caveman-review, "review this PR", or "review the diff". |
+| [caveman-setup](skills/writing-communication/caveman/caveman-setup/SKILL.md) | Wire a repository through the Caveman Cloud gateway so every LLM request is measured, with no behavior change. Use for "set up caveman" or adding LLM spend observability. |
+| [caveman-stats](skills/writing-communication/caveman/caveman-stats/SKILL.md) | Show recorded output and cache-read token usage and mode attribution for the current Claude Code session, or locate the host's native usage report. Trigger: /caveman-stats. |
+| [investigate-first](skills/writing-communication/caveman/investigate-first/SKILL.md) | Diagnose ambiguous failures before editing. Use for unknown causes, intermittent behavior, performance regressions, or investigations needing evidence-ranked hypotheses. |
+| [lean-build](skills/writing-communication/caveman/lean-build/SKILL.md) | Build feature work with high overbuilding risk. Use for new behavior, product slices, or integrations where repository reuse, strict scope, and an explicit stop condition matter. |
+| [megacave](skills/writing-communication/caveman/megacave/SKILL.md) | Caveman in Classical Chinese: 文言文 register, far fewer characters, technical terms verbatim. Invoke only with /megacave or /caveman wenyan. Stays on until "stop caveman" or "normal… |
+| [migration](skills/writing-communication/caveman/migration/SKILL.md) | Implement reversible compatibility-safe transitions. Use for schema, data, API, protocol, configuration, or dependency migrations requiring rollback and preservation proof. |
+| [safe-refactor](skills/writing-communication/caveman/safe-refactor/SKILL.md) | Restructure code while preserving behavior. Use for extraction, consolidation, ownership moves, or cleanup where verification must bracket structural edits. |
+| [surgical-patch](skills/writing-communication/caveman/surgical-patch/SKILL.md) | Fix bugs and small behavior changes at the narrowest responsible layer. Use when regression proof, preserved surrounding behavior, and task-relevant tests matter. |
+| [ultracave](skills/writing-communication/caveman/ultracave/SKILL.md) | Caveman at maximum compression: fragments, one word when one word is enough, each fact once. Invoke only with /ultracave or /caveman ultra. Stays on until "stop caveman" or "norma… |
+| [verify-and-stop](skills/writing-communication/caveman/verify-and-stop/SKILL.md) | Prove existing work meets acceptance conditions without expanding scope. Use for validation-only tasks, completion checks, focused gate runs, and last-mile proof. |
+
+<a id="writing-communication-i-have-adhd"></a>
+
+### i-have-adhd（1 個）
+
+先說結論和下一步，再給細節。資料夾：[`skills/writing-communication/i-have-adhd`](skills/writing-communication/i-have-adhd)
+
+| SKILL | 原始說明 |
+|---|---|
+| [i-have-adhd](skills/writing-communication/i-have-adhd/i-have-adhd/SKILL.md) | Shape output for a reader with ADHD: lead with the next action, number multi-step work, restate state across turns, suppress tangents, give specific time estimates, make wins visi… |
+
 ## 效率／工作流 (`productivity-workflow`)
 
 | 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
 |---|---|---|---|---|---|
+| [agent-second-brain](#productivity-workflow-agent-second-brain) | 4 | Telegram 語音筆記進 Obsidian 或 Todoist 的 vault 設定（skills、agents、rules） | telegram, obsidian, todoist, 語音筆記 | [smixs/agent-second-brain](https://github.com/smixs/agent-second-brain) `7828ed6`（MIT） | 2026-11-13 |
+| [ai-memory](#productivity-workflow-ai-memory) | 7 | 跨工具的 markdown 記憶：在 Claude Code 中斷、到 Codex 接續 | 記憶, handoff, 跨 agent | [akitaonrails/ai-memory](https://github.com/akitaonrails/ai-memory) `a11eff2`（MIT） | 2026-11-13 |
 | [anthropics](#productivity-workflow-anthropics) | 4 | Anthropic 官方：Word、PDF、PowerPoint、Excel 檔案處理 | docx, pdf, pptx, xlsx | [anthropics/skills](https://github.com/anthropics/skills) `2c5958e`（Apache-2.0） | 2026-11-13 |
+| [awesome-claude-skills](#productivity-workflow-awesome-claude-skills) | 32 | ComposioHQ 合集中的通用 SKILL（未含 832 個自動產生的 app 連接器） | 檔案整理, 履歷, 會議分析, 發票, 影片下載 | [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) `be2a406`（Apache-2.0（README 標示，各 SKILL 可能不同）） | 2026-11-13 |
+| [claude-second-brain](#productivity-workflow-claude-second-brain) | 5 | Obsidian + Claude Code + 本機搜尋的第二大腦模板 | obsidian, 本機搜尋, brain-ingest | [jessepinkman9900/claude-second-brain](https://github.com/jessepinkman9900/claude-second-brain) `599f55a`（MIT） | 2026-11-13 |
+| [cog-second-brain](#productivity-workflow-cog-second-brain) | 43 | 純 markdown 的第二大腦，43 個 SKILL | second brain, 筆記, 每日回顧 | [huytieu/COG-second-brain](https://github.com/huytieu/COG-second-brain) `144c7a3`（MIT） | 2026-11-13 |
+| [gbrain](#productivity-workflow-gbrain) | 75 | Garry Tan 的 agent 大腦：共享記憶、每筆事實記錄來源 | agent 記憶, 知識庫, second brain | [garrytan/gbrain](https://github.com/garrytan/gbrain) `4af7754`（MIT） | 2026-11-13 |
+| [obsidian-skills](#productivity-workflow-obsidian-skills) | 7 | kepano（Obsidian CEO）官方：正確的 Obsidian Markdown、wikilinks、Bases、Canvas、CLI | obsidian, wikilinks, bases, canvas | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) `3981277`（MIT） | 2026-11-13 |
+| [open-second-brain](#productivity-workflow-open-second-brain) | 6 | 每晚把重複的糾正整理成 agent 規則 | second brain, 規則學習 | [itechmeat/open-second-brain](https://github.com/itechmeat/open-second-brain) `7187c39`（MIT） | 2026-11-13 |
+
+<a id="productivity-workflow-agent-second-brain"></a>
+
+### agent-second-brain（4 個）
+
+Telegram 語音筆記進 Obsidian 或 Todoist 的 vault 設定（skills、agents、rules）。資料夾：[`skills/productivity-workflow/agent-second-brain`](skills/productivity-workflow/agent-second-brain)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/autograph](skills/productivity-workflow/agent-second-brain/skills/autograph/SKILL.md) | Schema-as-code enforcement for any Obsidian vault. Zero hardcoded domains. Use when creating vault cards, checking vault health, running schema compliance, deduplicating entities,… |
+| [skills/cron](skills/productivity-workflow/agent-second-brain/skills/cron/SKILL.md) | Управление собственным расписанием — напоминания, рутины, периодические задачи. Триггеры — "напомни", "каждый день/час/утро", "по расписанию", "schedule", "reminder", "отмени напо… |
+| [skills/dbrain-processor](skills/productivity-workflow/agent-second-brain/skills/dbrain-processor/SKILL.md) | Personal assistant for processing daily voice/text entries from Telegram. Classifies content, saves thoughts to Obsidian with wiki-links, generates HTML reports. Integrates Your B… |
+| [skills/migrate-doctor](skills/productivity-workflow/agent-second-brain/skills/migrate-doctor/SKILL.md) | Diagnose and repair a broken or non-standard agent-second-brain install/migration. Triggers — upgrade.sh failed, bot won't start after upgrade, "миграция сломалась", "бот не старт… |
+
+<a id="productivity-workflow-ai-memory"></a>
+
+### ai-memory（7 個）
+
+跨工具的 markdown 記憶：在 Claude Code 中斷、到 Codex 接續。資料夾：[`skills/productivity-workflow/ai-memory`](skills/productivity-workflow/ai-memory)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/ai-memory-durable-pages](skills/productivity-workflow/ai-memory/skills/ai-memory-durable-pages/SKILL.md) | Use this skill for any explicit wiki mutation in ai-memory: saving durable or time-bounded project knowledge, recording a rule or annotation, updating a note, or deleting a memory… |
+| [skills/ai-memory-handoff](skills/productivity-workflow/ai-memory/skills/ai-memory-handoff/SKILL.md) | Use this skill for any request whose goal is session continuity across agents or time: finding a pending handoff, resuming previous work, re-grounding after a context compaction (… |
+| [skills/ai-memory-learning-maintenance](skills/productivity-workflow/ai-memory/skills/ai-memory-learning-maintenance/SKILL.md) | Use this skill for any ai-memory knowledge-base maintenance request: consolidating observations, reviewing session lessons, proposing durable learnings, auditing or linting the wi… |
+| [skills/ai-memory-messaging](skills/productivity-workflow/ai-memory/skills/ai-memory-messaging/SKILL.md) | Use this skill for cross-project agent-to-agent messaging: sending a request to another project's inbox, checking or popping this project's inbox, or retracting a message you sent… |
+| [skills/ai-memory-retrieval](skills/productivity-workflow/ai-memory/skills/ai-memory-retrieval/SKILL.md) | Use this skill for any request whose goal is read-only retrieval from ai-memory: project history, prior context, decisions, rules, gotchas, recent activity, full wiki pages, or st… |
+| [skills/ai-memory-routing-install](skills/productivity-workflow/ai-memory/skills/ai-memory-routing-install/SKILL.md) | Use this skill for any request to install, refresh, repair, inspect, or remove ai-memory's agent-facing routing: managed instruction snippets, Agent Skills, CLAUDE.md/AGENTS.md in… |
+| [skills/status](skills/productivity-workflow/ai-memory/skills/status/SKILL.md) | Check whether ai-memory is capturing this session and its memory tools can reach the server. Run it when memory looks missing or after installing or upgrading ai-memory. |
 
 <a id="productivity-workflow-anthropics"></a>
 
@@ -672,6 +1280,228 @@ Anthropic 官方：Word、PDF、PowerPoint、Excel 檔案處理。資料夾：[`
 | [pdf](skills/productivity-workflow/anthropics/pdf/SKILL.md) | Use this skill whenever the user wants to do anything with PDF files. This includes reading or extracting text/tables from PDFs, combining or merging multiple PDFs into one, split… |
 | [pptx](skills/productivity-workflow/anthropics/pptx/SKILL.md) | Use this skill any time a .pptx or .potx file is involved in any way — as input, output, or both. This includes: creating slide decks, pitch decks, or presentations; reading, pars… |
 | [xlsx](skills/productivity-workflow/anthropics/xlsx/SKILL.md) | Use this skill any time a spreadsheet file is the primary input or output. This means any task where the user wants to: open, read, edit, or fix an existing .xlsx, .xlsm, .xltx, .… |
+
+<a id="productivity-workflow-awesome-claude-skills"></a>
+
+### awesome-claude-skills（32 個）
+
+ComposioHQ 合集中的通用 SKILL（未含 832 個自動產生的 app 連接器）。資料夾：[`skills/productivity-workflow/awesome-claude-skills`](skills/productivity-workflow/awesome-claude-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [artifacts-builder](skills/productivity-workflow/awesome-claude-skills/artifacts-builder/SKILL.md) | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts… |
+| [brand-guidelines](skills/productivity-workflow/awesome-claude-skills/brand-guidelines/SKILL.md) | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelin… |
+| [canvas-design](skills/productivity-workflow/awesome-claude-skills/canvas-design/SKILL.md) | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other sta… |
+| [changelog-generator](skills/productivity-workflow/awesome-claude-skills/changelog-generator/SKILL.md) | Automatically creates user-facing changelogs from git commits by analyzing commit history, categorizing changes, and transforming technical commits into clear, customer-friendly r… |
+| [competitive-ads-extractor](skills/productivity-workflow/awesome-claude-skills/competitive-ads-extractor/SKILL.md) | Extracts and analyzes competitors' ads from ad libraries (Facebook, LinkedIn, etc.) to understand what messaging, problems, and creative approaches are working. Helps inspire and… |
+| [connect](skills/productivity-workflow/awesome-claude-skills/connect/SKILL.md) | Connect Claude to any app. Send emails, create issues, post messages, update databases - take real actions across Gmail, Slack, GitHub, Notion, and 1000+ services. |
+| [connect-apps](skills/productivity-workflow/awesome-claude-skills/connect-apps/SKILL.md) | Connect Claude to external apps like Gmail, Slack, GitHub. Use this skill when the user wants to send emails, create issues, post messages, or take actions in external services. |
+| [content-research-writer](skills/productivity-workflow/awesome-claude-skills/content-research-writer/SKILL.md) | Assists in writing high-quality content by conducting research, adding citations, improving hooks, iterating on outlines, and providing real-time feedback on each section. Transfo… |
+| [developer-growth-analysis](skills/productivity-workflow/awesome-claude-skills/developer-growth-analysis/SKILL.md) | Analyzes your recent Claude Code chat history to identify coding patterns, development gaps, and areas for improvement, curates relevant learning resources from HackerNews, and au… |
+| [document-skills/docx](skills/productivity-workflow/awesome-claude-skills/document-skills/docx/SKILL.md) | Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with pro… |
+| [document-skills/pdf](skills/productivity-workflow/awesome-claude-skills/document-skills/pdf/SKILL.md) | Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form… |
+| [document-skills/pptx](skills/productivity-workflow/awesome-claude-skills/document-skills/pptx/SKILL.md) | Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for: (1) Creating new presentations, (2) Modifying or editing content, (3)… |
+| [document-skills/xlsx](skills/productivity-workflow/awesome-claude-skills/document-skills/xlsx/SKILL.md) | Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xl… |
+| [domain-name-brainstormer](skills/productivity-workflow/awesome-claude-skills/domain-name-brainstormer/SKILL.md) | Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking. |
+| [file-organizer](skills/productivity-workflow/awesome-claude-skills/file-organizer/SKILL.md) | Intelligently organizes your files and folders across your computer by understanding context, finding duplicates, suggesting better structures, and automating cleanup tasks. Reduc… |
+| [image-enhancer](skills/productivity-workflow/awesome-claude-skills/image-enhancer/SKILL.md) | Improves the quality of images, especially screenshots, by enhancing resolution, sharpness, and clarity. Perfect for preparing images for presentations, documentation, or social m… |
+| [internal-comms](skills/productivity-workflow/awesome-claude-skills/internal-comms/SKILL.md) | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some… |
+| [invoice-organizer](skills/productivity-workflow/awesome-claude-skills/invoice-organizer/SKILL.md) | Automatically organizes invoices and receipts for tax preparation by reading messy files, extracting key information, renaming them consistently, and sorting them into logical fol… |
+| [langsmith-fetch](skills/productivity-workflow/awesome-claude-skills/langsmith-fetch/SKILL.md) | Debug LangChain and LangGraph agents by fetching execution traces from LangSmith Studio. Use when debugging agent behavior, investigating errors, analyzing tool calls, checking me… |
+| [lead-research-assistant](skills/productivity-workflow/awesome-claude-skills/lead-research-assistant/SKILL.md) | Identifies high-quality leads for your product or service by analyzing your business, searching for target companies, and providing actionable contact strategies. Perfect for sale… |
+| [mcp-builder](skills/productivity-workflow/awesome-claude-skills/mcp-builder/SKILL.md) | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers… |
+| [meeting-insights-analyzer](skills/productivity-workflow/awesome-claude-skills/meeting-insights-analyzer/SKILL.md) | Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insights, and actionable feedback. Identifies when you avoid conflict, use filler words,… |
+| [raffle-winner-picker](skills/productivity-workflow/awesome-claude-skills/raffle-winner-picker/SKILL.md) | Picks random winners from lists, spreadsheets, or Google Sheets for giveaways, raffles, and contests. Ensures fair, unbiased selection with transparency. |
+| [skill-creator](skills/productivity-workflow/awesome-claude-skills/skill-creator/SKILL.md) | Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with speciali… |
+| [skill-share](skills/productivity-workflow/awesome-claude-skills/skill-share/SKILL.md) | A skill that creates new Claude skills and automatically shares them on Slack using Rube for seamless team collaboration and skill discovery. |
+| [slack-gif-creator](skills/productivity-workflow/awesome-claude-skills/slack-gif-creator/SKILL.md) | Toolkit for creating animated GIFs optimized for Slack, with validators for size constraints and composable animation primitives. This skill applies when users request animated GI… |
+| [tailored-resume-generator](skills/productivity-workflow/awesome-claude-skills/tailored-resume-generator/SKILL.md) | Analyzes job descriptions and generates tailored resumes that highlight relevant experience, skills, and achievements to maximize interview chances |
+| [template-skill](skills/productivity-workflow/awesome-claude-skills/template-skill/SKILL.md) | Replace with description of the skill and when Claude should use it. |
+| [theme-factory](skills/productivity-workflow/awesome-claude-skills/theme-factory/SKILL.md) | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can ap… |
+| [twitter-algorithm-optimizer](skills/productivity-workflow/awesome-claude-skills/twitter-algorithm-optimizer/SKILL.md) | Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. Rewrite and edit user tweets to improve engagement and visibility based on how the re… |
+| [youtube-downloader](skills/productivity-workflow/awesome-claude-skills/video-downloader/SKILL.md) | Download YouTube videos with customizable quality and format options. Use this skill when the user asks to download, save, or grab YouTube videos. Supports various quality setting… |
+| [webapp-testing](skills/productivity-workflow/awesome-claude-skills/webapp-testing/SKILL.md) | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots,… |
+
+<a id="productivity-workflow-claude-second-brain"></a>
+
+### claude-second-brain（5 個）
+
+Obsidian + Claude Code + 本機搜尋的第二大腦模板。資料夾：[`skills/productivity-workflow/claude-second-brain`](skills/productivity-workflow/claude-second-brain)
+
+| SKILL | 原始說明 |
+|---|---|
+| [.claude/skills/brain-ingest](skills/productivity-workflow/claude-second-brain/.claude/skills/brain-ingest/SKILL.md) | Ingest a new source into the wiki. Reads the source, summarizes it, creates a wiki/sources/ page, updates affected topic and entity pages, flags contradictions, and logs the activ… |
+| [.claude/skills/brain-rebuild](skills/productivity-workflow/claude-second-brain/.claude/skills/brain-rebuild/SKILL.md) | Redesign the qmd schema for this vault — analyze the current wiki, recommend a new set of collections and contexts, update scripts/qmd/setup.ts, then tear down and rebuild the ind… |
+| [.claude/skills/brain-refresh](skills/productivity-workflow/claude-second-brain/.claude/skills/brain-refresh/SKILL.md) | Refresh the qmd index for this vault — re-scans all collections for new/changed files and regenerates vector embeddings. Use after a bulk ingest session, after manual file edits,… |
+| [.claude/skills/brain-search](skills/productivity-workflow/claude-second-brain/.claude/skills/brain-search/SKILL.md) | Query the wiki to answer a question. Searches semantically, synthesizes an answer with inline citations, and optionally files the answer as a permanent Q&A page. Trigger phrases:… |
+| [.claude/skills/lint](skills/productivity-workflow/claude-second-brain/.claude/skills/lint/SKILL.md) | Health-check the wiki. Finds orphan pages, unresolved contradictions, stale claims, missing pages, broken links, and data gaps. Produces a lint report and appends to the log. Trig… |
+
+<a id="productivity-workflow-cog-second-brain"></a>
+
+### cog-second-brain（43 個）
+
+純 markdown 的第二大腦，43 個 SKILL。資料夾：[`skills/productivity-workflow/cog-second-brain`](skills/productivity-workflow/cog-second-brain)
+
+| SKILL | 原始說明 |
+|---|---|
+| [auto-research](skills/productivity-workflow/cog-second-brain/auto-research/SKILL.md) | Deep strategic research engine — decomposes questions into parallel research threads, spawns multiple agents, and synthesizes into actionable strategic analysis |
+| [blog-publish](skills/productivity-workflow/cog-second-brain/blog-publish/SKILL.md) | Write and publish a post to your own static blog end to end: content checklist (embedded links, optional TL;DR), per-post ASCII art, an agent-readable markdown twin, deploy, and s… |
+| [braindump](skills/productivity-workflow/cog-second-brain/braindump/SKILL.md) | Quick capture of raw thoughts with intelligent domain classification and competitive intelligence extraction |
+| [closed-loop](skills/productivity-workflow/cog-second-brain/closed-loop/SKILL.md) | Run one task through the V-model verification loop: CP-2 plan → CP-3 build → CP-3v component verify → CP-4 integration verify (full lane) → CP-5 acceptance. The worker never grade… |
+| [comprehensive-analysis](skills/productivity-workflow/cog-second-brain/comprehensive-analysis/SKILL.md) | Deep-dive 7-day analysis across all data sources for weekly reviews, board prep, and strategic planning |
+| [content-factory](skills/productivity-workflow/cog-second-brain/content-factory/SKILL.md) | Autonomous content pipeline - scout announcements in your field, triage by trend momentum and personal angle, produce posts/blogs/videos in your voice with ledger-based dedup, har… |
+| [create-user-story](skills/productivity-workflow/cog-second-brain/create-user-story/SKILL.md) | Create user stories with duplicate checking across any project tracker (Linear, GitHub Issues, Jira) |
+| [daily-brief](skills/productivity-workflow/cog-second-brain/daily-brief/SKILL.md) | Generate personalized news intelligence with verified sources (7-day freshness requirement) |
+| [daily-journal](skills/productivity-workflow/cog-second-brain/daily-journal/SKILL.md) | A passive daily work journal that Claude keeps FOR you so you never have to write it yourself. Append short entries after meaningful work (what was done, what you focused on, arti… |
+| [data-forms](skills/productivity-workflow/cog-second-brain/data-forms/SKILL.md) | Pick the right way to represent a dataset so a reader gets the finding in three seconds — a catalog of 20+ chart and diagram forms with when-to-use and failure modes, plus the enc… |
+| [editorial-illustrations](skills/productivity-workflow/cog-second-brain/editorial-illustrations/SKILL.md) | Generate meaning-carrying editorial data-illustrations in the monotykamary / Linear aesthetic (near-black grayscale, Inter display + mono labels, hairline framed figures) with a s… |
+| [export-open-issues](skills/productivity-workflow/cog-second-brain/export-open-issues/SKILL.md) | Audit and export open issues from any project tracker with summary analysis and vault archival |
+| [feature-doc](skills/productivity-workflow/cog-second-brain/feature-doc/SKILL.md) | Closed-loop feature documentation for your product. Give it a feature (issue numbers or an id) and it reads the source, drives your live app to capture real screenshots and a scre… |
+| [generate-prd](skills/productivity-workflow/cog-second-brain/generate-prd/SKILL.md) | Generate product requirements documents with optional publishing to Confluence or other wiki platforms |
+| [generate-release-notes](skills/productivity-workflow/cog-second-brain/generate-release-notes/SKILL.md) | Generate categorized release notes from any source (GitHub, Linear, Jira, or manual input) with optional publishing |
+| [harvest](skills/productivity-workflow/cog-second-brain/harvest/SKILL.md) | Capture durable session learnings, stage for human promotion to 05-knowledge/lizard, and propose skill/CLAUDE.md patches. Triggered by /harvest, SessionEnd hook staging, or nightl… |
+| [knowledge-consolidation](skills/productivity-workflow/cog-second-brain/knowledge-consolidation/SKILL.md) | Build frameworks from scattered insights across all braindumps and notes |
+| [loop-engineering](skills/productivity-workflow/cog-second-brain/loop-engineering/SKILL.md) | Shared loop-engineering reference for COG skills - the agent loop, deterministic verifiers, termination conditions, in-loop context management, and named patterns. Invoke when des… |
+| [meeting-transcript](skills/productivity-workflow/cog-second-brain/meeting-transcript/SKILL.md) | Process meeting recordings and notes into structured decisions, action items, and team dynamics with intelligent noise filtering |
+| [memory-hygiene](skills/productivity-workflow/cog-second-brain/memory-hygiene/SKILL.md) | Periodic trust sweep of persistent memory and durable knowledge notes - re-verifies environment-dependent claims against the live environment, stamps last_verified + confidence, a… |
+| [museum-art](skills/productivity-workflow/cog-second-brain/museum-art/SKILL.md) | Source authentic, high-res PUBLIC-DOMAIN artwork from museum open-access APIs (Met, Cleveland, SMK, Rijksmuseum, NGA, Art Institute of Chicago, Getty, Smithsonian) instead of AI-g… |
+| [no-ai-slop](skills/productivity-workflow/cog-second-brain/no-ai-slop/SKILL.md) | Edit drafts into sharper, more human writing while preserving the writer's personal voice, or detect AI-slop patterns without rewriting. Use when the user wants a draft clearer, m… |
+| [onboarding](skills/productivity-workflow/cog-second-brain/onboarding/SKILL.md) | Personalize COG for your workflow - creates profile, interests, and watchlist files with guided setup (run this first!) |
+| [product-ui-taste](skills/productivity-workflow/cog-second-brain/product-ui-taste/SKILL.md) | Anti-slop skill for PRODUCT UI - dashboards, data tables, forms, multi-step flows, settings, list/detail, app shells. The agent reads the surface, budgets the frame first, and shi… |
+| [publish-to-confluence](skills/productivity-workflow/cog-second-brain/publish-to-confluence/SKILL.md) | Publish any markdown file from the vault to Confluence with format conversion and approval gate |
+| [release-comms](skills/productivity-workflow/cog-second-brain/release-comms/SKILL.md) | Release communication pipeline for your product: turn a deployment runsheet and a GitHub milestone into a customer-facing release note with real screenshots and videos, docs updat… |
+| [release-video](skills/productivity-workflow/cog-second-brain/release-video/SKILL.md) | Turn a product release (the list of shipped items plus real screen recordings) into a motion recap video and one explained demo per feature, with sound effects tied to on-screen m… |
+| [retro](skills/productivity-workflow/cog-second-brain/retro/SKILL.md) | CP-7 retrospective: audit checkpoints, evidence quality, action items, and harvest candidates. Closes the V-model cycle and feeds the next run. Use via /retro after ship, escalate… |
+| [review-cockpit](skills/productivity-workflow/cog-second-brain/review-cockpit/SKILL.md) | Produce and continuously maintain ONE living review document for a multi-item session — a cockpit header (Progress checklist, Working folder, Context) plus per-item review cards t… |
+| [scout](skills/productivity-workflow/cog-second-brain/scout/SKILL.md) | Evaluate URLs and tools — check vault coverage, assess relevance, recommend save or skip |
+| [slop-gate](skills/productivity-workflow/cog-second-brain/slop-gate/SKILL.md) | Deterministic pre-publish scan that refuses AI-slop tells in anything about to be written, published, or sent: files, artifacts, slide titles, table headers, diagram labels, chat… |
+| [social-media-kit](skills/productivity-workflow/cog-second-brain/social-media-kit/SKILL.md) | Produce and attach native media (video teaser, GIF, card images) for every social post to maximize reach and interaction. Use whenever you post to X, LinkedIn, Reddit, or prepare… |
+| [taste-skill](skills/productivity-workflow/cog-second-brain/taste-skill/SKILL.md) | Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brief, infers the right design direction, and ships interfaces that do not look template… |
+| [team-brief](skills/productivity-workflow/cog-second-brain/team-brief/SKILL.md) | Generate daily team intelligence brief by cross-referencing GitHub, Linear, Slack, PostHog, meetings, and braindumps with two-way Linear sync-back |
+| [terminal-replica](skills/productivity-workflow/cog-second-brain/terminal-replica/SKILL.md) | Reproduce YOUR real terminal and CLI agents (Claude Code, Codex CLI, Gemini CLI) faithfully in any generated graphic, GIF, or video frame. Use whenever an asset shows a terminal,… |
+| [ultragoal](skills/productivity-workflow/cog-second-brain/ultragoal/SKILL.md) | Run a large, multi-session goal (e.g. shipping a whole side product) through the full V-model closed loop, one phase at a time, with cross-session state and a final north-star acc… |
+| [update-cog](skills/productivity-workflow/cog-second-brain/update-cog/SKILL.md) | Check for and apply upstream COG framework updates (skills, docs, scripts) without touching personal content |
+| [update-knowledge-base](skills/productivity-workflow/cog-second-brain/update-knowledge-base/SKILL.md) | Maintain and update product knowledge base from releases, features, and project changes with optional wiki sync |
+| [url-dump](skills/productivity-workflow/cog-second-brain/url-dump/SKILL.md) | Quick capture URLs with automatic content extraction, insights, and categorization into knowledge booklets |
+| [vector-cover](skills/productivity-workflow/cog-second-brain/vector-cover/SKILL.md) | Generate flat vector editorial cover illustrations in a warm editorial style: near-black canvas, cream organic blob, serif display type, one terracotta accent, and thin line-art c… |
+| [voice-baseline](skills/productivity-workflow/cog-second-brain/voice-baseline/SKILL.md) | Measure your own writing corpus for the words and sentence shapes you over-use, so an agent writing in your voice stops amplifying your tics into a style. Produces a counted basel… |
+| [weekly-checkin](skills/productivity-workflow/cog-second-brain/weekly-checkin/SKILL.md) | Cross-domain pattern analysis and strategic reflection for weekly review |
+| [youtube-video-kit](skills/productivity-workflow/cog-second-brain/youtube-video-kit/SKILL.md) | Produce YouTube-ready video packaging: a branded thumbnail, an animated opening title, background music via ElevenLabs Music, and the upload metadata bundle. Use whenever you make… |
+
+<a id="productivity-workflow-gbrain"></a>
+
+### gbrain（75 個）
+
+Garry Tan 的 agent 大腦：共享記憶、每筆事實記錄來源。資料夾：[`skills/productivity-workflow/gbrain`](skills/productivity-workflow/gbrain)
+
+| SKILL | 原始說明 |
+|---|---|
+| [academic-verify](skills/productivity-workflow/gbrain/academic-verify/SKILL.md) | Verify a research claim or academic citation by tracing it through publication → methodology → raw data → independent replication. Routes through perplexity-research for the actua… |
+| [archive-crawler](skills/productivity-workflow/gbrain/archive-crawler/SKILL.md) | Universal archivist for personal file archives (Dropbox/B2/Gmail-takeout/local-mount/hard-drive-dump). Filters for high-value content (the user's own writing, ideas, relationships… |
+| [article-enrichment](skills/productivity-workflow/gbrain/article-enrichment/SKILL.md) | Transform raw article text dumps in the brain into structured pages with executive summary, verbatim quotes, key insights, why-it-matters, and cross-references. Replaces walls-of-… |
+| [ask-user](skills/productivity-workflow/gbrain/ask-user/SKILL.md) | Reusable pattern for presenting the user with explicit choices and gating execution until they respond. Used by other skills when a decision point requires human input before proc… |
+| [blog-ingest](skills/productivity-workflow/gbrain/blog-ingest/SKILL.md) | Feed and whole-publication ingestion: turn an entire blog, newsletter, or RSS/Atom archive into brain source pages. Covers feed discovery, pagination walking, normalization to a c… |
+| [book-mirror](skills/productivity-workflow/gbrain/book-mirror/SKILL.md) | Take any book (EPUB/PDF), produce a personalized chapter-by-chapter analysis. Each chapter is preserved in detail (The Chapter) and mirrored back to the reader's actual life (The… |
+| [brain-ingest-gate](skills/productivity-workflow/gbrain/brain-ingest-gate/SKILL.md) | Pre-write quality gate for content entering the brain. No raw copies: a bare cp/mv into the brain repo is a bug. Before any new page lands, resolve named entities registry-first (… |
+| [brain-link-discipline](skills/productivity-workflow/gbrain/brain-link-discipline/SKILL.md) | When you report a brain page to the user — created, edited, committed, or relayed from a subagent — a working link is part of the deliverable, in the SAME message. Derive the path… |
+| [brain-ops](skills/productivity-workflow/gbrain/brain-ops/SKILL.md) | Brain knowledge base operations. The core read/write cycle: brain-first lookup, read-enrich-write loop, source attribution, ambient enrichment, back-linking. Read this before any… |
+| [brain-pdf](skills/productivity-workflow/gbrain/brain-pdf/SKILL.md) | Generate a publication-quality PDF from any brain page via the gstack make-pdf binary. Strips YAML frontmatter, sanitizes emoji, applies running headers and page numbers. Brain pa… |
+| [brain-taxonomist](skills/productivity-workflow/gbrain/brain-taxonomist/SKILL.md) | Filing gate for ALL brain writes. Consulted before creating any new brain page to determine the correct path. Reads the ACTIVE schema pack via `gbrain schema show --json` — no har… |
+| [briefing](skills/productivity-workflow/gbrain/briefing/SKILL.md) | Compile daily briefing with meeting context, active deals, and citation tracking |
+| [bulk-ingestion](skills/productivity-workflow/gbrain/bulk-ingestion/SKILL.md) | End-to-end discipline for turning any large data source (audio libraries, email takeouts, document corpora, chat exports, API dumps) into brain pages at scale. The lifecycle spine… |
+| [capture](skills/productivity-workflow/gbrain/capture/SKILL.md) | Save any thought or content into the brain via one CLI command. The single human-facing entrypoint that replaces "put_page vs commit-then-sync vs autopilot-wait" with one command… |
+| [chat-connectors](skills/productivity-workflow/gbrain/chat-connectors/SKILL.md) | Connect a ChatGPT or Claude account and sync its conversation history into the brain automatically. Cookie paste-in is the primary lane; sync is incremental (watermark + trailing-… |
+| [citation-fixer](skills/productivity-workflow/gbrain/citation-fixer/SKILL.md) | Audit and fix citation formatting across brain pages. Ensures every fact has an inline [Source: ...] citation matching the standard format. Extended in v0.25.1: scans for broken t… |
+| [citation-graph-ingest](skills/productivity-workflow/gbrain/citation-graph-ingest/SKILL.md) | Build a TYPED citation/reference graph over an ingested corpus — not just embeddings. Flat similarity retrieval cannot tell you that document A *overrules* B, *distinguishes* C, o… |
+| [cold-start](skills/productivity-workflow/gbrain/cold-start/SKILL.md) | Day-one data bootstrapping for a new brain. Sequences the highest-leverage data sources to go from empty brain to useful brain in one session. Uses ClawVisor for safe credential h… |
+| [company-brainify](skills/productivity-workflow/gbrain/company-brainify/SKILL.md) | Extract a sanitized shared team/company brain from a personal brain. Strips internal ratings, compensation, performance assessments, retention and political dynamics from pages, t… |
+| [concept-synthesis](skills/productivity-workflow/gbrain/concept-synthesis/SKILL.md) | Deduplicate and synthesize raw concept stubs into a tiered intellectual map (T1 Canon to T4 Riff), tracing idea evolution across sources over time. Transforms thousands of raw con… |
+| [context-audit](skills/productivity-workflow/gbrain/context-audit/SKILL.md) | Token-hygiene audit of the always-loaded context stack — CLAUDE.md, AGENTS.md, auto-memory MEMORY.md, and the bootstrap-rendered identity files (SOUL.md, USER.md, ACCESS_POLICY.md… |
+| [conversation-archive](skills/productivity-workflow/gbrain/conversation-archive/SKILL.md) | Import AI-assistant chat exports (ChatGPT, Claude, Perplexity) and agent session transcripts into the brain as one dated page per conversation under conversations/, validate each… |
+| [correction-pipeline](skills/productivity-workflow/gbrain/correction-pipeline/SKILL.md) | When the user corrects a factual error, root-cause it immediately. Don't just note the correction — trace the error to its source, fix the source, and prevent recurrence. Every fa… |
+| [cron-scheduler](skills/productivity-workflow/gbrain/cron-scheduler/SKILL.md) | Schedule management with staggering, quiet hours, and wake-up override. Validates schedules, prevents collisions, and gates delivery during quiet hours. |
+| [cross-modal-review](skills/productivity-workflow/gbrain/cross-modal-review/SKILL.md) | Quality gate via second model. Spawn a different AI model to review work before committing. Includes refusal routing: if one model refuses, switch silently to the next. Extended i… |
+| [daily-task-manager](skills/productivity-workflow/gbrain/daily-task-manager/SKILL.md) | Task lifecycle management with stable task IDs. Add, complete, defer, remove, and review tasks with deterministic action routing and fail-closed ambiguity handling. Maintains a ru… |
+| [daily-task-prep](skills/productivity-workflow/gbrain/daily-task-prep/SKILL.md) | Morning preparation. Calendar lookahead, meeting context loading, open threads from yesterday, active task review. Extends briefing with actionable prep. |
+| [data-loss-gate](skills/productivity-workflow/gbrain/data-loss-gate/SKILL.md) | Confirmation gate before any bulk delete, cleanup, or destructive operation that could result in data loss — shell-level (rm -rf, git rm, bulk sed) or brain-level (bulk forget, de… |
+| [data-research](skills/productivity-workflow/gbrain/data-research/SKILL.md) | Structured data research: search sources, extract structured data, archive raw sources, maintain canonical tracker pages, deduplicate. Parameterized via YAML recipes for investor… |
+| [db-repair](skills/productivity-workflow/gbrain/db-repair/SKILL.md) | Auto-fix gbrain's Postgres access so the brain stays available. When any gbrain command or MCP tool result carries a `GBRAIN_DB_ACCESS <reason>` marker (or an operator reports the… |
+| [draft-in-voice](skills/productivity-workflow/gbrain/draft-in-voice/SKILL.md) | Ghostwrite content in a specific person's voice from a VALIDATED voice profile — tweets, replies, short posts, launch copy, recruiting blurbs, emails. Loads the subject's voice pr… |
+| [eiirp](skills/productivity-workflow/gbrain/eiirp/SKILL.md) | Everything In Its Right Place. The universal post-work organizer. After any significant work session, EIIRP runs a 7-phase audit: (1) inventory every output, (2) walk taxonomy to… |
+| [enrich](skills/productivity-workflow/gbrain/enrich/SKILL.md) | Enrich brain pages with tiered enrichment protocol. Creates and updates person/company pages with compiled truth, timeline, and cross-links. Use when a new entity is mentioned or… |
+| [fact-check](skills/productivity-workflow/gbrain/fact-check/SKILL.md) | Systematic claim-by-claim verification for any content before it ships. Modeled on professional fact-checking desks (The New Yorker, ProPublica, IFCN standards): extract every ver… |
+| [frontmatter-guard](skills/productivity-workflow/gbrain/frontmatter-guard/SKILL.md) | Validate and auto-repair YAML frontmatter on brain pages. Catches malformed pages before they enter the brain (missing closing ---, nested quotes, slug mismatches, null bytes, emp… |
+| [functional-area-resolver](skills/productivity-workflow/gbrain/functional-area-resolver/SKILL.md) | Compress an agent's routing file (RESOLVER.md or AGENTS.md) by converting granular skill-per-row tables into functional-area dispatchers. Each area lists sub-skills in a "(dispatc… |
+| [gbrain-advisor](skills/productivity-workflow/gbrain/gbrain-advisor/SKILL.md) | Proactive "make the most of gbrain" coaching. Runs `gbrain advisor` on a cadence and pings the user with the top high-leverage actions for their brain: version drift, pending migr… |
+| [gbrain-upgrade](skills/productivity-workflow/gbrain/gbrain-upgrade/SKILL.md) | Keep gbrain current. When a `gbrain` invocation prints an `UPGRADE_AVAILABLE <old> <new>` marker (or `gbrain self-upgrade --check-only` reports an update), apply it per the config… |
+| [google-loops](skills/productivity-workflow/gbrain/google-loops/SKILL.md) | Set up and operate the Gmail/Calendar/Contacts connector and the open-loop engine: who is waiting on the user, what they promised, and the context needed to respond. Covers painle… |
+| [idea-ingest](skills/productivity-workflow/gbrain/idea-ingest/SKILL.md) | Ingest links, articles, tweets, and ideas into the brain. Fetch content, save to brain with analysis, credit the author (people page only when they pass the notability gate), and… |
+| [idea-lineage](skills/productivity-workflow/gbrain/idea-lineage/SKILL.md) | Trace one idea's evolution through the brain: first mention, best articulation, related concepts, reversals, contradictions, abandoned branches, and the current live version. Use… |
+| [ingest](skills/productivity-workflow/gbrain/ingest/SKILL.md) | Route content to specialized ingestion skills. Detects input type and delegates. |
+| [maintain](skills/productivity-workflow/gbrain/maintain/SKILL.md) | Brain health checks: back-link enforcement, citation audit, filing validation, stale info detection, orphan pages, and benchmarks. Use when asked to check brain health, run mainte… |
+| [mcp-access](skills/productivity-workflow/gbrain/mcp-access/SKILL.md) | Open the GBrain owner dashboard, manage MCP clients and permissions, or connect a native OAuth harness. Distinguishes owner administration from ordinary MCP access. |
+| [measure-before-you-fix](skills/productivity-workflow/gbrain/measure-before-you-fix/SKILL.md) | Before fixing a slow/stale/timeout alert, measure the step yourself. Kill the theory with a stopwatch, not a code change. Measure-first ops triage for temporal alerts (stale, time… |
+| [media-ingest](skills/productivity-workflow/gbrain/media-ingest/SKILL.md) | Ingest video, audio, PDF, book, screenshot, and GitHub repo content into the brain. Multi-format handling with entity extraction and backlink propagation. Covers video-ingest, you… |
+| [meeting-ingestion](skills/productivity-workflow/gbrain/meeting-ingestion/SKILL.md) | Ingest meeting transcripts from ANY meeting recorder into brain pages with attendee enrichment, entity propagation, and timeline merge. One unified pipeline: normalize the source… |
+| [migrate](skills/productivity-workflow/gbrain/migrate/SKILL.md) | Universal migration from Obsidian, Notion, Logseq, markdown, CSV, JSON, Roam |
+| [minion-orchestrator](skills/productivity-workflow/gbrain/minion-orchestrator/SKILL.md) | Unified Minions skill for both deterministic shell jobs and LLM subagent orchestration. Replaces the older `gbrain-jobs` routing intent. Use when: submitting gbrain jobs, shell/ba… |
+| [perplexity-research](skills/productivity-workflow/gbrain/perplexity-research/SKILL.md) | Brain-augmented web research. Sends brain context about a topic to Perplexity, which searches the web with citations and returns what is NEW vs what the brain already knows. Use f… |
+| [postgres-adopt](skills/productivity-workflow/gbrain/postgres-adopt/SKILL.md) | Detect which gbrain engine is in use (PGLite vs Postgres), prefer Postgres for agent-harness installs, install/provision Postgres (Supabase discovery via SUPABASE_ACCESS_TOKEN, lo… |
+| [publish](skills/productivity-workflow/gbrain/publish/SKILL.md) | Share brain pages as beautiful password-protected HTML with zero LLM calls |
+| [query](skills/productivity-workflow/gbrain/query/SKILL.md) | Answer questions using the brain's knowledge with 3-layer search, synthesis, and citation propagation. Use when the user asks a question, wants a lookup, or needs information from… |
+| [remote-mcp](skills/productivity-workflow/gbrain/remote-mcp/SKILL.md) | Publish the user's own gbrain over MCP so other devices, desktop apps and cloud agents can reach it. `gbrain mcp expose` installs and signs in Tailscale, publishes the running `gb… |
+| [repo-architecture](skills/productivity-workflow/gbrain/repo-architecture/SKILL.md) | Where new brain files go. Decision protocol for filing brain pages by primary subject, not by format or source. Reference for all brain-writing skills. |
+| [reports](skills/productivity-workflow/gbrain/reports/SKILL.md) | Save and load timestamped reports. Keyword routing for fast lookup. Cron jobs save output as reports; the agent or user queries them by keyword. Includes the Actionability Gate: d… |
+| [research-compendium](skills/productivity-workflow/gbrain/research-compendium/SKILL.md) | Deep-research a topic end to end and produce a permanent, reusable knowledge asset: archive every primary source verbatim (gated by the user's privacy/retention posture), write on… |
+| [resolve-before-asking](skills/productivity-workflow/gbrain/resolve-before-asking/SKILL.md) | Gate on identity questions to the user. Before any "who is X?" (or role / relationship question) reaches the user, exhaust the brain's lookup chain: think → search + page read → m… |
+| [schema-author](skills/productivity-workflow/gbrain/schema-author/SKILL.md) | Evolve your brain's schema pack. Add page types, propose new ones from corpus scans, backfill page.type on existing pages, audit pack health. Triggers when an agent notices untype… |
+| [schema-unify](skills/productivity-workflow/gbrain/schema-unify/SKILL.md) | Migrate a brain from gbrain-base (or any pack) to gbrain-base-v2's 14-canonical-type taxonomy via gbrain onboard --check + the unify-types Minion handler. Collapses 94 noisy types… |
+| [setup](skills/productivity-workflow/gbrain/setup/SKILL.md) | Add keyless GBrain memory to an existing agent, or connect a hosted brain while preserving identity and configuration |
+| [signal-detector](skills/productivity-workflow/gbrain/signal-detector/SKILL.md) | Opt-in ambient signal capture. After explicit enablement, applies on substantive inbound messages to detect original thinking and entity mentions. Use an authorized sub-agent wher… |
+| [skill-autobench](skills/productivity-workflow/gbrain/skill-autobench/SKILL.md) | Author an eval for an existing skill from its REAL usage history, not its spec. Mine invocations from the brain's conversation archive (conversations/) and per-harness session tra… |
+| [skill-creator](skills/productivity-workflow/gbrain/skill-creator/SKILL.md) | Create new skills following the GBrain conformance standard. Generates SKILL.md with frontmatter, Contract, Phases, Output Format, and Anti-Patterns. Checks MECE against existing… |
+| [skill-optimizer](skills/productivity-workflow/gbrain/skill-optimizer/SKILL.md) | Self-evolving skill optimization via SkillOpt-paper-grounded text-space optimizer. |
+| [skillify](skills/productivity-workflow/gbrain/skillify/SKILL.md) | The meta skill. Turn any raw feature into a properly-skilled, tested, resolvable unit of agent capability. Idempotent: running on an existing skill improves it (bug fix, new input… |
+| [skillpack-check](skills/productivity-workflow/gbrain/skillpack-check/SKILL.md) | Run `gbrain skillpack-check` to produce an agent-readable JSON health report for the gbrain install. Wraps `gbrain doctor` + `gbrain apply-migrations --list` so a host agent (your… |
+| [skillpack-harvest](skills/productivity-workflow/gbrain/skillpack-harvest/SKILL.md) | Lift a proven skill from a host repo (e.g. your OpenClaw fork) back into gbrain's bundle so other clients can scaffold it. Editorial workflow: the CLI does the file copy + privacy… |
+| [smoke-test](skills/productivity-workflow/gbrain/smoke-test/SKILL.md) | Health smoke tests + auto-fix for gbrain installs (and OpenClaw services when present). Run after machine/container restarts or whenever something seems broken. Tests critical ser… |
+| [soul-audit](skills/productivity-workflow/gbrain/soul-audit/SKILL.md) | Re-run or deepen the agent's identity interview. Drives the SHARED bootstrap answer bank (state/interview.json) via `gbrain bootstrap interview --set/--show/--confirm`, then re-re… |
+| [strategic-reading](skills/productivity-workflow/gbrain/strategic-reading/SKILL.md) | Read a book, article, transcript, or case study through the lens of a specific strategic problem you're facing. Produces an applied playbook that maps the source onto the problem… |
+| [testing](skills/productivity-workflow/gbrain/testing/SKILL.md) | Skill validation framework PLUS daily test-suite health and regression intelligence. Validates skill conformance (frontmatter, manifest coverage, resolver coverage). Runs the proj… |
+| [two-tier-extraction](skills/productivity-workflow/gbrain/two-tier-extraction/SKILL.md) | Tiered LLM extraction pattern for large corpus processing (email archives, document dumps, transcript libraries). A utility-tier model triages and classifies at speed; the reasoni… |
+| [voice-note-ingest](skills/productivity-workflow/gbrain/voice-note-ingest/SKILL.md) | Ingest a voice note with exact-phrasing preservation (never paraphrased). Routes content to originals/, concepts/, people/, companies/, ideas/, personal/, or voice-notes/ based on… |
+| [webhook-transforms](skills/productivity-workflow/gbrain/webhook-transforms/SKILL.md) | Generic framework for converting external events (SMS, meetings, social mentions) into brain-ingestible signals. Define a transform function, register a webhook URL, and incoming… |
+
+<a id="productivity-workflow-obsidian-skills"></a>
+
+### obsidian-skills（7 個）
+
+kepano（Obsidian CEO）官方：正確的 Obsidian Markdown、wikilinks、Bases、Canvas、CLI。資料夾：[`skills/productivity-workflow/obsidian-skills`](skills/productivity-workflow/obsidian-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [defuddle](skills/productivity-workflow/obsidian-skills/defuddle/SKILL.md) | Extract clean Markdown from HTML pages with Defuddle CLI. |
+| [json-canvas](skills/productivity-workflow/obsidian-skills/json-canvas/SKILL.md) | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use when working with .canvas files, creating visual canvases, mind maps, flowcharts, or wh… |
+| [knap](skills/productivity-workflow/obsidian-skills/knap/SKILL.md) | Render Markdown from templates and structured data using Knap CLI. Use when the user asks to apply a Knap template, turn JSON or CSV data into notes, batch-generate Markdown files… |
+| [obsidian-bases](skills/productivity-workflow/obsidian-skills/obsidian-bases/SKILL.md) | Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use when working with .base files, creating database-like views of notes, or when the us… |
+| [obsidian-cli](skills/productivity-workflow/obsidian-skills/obsidian-cli/SKILL.md) | Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with comman… |
+| [obsidian-headless](skills/productivity-workflow/obsidian-skills/obsidian-headless/SKILL.md) | Sync and publish Obsidian vaults from the command line with Obsidian Headless (`ob`), without the desktop app. Use when the user wants to set up or run Obsidian Sync or Obsidian P… |
+| [obsidian-markdown](skills/productivity-workflow/obsidian-skills/obsidian-markdown/SKILL.md) | Create and edit Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, and other Obsidian-specific syntax. Use when working with .md files in Obsidian, or when t… |
+
+<a id="productivity-workflow-open-second-brain"></a>
+
+### open-second-brain（6 個）
+
+每晚把重複的糾正整理成 agent 規則。資料夾：[`skills/productivity-workflow/open-second-brain`](skills/productivity-workflow/open-second-brain)
+
+| SKILL | 原始說明 |
+|---|---|
+| [brain-memory](skills/productivity-workflow/open-second-brain/brain-memory/SKILL.md) | Record taste signals and apply-evidence events into the Brain observing-memory layer of Open Second Brain. INVOKE this skill (and call `brain_feedback`) the moment the user expres… |
+| [codegraph-partner](skills/productivity-workflow/open-second-brain/codegraph-partner/SKILL.md) | Use when the user explicitly mentions codegraph, asks structural code questions such as callers/callees/impact, asks where a symbol is defined, asks what breaks if a symbol change… |
+| [decision-model-setup](skills/productivity-workflow/open-second-brain/decision-model-setup/SKILL.md) | Set up, evaluate or turn off the optional Open Second Brain decision-model feature (typed judgments that rerank search, pick skills, pre-filter extract-signals turns, filter recal… |
+| [embeddings-setup](skills/productivity-workflow/open-second-brain/embeddings-setup/SKILL.md) | Bring Open Second Brain semantic search online — embedding API key, sqlite-vec extension, first reindex, optional periodic refresh. INVOKE when the user mentions "embeddings", "se… |
+| [open-second-brain](skills/productivity-workflow/open-second-brain/open-second-brain/SKILL.md) | Use Open Second Brain to read, write, and maintain an agent-owned second brain beside an Obsidian-compatible Markdown vault. The agent reaches its brain memory only through Open S… |
+| [schema-author](skills/productivity-workflow/open-second-brain/schema-author/SKILL.md) | Use when adding, renaming, reviewing, or explaining Brain schema tokens, aliases, prefixes, link types, extractability, or expert routing in Open Second Brain vaults. |
 
 ## 思考／學習 (`thinking-learning`)
 
@@ -692,7 +1522,7 @@ Anthropic 官方：academy-guide、discernment-nudge。資料夾：[`skills/thin
 
 ## 參考資源（不是 SKILL）
 
-以下是軟體、函式庫或 MCP 伺服器本身，repo 裡沒有可存的 SKILL，只記錄連結備查。
+以下是軟體、函式庫、元件庫網站或 MCP 伺服器本身，沒有可存的 SKILL，只記錄連結備查。
 
 | 資源 | 是什麼 | 備註 | 記錄日期 |
 |---|---|---|---|
@@ -701,3 +1531,16 @@ Anthropic 官方：academy-guide、discernment-nudge。資料夾：[`skills/thin
 | [juliangarnier/anime](https://github.com/juliangarnier/anime) | Anime.js，JavaScript 動畫函式庫 |  | 2026-11-13 |
 | [motiondivision/motion](https://github.com/motiondivision/motion) | Motion 動畫函式庫本體，[450+ 官方範例](https://motion.dev/examples) | 對應的 SKILL 已存為 `motion` | 2026-11-13 |
 | [ahujasid/mcp-for-blender](https://github.com/ahujasid/mcp-for-blender) | Blender MCP：讓 Claude 操作 Blender 的 MCP 伺服器與外掛 | 是 MCP 伺服器，repo 內沒有 SKILL | 2026-11-13 |
+| [karpathy/llm-wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) | Karpathy 的 LLM wiki 構想文件（一頁） | gist 沒有授權標示，只記連結 | 2026-11-13 |
+| [kepano/defuddle](https://github.com/kepano/defuddle) | 從網頁只取出正文的工具，省 token | 工具本體，沒有 SKILL | 2026-11-13 |
+| [obsidianmd/obsidian-clipper](https://github.com/obsidianmd/obsidian-clipper) | Obsidian 官方網頁剪藏擴充功能 |  | 2026-11-13 |
+| [obsidianmd/obsidian-help](https://github.com/obsidianmd/obsidian-help) | Obsidian 官方文件（Markdown，含 AGENTS.md） | 內含的 SKILL 是官方文件在地化用的內部工具，且 repo 未標示授權，未存 | 2026-11-13 |
+| [obsidianmd/obsidian-importer](https://github.com/obsidianmd/obsidian-importer) | 把 Notion、Evernote、Apple Notes 等匯入 Obsidian 的外掛 |  | 2026-11-13 |
+| [Looseleaf](https://kevintngo.github.io/looseleaf/) | UI 元件庫：紙張紋理、膠帶、手繪圖表、完整頁面區塊 | 網站，未讀取內容 | 2026-11-13 |
+| [PlopUI](https://plopui.com) | UI 元件庫：藍色麥克筆、貼紙頭像、按下會擠壓的按鈕 | 網站，未讀取內容 | 2026-11-13 |
+| [Inkra](https://inkrajs.github.io) | UI 元件庫：鉛筆筆觸與淡彩，日曆、地圖都帶手繪感 | 網站，未讀取內容 | 2026-11-13 |
+| [goopUI](https://goop.timmcmasters.work/docs/components) | UI 元件庫：會滴落、拉伸的黏液元件，Vue／Nuxt 優先 | 網站，未讀取內容 | 2026-11-13 |
+| [Solid Glass](https://deeplethe.github.io/solid-glass/) | UI 元件庫：克制的玻璃材質，含 Agent 狀態、工具步驟、diff 展示 | 網站，未讀取內容 | 2026-11-13 |
+| [AffectUI](https://affectui.com) | UI 元件庫：Agent 樹、工具呼叫、審批、trace（部分付費） | 網站，未讀取內容 | 2026-11-13 |
+| [Prestige UI](https://prestigeui.com) | UI 元件庫：React／Tailwind／Motion 動畫元件與落地頁區塊（含付費） | 網站，未讀取內容 | 2026-11-13 |
+| [BoardUI](https://boardui.com) | UI 元件庫：儀表板與 AI 工作台，表格、圖表、日曆、Agent 聊天（含付費） | 網站，未讀取內容 | 2026-11-13 |

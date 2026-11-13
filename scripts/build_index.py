@@ -110,10 +110,10 @@ def main():
             L.append("")
 
     L += ["## 參考資源（不是 SKILL）", "",
-          "以下是軟體、函式庫或 MCP 伺服器本身，repo 裡沒有可存的 SKILL，只記錄連結備查。", "",
+          "以下是軟體、函式庫、元件庫網站或 MCP 伺服器本身，沒有可存的 SKILL，只記錄連結備查。", "",
           "| 資源 | 是什麼 | 備註 | 記錄日期 |", "|---|---|---|---|"]
     for r in src["references"]:
-        L.append(f"| [{r['repo']}](https://github.com/{r['repo']}) | {r['what']} | {r['note']} | {r['date']} |")
+        L.append(f"| [{r['name']}]({r['url']}) | {r['what']} | {r['note']} | {r['date']} |")
     open(os.path.join(ROOT, "README.md"), "w", encoding="utf-8").write("\n".join(L) + "\n")
     print(f"{total} skills indexed")
 

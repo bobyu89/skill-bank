@@ -24,6 +24,7 @@
 | `creative-design` | 插畫、視覺設計、UI、簡報、品牌、logo、影像 prompt |
 | `animation-video` | 程式化影片、AI 影片、網頁動效、動畫製作 |
 | `3d-gamedev` | 3D 建模與物件、遊戲引擎、遊戲開發與 mod |
+| `marketing-business` | 行銷文案、SEO、廣告、市場與趨勢調研 |
 | `writing-communication` | 一般寫作、電子報、內部溝通、語氣潤飾、翻譯 |
 | `productivity-workflow` | 筆記、知識管理、排程、文件格式處理（docx、pdf、xlsx、pptx） |
 | `thinking-learning` | 批判思考、學習方法、哲學、決策框架 |
@@ -34,7 +35,7 @@
 
 - 傳來的是 GitHub repo 時，只取其中的 SKILL（含附帶檔案），不整包複製。repo 內同一批 SKILL 有多份副本（`.claude/`、`.agents/`、`.cursor/` 等）時只取一份。
 - 略過 1 MB 以上的單一檔案與純展示用資料夾（demos、gallery、截圖），並記到 `SKIPPED.md`。
-- repo 本身是軟體、函式庫或 MCP 伺服器、沒有 SKILL 時，記到 `sources.json` 的 `references`，不要自行編寫 SKILL。
+- repo 本身是軟體、函式庫或 MCP 伺服器、沒有 SKILL 時，記到 `sources.json` 的 `references`（`name`、`url`、`what`、`note`、`date`），不要自行編寫 SKILL。
 - 記下來源的授權；授權不允許複製的內容不要存，改記連結並告知使用者。
 
 ## 安全

@@ -31,6 +31,11 @@
    "3D 建模與物件、遊戲引擎、遊戲開發與 mod"
   ],
   [
+   "marketing-business",
+   "行銷／商務",
+   "行銷文案、SEO、廣告、市場與趨勢調研"
+  ],
+  [
    "writing-communication",
    "寫作／溝通",
    "一般寫作、電子報、內部溝通、語氣潤飾、翻譯"
@@ -318,37 +323,450 @@
    "zh": "34 套 HTML 簡報模板；依場合與氛圍挑候選、做封面預覽、再套入內容",
    "keywords": "HTML 簡報, slide deck, pitch",
    "entry": "AGENTS.md"
+  },
+  {
+   "path": "creative-design/ui-ux-pro-max",
+   "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+   "commit": "6ae86f6",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "UI/UX 設計資料庫：風格、配色、字體搭配、互動規範，另含品牌、簡報、banner、design system",
+   "keywords": "配色, 字體搭配, landing page, dashboard, app UI"
+  },
+  {
+   "path": "creative-design/awesome-design-md",
+   "repo": "VoltAgent/awesome-design-md",
+   "commit": "fcc7028",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "84 個知名品牌的 DESIGN.md，丟給 agent 就能做出該品牌的視覺風格（不是 SKILL 格式）",
+   "keywords": "DESIGN.md, 品牌風格, apple, airbnb, stripe",
+   "entry": "README.md"
+  },
+  {
+   "path": "creative-design/oil-ui",
+   "repo": "oil-oil/oil-ui",
+   "commit": "28948c3",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "做 UI 前先出三個不同方向再選定",
+   "keywords": "UI 方向探索, 三選一"
+  },
+  {
+   "path": "creative-design/unslop",
+   "repo": "heydamir/unslop",
+   "commit": "97daa3e",
+   "license": "CC BY 4.0",
+   "date": "2026-11-13",
+   "zh": "把 vibe coding 做出來的介面改成有設計感的介面",
+   "keywords": "去 AI 味, UI 修整"
+  },
+  {
+   "path": "creative-design/emilkowalski-skills",
+   "repo": "emilkowalski/skills",
+   "commit": "f7ce8c0",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Emil Kowalski（sonner 作者）的手勢、動效與 UI 細節 SKILL，附 UI 與效能速查表",
+   "keywords": "手勢, 動效, UI 細節, animation"
+  },
+  {
+   "path": "creative-design/extract-design-system",
+   "repo": "arvindrk/extract-design-system",
+   "commit": "1873741",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "從任何網站擷取顏色、字體、間距成為 design system",
+   "keywords": "design tokens, 擷取網站風格"
+  },
+  {
+   "path": "creative-design/ai-design-skills",
+   "repo": "elayadesign/ai-design-skills",
+   "commit": "456d9e0",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "elayadesign 的 AI 設計 SKILL",
+   "keywords": "設計"
+  },
+  {
+   "path": "creative-design/kubai-icons",
+   "repo": "kubai087/kubai-icons",
+   "commit": "32bd8ee",
+   "license": "Kubai Icons License（見 LICENSING.md）",
+   "date": "2026-11-13",
+   "zh": "Kubai 圖示庫的使用與繪製規範",
+   "keywords": "icon, 圖示, SVG"
+  },
+  {
+   "path": "creative-design/taste-skill",
+   "repo": "LeonxLnx/taste-skill",
+   "commit": "f6b7657",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "替 AI 補審美：排版、參考圖、動效，附大量參考圖",
+   "keywords": "審美, 官網首頁, 作品集"
+  },
+  {
+   "path": "creative-design/diagram-design",
+   "repo": "cathrynlavery/diagram-design",
+   "commit": "f6db0de",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "四十多種圖表，直接輸出成 HTML",
+   "keywords": "架構圖, 流程圖, 技術文件圖表"
+  },
+  {
+   "path": "animation-video/motion-prompt",
+   "repo": "showheyohtaki/motion-prompt",
+   "commit": "da14d9c",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "動效提示詞庫的 SKILL",
+   "keywords": "motion prompt, 動效描述"
+  },
+  {
+   "path": "writing-communication/lieflat-less-ai-tone",
+   "repo": "larashero3-dotcom/lieflat-less-ai-tone",
+   "commit": "fe77df0",
+   "license": "CC BY-NC 4.0",
+   "date": "2026-11-13",
+   "zh": "降低中文文字的 AI 腔，附偵測方法與研究筆記",
+   "keywords": "去 AI 味, 中文寫作, 潤稿"
+  },
+  {
+   "path": "writing-communication/humanizer",
+   "repo": "blader/humanizer",
+   "commit": "b48c832",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "去掉文字裡的 AI 痕跡：套話、固定句式",
+   "keywords": "去 AI 味, humanize, 文章潤飾"
+  },
+  {
+   "path": "writing-communication/caveman",
+   "repo": "JuliusBrussee/caveman",
+   "commit": "ad47375",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "讓 AI 用最少的字回答，省 token",
+   "keywords": "精簡回答, 省 token"
+  },
+  {
+   "path": "writing-communication/i-have-adhd",
+   "repo": "ayghri/i-have-adhd",
+   "commit": "1ecea19",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "先說結論和下一步，再給細節",
+   "keywords": "結論先行, ADHD, 回答格式"
+  },
+  {
+   "path": "marketing-business/marketingskills",
+   "repo": "coreyhaines31/marketingskills",
+   "commit": "1f83744",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "行銷 SKILL 合集：文案、SEO、CRO、廣告、數據分析",
+   "keywords": "行銷, 文案, SEO, CRO"
+  },
+  {
+   "path": "marketing-business/last30days",
+   "repo": "mvanhorn/last30days-skill",
+   "commit": "b4eb381",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "彙整 Reddit、X、YouTube 近 30 天的討論",
+   "keywords": "選題, 追熱點, 競品調研"
+  },
+  {
+   "path": "tech-dev/superpowers",
+   "repo": "obra/superpowers",
+   "commit": "22f0b46",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "開發流程：腦力激盪、寫計畫、TDD、code review、除錯",
+   "keywords": "brainstorm, plan, TDD, code review"
+  },
+  {
+   "path": "tech-dev/mattpocock-skills",
+   "repo": "mattpocock/skills",
+   "commit": "5863806",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Matt Pocock 的工程 SKILL：需求追問、架構釐清、除錯、重構，另含生產力與雜項",
+   "keywords": "需求釐清, 架構, debug, refactor, typescript"
+  },
+  {
+   "path": "tech-dev/andrej-karpathy-skills",
+   "repo": "multica-ai/andrej-karpathy-skills",
+   "commit": "2c60614",
+   "license": "MIT（README 標示）",
+   "date": "2026-11-13",
+   "zh": "Karpathy 式專案規則：先想清楚再動手、只改該改的地方",
+   "keywords": "coding 規則, CLAUDE.md"
+  },
+  {
+   "path": "tech-dev/ponytail",
+   "repo": "DietrichGebert/ponytail",
+   "commit": "96608e0",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "像最懶的資深工程師：不加不必要的抽象，挑出過度設計與技術債",
+   "keywords": "過度設計, 技術債, 簡化"
+  },
+  {
+   "path": "tech-dev/addyosmani-agent-skills",
+   "repo": "addyosmani/agent-skills",
+   "commit": "301b02b",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Addy Osmani 整理的工程規範：API 設計、context 管理、品質檢查等",
+   "keywords": "工程規範, API 設計, 測試, 團隊"
+  },
+  {
+   "path": "tech-dev/understand-anything",
+   "repo": "Egonex-AI/Understand-Anything",
+   "commit": "5cc4aad",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "把程式碼變成可互動的圖譜並解釋業務流程",
+   "keywords": "讀程式碼, onboarding, 開源專案"
+  },
+  {
+   "path": "productivity-workflow/awesome-claude-skills",
+   "repo": "ComposioHQ/awesome-claude-skills",
+   "commit": "be2a406",
+   "license": "Apache-2.0（README 標示，各 SKILL 可能不同）",
+   "date": "2026-11-13",
+   "zh": "ComposioHQ 合集中的通用 SKILL（未含 832 個自動產生的 app 連接器）",
+   "keywords": "檔案整理, 履歷, 會議分析, 發票, 影片下載"
+  },
+  {
+   "path": "productivity-workflow/gbrain",
+   "repo": "garrytan/gbrain",
+   "commit": "4af7754",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Garry Tan 的 agent 大腦：共享記憶、每筆事實記錄來源",
+   "keywords": "agent 記憶, 知識庫, second brain"
+  },
+  {
+   "path": "productivity-workflow/ai-memory",
+   "repo": "akitaonrails/ai-memory",
+   "commit": "a11eff2",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "跨工具的 markdown 記憶：在 Claude Code 中斷、到 Codex 接續",
+   "keywords": "記憶, handoff, 跨 agent"
+  },
+  {
+   "path": "productivity-workflow/cog-second-brain",
+   "repo": "huytieu/COG-second-brain",
+   "commit": "144c7a3",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "純 markdown 的第二大腦，43 個 SKILL",
+   "keywords": "second brain, 筆記, 每日回顧"
+  },
+  {
+   "path": "productivity-workflow/agent-second-brain",
+   "repo": "smixs/agent-second-brain",
+   "commit": "7828ed6",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Telegram 語音筆記進 Obsidian 或 Todoist 的 vault 設定（skills、agents、rules）",
+   "keywords": "telegram, obsidian, todoist, 語音筆記"
+  },
+  {
+   "path": "productivity-workflow/open-second-brain",
+   "repo": "itechmeat/open-second-brain",
+   "commit": "7187c39",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "每晚把重複的糾正整理成 agent 規則",
+   "keywords": "second brain, 規則學習"
+  },
+  {
+   "path": "productivity-workflow/claude-second-brain",
+   "repo": "jessepinkman9900/claude-second-brain",
+   "commit": "599f55a",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "Obsidian + Claude Code + 本機搜尋的第二大腦模板",
+   "keywords": "obsidian, 本機搜尋, brain-ingest"
+  },
+  {
+   "path": "productivity-workflow/obsidian-skills",
+   "repo": "kepano/obsidian-skills",
+   "commit": "3981277",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "kepano（Obsidian CEO）官方：正確的 Obsidian Markdown、wikilinks、Bases、Canvas、CLI",
+   "keywords": "obsidian, wikilinks, bases, canvas"
+  },
+  {
+   "path": "research-academic/academic-research-skills",
+   "repo": "Imbad0202/academic-research-skills",
+   "commit": "c67a7be",
+   "license": "CC BY-NC 4.0",
+   "date": "2026-11-13",
+   "zh": "學術研究全流程：深度研究、論文寫作、模擬審稿、系統性回顧篩選、整合 pipeline",
+   "keywords": "查文獻, 寫論文, 模擬審稿, systematic review"
+  },
+  {
+   "path": "research-academic/scientific-agent-skills",
+   "repo": "K-Dense-AI/scientific-agent-skills",
+   "commit": "2d2065f",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "科研助手合集：生物、化學、醫學資料庫與分析工具、科學寫作與簡報",
+   "keywords": "生資, 化學, 資料庫, 統計, 科學寫作"
+  },
+  {
+   "path": "research-academic/figures4papers",
+   "repo": "ChenLiu-1996/figures4papers",
+   "commit": "e78584f",
+   "license": "CC BY-NC 4.0",
+   "date": "2026-11-13",
+   "zh": "論文用科學圖表製作",
+   "keywords": "論文圖表, matplotlib, figure"
+  },
+  {
+   "path": "tech-dev/graphify",
+   "repo": "Graphify-Labs/graphify",
+   "commit": "52cb282",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "把程式碼、文件、資料庫結構轉成知識圖譜（各 agent 版本的 skill 檔）",
+   "keywords": "知識圖譜, 程式碼理解, 呼叫關係",
+   "entry": "skill.md"
   }
  ],
  "references": [
   {
-   "repo": "godotengine/godot",
    "what": "開源 2D／3D 遊戲引擎",
    "note": "相關 SKILL 見 `3d-gamedev/gamedev-skills/godot`",
-   "date": "2026-11-13"
+   "date": "2026-11-13",
+   "name": "godotengine/godot",
+   "url": "https://github.com/godotengine/godot"
   },
   {
-   "repo": "opentoonz/opentoonz",
    "what": "開源 2D 動畫製作軟體",
    "note": "",
+   "date": "2026-11-13",
+   "name": "opentoonz/opentoonz",
+   "url": "https://github.com/opentoonz/opentoonz"
+  },
+  {
+   "what": "Anime.js，JavaScript 動畫函式庫",
+   "note": "",
+   "date": "2026-11-13",
+   "name": "juliangarnier/anime",
+   "url": "https://github.com/juliangarnier/anime"
+  },
+  {
+   "what": "Motion 動畫函式庫本體，[450+ 官方範例](https://motion.dev/examples)",
+   "note": "對應的 SKILL 已存為 `motion`",
+   "date": "2026-11-13",
+   "name": "motiondivision/motion",
+   "url": "https://github.com/motiondivision/motion"
+  },
+  {
+   "what": "Blender MCP：讓 Claude 操作 Blender 的 MCP 伺服器與外掛",
+   "note": "是 MCP 伺服器，repo 內沒有 SKILL",
+   "date": "2026-11-13",
+   "name": "ahujasid/mcp-for-blender",
+   "url": "https://github.com/ahujasid/mcp-for-blender"
+  },
+  {
+   "name": "karpathy/llm-wiki",
+   "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+   "what": "Karpathy 的 LLM wiki 構想文件（一頁）",
+   "note": "gist 沒有授權標示，只記連結",
    "date": "2026-11-13"
   },
   {
-   "repo": "juliangarnier/anime",
-   "what": "Anime.js，JavaScript 動畫函式庫",
+   "name": "kepano/defuddle",
+   "url": "https://github.com/kepano/defuddle",
+   "what": "從網頁只取出正文的工具，省 token",
+   "note": "工具本體，沒有 SKILL",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "obsidianmd/obsidian-clipper",
+   "url": "https://github.com/obsidianmd/obsidian-clipper",
+   "what": "Obsidian 官方網頁剪藏擴充功能",
    "note": "",
    "date": "2026-11-13"
   },
   {
-   "repo": "motiondivision/motion",
-   "what": "Motion 動畫函式庫本體，[450+ 官方範例](https://motion.dev/examples)",
-   "note": "對應的 SKILL 已存為 `motion`",
+   "name": "obsidianmd/obsidian-help",
+   "url": "https://github.com/obsidianmd/obsidian-help",
+   "what": "Obsidian 官方文件（Markdown，含 AGENTS.md）",
+   "note": "內含的 SKILL 是官方文件在地化用的內部工具，且 repo 未標示授權，未存",
    "date": "2026-11-13"
   },
   {
-   "repo": "ahujasid/mcp-for-blender",
-   "what": "Blender MCP：讓 Claude 操作 Blender 的 MCP 伺服器與外掛",
-   "note": "是 MCP 伺服器，repo 內沒有 SKILL",
+   "name": "obsidianmd/obsidian-importer",
+   "url": "https://github.com/obsidianmd/obsidian-importer",
+   "what": "把 Notion、Evernote、Apple Notes 等匯入 Obsidian 的外掛",
+   "note": "",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "Looseleaf",
+   "url": "https://kevintngo.github.io/looseleaf/",
+   "what": "UI 元件庫：紙張紋理、膠帶、手繪圖表、完整頁面區塊",
+   "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "PlopUI",
+   "url": "https://plopui.com",
+   "what": "UI 元件庫：藍色麥克筆、貼紙頭像、按下會擠壓的按鈕",
+   "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "Inkra",
+   "url": "https://inkrajs.github.io",
+   "what": "UI 元件庫：鉛筆筆觸與淡彩，日曆、地圖都帶手繪感",
+   "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "goopUI",
+   "url": "https://goop.timmcmasters.work/docs/components",
+   "what": "UI 元件庫：會滴落、拉伸的黏液元件，Vue／Nuxt 優先",
+   "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "Solid Glass",
+   "url": "https://deeplethe.github.io/solid-glass/",
+   "what": "UI 元件庫：克制的玻璃材質，含 Agent 狀態、工具步驟、diff 展示",
+   "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "AffectUI",
+   "url": "https://affectui.com",
+   "what": "UI 元件庫：Agent 樹、工具呼叫、審批、trace（部分付費）",
+   "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "Prestige UI",
+   "url": "https://prestigeui.com",
+   "what": "UI 元件庫：React／Tailwind／Motion 動畫元件與落地頁區塊（含付費）",
+   "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "BoardUI",
+   "url": "https://boardui.com",
+   "what": "UI 元件庫：儀表板與 AI 工作台，表格、圖表、日曆、Agent 聊天（含付費）",
+   "note": "網站，未讀取內容",
    "date": "2026-11-13"
   }
  ]

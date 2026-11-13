@@ -41,3 +41,23 @@
   - `assets/readme/source/hero-illustration-crop-v1.png`：1.2 MB
 - `3d-gamedev/anatomy`（來源 wheresryan22/anatomy）
   - `examples/`：demo/展示用資料夾
+- `writing-communication/lieflat-less-ai-tone`（來源 larashero3-dotcom/lieflat-less-ai-tone）
+  - `assets/less-ai-tone-hero-zh.png`：1.5 MB
+  - `assets/less-ai-tone-hero-en.png`：1.5 MB
+- `marketing-business/last30days`（來源 mvanhorn/last30days-skill）
+  - `assets/swimmom-mockup.jpeg`：2.8 MB
+  - `assets/dog-as-human.png`：2.5 MB
+  - `assets/dog-original.jpeg`：4.0 MB
+  - `assets/claude-code-rap.mp3`：2.4 MB
+  - `assets/aging-portrait.jpeg`：2.8 MB
+- `research-academic/academic-research-skills`（來源 Imbad0202/academic-research-skills）
+  - `CHANGELOG.md`：非 SKILL 本體
+  - `examples/`：非 SKILL 本體（測試、評測、範例或文件）
+  - `audits/`：非 SKILL 本體（測試、評測、範例或文件）
+  - `tests/`：非 SKILL 本體（測試、評測、範例或文件）
+  - `evals/`：非 SKILL 本體（測試、評測、範例或文件）
+  - `docs/`：非 SKILL 本體（測試、評測、範例或文件）
+  - `.claude/`：非 SKILL 本體（測試、評測、範例或文件）
+- `productivity-workflow/awesome-claude-skills`（來源 ComposioHQ/awesome-claude-skills）
+  - `composio-skills/`：832 個自動產生的 app 連接器 SKILL，未存
+- `productivity-workflow/gbrain`、`cog-second-brain`、`open-second-brain` 等：repo 內 `.claude/`、`.agents/`、`plugin/` 下的重複副本未存
