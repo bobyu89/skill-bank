@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oncoskill/schemas/action-board.schema.json",
+  "title": "Oncoskill Action Board",
+  "description": "The live list of concrete next actions. The skill keeps it short and every action has an owner, a reason, and (when relevant) an escalation condition.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["actions"],
+  "properties": {
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action", "why", "owner", "status"],
+        "properties": {
+          "action": { "type": "string", "description": "The concrete next step." },
+          "why": { "type": "string", "description": "Why it matters now." },
+          "owner": { "type": "string", "description": "Who does it (patient / caregiver / a named person)." },
+          "due_date": { "type": "string", "format": "date" },
+          "blocking_dependency": {
+            "type": "string",
+            "description": "What this is waiting on (e.g. 'PET result', 'clinic reply')."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["todo", "in-progress", "waiting", "blocked", "done", "dropped"]
+          },
+          "escalation_condition": {
+            "type": "string",
+            "description": "When/how to escalate if it stalls (e.g. 'no reply by <date> -> phone secretariat, then de-escalation playbook')."
+          },
+          "escalation_date": { "type": "string", "format": "date" },
+          "source": {
+            "type": "string",
+            "description": "Where this action came from (a document, a visit debrief, an evidence claim_id)."
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "description": "Audit trail — never silently rewrite history. Append an entry on each meaningful change.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["updated_at", "what_changed"],
+        "properties": {
+          "updated_at": { "type": "string", "format": "date" },
+          "updated_by": { "type": "string", "description": "patient / caregiver / Oncoskill (assisted) / named person" },
+          "source": { "type": "string", "description": "what prompted it (a document, a visit debrief, a claim_id)" },
+          "what_changed": { "type": "string" },
+          "why": { "type": "string" }
+        }
+      }
+    }
+  }
+}

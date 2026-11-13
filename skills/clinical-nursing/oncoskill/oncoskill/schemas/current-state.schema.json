@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oncoskill/schemas/current-state.schema.json",
+  "title": "Oncoskill Current State",
+  "description": "The single source of truth the skill reads at the start of a session instead of relying on chat memory. The user keeps this one living file (e.g. in a Project); the skill reads it at session start and proposes updates to the relevant section at the end. This is the ONE place of memory: medications, labs, decisions, recommendations, windows, documents and so on are SECTIONS of this doc, not separate ledgers. Only two other artifacts are genuinely separate because they differ in shape/audience: the Outreach Ledger (clinic / second-opinion CRM) and the Doctor Share Pack (clean outward dossier). When the skill learns something new, it offers to update the relevant section here rather than inventing a new tracker. None of these clinical fields are asserted by the skill: they only ever hold what the user supplies from their own documents and their care team — restate what is documented, never infer it. All fields are optional except last_updated.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["last_updated"],
+  "properties": {
+    "patient": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Minimal, user-controlled. Keep identifying detail to what the user chooses to store.",
+      "properties": {
+        "label": { "type": "string", "description": "A name or initials the user chooses." },
+        "age": { "type": "integer" },
+        "notes": { "type": "string" }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Who and where, so the skill can adapt instead of assuming. Everything in Oncoskill is example-level and must be adapted to this context and to the care team's instructions over anything bundled.",
+      "properties": {
+        "role": { "type": "string", "description": "Who is using the skill right now: patient / caregiver / both." },
+        "country_or_region": { "type": "string", "description": "Country / region, so guidance can be adapted. Bundled regional packs (e.g. Portugal) are examples; laws, insurers and health systems differ by place." },
+        "health_system": { "type": "string", "description": "e.g. public / private / mixed / specific insurer — used to route funding and access questions." },
+        "language": { "type": "string", "description": "Preferred language(s) for replies and for drafting clinician-facing material." },
+        "response_style": {
+          "type": "string",
+          "enum": ["conversational", "concise-structured", "detailed-structured"],
+          "description": "Preferred shape of replies (see references/core/tone.md). Default conversational; an overloaded user gets a short bottom line regardless."
+        }
+      }
+    },
+    "diagnosis": { "type": "string", "description": "As documented; not asserted by the skill. Restate the diagnosis/stage a signed report documents; never independently infer it." },
+    "treatment_phase": {
+      "type": "string",
+      "description": "e.g. diagnosis / staging / treatment-planning / on-treatment / results / survivorship."
+    },
+    "current_goal": { "type": "string", "description": "The nearest concrete goal." },
+    "latest_events": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Most recent significant events (dated)."
+    },
+    "active_doctors_clinics": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "pending_replies": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Who we are waiting on."
+    },
+    "upcoming_appointments": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_3_actions": {
+      "type": "array",
+      "maxItems": 3,
+      "items": { "type": "string" },
+      "description": "At most three. Forces focus."
+    },
+    "important_constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Hard deadlines, windows, medical constraints, things that must not be forgotten."
+    },
+    "emotional_caregiver_context": {
+      "type": "string",
+      "description": "Caregiver load / state — used to calibrate tone and to trigger the caregiver mode."
+    },
+    "medications": {
+      "type": "array",
+      "description": "Current and historical medicines, with explicit status, date, and source. Personal dose/schedule come only from the prescription or discharge instructions; package strength is separate. Unresolved conflicts are recorded for the pharmacist/team, never resolved by guessing.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "description": "Name as written (brand or generic). Brands differ by country — verify the active ingredient and strength from the package." },
+          "active_ingredient": { "type": "string", "description": "Active ingredient as printed on the package, where known — helps spot hidden duplicates across products." },
+          "dose": { "type": "string", "description": "Personal regimen copied verbatim from prescription/discharge instructions; never inferred from box strength or general leaflet dosing." },
+          "schedule": { "type": "string", "description": "As prescribed (e.g. 'twice daily', 'as needed for pain'). Only from the prescription; never invented." },
+          "reason": { "type": "string", "description": "What it is for, if the user knows." },
+          "last_dose": { "type": "string", "description": "When the last dose was taken, if tracked — useful at handovers so a regimen is not doubled up." },
+          "next_allowed_dose": { "type": "string", "description": "Only an explicit patient-specific time or instruction from the prescription/discharge plan. Never computed from a generic leaflet." },
+          "status": { "type": "string", "enum": ["active", "stopped", "as-needed", "held", "unknown"], "description": "Whether it is current." },
+          "status_date": {"type": "string", "format": "date", "description": "Date of the documented or reported status change; do not invent."},
+          "strength": {"type": "string", "description": "Product strength printed on the package; distinct from the prescribed dose."},
+          "notes": { "type": "string" },
+          "source": { "type": "string", "description": "Where this came from (prescription, leaflet, discharge note, the prescribing doctor). Provenance, not assertion." }
+        }
+      }
+    },
+    "allergies": {
+      "type": "array",
+      "description": "Drug / substance allergies and intolerances, as the patient reports or a record documents — important context the team and any clinician-facing pack should carry.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "substance": { "type": "string" },
+          "reaction": { "type": "string", "description": "What happens (e.g. rash, anaphylaxis), as described." },
+          "severity": { "type": "string", "description": "How serious, if known." },
+          "status": { "type": "string", "enum": ["confirmed", "reported"], "description": "confirmed = documented by a clinician / test; reported = patient-stated. Keep the distinction honest." },
+          "source": { "type": "string", "description": "Where it came from." }
+        }
+      }
+    },
+    "labs": {
+      "type": "array",
+      "description": "Lab results week-to-week, recorded as the report states them. Read trends over single points; typical thresholds are the team's call, not the skill's. Only interpret a value as low/high when a reference range is actually present — otherwise note it as 'mentioned in the report — worth confirming the range'. Never alter or recall values for a clinician-facing message; use only the numbers the user supplies from their documents.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "marker": { "type": "string", "description": "e.g. Hb, neutrophils, platelets, creatinine, ferritin, TSAT, CEA." },
+          "value": { "type": "string", "description": "As reported (string to preserve units/operators like '<0.1' faithfully)." },
+          "unit": { "type": "string" },
+          "reference_range_if_present": { "type": "string", "description": "Only if the report actually prints a range. Absent here means do not call the value high or low." },
+          "treatment_day_or_phase": { "type": "string", "description": "Where in treatment this was drawn (e.g. 'day 8 of cycle 2', 'pre-chemoradiation') — needed to read the trend." },
+          "note": { "type": "string" },
+          "source": { "type": "string", "description": "Which report this is from." }
+        }
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "description": "Decisions and their rationale, dates, and source. An agreed decision may be reviewed through a second opinion; preserve history and the patient's choice.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "decision": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "who": { "type": "string", "description": "Who made / owns it (the patient remains the final decision-maker)." },
+          "reason": { "type": "string" },
+          "alternatives": { "type": "array", "items": { "type": "string" }, "description": "Other options that were on the table." },
+          "evidence_source_refs": { "type": "array", "items": { "type": "string" }, "description": "What it was based on — documents, guideline references, a claim_id." },
+          "can_revisit": { "type": "boolean", "description": "Whether the user currently wants to revisit this decision. False is not a ban on a later second opinion." },
+          "review_date": { "type": "string", "format": "date", "description": "When to look at it again, if relevant." }
+        }
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "description": "Recommendations on the table — both doctor-given and self-found — kept side by side and clearly attributed. A self-found option is something to raise collaboratively as a question, not a verdict on the team; trust the team and verify, and confirm anything self-found against current guidance and the care team before acting.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "statement": { "type": "string" },
+          "who_source": { "type": "string", "enum": ["doctor", "self-found"], "description": "Where it originated — kept explicit so the two never blur." },
+          "source_detail": { "type": "string", "description": "Which doctor / which source, for traceability." },
+          "applies_to": { "type": "string", "description": "What situation it applies to (so a general example is not mistaken for a rule for this case)." },
+          "status": { "type": "string", "enum": ["proposed", "raised-with-team", "accepted", "declined", "deferred"], "description": "Where it stands." },
+          "source_refs": { "type": "array", "items": { "type": "string" }, "description": "Supporting documents / guideline references / claim_ids." }
+        }
+      }
+    },
+    "windows": {
+      "type": "array",
+      "description": "Time-critical medical, administrative, or funding windows. Record actual dates and sources. A clinically acceptable delay must be confirmed for this case; never infer one from a general rule.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "window_or_deadline": { "type": "string", "description": "The date or window itself." },
+          "why": { "type": "string" },
+          "what_closes_after": { "type": "string", "description": "What becomes impossible once it passes." },
+          "type": { "type": "string", "enum": ["medical", "admin", "financial", "logistics"], "description": "Kind of window, to route it." },
+          "required_action": { "type": "string", "description": "What needs doing, and ideally what to run in parallel now." },
+          "owner": { "type": "string" },
+          "fallback": { "type": "string", "description": "The next route if this one closes — never released before the primary is truly secured." },
+          "escalation_condition": { "type": "string", "description": "What triggers escalating (a non-reply by a date, a missing confirmation)." }
+        }
+      }
+    },
+    "documents": {
+      "type": "array",
+      "description": "The documents the user holds, so nothing is lost and a clean share pack can be built fast. Track originals vs working translations separately; keep originals alongside translations. share_safe flags whether it is ready for a clinician-facing pack (stripped of unrelated personal data, internal/emotional notes, and unverified AI hypotheses) — that lives in the Doctor Share Pack, not here.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "type": { "type": "string", "description": "e.g. pathology report, discharge note, imaging, consent form, prescription, invoice." },
+          "date": { "type": "string", "format": "date" },
+          "language": { "type": "string" },
+          "original_or_translation": { "type": "string", "enum": ["original", "translation"], "description": "Keep the two distinct; a working translation never replaces the original." },
+          "key_content": { "type": "string", "description": "A plain one-liner of what it contains." },
+          "share_safe": { "type": "boolean", "description": "Whether it has been redaction-checked for a clinician-facing pack." },
+          "location": { "type": "string", "description": "Where the user keeps it." }
+        }
+      }
+    },
+    "red_flags_given_by_team": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "The specific 'call us / go to emergency if…' triggers this patient's own team has given — recorded verbatim so they take priority over any general list. If one of these happens, route to the care team / emergency now (POLICY.md)."
+    },
+    "care_team_contacts": {
+      "type": "array",
+      "description": "How to reach the actual care team — including the working channel (a named person / direct line that gets a response), not just a general switchboard. Verify any number before relying on it; details here are the user's own, not bundled examples.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string", "description": "Person or role (e.g. reference nurse, oncology secretariat)." },
+          "role": { "type": "string" },
+          "clinic": { "type": "string" },
+          "channel": { "type": "string", "description": "Phone / email / portal — ideally the working channel that actually gets a reply." },
+          "hours": { "type": "string", "description": "When reachable, and who to use out of hours." },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "last_updated": { "type": "string", "format": "date", "description": "ISO date." },
+    "provenance": {
+      "type": "array",
+      "description": "Audit trail — never silently rewrite history. Append an entry on each meaningful change.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["updated_at", "what_changed"],
+        "properties": {
+          "updated_at": { "type": "string", "format": "date" },
+          "updated_by": { "type": "string", "description": "patient / caregiver / Oncoskill (assisted) / named person" },
+          "source": { "type": "string", "description": "what prompted it (a document, a visit debrief, a claim_id)" },
+          "what_changed": { "type": "string" },
+          "why": { "type": "string" }
+        }
+      }
+    }
+  }
+}

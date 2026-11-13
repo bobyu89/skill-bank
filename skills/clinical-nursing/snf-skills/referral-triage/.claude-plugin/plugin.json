@@ -1,0 +1,9 @@
+{
+  "name": "referral-triage",
+  "description": "Screen hospital referral packets: clinical fit, financial fit, red flags, and a structured accept/decline decision memo.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

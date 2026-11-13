@@ -640,6 +640,123 @@
    "zh": "把程式碼、文件、資料庫結構轉成知識圖譜（各 agent 版本的 skill 檔）",
    "keywords": "知識圖譜, 程式碼理解, 呼叫關係",
    "entry": "skill.md"
+  },
+  {
+   "path": "clinical-nursing/zh-ebn-report",
+   "repo": "htlin222/zh-ebn-report-skill",
+   "commit": "791f707",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "台灣實證護理（EBN）報告：EBP 5A 流程，對應護理人員 N1–N4 進階報告",
+   "keywords": "實證護理, EBN, 5A, PICO, N3 個案報告, 進階制度"
+  },
+  {
+   "path": "clinical-nursing/nccn-skill-creator",
+   "repo": "htlin222/nccn-skill",
+   "commit": "d006189",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "把自己取得的 NCCN 癌症指引 PDF 轉成可查詢的 SKILL（只存轉換工具，未存指引衍生內容）",
+   "keywords": "NCCN, 癌症指引, oncology, guideline"
+  },
+  {
+   "path": "clinical-nursing/clinical-assistant",
+   "repo": "makidav/clinical-assistant",
+   "commit": "ace4df5",
+   "license": "CC BY 4.0",
+   "date": "2026-11-13",
+   "zh": "臨床推理：鑑別診斷、GRADE 證據評讀、多觀點審視",
+   "keywords": "鑑別診斷, GRADE, 臨床推理"
+  },
+  {
+   "path": "clinical-nursing/aizech-clinical-skills",
+   "repo": "aizech/clinical-skills",
+   "commit": "743831b",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "醫學影像與醫療流程 SKILL 合集（放射科、影像報告、醫療工作流）",
+   "keywords": "放射科, 影像報告, DICOM, 醫療流程"
+  },
+  {
+   "path": "clinical-nursing/snf-skills",
+   "repo": "magicare-ai/snf-skills",
+   "commit": "3240f9c",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "美國護理之家（SNF）用：PDPM、MDS 合規、轉介分流、事前審查",
+   "keywords": "長照機構, SNF, MDS, PDPM, 美國制度"
+  },
+  {
+   "path": "clinical-nursing/anesthesia-nursing-tutor",
+   "repo": "liuchengxiang2023/anesthesia-nursing-tutor",
+   "commit": "89fb36e",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "麻醉護理學學習導師：水平評估、蘇格拉底提問、PACU 情境案例（簡體中文）",
+   "keywords": "麻醉護理, PACU, 恢復室, 教學, 情境案例"
+  },
+  {
+   "path": "clinical-nursing/medical-illustration",
+   "repo": "wilbert-MD-PhD/medical-illustration",
+   "commit": "f8e7594",
+   "license": "MIT／CC BY 4.0（見 LICENSE.md）",
+   "date": "2026-11-13",
+   "zh": "依可信證據製作醫學插畫、衛教漫畫、科研示意圖",
+   "keywords": "醫學插畫, 衛教, 科普漫畫, 示意圖"
+  },
+  {
+   "path": "clinical-nursing/claude-fhir-skill",
+   "repo": "PhenoML/ClaudeFHIRSkill",
+   "commit": "f472b76",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "建立 FHIR 資源與應用程式的指引",
+   "keywords": "FHIR, 醫療資訊, HL7, 互通"
+  },
+  {
+   "path": "clinical-nursing/oncoskill",
+   "repo": "VladShifter/oncoskill",
+   "commit": "23726b3",
+   "license": "Apache-2.0（內容另見 LICENSE-CONTENT.md）",
+   "date": "2026-11-13",
+   "zh": "給癌症病人與照顧者：整理病歷、準備回診問題、理解治療資訊",
+   "keywords": "癌症, 病人, 照顧者, 病歷整理"
+  },
+  {
+   "path": "research-academic/nursing-research-companion",
+   "repo": "chenpg2/nursing-research-companion",
+   "commit": "72c3cbc",
+   "license": "CC BY-NC-SA 4.0",
+   "date": "2026-11-13",
+   "zh": "護理科研陪跑：臨床護理師從臨床現象走到論文（選題、設計、統計、寫作），附提示詞卡（簡體中文）",
+   "keywords": "護理研究, 選題, 研究設計, 統計, 臨床護理師"
+  },
+  {
+   "path": "research-academic/nursing-qualitative-skills",
+   "repo": "chanyiping/nursing-qualitative-skills",
+   "commit": "4609743",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "護理質性研究論文寫作與國際期刊投稿",
+   "keywords": "質性研究, 護理論文, 投稿, COREQ"
+  },
+  {
+   "path": "research-academic/medsci-skills",
+   "repo": "Aperivue/medsci-skills",
+   "commit": "e0ea3b0",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "醫學研究全流程 62 個 SKILL：文獻搜尋、報告指引檢核、統計、樣本數、meta-analysis、寫作、審稿、投稿",
+   "keywords": "醫學研究, 統計, 樣本數, meta-analysis, 報告指引, 投稿"
+  },
+  {
+   "path": "research-academic/dyz-med-paper-skills",
+   "repo": "duyunzhoudyz/dyz-med-paper-skills",
+   "commit": "7e19577",
+   "license": "PolyForm Noncommercial 1.0.0",
+   "date": "2026-11-13",
+   "zh": "醫學論文寫作 32 個 SKILL：選題、PubMed 檢索、中英寫作、選刊投稿、審稿修回（簡體中文）",
+   "keywords": "醫學論文, PubMed, 選刊, 審稿回覆"
   }
  ],
  "references": [
@@ -767,6 +884,48 @@
    "url": "https://boardui.com",
    "what": "UI 元件庫：儀表板與 AI 工作台，表格、圖表、日曆、Agent 聊天（含付費）",
    "note": "網站，未讀取內容",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "anthropics/healthcare",
+   "url": "https://github.com/anthropics/healthcare",
+   "what": "Anthropic 官方 healthcare 外掛：臨床紀錄擷取、FHIR、ICD-10-CM、處置編碼、事前審查、臨床試驗計畫書等 10 個 SKILL",
+   "note": "授權為 Anthropic 服務條款而非開源授權，未複製；可從官方 marketplace 安裝",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "htlin222/cps-skills",
+   "url": "https://github.com/htlin222/cps-skills",
+   "what": "NEJM Clinical Problem-Solving 形式的多角色貝氏診斷推理 SKILL，含 33 章 likelihood ratio 參考",
+   "note": "repo 未附正式授權（僅註明教育與研究用途），未複製",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "htlin222/nccn-skill",
+   "url": "https://github.com/htlin222/nccn-skill",
+   "what": "NCCN 指引轉 SKILL 專案，含 5 個癌別的範例 SKILL",
+   "note": "轉換工具已存為 `nccn-skill-creator`；癌別 SKILL 衍生自有版權的 NCCN 指引，未複製",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "jmandel/health-skillz",
+   "url": "https://github.com/jmandel/health-skillz",
+   "what": "透過 SMART on FHIR 連接並分析個人健康紀錄",
+   "note": "沒有 SKILL.md、未標示授權",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "oscar-wang-xin/dialysis",
+   "url": "https://github.com/oscar-wang-xin/dialysis",
+   "what": "透析病人日常照護的網頁工具與知識庫",
+   "note": "是 HTML 工具，沒有 SKILL.md",
+   "date": "2026-11-13"
+  },
+  {
+   "name": "anthropics/life-sciences",
+   "url": "https://github.com/anthropics/life-sciences",
+   "what": "Anthropic 官方 life sciences marketplace（生醫研究外掛）",
+   "note": "未檢視內容，僅記連結",
    "date": "2026-11-13"
   }
  ]

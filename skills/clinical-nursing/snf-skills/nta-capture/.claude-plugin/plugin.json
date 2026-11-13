@@ -1,0 +1,9 @@
+{
+  "name": "nta-capture",
+  "description": "Capture every legitimately documented NTA comorbidity point from hospital records, with evidence and MDS sources.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

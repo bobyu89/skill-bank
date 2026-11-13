@@ -1,0 +1,9 @@
+{
+  "name": "pdpm-revenue",
+  "description": "Estimate Medicare PDPM per-diem and stay revenue from referral documentation, component by component.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

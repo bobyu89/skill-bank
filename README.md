@@ -1,6 +1,6 @@
 # Skill Bank
 
-SKILL 收藏庫，依功能與用途分類，目前共 1020 個。
+SKILL 收藏庫，依功能與用途分類，目前共 1184 個。
 
 **找 SKILL 的方法**：在本頁用 Ctrl/Cmd + F 搜尋關鍵字（中文用途、英文名稱、原始說明都在表格裡），或從下方分類進去。
 
@@ -10,8 +10,8 @@ SKILL 收藏庫，依功能與用途分類，目前共 1020 個。
 
 | 分類 | 收什麼 | 數量 |
 |---|---|---|
-| [研究／學術](#研究學術-research-academic) | 文獻搜尋、論文寫作、APA、統計、EBP、報告指引、同儕審查 | 183 |
-| [臨床／護理](#臨床護理-clinical-nursing) | 臨床照護、護理紀錄、個案報告、考試與臨床教學 | 0 |
+| [研究／學術](#研究學術-research-academic) | 文獻搜尋、論文寫作、APA、統計、EBP、報告指引、同儕審查 | 279 |
+| [臨床／護理](#臨床護理-clinical-nursing) | 臨床照護、護理紀錄、個案報告、考試與臨床教學 | 68 |
 | [技術／開發](#技術開發-tech-dev) | 程式開發、AI/Agent、MCP、自動化、資料分析 | 101 |
 | [創意／設計](#創意設計-creative-design) | 插畫、視覺設計、UI、簡報、品牌、logo、影像 prompt | 234 |
 | [動畫／影片](#動畫影片-animation-video) | 程式化影片、AI 影片、網頁動效、動畫製作 | 141 |
@@ -26,7 +26,11 @@ SKILL 收藏庫，依功能與用途分類，目前共 1020 個。
 | 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
 |---|---|---|---|---|---|
 | [academic-research-skills](#research-academic-academic-research-skills) | 5 | 學術研究全流程：深度研究、論文寫作、模擬審稿、系統性回顧篩選、整合 pipeline | 查文獻, 寫論文, 模擬審稿, systematic review | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) `c67a7be`（CC BY-NC 4.0） | 2026-11-13 |
+| [dyz-med-paper-skills](#research-academic-dyz-med-paper-skills) | 32 | 醫學論文寫作 32 個 SKILL：選題、PubMed 檢索、中英寫作、選刊投稿、審稿修回（簡體中文） | 醫學論文, PubMed, 選刊, 審稿回覆 | [duyunzhoudyz/dyz-med-paper-skills](https://github.com/duyunzhoudyz/dyz-med-paper-skills) `7e19577`（PolyForm Noncommercial 1.0.0） | 2026-11-13 |
 | [figures4papers](skills/research-academic/figures4papers/SKILL.md) | 1 | 論文用科學圖表製作 | 論文圖表, matplotlib, figure | [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) `e78584f`（CC BY-NC 4.0） | 2026-11-13 |
+| [medsci-skills](#research-academic-medsci-skills) | 62 | 醫學研究全流程 62 個 SKILL：文獻搜尋、報告指引檢核、統計、樣本數、meta-analysis、寫作、審稿、投稿 | 醫學研究, 統計, 樣本數, meta-analysis, 報告指引, 投稿 | [Aperivue/medsci-skills](https://github.com/Aperivue/medsci-skills) `e0ea3b0`（MIT） | 2026-11-13 |
+| [nursing-qualitative-skills](#research-academic-nursing-qualitative-skills) | 1 | 護理質性研究論文寫作與國際期刊投稿 | 質性研究, 護理論文, 投稿, COREQ | [chanyiping/nursing-qualitative-skills](https://github.com/chanyiping/nursing-qualitative-skills) `4609743`（MIT） | 2026-11-13 |
+| [nursing-research-companion](#research-academic-nursing-research-companion) | 1 | 護理科研陪跑：臨床護理師從臨床現象走到論文（選題、設計、統計、寫作），附提示詞卡（簡體中文） | 護理研究, 選題, 研究設計, 統計, 臨床護理師 | [chenpg2/nursing-research-companion](https://github.com/chenpg2/nursing-research-companion) `72c3cbc`（CC BY-NC-SA 4.0） | 2026-11-13 |
 | [scientific-agent-skills](#research-academic-scientific-agent-skills) | 177 | 科研助手合集：生物、化學、醫學資料庫與分析工具、科學寫作與簡報 | 生資, 化學, 資料庫, 統計, 科學寫作 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) `2d2065f`（MIT） | 2026-11-13 |
 
 <a id="research-academic-academic-research-skills"></a>
@@ -42,6 +46,138 @@ SKILL 收藏庫，依功能與用途分類，目前共 1020 個。
 | [academic-pipeline](skills/research-academic/academic-research-skills/academic-pipeline/SKILL.md) | Orchestrator for the full academic research pipeline: research -> write -> integrity check -> review -> revise -> re-review -> re-revise -> final integrity check -> finalize. Coor… |
 | [deep-research](skills/research-academic/academic-research-skills/deep-research/SKILL.md) | Universal deep research agent team. 13-agent pipeline for rigorous academic research on any topic. 8 modes: full research, quick brief, paper review, lit-review, fact-check, three… |
 | [sr-screener](skills/research-academic/academic-research-skills/sr-screener/SKILL.md) | Protocol-driven study screening for systematic, scoping and rapid reviews. Turns a proposal or PROSPERO protocol into confirmed eligibility rules, then screens titles/abstracts an… |
+
+<a id="research-academic-dyz-med-paper-skills"></a>
+
+### dyz-med-paper-skills（32 個）
+
+醫學論文寫作 32 個 SKILL：選題、PubMed 檢索、中英寫作、選刊投稿、審稿修回（簡體中文）。資料夾：[`skills/research-academic/dyz-med-paper-skills`](skills/research-academic/dyz-med-paper-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [dyz-med-abstract](skills/research-academic/dyz-med-paper-skills/dyz-med-abstract/SKILL.md) | 从已完成正文和已核实结果生成或修订医学论文标题、结构化摘要与关键词，并按目标期刊当前作者须知核对 分节、字数和必报信息。当用户要求写摘要、压缩摘要、起学术标题或制作中英双语摘要时使用；不从缺失正文 中编造结果，也不把内置期刊配置当作实时官方要求。 Use for medical manuscript titles, structured abstracts… |
+| [dyz-med-analyze](skills/research-academic/dyz-med-paper-skills/dyz-med-analyze/SKILL.md) | 对医学研究原始数据做只读结构与质量检查，先形成可审阅的统计分析计划，获用户明确批准后再生成并运行本地 R 或既定统计代码，交付脚本、日志、诊断和可追溯结果。当用户要求分析 CSV、Excel、SPSS、Stata 等患者级 数据或拟定统计方案时使用；仅判断数据能支持什么问题交给 dyz-med-data-adequacy，解释既有结果交给 dyz-med-… |
+| [dyz-med-cnki](skills/research-academic/dyz-med-paper-skills/dyz-med-cnki/SKILL.md) | 为医学主题设计并执行可复现的中英文文献检索，产出查询式、检索记录和去重后的候选文献池。当用户要“查文献” “覆盖 PubMed 和中文来源”或核实某研究问题的文献范围时使用；本技能负责发现与记录，深度精读交给 dyz-med-key-literature，系统综述的正式筛选与纳入流程交给 dyz-med-screening-pipeline。无法直接访问知… |
+| [dyz-med-data-adequacy](skills/research-academic/dyz-med-paper-skills/dyz-med-data-adequacy/SKILL.md) | 在统计分析和论文写作前检查医学数据能否支持计划问题、模型和论断，产出数据充分性报告、异常清单、待临床 确认问题及可接受的分析范围。当用户问“这些数据够不够”“能支持什么结论”或准备分析前需要数据把关时使用； 实际建模交给 dyz-med-analyze，已有统计结果的临床解释交给 dyz-med-interpret，不能据此承诺期刊或分区。 Use to… |
+| [dyz-med-deai](skills/research-academic/dyz-med-paper-skills/dyz-med-deai/SKILL.md) | 在不改变医学事实和证据的前提下，改善医学论文中模板化、重复、空泛或机械的语言，使表达更自然、具体且 符合作者语气。当用户说文字“太像 AI”“太模板化”“不自然”或要求医学学术语言自然化时使用；本 Skill 不用于规避 AI 检测，不判断文本作者身份，也不删除必要的 AI 使用披露。 Use to improve repetitive academic… |
+| [dyz-med-discussion](skills/research-academic/dyz-med-paper-skills/dyz-med-discussion/SKILL.md) | 基于已核实结果、研究设计和文献证据撰写或修订医学论文讨论部分，覆盖主要发现、与既有证据的比较、合理 解释、局限性、适用性和结论边界。当用户明确要写讨论、解释结果或修复过度声称时使用；不改写统计结果， 不把引用次数当作证据质量，也不编造机制或未来研究样本量。 Use to draft or revise medical discussions, eviden… |
+| [dyz-med-evidence-audit](skills/research-academic/dyz-med-paper-skills/dyz-med-evidence-audit/SKILL.md) | 核对医学稿件中的关键论断是否被所引文献、指南、用户数据或明确标注的推断真正支持，输出逐条论断—证据 矩阵、来源定位和待处理问题。当用户要求检查引用是否对题、论断有没有依据、知识缺口是否夸大或结论是否 超出证据时使用；不代替完整同行评议、报告规范检查或参考文献排版。 Use to audit manuscript claims against cited l… |
+| [dyz-med-export](skills/research-academic/dyz-med-paper-skills/dyz-med-export/SKILL.md) | 将已完成的医学稿件及其参考文献、表格和图片整理为目标期刊要求的 Word、PDF 或其他交付格式，并核对 跨节数字、引用和图表链接。当用户要求导出 DOCX、合并稿件、套用期刊格式或制作可审阅文件时使用； 不改动原始稿件、不假设本地工具存在，也不把导出等同于投稿或科学内容通过审核。 Use to assemble basic DOCX review dra… |
+| [dyz-med-figures-tables](skills/research-academic/dyz-med-paper-skills/dyz-med-figures-tables/SKILL.md) | 规划、生成和核对医学论文的结果表格与统计图，建立数据来源清单，检查正文、图表和已执行分析输出的一致性， 并生成可审阅的标题、图注和脚注。当用户问“需要哪些图表”“帮我做森林图/Table 1”或要求核对图文数字时 使用；CONSORT、STROBE、PRISMA 等流程图由 dyz-med-flowchart 专门处理。 Use for medical m… |
+| [dyz-med-flowchart](skills/research-academic/dyz-med-paper-skills/dyz-med-flowchart/SKILL.md) | 从可追溯的研究流程计数生成并核对随机试验、观察性研究、系统综述或范围综述流程图，交付结构化计数、 Mermaid/可渲染图稿、图注和流程叙述。当用户要求 CONSORT、STROBE、PRISMA 或 PRISMA-ScR 流程图时使用； 文献去重与筛选由 dyz-med-screening-pipeline 负责，其他统计图表由 dyz-med-figu… |
+| [dyz-med-guideline](skills/research-academic/dyz-med-paper-skills/dyz-med-guideline/SKILL.md) | 按当前适用的医学研究报告规范逐条核对稿件，标记 COVERED、PARTIAL、MISSING、NOT_APPLICABLE，并给出 可定位的修改建议。当用户明确要检查 CONSORT、STROBE、PRISMA、STARD、CARE、TRIPOD、ARRIVE、SPIRIT 等规范符合性时使用；笼统稿件诊断、论断证据核查和模拟审稿分别交给相应技能，本技能… |
+| [dyz-med-ideate](skills/research-academic/dyz-med-paper-skills/dyz-med-ideate/SKILL.md) | 把尚未成形的临床观察、兴趣领域、导师方向或数据库线索，转化为结构化且可验证的医学研究问题，并完成 PICO、PECO、PICOS、FINER、机制层级和初步文献缺口判断。当用户说“不知道研究什么”“这个想法能否 做成课题”“想找一个可执行选题”时使用；已有明确问题和数据需要立项时转交 dyz-med-init，已有稿件时不要使用。 Use for clin… |
+| [dyz-med-init](skills/research-academic/dyz-med-paper-skills/dyz-med-init/SKILL.md) | 为已有明确研究问题、研究设计和数据或结果的医学论文创建写作项目，识别研究类型、匹配当前报告规范、检查 可行性与关键风险，并生成最小 IMRaD 骨架。当用户说“研究已经做完，准备开始写论文”或要初始化新论文项目 时使用；尚未形成研究问题时先用 dyz-med-ideate，已有稿件需要评估时转 dyz-med-manuscript-diagnose。 Us… |
+| [dyz-med-interpret](skills/research-academic/dyz-med-paper-skills/dyz-med-interpret/SKILL.md) | 把既有医学统计结果与预先规定、来源可追溯的临床重要阈值放在同一尺度上，区分统计证据、效应大小和临床 重要性，产出逐结局解释表及谨慎措辞。当用户问“显著但有临床意义吗”“区间是否排除重要获益或伤害”时使用； 不负责重新建模或计算原始数据，也不替代 dyz-med-sensitivity 的稳健性分析。 Use to interpret existing st… |
+| [dyz-med-introduction](skills/research-academic/dyz-med-paper-skills/dyz-med-introduction/SKILL.md) | 基于已确认的研究问题、论证地图和已核实文献撰写或修订医学论文引言，形成临床背景、已有证据、具体知识 缺口与研究目的之间的清晰逻辑。当用户明确要写引言或修复引言逻辑时使用；不负责讨论、结果解释或整篇统稿。 Use to draft or revise a medical manuscript introduction and research rationa… |
+| [dyz-med-journal-finder](skills/research-academic/dyz-med-paper-skills/dyz-med-journal-finder/SKILL.md) | 根据医学稿件的主题、文章类型、研究设计、目标读者、开放获取预算和时间要求，核实候选期刊的当前范围、 投稿要求与费用并给出分层短名单。当用户问“适合投什么期刊”“这本期刊匹配吗”或需要改投梯队时使用； 不承诺录用，不凭记忆提供影响因子、接受率、审稿周期或版面费。 Use for medical journal selection based on verif… |
+| [dyz-med-key-literature](skills/research-academic/dyz-med-paper-skills/dyz-med-key-literature/SKILL.md) | 从已有候选文献池中筛选前沿、奠基、指南、系统综述、矛盾证据和本土关键文献，完成全文级结构化精读并形成 可复用的文献地图、单篇简报和证据综合。当用户要“精读几篇关键论文”“找绕不开的文献”或核对与结论矛盾的 研究时使用；从零检索文献应先用 dyz-med-cnki，只有摘要或题录时不得声称已完成深度精读。 Use for critical appraisal… |
+| [dyz-med-manuscript-diagnose](skills/research-academic/dyz-med-paper-skills/dyz-med-manuscript-diagnose/SKILL.md) | 对用户已有的医学稿件、部分草稿、摘要、表格、拒稿信或审稿意见做只读现状诊断，给出材料清单、当前阶段、 主要科学与写作风险、投稿准备度和优先级。当用户想先知道“这篇稿子现在有什么问题、下一步怎么走”时使用； 本 Skill 不直接改写稿件，具体修订交给 dyz-med-revision 或分节 Skill。 Use for read-only manuscr… |
+| [dyz-med-mechanism](skills/research-academic/dyz-med-paper-skills/dyz-med-mechanism/SKILL.md) | 检验和升级医学研究问题的机制与因果逻辑，支持机制链检查、临床与基础双向转化、AI 模型解释、研究再设计、 因果图和中介分析方案。当用户询问“机制是否说得通”“能否从相关性升级”“如何构建因果图或中介路径”时 使用；不负责从零选题，也不把关联、特征重要性或预测性能解释为因果机制。 Use to examine causal reasoning, mechan… |
+| [dyz-med-methods](skills/research-academic/dyz-med-paper-skills/dyz-med-methods/SKILL.md) | 根据研究方案、实际执行记录和统计分析计划撰写或修订医学论文方法部分。当用户需要把研究设计、研究对象、 变量测量、偏倚控制、统计方法及适用的伦理注册信息写成可复核正文时使用；不替用户设计未确认的方法， 不运行统计分析，也不编造批件号、日期、软件版本或数据共享安排。 Use to write methods sections from actual study… |
+| [dyz-med-orchestrator](skills/research-academic/dyz-med-paper-skills/dyz-med-orchestrator/SKILL.md) | 读取医学论文项目状态与现有工件，生成当前进度地图、关键风险和一个最合适的下一步建议。当用户问“现在 到哪一步”“下一步做什么”“从哪里开始”或需要澄清多种医学任务的选择时使用；状态查询只推荐下一步， 明确的自然语言任务直接匹配最窄职责 Skill，无需说出技能名；不自动串联后续阶段或宣告稿件可投稿。 Use to review medical resear… |
+| [dyz-med-passport](skills/research-academic/dyz-med-paper-skills/dyz-med-passport/SKILL.md) | 供医学论文工作流内部读取和更新项目状态文件，记录已确认事实、产出版本、来源、开放问题、人工批准和质量 检查历史。当其他 dyz-med-* Skill 需要共享项目状态或避免重复询问时使用；用户想查看进度时优先使用 dyz-med-orchestrator。本 Skill 只记录已有事实，不作医学判断，也不把缺失字段自动填成已确认。 Use interna… |
+| [dyz-med-registration](skills/research-academic/dyz-med-paper-skills/dyz-med-registration/SKILL.md) | 从官方注册平台核实临床试验或其他研究的注册记录，并与方案、分析计划和稿件交叉检查注册时间、研究设计、 结局、样本量及结果报告差异。当用户提供 NCT、ChiCTR、ISRCTN、UMIN 等注册号，询问是否前瞻注册、是否 存在结局切换或需要注册声明时使用；报告规范的全面检查交给 dyz-med-guideline，未查到原始记录时不得生成 确定性注册声明。… |
+| [dyz-med-results](skills/research-academic/dyz-med-paper-skills/dyz-med-results/SKILL.md) | 把已核实的统计输出、表格和图转写为医学论文结果部分，保持样本量、效应量、置信区间、P 值、模型及分析 层级可追溯。当用户需要撰写或修订结果正文、图表引用或数值一致性时使用；不运行新分析、不补造缺失数字， 也不承担讨论解释。 Use to write results sections while preserving verified effect esti… |
+| [dyz-med-review](skills/research-academic/dyz-med-paper-skills/dyz-med-review/SKILL.md) | 对接近投稿状态的医学稿件做五个视角的模拟审稿：证据、方法统计、伦理合规、临床领域与期刊编辑，并汇总 为定位明确的 PASS、REVISE 或 REJECT 建议。当用户要求投稿前全面把关、模拟同行评议或评估拒稿风险时 使用；这是决策支持，不是真实同行评议，也不会自动修改、导出或投稿。 Use for simulated pre-submission pee… |
+| [dyz-med-revision](skills/research-academic/dyz-med-paper-skills/dyz-med-revision/SKILL.md) | 修订已有医学稿件或逐条回应编辑和审稿人意见，覆盖语言、结构、科学表述、改投适配和拒稿后恢复，并保留 可追溯的修改记录。当用户明确要求修改稿件、回复审稿意见或按新期刊重整时使用；先给修订计划，文字和 格式修改可在授权范围内执行，涉及新数据、重分析、伦理、作者或其他源事实时必须先获得确认。 Use for manuscript revision, respon… |
+| [dyz-med-screening-pipeline](skills/research-academic/dyz-med-paper-skills/dyz-med-screening-pipeline/SKILL.md) | 管理系统综述、Meta 分析或范围综述从检索导入、保守去重、标题摘要与全文筛选，到研究/报告关联、数据提取 和 PRISMA 计数的可审计证据链。当用户要执行文献筛选、记录纳排理由或准备证据合成输入时使用；研究问题与 方案设计不是本技能的主要任务，流程图交给 dyz-med-flowchart，原始研究数据统计与合并模型交给 dyz-med-analyze… |
+| [dyz-med-sensitivity](skills/research-academic/dyz-med-paper-skills/dyz-med-sensitivity/SKILL.md) | 围绕既有医学研究结果的具体不确定性，规划、执行或记录替代模型、缺失数据、偏倚假设、分析人群和研究纳入 变化，产出可追溯的稳健性比较与局限性说明。当用户问“结果稳不稳”“换假设会不会变”或明确要求敏感性分析 时使用；原始主分析交给 dyz-med-analyze，临床重要性解释交给 dyz-med-interpret。 Use for approved se… |
+| [dyz-med-submit](skills/research-academic/dyz-med-paper-skills/dyz-med-submit/SKILL.md) | 根据目标期刊当前要求准备医学论文投稿包，包括投稿信、题名页、作者贡献、利益冲突、数据可用性及其他 指定附件。当用户要求准备投稿材料、cover letter 或投稿前清单时使用；默认只生成本地文件，绝不自动 上传、发送、点击提交或创建外部数据仓库，任何外部提交动作都需要用户另行明确授权并最终确认。 Use to prepare local cover le… |
+| [dyz-med-translate](skills/research-academic/dyz-med-paper-skills/dyz-med-translate/SKILL.md) | 在中文与英文之间忠实翻译医学论文、摘要、投稿材料或审稿回复，统一医学术语，同时逐项保护数字、单位、 统计量、引用、伦理与注册信息。当用户明确要求中译英、英译中或制作双语版本时使用；不负责大范围内容 重构，也不会为了“符合学术写作”补造原文缺失的效应量、事实或引用。 Use for Chinese–English medical translation wi… |
+| [dyz-med-write](skills/research-academic/dyz-med-paper-skills/dyz-med-write/SKILL.md) | 在用户明确要求时，把已确认的医学研究材料一次性整合为完整初稿，或对已完成的各章节做全文连贯性与 一致性修订。当用户说“一次性写成全文”“合成一稿”或“全文统稿”时使用；默认分节写作仍由 dyz-med-introduction、dyz-med-methods、dyz-med-results、dyz-med-discussion 和 dyz-med-abst… |
+| [dyz-med-writing-plan](skills/research-academic/dyz-med-paper-skills/dyz-med-writing-plan/SKILL.md) | 在医学论文成文前，把已确认的研究问题、研究设计、统计结果和文献证据整理成全文论证地图与段落级写作计划。 当用户想先理清论文逻辑、章节任务、论断边界或证据分配时使用；不代替分节撰写、统计分析或文献真实性核查。 Use for medical manuscript argument maps and paragraph-level writing plans. |
+
+<a id="research-academic-medsci-skills"></a>
+
+### medsci-skills（62 個）
+
+醫學研究全流程 62 個 SKILL：文獻搜尋、報告指引檢核、統計、樣本數、meta-analysis、寫作、審稿、投稿。資料夾：[`skills/research-academic/medsci-skills`](skills/research-academic/medsci-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [academic-aio](skills/research-academic/medsci-skills/academic-aio/SKILL.md) | Use when a medical AI paper should be found and cited by AI search engines and RAG tools. Optimizes the title, abstract, summary box (Key Points, Research in Context), keywords, p… |
+| [add-journal](skills/research-academic/medsci-skills/add-journal/SKILL.md) | Use when a target journal has no profile yet. Reads the journal's author guidelines and writes a detailed /write-paper profile plus a compact /find-journal profile, public or user… |
+| [analyze-stats](skills/research-academic/medsci-skills/analyze-stats/SKILL.md) | Use when data needs statistical analysis. Runs reproducible Python/R code for Table 1, diagnostic accuracy, agreement, regression, survival, propensity score, survey-weighted and… |
+| [architecture-zoo](skills/research-academic/medsci-skills/architecture-zoo/SKILL.md) | Renamed to /model-selection in v6 (removed in v7). |
+| [author-strategy](skills/research-academic/medsci-skills/author-strategy/SKILL.md) | Use when analyzing a researcher's publication record from PubMed. Fetches an author's papers, classifies study types and author position, charts the patterns and writes a strategy… |
+| [batch-cohort](skills/research-academic/medsci-skills/batch-cohort/SKILL.md) | Use when one validated cohort analysis must be repeated across many exposure/outcome pairs. Generates one R/Python script per combination from a single methodology template, chang… |
+| [calc-sample-size](skills/research-academic/medsci-skills/calc-sample-size/SKILL.md) | Use when planning how many patients or cases a study needs before data collection (power analysis, IRB justification). Walks a decision tree to the right test and returns reproduc… |
+| [check-reporting](skills/research-academic/medsci-skills/check-reporting/SKILL.md) | Use when auditing a manuscript item by item against a reporting guideline or risk-of-bias tool. Covers 49 reporting guidelines and risk-of-bias tools (STROBE, CONSORT, STARD, TRIP… |
+| [clean-data](skills/research-academic/medsci-skills/clean-data/SKILL.md) | Use when a clinical CSV/Excel dataset needs profiling and cleaning before analysis (missing values, outliers, duplicates, type mismatches). Profiles, flags and generates cleaning… |
+| [contribute](skills/research-academic/medsci-skills/contribute/SKILL.md) | Use when sending local changes back to the project (an added journal profile, a fixed checklist item, an adapted skill) or reporting a false positive or bug. Finds what changed, s… |
+| [cross-national](skills/research-academic/medsci-skills/cross-national/SKILL.md) | Use when comparing an exposure-outcome association across countries with parallel national surveys (KNHANES, NHANES, CHNS). Harmonizes variables, runs parallel weighted analyses a… |
+| [define-variables](skills/research-academic/medsci-skills/define-variables/SKILL.md) | Use when exposure, outcome, covariate or eligibility definitions and cutoffs need a citable basis before the protocol. Reads the data dictionary first, then maps each variable to… |
+| [deidentify](skills/research-academic/medsci-skills/deidentify/SKILL.md) | Use when clinical data may contain PHI and must be de-identified before any LLM-assisted analysis. A local Python script (no network or AI calls) detects identifiers with regex an… |
+| [design-ai-benchmarking](skills/research-academic/medsci-skills/design-ai-benchmarking/SKILL.md) | Use when designing a study that benchmarks AI systems against a human-expert panel, before data collection. Plans the arms, decoupled rubrics with anchors, planted calibration pro… |
+| [design-study](skills/research-academic/medsci-skills/design-study/SKILL.md) | Use when checking a radiology or medical AI study design before drafting or submission. Reviews the analysis unit, cohort logic, leakage risks, comparator, validation strategy and… |
+| [explainability](skills/research-academic/medsci-skills/explainability/SKILL.md) | Renamed to /model-assessment in v6 (removed in v7). |
+| [fill-icmje-coi](skills/research-academic/medsci-skills/fill-icmje-coi/SKILL.md) | Use when each author needs an ICMJE Conflict of Interest disclosure form (coi_disclosure.docx) for submission. Clones a pre-filled synthetic seed with every item marked None and r… |
+| [fill-protocol](skills/research-academic/medsci-skills/fill-protocol/SKILL.md) | Use when an institutional Word form (.doc/.docx IRB protocol, ethics application, grant template) must be filled without breaking its styles, tables, fonts or page layout. Renders… |
+| [find-cohort-gap](skills/research-academic/medsci-skills/find-cohort-gap/SKILL.md) | Use when looking for research topics a longitudinal cohort database can answer (NHIS, UK Biobank, an institutional EMR or registry). Profiles the cohort, matches PI expertise, sca… |
+| [find-journal](skills/research-academic/medsci-skills/find-journal/SKILL.md) | Use when choosing where to submit a manuscript. Matches the abstract against curated journal profiles and returns ranked picks with scope fit, AI-disclosure policy, an acceptance-… |
+| [fulltext-retrieval](skills/research-academic/medsci-skills/fulltext-retrieval/SKILL.md) | Use when you need full-text PDFs for a list of DOIs, such as a meta-analysis screening set. Batch-downloads open-access copies via Unpaywall, PMC, OpenAlex and Crossref, lists pay… |
+| [generate-codebook](skills/research-academic/medsci-skills/generate-codebook/SKILL.md) | Use when a tabular dataset (CSV, Excel, Parquet, Stata, SAS) needs a data dictionary. Profiles every variable (type, levels, range, missingness) into codebook.md and codebook.json… |
+| [grant-builder](skills/research-academic/medsci-skills/grant-builder/SKILL.md) | Use when drafting a grant or challenge proposal for a radiology or medical AI project, including a Korean government industry-academia plan. Structures significance, innovation, a… |
+| [humanize](skills/research-academic/medsci-skills/humanize/SKILL.md) | Use when a manuscript or response-to-reviewers letter reads as AI-written. Scans for 27 AI writing patterns and rewrites flagged passages, preserving technical accuracy and boundi… |
+| [imaging-data](skills/research-academic/medsci-skills/imaging-data/SKILL.md) | Use when preparing a medical-imaging dataset (DICOM/NIfTI) for modelling. Profiles spacing, orientation, intensity, label integrity, foreground fraction and target volume, gates t… |
+| [intake-project](skills/research-academic/medsci-skills/intake-project/SKILL.md) | Use when starting or inheriting a radiology research project and need to know what it is. Classifies the project type, summarizes its current state, lists missing inputs, recommen… |
+| [lit-sync](skills/research-academic/medsci-skills/lit-sync/SKILL.md) | Use when references in a .bib file (often from /search-lit) should land in Zotero and Obsidian. Syncs them to the Zotero library, writes Obsidian literature notes and extracts cro… |
+| [ma-scout](skills/research-academic/medsci-skills/ma-scout/SKILL.md) | Use when looking for a meta-analysis topic before any protocol exists. Starts from a professor's publication profile or from a clinical question, finds gaps, assesses feasibility… |
+| [make-figures](skills/research-academic/medsci-skills/make-figures/SKILL.md) | Use when a paper needs publication-ready figures or a visual abstract. Makes ROC, forest, calibration, Kaplan-Meier and Bland-Altman plots, CONSORT/STARD/PRISMA flow diagrams, con… |
+| [manage-project](skills/research-academic/medsci-skills/manage-project/SKILL.md) | Use when managing a manuscript project over time. Scaffolds the project structure, tracks writing progress across phases, maintains project memory files, and generates submission… |
+| [manage-refs](skills/research-academic/medsci-skills/manage-refs/SKILL.md) | Use when references must be written, rendered or converted. Checks [@key] citation keys, renders the reference list with a journal CSL via pandoc, converts [N] markers, injects Zo… |
+| [meta-analysis](skills/research-academic/medsci-skills/meta-analysis/SKILL.md) | Use when running a systematic review and meta-analysis, DTA or intervention. Covers PROSPERO protocol, search, screening, extraction, risk of bias (QUADAS-3, RoB 2, ROBINS-I), biv… |
+| [mllm-eval](skills/research-academic/medsci-skills/mllm-eval/SKILL.md) | Use when designing or auditing how an LLM or multimodal LLM is evaluated on a clinical task (report generation, VQA, text extraction). Covers reference standard, clinical-efficacy… |
+| [model-assessment](skills/research-academic/medsci-skills/model-assessment/SKILL.md) | Use when validating or evaluating a trained medical-imaging model. Audits split leakage and validation design, computes task-correct held-out metrics (Dice + HD95, AUROC + AUPRC,… |
+| [model-card](skills/research-academic/medsci-skills/model-card/SKILL.md) | Use when a trained medical-imaging model needs its documentation. Fills a Model Card and a Datasheet for its dataset from facts you supply, adds a METRIC-informed data-quality pas… |
+| [model-evaluation](skills/research-academic/medsci-skills/model-evaluation/SKILL.md) | Renamed to /model-assessment in v6 (removed in v7). |
+| [model-scaffold](skills/research-academic/medsci-skills/model-scaffold/SKILL.md) | Use when you need a runnable PyTorch training repo for a medical-imaging task (segmentation, classification, detection, synthesis, self-supervised, or fine-tuning a pretrained bac… |
+| [model-selection](skills/research-academic/medsci-skills/model-selection/SKILL.md) | Use when choosing the model for a medical-imaging study. Picks a paper-grounded architecture family (CNN/ViT, U-Net/nnU-Net, detection, SAM/foundation, GNN), then vets the concret… |
+| [model-sourcing](skills/research-academic/medsci-skills/model-sourcing/SKILL.md) | Renamed to /model-selection in v6 (removed in v7). |
+| [model-validation](skills/research-academic/medsci-skills/model-validation/SKILL.md) | Renamed to /model-assessment in v6 (removed in v7). |
+| [obsidian-paper-vault](skills/research-academic/medsci-skills/obsidian-paper-vault/SKILL.md) | Use when turning a folder of research PDFs into Obsidian notes, even if Obsidian is not named. Writes one templated literature note per paper and extracts cross-linked atomic conc… |
+| [orchestrate](skills/research-academic/medsci-skills/orchestrate/SKILL.md) | Use when the user describes a research goal without naming a skill, or the task spans several skills. Classifies the request, plans the order and routes to the right medsci-skills… |
+| [peer-review](skills/research-academic/medsci-skills/peer-review/SKILL.md) | Use when reviewing someone else's manuscript for a journal, such as after a review invitation or for a revised R1/R2 version. Drafts a structured, constructive review in the journ… |
+| [polish-language](skills/research-academic/medsci-skills/polish-language/SKILL.md) | Use when a manuscript needs a copy-edit for consistency and non-native English clarity. Flags abbreviation, US/UK spelling, en-dash range, P/p, hyphenation, number-style and unit-… |
+| [preprocess-imaging](skills/research-academic/medsci-skills/preprocess-imaging/SKILL.md) | Renamed to /imaging-data in v6 (removed in v7). |
+| [present-paper](skills/research-academic/medsci-skills/present-paper/SKILL.md) | Use when preparing an academic talk such as a journal club, grand rounds, seminar, conference presentation, or lecture/teaching deck. Analyzes the source, drafts audience-adapted… |
+| [profile-imaging](skills/research-academic/medsci-skills/profile-imaging/SKILL.md) | Renamed to /imaging-data in v6 (removed in v7). |
+| [publish-skill](skills/research-academic/medsci-skills/publish-skill/SKILL.md) | Use when turning a personal agent skill into an open-source, distributable one. Runs a PII audit, generalizes personal details, checks licence compatibility, reviews cross-platfor… |
+| [radiomics-ml](skills/research-academic/medsci-skills/radiomics-ml/SKILL.md) | Use when building or auditing a radiomics or tabular clinical-ML prediction model with a classical learner (LASSO, SVM, random forest, XGBoost and similar). Enforces nested CV, di… |
+| [render-pdf-doc](skills/research-academic/medsci-skills/render-pdf-doc/SKILL.md) | Use when rendering a Markdown document (English or Korean) such as a proposal, IRB cover letter, handout or reference table to PDF via pandoc and xelatex, with auto-fitted table w… |
+| [replicate-study](skills/research-academic/medsci-skills/replicate-study/SKILL.md) | Use when applying a published cohort study's methodology to a different database. Extracts the design from the source paper, maps variables to the target database with a harmoniza… |
+| [review-paper](skills/research-academic/medsci-skills/review-paper/SKILL.md) | Use when writing a literature review article (narrative, scoping PRISMA-ScR or systematic). Scaffolds a 7-part skeleton with a scope and non-overlap statement, summary-table stubs… |
+| [revise](skills/research-academic/medsci-skills/revise/SKILL.md) | Use when a manuscript comes back with reviewer or editor comments. Numbers every comment, classifies it MAJOR/MINOR/REBUTTAL, drafts a point-by-point response with tracked manuscr… |
+| [search-lit](skills/research-academic/medsci-skills/search-lit/SKILL.md) | Use when finding papers or building a reference list. Searches PubMed, Semantic Scholar and bioRxiv/medRxiv, includes only references verified through an API, and generates BibTeX… |
+| [self-review](skills/research-academic/medsci-skills/self-review/SKILL.md) | Use when checking your own manuscript before submission from a reviewer's perspective. Returns anticipated Major/Minor comments with fixes, including numerical, citation and leaka… |
+| [setup-medsci](skills/research-academic/medsci-skills/setup-medsci/SKILL.md) | Use when a skill fails for a missing tool or the environment needs checking. Diagnoses Python, R, Node, Claude Code, Git, Zotero and configured MCP servers and prints a pass/fail… |
+| [sync-submission](skills/research-academic/medsci-skills/sync-submission/SKILL.md) | Use when building, auditing or freezing a journal submission package from the canonical manuscript. Detects drift between the source and the per-journal submission copy, builds by… |
+| [uncertainty-imaging](skills/research-academic/medsci-skills/uncertainty-imaging/SKILL.md) | Renamed to /model-assessment in v6 (removed in v7). |
+| [verify-refs](skills/research-academic/medsci-skills/verify-refs/SKILL.md) | Use when checking whether a manuscript's references are real. Audits each citation against PubMed and CrossRef, flags fabricated or mismatched entries and writes qc/reference_audi… |
+| [version-dataset](skills/research-academic/medsci-skills/version-dataset/SKILL.md) | Use when you must prove an analysis ran on the intended data or lock a dataset version. Builds a deterministic content-hash manifest (file SHA-256, schema, per-column value hashes… |
+| [write-paper](skills/research-academic/medsci-skills/write-paper/SKILL.md) | Use when drafting a medical research manuscript or any IMRAD section. Runs an 8-phase pipeline from outline to submission-ready draft for original articles, AI validation studies,… |
+| [write-protocol](skills/research-academic/medsci-skills/write-protocol/SKILL.md) | Use when drafting an IRB or ethics research protocol. Writes Background, Study Design, Sample Size and Statistical Plan in full prose and leaves institution-specific sections as T… |
+
+<a id="research-academic-nursing-qualitative-skills"></a>
+
+### nursing-qualitative-skills（1 個）
+
+護理質性研究論文寫作與國際期刊投稿。資料夾：[`skills/research-academic/nursing-qualitative-skills`](skills/research-academic/nursing-qualitative-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/nursing-qualitative-writing](skills/research-academic/nursing-qualitative-skills/skills/nursing-qualitative-writing/SKILL.md) | Use this skill to draft, revise, structure, and critically improve nursing qualitative research manuscripts, especially for journal submission to nursing and health-care journals… |
+
+<a id="research-academic-nursing-research-companion"></a>
+
+### nursing-research-companion（1 個）
+
+護理科研陪跑：臨床護理師從臨床現象走到論文（選題、設計、統計、寫作），附提示詞卡（簡體中文）。資料夾：[`skills/research-academic/nursing-research-companion`](skills/research-academic/nursing-research-companion)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/nursing-research-companion](skills/research-academic/nursing-research-companion/skills/nursing-research-companion/SKILL.md) | This skill should be used when the user asks for help with nursing research at any stage, e.g. "帮我做护理科研"、"护理选题怎么定"、"我观察到一个临床现象能不能研究"、"帮我提出科学假说"、"我的题目好像有人做过了"、"护理研究统计方法怎么选"、"护理课题样本… |
 
 <a id="research-academic-scientific-agent-skills"></a>
 
@@ -231,7 +367,126 @@ SKILL 收藏庫，依功能與用途分類，目前共 1020 個。
 
 ## 臨床／護理 (`clinical-nursing`)
 
-尚無。
+| 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
+|---|---|---|---|---|---|
+| [aizech-clinical-skills](#clinical-nursing-aizech-clinical-skills) | 51 | 醫學影像與醫療流程 SKILL 合集（放射科、影像報告、醫療工作流） | 放射科, 影像報告, DICOM, 醫療流程 | [aizech/clinical-skills](https://github.com/aizech/clinical-skills) `743831b`（MIT） | 2026-11-13 |
+| [anesthesia-nursing-tutor](#clinical-nursing-anesthesia-nursing-tutor) | 2 | 麻醉護理學學習導師：水平評估、蘇格拉底提問、PACU 情境案例（簡體中文） | 麻醉護理, PACU, 恢復室, 教學, 情境案例 | [liuchengxiang2023/anesthesia-nursing-tutor](https://github.com/liuchengxiang2023/anesthesia-nursing-tutor) `89fb36e`（MIT） | 2026-11-13 |
+| [claude-fhir-skill](skills/clinical-nursing/claude-fhir-skill/SKILL.md) | 1 | 建立 FHIR 資源與應用程式的指引 | FHIR, 醫療資訊, HL7, 互通 | [PhenoML/ClaudeFHIRSkill](https://github.com/PhenoML/ClaudeFHIRSkill) `f472b76`（Apache-2.0） | 2026-11-13 |
+| [clinical-assistant](skills/clinical-nursing/clinical-assistant/SKILL.md) | 1 | 臨床推理：鑑別診斷、GRADE 證據評讀、多觀點審視 | 鑑別診斷, GRADE, 臨床推理 | [makidav/clinical-assistant](https://github.com/makidav/clinical-assistant) `ace4df5`（CC BY 4.0） | 2026-11-13 |
+| [medical-illustration](#clinical-nursing-medical-illustration) | 1 | 依可信證據製作醫學插畫、衛教漫畫、科研示意圖 | 醫學插畫, 衛教, 科普漫畫, 示意圖 | [wilbert-MD-PhD/medical-illustration](https://github.com/wilbert-MD-PhD/medical-illustration) `f8e7594`（MIT／CC BY 4.0（見 LICENSE.md）） | 2026-11-13 |
+| [nccn-skill-creator](skills/clinical-nursing/nccn-skill-creator/SKILL.md) | 1 | 把自己取得的 NCCN 癌症指引 PDF 轉成可查詢的 SKILL（只存轉換工具，未存指引衍生內容） | NCCN, 癌症指引, oncology, guideline | [htlin222/nccn-skill](https://github.com/htlin222/nccn-skill) `d006189`（Apache-2.0） | 2026-11-13 |
+| [oncoskill](#clinical-nursing-oncoskill) | 1 | 給癌症病人與照顧者：整理病歷、準備回診問題、理解治療資訊 | 癌症, 病人, 照顧者, 病歷整理 | [VladShifter/oncoskill](https://github.com/VladShifter/oncoskill) `23726b3`（Apache-2.0（內容另見 LICENSE-CONTENT.md）） | 2026-11-13 |
+| [snf-skills](#clinical-nursing-snf-skills) | 9 | 美國護理之家（SNF）用：PDPM、MDS 合規、轉介分流、事前審查 | 長照機構, SNF, MDS, PDPM, 美國制度 | [magicare-ai/snf-skills](https://github.com/magicare-ai/snf-skills) `3240f9c`（MIT） | 2026-11-13 |
+| [zh-ebn-report](skills/clinical-nursing/zh-ebn-report/SKILL.md) | 1 | 台灣實證護理（EBN）報告：EBP 5A 流程，對應護理人員 N1–N4 進階報告 | 實證護理, EBN, 5A, PICO, N3 個案報告, 進階制度 | [htlin222/zh-ebn-report-skill](https://github.com/htlin222/zh-ebn-report-skill) `791f707`（MIT） | 2026-11-13 |
+
+<a id="clinical-nursing-aizech-clinical-skills"></a>
+
+### aizech-clinical-skills（51 個）
+
+醫學影像與醫療流程 SKILL 合集（放射科、影像報告、醫療工作流）。資料夾：[`skills/clinical-nursing/aizech-clinical-skills`](skills/clinical-nursing/aizech-clinical-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [ai-assistants/ai-detection-pipeline](skills/clinical-nursing/aizech-clinical-skills/ai-assistants/ai-detection-pipeline/SKILL.md) | Integrate AI detection into PACS workflow. Also use when setting up, configuring, or optimizing AI detection systems for medical imaging. Also covers Aidoc, Nvidia Clara, Zebra Me… |
+| [ai-assistants/ai-quality-review](skills/clinical-nursing/aizech-clinical-skills/ai-assistants/ai-quality-review/SKILL.md) | QA AI outputs, detect false positives/negatives, and validate AI results. Also use when evaluating AI system performance, reviewing AI-assisted findings, or conducting quality ass… |
+| [ai-assistants/ai-report-assist](skills/clinical-nursing/aizech-clinical-skills/ai-assistants/ai-report-assist/SKILL.md) | Guidance for AI-assisted structured reporting tools. Also use when the user mentions AI reporting, automated templating, speech-to-report, or wants to configure or optimize AI-ass… |
+| [ai-assistants/llm-radiology-use](skills/clinical-nursing/aizech-clinical-skills/ai-assistants/llm-radiology-use/SKILL.md) | Use LLM APIs for radiology tasks. Also use when integrating medical LLMs (MedPaLM, MedLM, Google Health, Amazon HealthLake) for report analysis, clinical reasoning, or radiology A… |
+| [ai-detection-pipeline](skills/clinical-nursing/aizech-clinical-skills/ai-detection-pipeline/SKILL.md) | Integrate AI detection into PACS workflow. Also use when setting up, configuring, or optimizing AI detection systems for medical imaging. Also covers Aidoc, Nvidia Clara, Zebra Me… |
+| [ai-quality-review](skills/clinical-nursing/aizech-clinical-skills/ai-quality-review/SKILL.md) | QA AI outputs, detect false positives/negatives, and validate AI results. Also use when evaluating AI system performance, reviewing AI-assisted findings, or conducting quality ass… |
+| [ai-report-assist](skills/clinical-nursing/aizech-clinical-skills/ai-report-assist/SKILL.md) | Guidance for AI-assisted structured reporting tools. Also use when the user mentions AI reporting, automated templating, speech-to-report, or wants to configure or optimize AI-ass… |
+| [analytics-quality/image-quality-audit](skills/clinical-nursing/aizech-clinical-skills/analytics-quality/image-quality-audit/SKILL.md) | Assesses medical image quality against clinical standards and identifies optimization opportunities. Use when user mentions "image quality audit", "artifact review", "dose analysi… |
+| [analytics-quality/radiology-metrics](skills/clinical-nursing/aizech-clinical-skills/analytics-quality/radiology-metrics/SKILL.md) | Retrieves and analyzes operational metrics from radiology information systems. Use when user mentions "radiology KPIs", "productivity metrics", "turnaround time analysis", "worklo… |
+| [analytics-quality/report-quality-review](skills/clinical-nursing/aizech-clinical-skills/analytics-quality/report-quality-review/SKILL.md) | Monitors and improves radiology report quality through systematic audit and feedback. Use when user mentions "report quality review", "discrepancy audit", "report completeness", "… |
+| [care-gap-closure](skills/clinical-nursing/aizech-clinical-skills/care-gap-closure/SKILL.md) | Ensure recommended imaging is completed and close care gaps in radiology. Also use when optimizing imaging completion rates, tracking screening compliance, or identifying patients… |
+| [clinical-documentation/imaging-study-review](skills/clinical-nursing/aizech-clinical-skills/clinical-documentation/imaging-study-review/SKILL.md) | Performs comprehensive review of imaging studies for clinical, QA, tumor board, or comparison purposes. Use when user mentions "review this study", "comprehensive review", "tumor… |
+| [clinical-documentation/radiology-report-analysis](skills/clinical-nursing/aizech-clinical-skills/clinical-documentation/radiology-report-analysis/SKILL.md) | Analyze structured/free-text radiology reports, extract key findings, measurements, and impressions. Also use when the user provides a report for review, summary, data extraction,… |
+| [clinical-documentation/structured-reporting](skills/clinical-nursing/aizech-clinical-skills/clinical-documentation/structured-reporting/SKILL.md) | Create and optimize structured radiology reports using standardized templates. Also use when the user mentions BI-RADS, LI-RADS, PI-RADS, TI-RADS, or needs to convert free-text re… |
+| [core/modality-detection](skills/clinical-nursing/aizech-clinical-skills/core/modality-detection/SKILL.md) | Auto-detect imaging modality (CT, MRI, X-ray, US, etc.) from user input, DICOM file headers, or file analysis. Also use when the user mentions "what modality", "detect from file",… |
+| [core/radiology-context](skills/clinical-nursing/aizech-clinical-skills/core/radiology-context/SKILL.md) | Establish and manage user's clinical radiology environment configuration - PACS, EHR, modality types, AI tools, and workflow settings. Also use when setting up or updating radiolo… |
+| [cross-reference-linking](skills/clinical-nursing/aizech-clinical-skills/cross-reference-linking/SKILL.md) | Links current findings to priors, related literature, and correlated data. Use when user mentions "compare to priors", "find prior studies", "correlate with", "longitudinal compar… |
+| [dataset/dataset-preprocessing](skills/clinical-nursing/aizech-clinical-skills/dataset/dataset-preprocessing/SKILL.md) | Provides preprocessing pipelines and techniques for radiology datasets used in AI development. Use when user mentions "preprocess radiology data", "DICOM preprocessing", "image no… |
+| [dataset/model-validation](skills/clinical-nursing/aizech-clinical-skills/dataset/model-validation/SKILL.md) | Designs and executes validation studies for radiology AI models to ensure clinical reliability and regulatory compliance. Use when user mentions "validate model performance", "ext… |
+| [dataset/radiology-dataset-guide](skills/clinical-nursing/aizech-clinical-skills/dataset/radiology-dataset-guide/SKILL.md) | Guides researchers and developers through radiology dataset selection, access, and utilization for AI development. Use when user mentions "radiology dataset", "medical imaging dat… |
+| [dataset-preprocessing](skills/clinical-nursing/aizech-clinical-skills/dataset-preprocessing/SKILL.md) | Provides preprocessing pipelines and techniques for radiology datasets used in AI development. Use when user mentions "preprocess radiology data", "DICOM preprocessing", "image no… |
+| [dicom-web-query](skills/clinical-nursing/aizech-clinical-skills/dicom-web-query/SKILL.md) | Query and retrieve DICOM objects via DICOMweb REST API. Also use when the user needs to work with DICOMweb servers, retrieve imaging studies via REST, or perform web-based DICOM o… |
+| [followup-tracking](skills/clinical-nursing/aizech-clinical-skills/followup-tracking/SKILL.md) | Track incidental findings, schedule follow-up imaging, and manage reminder workflows. Also use when the user mentions follow-up, incidental finding, reminder, or needs to track pa… |
+| [guideline-integration](skills/clinical-nursing/aizech-clinical-skills/guideline-integration/SKILL.md) | Access and apply professional radiology society guidelines. Use when user mentions "ACR criteria", "appropriateness rating", "guideline for", "society recommendation", "BI-RADS up… |
+| [image-quality-audit](skills/clinical-nursing/aizech-clinical-skills/image-quality-audit/SKILL.md) | Assesses medical image quality against clinical standards and identifies optimization opportunities. Use when user mentions "image quality audit", "artifact review", "dose analysi… |
+| [imaging-referral](skills/clinical-nursing/aizech-clinical-skills/imaging-referral/SKILL.md) | Create, optimize, and manage imaging referrals between providers. Also use when the user needs to improve referral quality, add relevant clinical information, or track referral st… |
+| [imaging-study-review](skills/clinical-nursing/aizech-clinical-skills/imaging-study-review/SKILL.md) | Performs comprehensive review of imaging studies for clinical, QA, tumor board, or comparison purposes. Use when user mentions "review this study", "comprehensive review", "tumor… |
+| [llm-radiology-use](skills/clinical-nursing/aizech-clinical-skills/llm-radiology-use/SKILL.md) | Use LLM APIs for radiology tasks. Also use when integrating medical LLMs (MedPaLM, MedLM, Google Health, Amazon HealthLake) for report analysis, clinical reasoning, or radiology A… |
+| [modality-detection](skills/clinical-nursing/aizech-clinical-skills/modality-detection/SKILL.md) | Auto-detect imaging modality (CT, MRI, X-ray, US, etc.) from user input, DICOM file headers, or file analysis. Also use when the user mentions "what modality", "detect from file",… |
+| [model-validation](skills/clinical-nursing/aizech-clinical-skills/model-validation/SKILL.md) | Designs and executes validation studies for radiology AI models to ensure clinical reliability and regulatory compliance. Use when user mentions "validate model performance", "ext… |
+| [pacs-workflow](skills/clinical-nursing/aizech-clinical-skills/pacs-workflow/SKILL.md) | Query PACS, retrieve studies, manage worklists, and integrate with PACS workflows. Also use when the user needs to interact with picture archiving systems, search for imaging stud… |
+| [patient-communication/patient-education-material](skills/clinical-nursing/aizech-clinical-skills/patient-communication/patient-education-material/SKILL.md) | Create patient education materials for imaging procedures and findings. Also use when developing handouts, FAQs, or educational content about radiology procedures, preparation, or… |
+| [patient-communication/patient-results-letter](skills/clinical-nursing/aizech-clinical-skills/patient-communication/patient-results-letter/SKILL.md) | Generate patient-friendly radiology result communications in plain language. Also use when the user needs to explain findings to patients without medical jargon, write result lett… |
+| [patient-education-material](skills/clinical-nursing/aizech-clinical-skills/patient-education-material/SKILL.md) | Create patient education materials for imaging procedures and findings. Also use when developing handouts, FAQs, or educational content about radiology procedures, preparation, or… |
+| [patient-results-letter](skills/clinical-nursing/aizech-clinical-skills/patient-results-letter/SKILL.md) | Generate patient-friendly radiology result communications in plain language. Also use when the user needs to explain findings to patients without medical jargon, write result lett… |
+| [platform-integration/dicom-web-query](skills/clinical-nursing/aizech-clinical-skills/platform-integration/dicom-web-query/SKILL.md) | Query and retrieve DICOM objects via DICOMweb REST API. Also use when the user needs to work with DICOMweb servers, retrieve imaging studies via REST, or perform web-based DICOM o… |
+| [platform-integration/pacs-workflow](skills/clinical-nursing/aizech-clinical-skills/platform-integration/pacs-workflow/SKILL.md) | Query PACS, retrieve studies, manage worklists, and integrate with PACS workflows. Also use when the user needs to interact with picture archiving systems, search for imaging stud… |
+| [platform-integration/pubmed-search](skills/clinical-nursing/aizech-clinical-skills/platform-integration/pubmed-search/SKILL.md) | Evidence-based literature search for radiology. Also use when the user needs to find relevant studies, guidelines, clinical evidence, systematic reviews, or research papers for im… |
+| [radiology-context](skills/clinical-nursing/aizech-clinical-skills/radiology-context/SKILL.md) | Establish and manage user's clinical radiology environment configuration - PACS, EHR, modality types, AI tools, and workflow settings. Also use when setting up or updating radiolo… |
+| [radiology-dataset-guide](skills/clinical-nursing/aizech-clinical-skills/radiology-dataset-guide/SKILL.md) | Guides researchers and developers through radiology dataset selection, access, and utilization for AI development. Use when user mentions "radiology dataset", "medical imaging dat… |
+| [radiology-metrics](skills/clinical-nursing/aizech-clinical-skills/radiology-metrics/SKILL.md) | Retrieves and analyzes operational metrics from radiology information systems. Use when user mentions "radiology KPIs", "productivity metrics", "turnaround time analysis", "worklo… |
+| [radiology-report-analysis](skills/clinical-nursing/aizech-clinical-skills/radiology-report-analysis/SKILL.md) | Analyze structured/free-text radiology reports, extract key findings, measurements, and impressions. Also use when the user provides a report for review, summary, data extraction,… |
+| [radiology-research](skills/clinical-nursing/aizech-clinical-skills/radiology-research/SKILL.md) | Access and synthesize medical imaging research literature. Use when user mentions "recent research on", "literature review", "published studies", "evidence for", or needs to find… |
+| [report-quality-review](skills/clinical-nursing/aizech-clinical-skills/report-quality-review/SKILL.md) | Monitors and improves radiology report quality through systematic audit and feedback. Use when user mentions "report quality review", "discrepancy audit", "report completeness", "… |
+| [research-evidence/cross-reference-linking](skills/clinical-nursing/aizech-clinical-skills/research-evidence/cross-reference-linking/SKILL.md) | Links current findings to priors, related literature, and correlated data. Use when user mentions "compare to priors", "find prior studies", "correlate with", "longitudinal compar… |
+| [research-evidence/guideline-integration](skills/clinical-nursing/aizech-clinical-skills/research-evidence/guideline-integration/SKILL.md) | Access and apply professional radiology society guidelines. Use when user mentions "ACR criteria", "appropriateness rating", "guideline for", "society recommendation", "BI-RADS up… |
+| [research-evidence/radiology-research](skills/clinical-nursing/aizech-clinical-skills/research-evidence/radiology-research/SKILL.md) | Access and synthesize medical imaging research literature. Use when user mentions "recent research on", "literature review", "published studies", "evidence for", or needs to find… |
+| [structured-reporting](skills/clinical-nursing/aizech-clinical-skills/structured-reporting/SKILL.md) | Create and optimize structured radiology reports using standardized templates. Also use when the user mentions BI-RADS, LI-RADS, PI-RADS, TI-RADS, or needs to convert free-text re… |
+| [workflow-coordination/care-gap-closure](skills/clinical-nursing/aizech-clinical-skills/workflow-coordination/care-gap-closure/SKILL.md) | Ensure recommended imaging is completed and close care gaps in radiology. Also use when optimizing imaging completion rates, tracking screening compliance, or identifying patients… |
+| [workflow-coordination/followup-tracking](skills/clinical-nursing/aizech-clinical-skills/workflow-coordination/followup-tracking/SKILL.md) | Track incidental findings, schedule follow-up imaging, and manage reminder workflows. Also use when the user mentions follow-up, incidental finding, reminder, or needs to track pa… |
+| [workflow-coordination/imaging-referral](skills/clinical-nursing/aizech-clinical-skills/workflow-coordination/imaging-referral/SKILL.md) | Create, optimize, and manage imaging referrals between providers. Also use when the user needs to improve referral quality, add relevant clinical information, or track referral st… |
+
+<a id="clinical-nursing-anesthesia-nursing-tutor"></a>
+
+### anesthesia-nursing-tutor（2 個）
+
+麻醉護理學學習導師：水平評估、蘇格拉底提問、PACU 情境案例（簡體中文）。資料夾：[`skills/clinical-nursing/anesthesia-nursing-tutor`](skills/clinical-nursing/anesthesia-nursing-tutor)
+
+| SKILL | 原始說明 |
+|---|---|
+| [麻醉护理学学习导师](skills/clinical-nursing/anesthesia-nursing-tutor/skill/SKILL.md) | 麻醉护理学综合学习导师（理论逐章 + 临床情景）。Invoke when user wants to learn Anesthesia Nursing (麻醉护理学), or says '开始麻醉护理学习', '继续麻醉护理学习', '学习麻醉护理', '麻醉护理复习', etc. Also invoke when user says '开始麻醉护理测试'… |
+| [anesthesia-nursing-tutor](skills/clinical-nursing/anesthesia-nursing-tutor/skill_v2/SKILL.md) | Adaptive anesthesia nursing tutor for guided microlearning, PACU case reasoning, assessment, feedback, and spaced review. Use for anesthesia nursing learning, case training, revie… |
+
+<a id="clinical-nursing-medical-illustration"></a>
+
+### medical-illustration（1 個）
+
+依可信證據製作醫學插畫、衛教漫畫、科研示意圖。資料夾：[`skills/clinical-nursing/medical-illustration`](skills/clinical-nursing/medical-illustration)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/medical-illustration](skills/clinical-nursing/medical-illustration/skills/medical-illustration/SKILL.md) | 制作、返修或审阅医学插画、科普漫画与涉及医学结构的科研示意图、机制图与图形摘要，兼顾视觉叙事、真实参考、可编辑排字及出版交付。也支持本 Skill 的更新检查、安装更新与回退。普通非医学插画不触发。 |
+
+<a id="clinical-nursing-oncoskill"></a>
+
+### oncoskill（1 個）
+
+給癌症病人與照顧者：整理病歷、準備回診問題、理解治療資訊。資料夾：[`skills/clinical-nursing/oncoskill`](skills/clinical-nursing/oncoskill)
+
+| SKILL | 原始說明 |
+|---|---|
+| [oncoskill](skills/clinical-nursing/oncoskill/oncoskill/SKILL.md) | Oncoskill helps cancer patients and caregivers run the operational side of treatment. Use it to (1) explain a medical document — lab result, MRI/PET/CT or pathology report, discha… |
+
+<a id="clinical-nursing-snf-skills"></a>
+
+### snf-skills（9 個）
+
+美國護理之家（SNF）用：PDPM、MDS 合規、轉介分流、事前審查。資料夾：[`skills/clinical-nursing/snf-skills`](skills/clinical-nursing/snf-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [census-operations/skills/census-analysis](skills/clinical-nursing/snf-skills/census-operations/skills/census-analysis/SKILL.md) | Turns raw SNF census data (daily/midnight census exports or hand-typed numbers) into an operational census brief: occupancy, ADC and payer mix, skilled mix, admission/discharge fl… |
+| [compliance/skills/mds-compliance-calendar](skills/clinical-nursing/snf-skills/compliance/skills/mds-compliance-calendar/SKILL.md) | Builds and audits a skilled nursing facility's MDS assessment and regulatory reporting calendar: PPS 5-day and IPA windows, the OBRA schedule (admission, quarterly, annual, signif… |
+| [compliance/skills/survey-readiness](skills/clinical-nursing/snf-skills/compliance/skills/survey-readiness/SKILL.md) | Prepares skilled nursing facilities for state surveys and helps respond to them: annual recertification and complaint survey basics, the F-tag system mapped by care area, the scop… |
+| [eligibility/skills/medicare-snf-eligibility](skills/clinical-nursing/snf-skills/eligibility/skills/medicare-snf-eligibility/SKILL.md) | Reason through skilled nursing facility (SNF) coverage before or at admission: Medicare Part A benefit-period math, the 3-day qualifying stay, Medicare Advantage authorization, Me… |
+| [insurance-contracts/skills/contract-analysis](skills/clinical-nursing/snf-skills/insurance-contracts/skills/contract-analysis/SKILL.md) | Analyze skilled nursing facility (SNF) managed-care contracts: extract terms into a structured contract summary sheet, level patients against a contract's level grid with evidence… |
+| [nta-capture/skills/nta-score-capture](skills/clinical-nursing/snf-skills/nta-capture/skills/nta-score-capture/SKILL.md) | Maximizes legitimate PDPM NTA (Non-Therapy Ancillary) comorbidity capture by parsing hospital referral/discharge documentation for the ~50 CMS-published NTA conditions and service… |
+| [pdpm-revenue/skills/pdpm-estimate](skills/clinical-nursing/snf-skills/pdpm-revenue/skills/pdpm-estimate/SKILL.md) | Estimate the Medicare Fee-for-Service PDPM per-diem rate and total stay revenue for a SNF admission from referral documentation (hospital packet, discharge summary, therapy notes,… |
+| [prior-auth/skills/prior-auth-packets](skills/clinical-nursing/snf-skills/prior-auth/skills/prior-auth-packets/SKILL.md) | Assembles Medicare Advantage / managed-care authorization work products for skilled nursing facility (SNF) stays: initial prior-auth packets with medical-necessity narratives, con… |
+| [referral-triage/skills/referral-packet-review](skills/clinical-nursing/snf-skills/referral-triage/skills/referral-packet-review/SKILL.md) | Screen an inbound hospital referral packet for a skilled nursing facility (SNF) and produce a structured accept/decline decision memo covering clinical fit, financial fit, red fla… |
 
 ## 技術／開發 (`tech-dev`)
 
@@ -1544,3 +1799,9 @@ Anthropic 官方：academy-guide、discernment-nudge。資料夾：[`skills/thin
 | [AffectUI](https://affectui.com) | UI 元件庫：Agent 樹、工具呼叫、審批、trace（部分付費） | 網站，未讀取內容 | 2026-11-13 |
 | [Prestige UI](https://prestigeui.com) | UI 元件庫：React／Tailwind／Motion 動畫元件與落地頁區塊（含付費） | 網站，未讀取內容 | 2026-11-13 |
 | [BoardUI](https://boardui.com) | UI 元件庫：儀表板與 AI 工作台，表格、圖表、日曆、Agent 聊天（含付費） | 網站，未讀取內容 | 2026-11-13 |
+| [anthropics/healthcare](https://github.com/anthropics/healthcare) | Anthropic 官方 healthcare 外掛：臨床紀錄擷取、FHIR、ICD-10-CM、處置編碼、事前審查、臨床試驗計畫書等 10 個 SKILL | 授權為 Anthropic 服務條款而非開源授權，未複製；可從官方 marketplace 安裝 | 2026-11-13 |
+| [htlin222/cps-skills](https://github.com/htlin222/cps-skills) | NEJM Clinical Problem-Solving 形式的多角色貝氏診斷推理 SKILL，含 33 章 likelihood ratio 參考 | repo 未附正式授權（僅註明教育與研究用途），未複製 | 2026-11-13 |
+| [htlin222/nccn-skill](https://github.com/htlin222/nccn-skill) | NCCN 指引轉 SKILL 專案，含 5 個癌別的範例 SKILL | 轉換工具已存為 `nccn-skill-creator`；癌別 SKILL 衍生自有版權的 NCCN 指引，未複製 | 2026-11-13 |
+| [jmandel/health-skillz](https://github.com/jmandel/health-skillz) | 透過 SMART on FHIR 連接並分析個人健康紀錄 | 沒有 SKILL.md、未標示授權 | 2026-11-13 |
+| [oscar-wang-xin/dialysis](https://github.com/oscar-wang-xin/dialysis) | 透析病人日常照護的網頁工具與知識庫 | 是 HTML 工具，沒有 SKILL.md | 2026-11-13 |
+| [anthropics/life-sciences](https://github.com/anthropics/life-sciences) | Anthropic 官方 life sciences marketplace（生醫研究外掛） | 未檢視內容，僅記連結 | 2026-11-13 |

@@ -1,0 +1,66 @@
+# 麻醉护理学习导师 - 配置模板
+#
+# 使用方法：
+#   1. 复制本文件为 config.local.yaml
+#   2. 按你的本地实际路径修改 ${PROJECT_ROOT} 等变量
+#   3. config.local.yaml 已加入 .gitignore（不会上传 GitHub）
+
+# ============================================
+# 知识库路径配置
+# ============================================
+# ${PROJECT_ROOT} 替换为你的项目根目录
+# 例如：F:/Users/13295/Desktop/medical agent3.0
+
+knowledge_paths:
+  textbook: "${PROJECT_ROOT}/13578526_《麻醉护理学》.pdf_by_PaddleOCR-VL-1.6.md"
+  textbook_chunks: "${PROJECT_ROOT}/data/processed/textbook_chunks/"
+  guidelines: "${PROJECT_ROOT}/data/external/guidelines/"
+  guidelines_alt: "${PROJECT_ROOT}/data/raw/guidelines/"
+  institutional_sop: "${PROJECT_ROOT}/knowledge/sop/"      # 本机构 SOP（若有）
+  exam_bank: "${PROJECT_ROOT}/data/datasets/"
+  hard100: "${PROJECT_ROOT}/麻醉护理学高难度单项选择题100道.md"
+
+# ============================================
+# 学习者数据路径
+# ============================================
+learner_paths:
+  notes_dir: "${PROJECT_ROOT}/notes/麻醉护理学/"
+  progress_file: "${PROJECT_ROOT}/notes/麻醉护理学/进度追踪.md"
+  event_logs: "${PROJECT_ROOT}/data/events/"               # 结构化事件日志（研究用）
+  learner_state: "${PROJECT_ROOT}/data/learners/"          # 学习者状态快照
+
+# ============================================
+# Skill 内部资源路径（一般无需修改）
+# ============================================
+skill_paths:
+  references: "./references/"
+  subskills: "./subskills/"
+  cases: "./cases/"
+
+# ============================================
+# 版本信息（用于事件日志和研究可追溯性）
+# ============================================
+versions:
+  skill_version: "2.0.0"
+  knowledge_base_version: "2026-08-06"
+  # model_version 由运行时自动填充
+
+# ============================================
+# 教学参数（可调）
+# ============================================
+teaching_params:
+  default_main_line: "pacu"            # 默认主线：PACU 苏醒期
+  default_learning_mode: "guided_course"
+  max_kc_per_case: 4                  # 单病例最大串联 KC 数
+  min_kc_per_case: 2                  # 最少 KC 数（D1 可为 1）
+  weak_threshold: 0.3                 # M<0.3 判为薄弱
+  mastered_threshold: 0.85            # M>0.85 判为掌握
+  safety_critical_miss_penalty: 0.3   # 安全关键答错的乘数（比普通 0.4 严）
+
+# ============================================
+# 研究模式（用于教学研究）
+# ============================================
+research_mode:
+  enabled: false                      # 开启后严格记录事件日志
+  segregate_assessment: true          # 评价数据与训练数据分离
+  forbid_assessment_reuse: true       # 评价病例禁止在训练中暴露

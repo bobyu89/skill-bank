@@ -1,0 +1,9 @@
+{
+  "name": "census-operations",
+  "description": "Turn census exports into occupancy, payer-mix, and skilled-mix insight with trends, red flags, and backfill math.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

@@ -1,0 +1,43 @@
+MIT License
+
+Copyright (c) 2026 anesthesia-nursing-tutor contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+NOTE ON THIRD-PARTY CONTENT:
+
+The following materials included in this repository are NOT covered by the MIT
+license above and remain the property of their respective copyright holders:
+
+1. `knowledge_base/textbook/13578526_《麻醉护理学》.pdf_by_PaddleOCR-VL-1.6.md`
+   - Source: 《麻醉护理学》刘保江、晁储璋主编，人民卫生出版社，2013
+   - ISBN: 978-7-117-17412-1
+   - Copyright © 人民卫生出版社
+
+2. PDF files in `knowledge_base/guidelines/`
+   - Source: Various professional medical associations and expert consensus documents
+   - Copyright © respective publishers
+
+These materials are included for educational/teaching demonstration purposes only.
+The Skill framework code (SKILL.md, agent_prompt.md, etc.) is the original work
+of this repository's contributors and is licensed under the MIT license above.
+If you are a copyright holder and believe any content should be removed, please
+open an issue.

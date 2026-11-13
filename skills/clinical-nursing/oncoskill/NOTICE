@@ -1,0 +1,34 @@
+Oncoskill
+Copyright 2026 Oncoskill contributors
+
+This product includes original work licensed under the Apache License, Version 2.0
+(code, schemas, tests) and Creative Commons Attribution 4.0 International (written
+content, templates, reference text). See LICENSE and LICENSE-CONTENT.md.
+
+------------------------------------------------------------------------------------
+Third-party attributions and design influences
+------------------------------------------------------------------------------------
+
+Oncoskill's safety/scope/citation/abstain design was informed by, and adapts patterns
+from, the following open-source work. Where ideas or structure were learned, original
+text was written for Oncoskill; no third-party text is reproduced verbatim unless its
+license clearly permits it (see research/source-ledger.yaml for the audit).
+
+- AI-for-cancer-patients (Roupen92), Apache License 2.0.
+  Safety/scope rules, citation/evidence-ledger pattern, reading-level and "abstain"
+  design were adapted with attribution. Upstream ships no NOTICE file; the Apache-2.0
+  license text and this attribution are retained, and modifications are stated.
+  https://github.com/Roupen92/AI-for-cancer-patients
+
+- OncoTeam (peter-fusek), MIT License.
+  Care-ops task decomposition was used as a learn-from architectural reference.
+  https://github.com/peter-fusek/oncoteam
+
+- patiently-ai (PharmaTools.AI), inside FreedomIntelligence/OpenClaw-Medical-Skills.
+  Used as a STRUCTURE reference ONLY for the document-explainer module. No text copied:
+  the upstream repository has no LICENSE file (an MIT badge only) and the skill is
+  third-party branded, so verbatim reuse is not assumed. See source-ledger.yaml.
+
+Clinical reference facts are attributed to their primary sources (e.g. ESMO, ESGO/ESTRO,
+NCI, HSE, Chordoma Foundation) inline and in research/source-ledger.yaml. Oncoskill is
+not endorsed by any of these organizations.

@@ -1,0 +1,9 @@
+{
+  "name": "insurance-contracts",
+  "description": "Analyze managed-care contracts: extract rate terms, carve-outs, and auth rules; level patients; prep negotiations.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "compliance",
+  "description": "MDS/PPS assessment calendars, PBJ deadlines, Five-Star context, survey readiness, and Plan of Correction drafting.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

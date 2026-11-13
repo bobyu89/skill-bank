@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oncoskill/schemas/claim.schema.json",
+  "title": "Oncoskill evidence claim",
+  "description": "Metadata for one clinical claim bundled in a pack or reference. Every clinical statement Oncoskill relies on offline must carry this, so it can show how current it is and refuse to call it current after review_due without a live check.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claim_id", "statement", "source", "evidence_type", "strength", "verified_at", "review_due"],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "description": "Stable kebab-case id, e.g. 'chordoma-particle-treatment-of-choice'.",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "statement": {
+      "type": "string",
+      "description": "The claim in plain, source-faithful language. No invented numbers."
+    },
+    "source": {
+      "type": "string",
+      "description": "Human-readable source name (matches an entry in research/source-ledger.yaml)."
+    },
+    "source_url": {
+      "type": "string",
+      "description": "Primary-source URL."
+    },
+    "source_version": {
+      "type": "string",
+      "description": "Edition/version/year of the source, e.g. 'ESMO bone sarcoma CPG 2018 (Suppl 4)'."
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": ["guideline", "consensus", "systematic-review", "major-center-guidance", "primary-study", "regulatory", "patient-org"],
+      "description": "Where it sits in the source hierarchy."
+    },
+    "strength": {
+      "type": "string",
+      "enum": ["guideline-recommended", "consensus-recommended", "rct-proven", "observational", "expert-opinion", "uncertain"],
+      "description": "Honest strength. Do NOT use 'rct-proven' unless a randomized trial literally supports it."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Where it applies, e.g. 'EU', 'US', 'global', or a country code. Helps flag applicability."
+    },
+    "applicability": {
+      "type": "string",
+      "description": "Who/what situation it applies to and notable exceptions (e.g. 'skull-base, incompletely resected; not low-grade fully resected')."
+    },
+    "verified_at": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date this claim was last checked against the live primary source."
+    },
+    "review_due": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO date after which the skill must not call this current without a live check."
+    },
+    "supersedes": {
+      "type": "string",
+      "description": "claim_id of an earlier claim this replaces, if any."
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "Verification confidence (e.g. lower if the source page was bot-blocked)."
+    }
+  }
+}

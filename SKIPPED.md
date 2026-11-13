@@ -61,3 +61,9 @@
 - `productivity-workflow/awesome-claude-skills`（來源 ComposioHQ/awesome-claude-skills）
   - `composio-skills/`：832 個自動產生的 app 連接器 SKILL，未存
 - `productivity-workflow/gbrain`、`cog-second-brain`、`open-second-brain` 等：repo 內 `.claude/`、`.agents/`、`plugin/` 下的重複副本未存
+- `clinical-nursing/anesthesia-nursing-tutor`
+  - `knowledge_base/`：內含教科書全文與 13 份指引（25 MB），有版權疑慮，未存
+- `research-academic/nursing-research-companion`
+  - `course/`：課程示範資料，非 SKILL 本體
+- `research-academic/dyz-med-paper-skills`
+  - `docs/`：說明文件與圖片，非 SKILL 本體

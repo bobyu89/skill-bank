@@ -1,0 +1,9 @@
+{
+  "name": "prior-auth",
+  "description": "Assemble prior-auth and continued-stay packets, prep peer-to-peers, and draft appeal letters for managed-care stays.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

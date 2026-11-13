@@ -1,0 +1,9 @@
+{
+  "name": "eligibility",
+  "description": "Reason through Medicare SNF benefit eligibility: qualifying stays, benefit days, coinsurance, and Medicaid-pending risk.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Magicare",
+    "url": "https://magicare.ai"
+  }
+}

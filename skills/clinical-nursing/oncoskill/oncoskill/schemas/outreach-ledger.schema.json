@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://oncoskill/schemas/outreach-ledger.schema.json",
+  "title": "Oncoskill Outreach Ledger",
+  "description": "A lightweight CRM for clinics, doctors, and second-opinion outreach, so nothing is forgotten and follow-ups happen on time. Captures the lived-experience plays: which channel actually works, owner, follow-up, and escalation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["entries"],
+  "properties": {
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["clinic_or_doctor", "status", "owner"],
+        "properties": {
+          "clinic_or_doctor": { "type": "string" },
+          "country_city": { "type": "string" },
+          "specialty": { "type": "string" },
+          "why_relevant": { "type": "string" },
+          "channels": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "The Institution Channel Map: the formal channel vs the one that actually works vs how to escalate.",
+            "properties": {
+              "formal_channel": { "type": "string", "description": "The official route (general email, portal) — may be a black hole." },
+              "working_channel": { "type": "string", "description": "The channel that actually gets a response (named person, direct email, in-person)." },
+              "escalation_channel": { "type": "string", "description": "Who/what to escalate to, and the de-escalation note (don't burn the bridge)." }
+            }
+          },
+          "documents_sent": { "type": "array", "items": { "type": "string" } },
+          "date_contacted": { "type": "string", "format": "date" },
+          "last_response": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["to-research", "ready-to-contact", "contacted", "waiting-reply", "follow-up-needed", "consultation-booked", "opinion-received", "not-relevant", "done"]
+          },
+          "owner": { "type": "string", "description": "Who owns this thread (the 'voice' for this clinic)." },
+          "follow_up_date": { "type": "string", "format": "date" },
+          "escalation_condition": {
+            "type": "string",
+            "description": "When to escalate and how (e.g. 'no reply in 7 days -> polite chase; in 14 -> escalation playbook; representative/power-of-attorney if needed')."
+          },
+          "thread_link": { "type": "string", "description": "Link to the email thread / record (kept by the user, not in the repo)." },
+          "share_pack_link": { "type": "string" },
+          "notes": { "type": "string" }
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "description": "Audit trail — never silently rewrite history. Append an entry on each meaningful change.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["updated_at", "what_changed"],
+        "properties": {
+          "updated_at": { "type": "string", "format": "date" },
+          "updated_by": { "type": "string", "description": "patient / caregiver / Oncoskill (assisted) / named person" },
+          "source": { "type": "string", "description": "what prompted it (a document, a reply, a claim_id)" },
+          "what_changed": { "type": "string" },
+          "why": { "type": "string" }
+        }
+      }
+    }
+  }
+}

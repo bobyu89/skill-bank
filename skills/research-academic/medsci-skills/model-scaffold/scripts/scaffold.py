@@ -1,0 +1,1897 @@
+#!/usr/bin/env python3
+"""Reproducible medical-imaging training-repo scaffold generator (model-scaffold).
+
+Emits a runnable PyTorch training repo for a medical-imaging task with the
+reproducibility guarantees baked in *by construction*, so the produced code passes the
+lane's integrity gates without hand-editing:
+
+  - a PATIENT-LEVEL, SEED-LOCKED split written as an auditable artifact
+    (`splits/split_assignment.csv` + `splits/split_seed.txt`) — disjoint by construction
+    (so `check_split_leakage.py` passes), task-independent;
+  - a `train.py` that seeds random / numpy / torch (+ cuda) and sets cuDNN deterministic,
+    builds the training DataLoader from the TRAIN split only, and an `evaluate.py` that
+    runs inference under `model.eval()` + `torch.no_grad()` (so `check_training_hygiene.py`
+    passes);
+  - `model.py`, `dataset.py`, `losses.py`, `config.yaml`, `requirements.txt`,
+    `REPRODUCIBILITY.md`, and a `methods_stub.md` with `[VERIFY: ...]` placeholders.
+
+Tasks (`--task`):
+  segmentation   2-D U-Net (Dice + BCE).
+  classification small multi-label CNN (BCEWithLogits); swap in a `timm` backbone.
+  detection      torchvision Faster R-CNN (ResNet-FPN); FROC / mAP downstream.
+  synthesis      Pix2Pix-style U-Net generator + PatchGAN (image-to-image; L1 + GAN).
+  ssl            SimCLR encoder + projection head (NT-Xent); pretrain then fine-tune.
+  finetune       transfer learning — fine-tune a PRETRAINED backbone (frozen->unfrozen
+                 schedule + discriminative LRs) on collected clinical data; the pretrained
+                 weight source (`--from-pretrained`) is recorded in PRETRAINED.md so the
+                 fine-tune is reproducible. See references/finetuning_guide.md.
+
+It INTEGRATES with the ecosystem (PyTorch; MONAI / nnU-Net / TorchIO / timm / torchvision
+referenced in the generated requirements) — it does not reimplement them. The generated
+repo is what the user runs on a GPU; the lane's gates verify only the NETWORK-FREE parts
+(split disjointness, training hygiene, forward shape).
+
+INPUTS
+  --manifest   CSV: one row per image with a patient/subject ID column (+ image/label paths).
+  --id-col     ID column (auto-detected: patient_id / subject_id / case_id / id).
+  --task       segmentation (default) | classification | detection | synthesis | ssl.
+  --out        output repo directory (default: model_repo).
+  --seed / --val-frac / --test-frac / --in-channels / --out-channels / --base-channels.
+               (--task finetune is a softmax CrossEntropy head and needs --out-channels >= 2.)
+  --preprocessing-manifest  imaging-data preprocessing_manifest.json: reuse its patient-level
+               split_assignment + split_seed instead of drawing a new split (exit 2 if unusable).
+               Also reads imaging-data's QC reports (see IMAGING-DATA QC HANDOFF below).
+  --imaging-qc PATH   an imaging-data QC report (JSON) or a directory of them; repeatable.
+               Replaces the automatic search next to --preprocessing-manifest.
+  --ack-qc CODE=REASON  proceed past an unresolved Major imaging-data claim; repeatable. The
+               reason is written into IMAGING_QC.md in the generated repo.
+  IDs are compared after stripping surrounding whitespace.
+
+OUTPUT
+  A self-contained repo under --out (tree printed to stdout). Deterministic given the
+  manifest + seed.
+
+IMAGING-DATA QC HANDOFF (only when --preprocessing-manifest or --imaging-qc is given)
+  Reads the JSON reports of imaging-data's gates (check_dataset_profile,
+  check_preprocessing_leakage, check_normalizer_domain; recognised by their "detector" field).
+  With --preprocessing-manifest and no --imaging-qc, it looks in <manifest dir>/qc/ and
+  <manifest dir>/../qc/ (manifest path resolved first). --imaging-qc REPLACES that search, so an
+  empty directory records every gate NOT ASSESSED. A check_preprocessing_leakage report is skipped
+  ONLY when its recorded "manifest" has a different file name ("/" or "\\" separators), resolves
+  (absolute, or from the report dir's parent, the report dir, the manifest dir, the working dir)
+  to an existing file, and that file's bytes differ from the scaffolded manifest; otherwise read.
+  A qc/*.json with a claims list but no detector field, or a non-integral summary.n_major, is
+  UNREADABLE; the detector name is matched case-insensitively on its basename.
+    - an unacknowledged Major claim -> refuse: exit 1, nothing written, each code + file listed;
+      any severity that is not Minor/Flag (case-insensitive) counts as Major, and so does a report
+      whose summary.n_major exceeds its listed Majors (QC_REPORT_INCONSISTENT);
+    - an acknowledged Major (--ack-qc CODE=REASON, once per code) -> proceeds; reason recorded;
+    - Minor / Flag claims -> never block; carried forward as warnings;
+    - a gate with no readable report -> NOT ASSESSED; unparseable / off-shape files -> UNREADABLE
+      (stderr + record), never silently dropped.
+  Everything lands in IMAGING_QC.md, referenced from config.yaml and REPRODUCIBILITY.md, so the
+  next step reads it. Without either flag the output is unchanged.
+
+Stdlib + numpy only (numpy is used solely for the deterministic patient-level split; the
+GENERATED code uses torch). Exit codes: 0 ok, 1 refused (unacknowledged Major imaging-data
+QC claim), 2 input/usage error.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+
+ID_HINTS = ("patient_id", "subject_id", "case_id", "patientid", "subjectid", "id", "pid", "mrn")
+
+# Shared determinism preamble, interpolated into every train.py via __SEED_FN__ so each
+# emitted training script seeds every RNG and sets cuDNN deterministic (check_training_hygiene).
+SEED_FN = '''def seed_everything(seed):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False'''
+
+# Shared case-count guard, interpolated into every evaluate.py via __CASE_COUNT_FN__. An
+# empty or mis-pointed test split (or a self-configuring CLI that found "0 cases") runs to
+# completion, writes an empty predictions file and exits 0; the exit code proves nothing.
+CASE_COUNT_FN = '''def assert_case_count(n_predicted, n_test):
+    """Fail loudly unless every test case was predicted and there was at least one."""
+    if not (n_predicted == n_test > 0):
+        raise SystemExit("ERROR: predicted %d of %d test cases; expected n_predicted == n_test > 0 "
+                         "(an empty or mis-pointed test split exits 0 otherwise)" % (n_predicted, n_test))'''
+
+# --------------------------------------------------------------------------- #
+# Per-task templates. Placeholders are __TOKENS__ replaced by render().         #
+# --------------------------------------------------------------------------- #
+
+# ---- segmentation (2-D U-Net) ----
+SEG_MODEL = r'''"""Small configurable 2-D U-Net (generated by model-scaffold).
+
+Plain encoder-decoder with skip connections (Ronneberger 2015); small and CPU-runnable so
+a forward pass can be smoke-tested. Swap in MONAI UNet/SegResNet or an nnU-Net plan.
+"""
+import torch
+import torch.nn as nn
+
+
+def _cbr(cin, cout):
+    return nn.Sequential(
+        nn.Conv2d(cin, cout, 3, padding=1), nn.BatchNorm2d(cout), nn.ReLU(inplace=True),
+        nn.Conv2d(cout, cout, 3, padding=1), nn.BatchNorm2d(cout), nn.ReLU(inplace=True),
+    )
+
+
+class UNet(nn.Module):
+    def __init__(self, in_channels=__IN_CH__, out_channels=__OUT_CH__, base=__BASE__):
+        super().__init__()
+        self.enc1 = _cbr(in_channels, base)
+        self.enc2 = _cbr(base, base * 2)
+        self.enc3 = _cbr(base * 2, base * 4)
+        self.pool = nn.MaxPool2d(2)
+        self.bottleneck = _cbr(base * 4, base * 8)
+        self.up3 = nn.ConvTranspose2d(base * 8, base * 4, 2, stride=2)
+        self.dec3 = _cbr(base * 8, base * 4)
+        self.up2 = nn.ConvTranspose2d(base * 4, base * 2, 2, stride=2)
+        self.dec2 = _cbr(base * 4, base * 2)
+        self.up1 = nn.ConvTranspose2d(base * 2, base, 2, stride=2)
+        self.dec1 = _cbr(base * 2, base)
+        self.head = nn.Conv2d(base, out_channels, 1)
+
+    def forward(self, x):
+        e1 = self.enc1(x)
+        e2 = self.enc2(self.pool(e1))
+        e3 = self.enc3(self.pool(e2))
+        b = self.bottleneck(self.pool(e3))
+        d3 = self.dec3(torch.cat([self.up3(b), e3], dim=1))
+        d2 = self.dec2(torch.cat([self.up2(d3), e2], dim=1))
+        d1 = self.dec1(torch.cat([self.up1(d2), e1], dim=1))
+        return self.head(d1)
+
+
+def build_model():
+    return UNet()
+'''
+
+SEG_LOSSES = r'''"""Segmentation losses (generated by model-scaffold)."""
+import torch
+import torch.nn as nn
+
+
+class DiceBCELoss(nn.Module):
+    """BCEWithLogits + soft Dice — a robust default for imbalanced masks."""
+
+    def __init__(self, smooth=1.0):
+        super().__init__()
+        self.bce = nn.BCEWithLogitsLoss()
+        self.smooth = smooth
+
+    def forward(self, logits, target):
+        bce = self.bce(logits, target)
+        probs = torch.sigmoid(logits)
+        num = 2 * (probs * target).sum(dim=(1, 2, 3)) + self.smooth
+        den = probs.sum(dim=(1, 2, 3)) + target.sum(dim=(1, 2, 3)) + self.smooth
+        dice = 1 - (num / den).mean()
+        return bce + dice
+'''
+
+# ---- classification (small multi-label CNN) ----
+CLS_MODEL = r'''"""Small multi-label classifier (generated by model-scaffold).
+
+A compact CNN for a forward-pass smoke test; for production swap in a pretrained `timm`
+backbone (ResNet/DenseNet/EfficientNet/ViT) with a multi-label head.
+"""
+import torch
+import torch.nn as nn
+
+
+class SmallClassifier(nn.Module):
+    def __init__(self, in_channels=__IN_CH__, num_classes=__OUT_CH__, base=__BASE__):
+        super().__init__()
+        self.features = nn.Sequential(
+            nn.Conv2d(in_channels, base, 3, padding=1), nn.BatchNorm2d(base), nn.ReLU(inplace=True),
+            nn.MaxPool2d(2),
+            nn.Conv2d(base, base * 2, 3, padding=1), nn.BatchNorm2d(base * 2), nn.ReLU(inplace=True),
+            nn.MaxPool2d(2),
+            nn.Conv2d(base * 2, base * 4, 3, padding=1), nn.BatchNorm2d(base * 4), nn.ReLU(inplace=True),
+        )
+        self.pool = nn.AdaptiveAvgPool2d(1)
+        self.head = nn.Linear(base * 4, num_classes)
+
+    def forward(self, x):
+        x = self.pool(self.features(x)).flatten(1)
+        return self.head(x)
+
+
+def build_model():
+    return SmallClassifier()
+'''
+
+CLS_LOSSES = r'''"""Classification loss (generated by model-scaffold)."""
+import torch.nn as nn
+
+
+def build_loss(pos_weight=None):
+    """Multi-label classification: BCEWithLogits (use pos_weight for imbalance).
+    For single-label, swap to nn.CrossEntropyLoss()."""
+    return nn.BCEWithLogitsLoss(pos_weight=pos_weight)
+'''
+
+# ---- detection (torchvision Faster R-CNN) ----
+DET_MODEL = r'''"""Detection model (generated by model-scaffold).
+
+A torchvision Faster R-CNN (ResNet-50 FPN). torchvision returns a loss dict in train mode
+and detections in eval mode. For instance segmentation use maskrcnn_resnet50_fpn.
+"""
+import torchvision
+from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
+
+
+def build_model(num_classes=__OUT_CH__ + 1):  # +1 for background
+    model = torchvision.models.detection.fasterrcnn_resnet50_fpn(weights=None)
+    in_features = model.roi_heads.box_predictor.cls_score.in_features
+    model.roi_heads.box_predictor = FastRCNNPredictor(in_features, num_classes)
+    return model
+'''
+
+DET_LOSSES = r'''"""Detection losses (generated by model-scaffold).
+
+torchvision detection models compute their own multi-task loss dict (classification +
+box regression + objectness + rpn box) when called as model(images, targets) in train
+mode. This module documents that the training loss is sum(loss_dict.values())."""
+
+
+def reduce_loss(loss_dict):
+    return sum(loss for loss in loss_dict.values())
+'''
+
+# ---- synthesis (Pix2Pix-style U-Net generator + PatchGAN) ----
+SYN_MODEL = r'''"""Image-to-image synthesis model (generated by model-scaffold).
+
+A small Pix2Pix-style U-Net generator + PatchGAN discriminator (Isola 2017), CPU-runnable
+for a forward smoke test. For 3-D or diffusion, see MONAI generative models.
+"""
+import torch
+import torch.nn as nn
+
+
+def _down(cin, cout):
+    return nn.Sequential(nn.Conv2d(cin, cout, 4, 2, 1), nn.BatchNorm2d(cout), nn.LeakyReLU(0.2, True))
+
+
+def _up(cin, cout):
+    return nn.Sequential(nn.ConvTranspose2d(cin, cout, 4, 2, 1), nn.BatchNorm2d(cout), nn.ReLU(True))
+
+
+class UNetGenerator(nn.Module):
+    def __init__(self, in_channels=__IN_CH__, out_channels=__OUT_CH__, base=__BASE__):
+        super().__init__()
+        self.d1, self.d2, self.d3 = _down(in_channels, base), _down(base, base * 2), _down(base * 2, base * 4)
+        self.u3, self.u2 = _up(base * 4, base * 2), _up(base * 4, base)
+        self.u1 = nn.ConvTranspose2d(base * 2, out_channels, 4, 2, 1)
+
+    def forward(self, x):
+        e1 = self.d1(x)
+        e2 = self.d2(e1)
+        e3 = self.d3(e2)
+        u3 = self.u3(e3)
+        u2 = self.u2(torch.cat([u3, e2], dim=1))
+        return torch.tanh(self.u1(torch.cat([u2, e1], dim=1)))
+
+
+class PatchGAN(nn.Module):
+    def __init__(self, in_channels=__IN_CH__ + __OUT_CH__, base=__BASE__):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Conv2d(in_channels, base, 4, 2, 1), nn.LeakyReLU(0.2, True),
+            nn.Conv2d(base, base * 2, 4, 2, 1), nn.BatchNorm2d(base * 2), nn.LeakyReLU(0.2, True),
+            nn.Conv2d(base * 2, 1, 4, 1, 1),
+        )
+
+    def forward(self, src, tgt):
+        return self.net(torch.cat([src, tgt], dim=1))
+
+
+def build_model():
+    return UNetGenerator()
+
+
+def build_discriminator():
+    return PatchGAN()
+'''
+
+SYN_LOSSES = r'''"""Synthesis losses (generated by model-scaffold): adversarial (GAN) + L1."""
+import torch.nn as nn
+
+
+def build_losses():
+    """Returns (gan_loss, l1_loss). Generator loss = gan + lambda * L1 (lambda ~ 100)."""
+    return nn.BCEWithLogitsLoss(), nn.L1Loss()
+'''
+
+# ---- ssl (SimCLR encoder + projection head) ----
+SSL_MODEL = r'''"""Self-supervised encoder + projection head (generated by model-scaffold).
+
+A SimCLR-style encoder (small CNN) + MLP projection head (Chen 2020). Pretrain with
+NT-Xent on two augmented views, then fine-tune the encoder on labels.
+"""
+import torch
+import torch.nn as nn
+
+
+class Encoder(nn.Module):
+    def __init__(self, in_channels=__IN_CH__, base=__BASE__, proj_dim=__BASE__ * 2):
+        super().__init__()
+        self.backbone = nn.Sequential(
+            nn.Conv2d(in_channels, base, 3, padding=1), nn.BatchNorm2d(base), nn.ReLU(True),
+            nn.MaxPool2d(2),
+            nn.Conv2d(base, base * 2, 3, padding=1), nn.BatchNorm2d(base * 2), nn.ReLU(True),
+            nn.AdaptiveAvgPool2d(1),
+        )
+        self.projector = nn.Sequential(nn.Linear(base * 2, base * 2), nn.ReLU(True),
+                                       nn.Linear(base * 2, proj_dim))
+
+    def forward(self, x):
+        h = self.backbone(x).flatten(1)
+        return h, nn.functional.normalize(self.projector(h), dim=1)
+
+
+def build_model():
+    return Encoder()
+'''
+
+SSL_LOSSES = r'''"""NT-Xent contrastive loss (SimCLR; generated by model-scaffold)."""
+import torch
+import torch.nn as nn
+
+
+def nt_xent(z1, z2, temperature=0.5):
+    n = z1.size(0)
+    z = torch.cat([z1, z2], dim=0)
+    sim = torch.mm(z, z.t()) / temperature
+    sim.fill_diagonal_(-1e9)
+    targets = torch.arange(n, device=z.device)
+    targets = torch.cat([targets + n, targets], dim=0)
+    return nn.functional.cross_entropy(sim, targets)
+'''
+
+# ---- per-task dataset templates ----
+SEG_DATASET = r'''"""Dataset reading the FROZEN split (segmentation; generated by model-scaffold).
+Replace _load_image/_load_label with your DICOM/NIfTI/TIFF reader."""
+import csv
+from pathlib import Path
+import torch
+from torch.utils.data import Dataset
+
+ID_COL = "__ID_COL__"
+
+
+def _read_split(repo_root):
+    assign = {}
+    with (Path(repo_root) / "splits" / "split_assignment.csv").open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            assign[row[ID_COL].strip()] = row["split"]
+    return assign
+
+
+class ScaffoldDataset(Dataset):
+    def __init__(self, manifest_csv, repo_root, split, transform=None):
+        assign = _read_split(repo_root)
+        self.rows = [r for r in csv.DictReader(open(manifest_csv, encoding="utf-8"))
+                     if assign.get((r.get(ID_COL) or "").strip()) == split]
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.rows)
+
+    def _load_image(self, row):
+        raise NotImplementedError("plug in your image reader -> CxHxW float tensor")
+
+    def _load_label(self, row):
+        raise NotImplementedError("plug in your mask reader -> 1xHxW float tensor in {0,1}")
+
+    def __getitem__(self, i):
+        row = self.rows[i]
+        x, y = self._load_image(row), self._load_label(row)
+        if self.transform is not None:
+            x, y = self.transform(x, y)
+        return x, y
+'''
+
+CLS_DATASET = r'''"""Dataset reading the FROZEN split (classification; generated by model-scaffold).
+Replace _load_image/_load_label with your reader."""
+import csv
+from pathlib import Path
+import torch
+from torch.utils.data import Dataset
+
+ID_COL = "__ID_COL__"
+
+
+def _read_split(repo_root):
+    assign = {}
+    with (Path(repo_root) / "splits" / "split_assignment.csv").open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            assign[row[ID_COL].strip()] = row["split"]
+    return assign
+
+
+class ScaffoldDataset(Dataset):
+    def __init__(self, manifest_csv, repo_root, split, transform=None):
+        assign = _read_split(repo_root)
+        self.rows = [r for r in csv.DictReader(open(manifest_csv, encoding="utf-8"))
+                     if assign.get((r.get(ID_COL) or "").strip()) == split]
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.rows)
+
+    def _load_image(self, row):
+        raise NotImplementedError("plug in your image reader -> CxHxW float tensor")
+
+    def _load_label(self, row):
+        raise NotImplementedError("plug in your label reader -> float tensor [num_classes] (multi-label)")
+
+    def __getitem__(self, i):
+        row = self.rows[i]
+        x, y = self._load_image(row), self._load_label(row)
+        if self.transform is not None:
+            x = self.transform(x)
+        return x, y
+'''
+
+DET_DATASET = r'''"""Detection dataset reading the FROZEN split (generated by model-scaffold).
+Returns (image, target) where target = {"boxes": Nx4, "labels": N} per torchvision."""
+import csv
+from pathlib import Path
+import torch
+from torch.utils.data import Dataset
+
+ID_COL = "__ID_COL__"
+
+
+def _read_split(repo_root):
+    assign = {}
+    with (Path(repo_root) / "splits" / "split_assignment.csv").open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            assign[row[ID_COL].strip()] = row["split"]
+    return assign
+
+
+class ScaffoldDataset(Dataset):
+    def __init__(self, manifest_csv, repo_root, split):
+        assign = _read_split(repo_root)
+        self.rows = [r for r in csv.DictReader(open(manifest_csv, encoding="utf-8"))
+                     if assign.get((r.get(ID_COL) or "").strip()) == split]
+
+    def __len__(self):
+        return len(self.rows)
+
+    def _load_image(self, row):
+        raise NotImplementedError("plug in your image reader -> CxHxW float tensor")
+
+    def _load_target(self, row):
+        raise NotImplementedError('return {"boxes": FloatTensor[N,4], "labels": Int64Tensor[N]}')
+
+    def __getitem__(self, i):
+        row = self.rows[i]
+        return self._load_image(row), self._load_target(row)
+'''
+
+SYN_DATASET = r'''"""Image-to-image synthesis dataset reading the FROZEN split (generated by model-scaffold).
+Returns (source_image, target_image)."""
+import csv
+from pathlib import Path
+import torch
+from torch.utils.data import Dataset
+
+ID_COL = "__ID_COL__"
+
+
+def _read_split(repo_root):
+    assign = {}
+    with (Path(repo_root) / "splits" / "split_assignment.csv").open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            assign[row[ID_COL].strip()] = row["split"]
+    return assign
+
+
+class ScaffoldDataset(Dataset):
+    def __init__(self, manifest_csv, repo_root, split):
+        assign = _read_split(repo_root)
+        self.rows = [r for r in csv.DictReader(open(manifest_csv, encoding="utf-8"))
+                     if assign.get((r.get(ID_COL) or "").strip()) == split]
+
+    def __len__(self):
+        return len(self.rows)
+
+    def _load_source(self, row):
+        raise NotImplementedError("plug in your source-modality reader -> CxHxW float tensor")
+
+    def _load_target(self, row):
+        raise NotImplementedError("plug in your target-modality reader -> CxHxW float tensor")
+
+    def __getitem__(self, i):
+        row = self.rows[i]
+        return self._load_source(row), self._load_target(row)
+'''
+
+SSL_DATASET = r'''"""SSL dataset reading the FROZEN split (generated by model-scaffold).
+Returns two augmented views of the same image (no labels at pretraining)."""
+import csv
+from pathlib import Path
+import torch
+from torch.utils.data import Dataset
+
+ID_COL = "__ID_COL__"
+
+
+def _read_split(repo_root):
+    assign = {}
+    with (Path(repo_root) / "splits" / "split_assignment.csv").open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            assign[row[ID_COL].strip()] = row["split"]
+    return assign
+
+
+class ScaffoldDataset(Dataset):
+    def __init__(self, manifest_csv, repo_root, split, augment=None):
+        assign = _read_split(repo_root)
+        self.rows = [r for r in csv.DictReader(open(manifest_csv, encoding="utf-8"))
+                     if assign.get((r.get(ID_COL) or "").strip()) == split]
+        self.augment = augment
+
+    def __len__(self):
+        return len(self.rows)
+
+    def _load_image(self, row):
+        raise NotImplementedError("plug in your image reader -> CxHxW float tensor")
+
+    def __getitem__(self, i):
+        x = self._load_image(self.rows[i])
+        if self.augment is None:
+            raise NotImplementedError("provide a stochastic augment() for two views")
+        return self.augment(x), self.augment(x)
+'''
+
+# ---- per-task train templates (all hygienic by construction) ----
+SEG_TRAIN = r'''"""Training entry point (segmentation; generated by model-scaffold).
+Reproducible: every RNG seeded, cuDNN deterministic, train loader from the TRAIN split,
+best model selected on the VAL split. No metric is hard-coded."""
+import random
+import numpy as np
+import torch
+from torch.utils.data import DataLoader
+
+from dataset import ScaffoldDataset
+from losses import DiceBCELoss
+from model import build_model
+
+SEED = __SEED__
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__SEED_FN__
+
+
+def main():
+    seed_everything(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    train_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="train")
+    val_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="val")
+    train_loader = DataLoader(train_ds, batch_size=4, shuffle=True, num_workers=4)
+    val_loader = DataLoader(val_ds, batch_size=4, shuffle=False, num_workers=4)
+    model = build_model().to(device)
+    criterion = DiceBCELoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+    best_val = float("inf")
+    for epoch in range(50):
+        model.train()
+        for x, y in train_loader:
+            x, y = x.to(device), y.to(device)
+            optimizer.zero_grad()
+            loss = criterion(model(x), y)
+            loss.backward()
+            optimizer.step()
+        model.eval()
+        val_loss = 0.0
+        with torch.no_grad():
+            for x, y in val_loader:
+                x, y = x.to(device), y.to(device)
+                val_loss += criterion(model(x), y).item()
+        val_loss /= max(len(val_loader), 1)
+        if val_loss < best_val:
+            best_val = val_loss
+            torch.save({"epoch": epoch, "model": model.state_dict(), "seed": SEED}, "best.pt")
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+CLS_TRAIN = r'''"""Training entry point (classification; generated by model-scaffold).
+Reproducible: every RNG seeded, cuDNN deterministic, train loader from the TRAIN split."""
+import random
+import numpy as np
+import torch
+from torch.utils.data import DataLoader
+
+from dataset import ScaffoldDataset
+from losses import build_loss
+from model import build_model
+
+SEED = __SEED__
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__SEED_FN__
+
+
+def main():
+    seed_everything(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    train_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="train")
+    val_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="val")
+    train_loader = DataLoader(train_ds, batch_size=16, shuffle=True, num_workers=4)
+    val_loader = DataLoader(val_ds, batch_size=16, shuffle=False, num_workers=4)
+    model = build_model().to(device)
+    criterion = build_loss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+    best_val = float("inf")
+    for epoch in range(50):
+        model.train()
+        for x, y in train_loader:
+            x, y = x.to(device), y.to(device)
+            optimizer.zero_grad()
+            loss = criterion(model(x), y)
+            loss.backward()
+            optimizer.step()
+        model.eval()
+        val_loss = 0.0
+        with torch.no_grad():
+            for x, y in val_loader:
+                x, y = x.to(device), y.to(device)
+                val_loss += criterion(model(x), y).item()
+        val_loss /= max(len(val_loader), 1)
+        if val_loss < best_val:
+            best_val = val_loss
+            torch.save({"epoch": epoch, "model": model.state_dict(), "seed": SEED}, "best.pt")
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+DET_TRAIN = r'''"""Training entry point (detection; generated by model-scaffold).
+Reproducible: every RNG seeded, cuDNN deterministic, train loader from the TRAIN split.
+torchvision detection models return a loss dict in train mode."""
+import random
+import numpy as np
+import torch
+from torch.utils.data import DataLoader
+
+from dataset import ScaffoldDataset
+from losses import reduce_loss
+from model import build_model
+
+SEED = __SEED__
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__SEED_FN__
+
+
+def _collate(batch):
+    return tuple(zip(*batch))
+
+
+def main():
+    seed_everything(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    train_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="train")
+    train_loader = DataLoader(train_ds, batch_size=2, shuffle=True, num_workers=4, collate_fn=_collate)
+    model = build_model().to(device)
+    optimizer = torch.optim.SGD(model.parameters(), lr=5e-3, momentum=0.9, weight_decay=5e-4)
+    for epoch in range(20):
+        model.train()
+        for images, targets in train_loader:
+            images = [img.to(device) for img in images]
+            targets = [{k: v.to(device) for k, v in t.items()} for t in targets]
+            optimizer.zero_grad()
+            loss = reduce_loss(model(images, targets))
+            loss.backward()
+            optimizer.step()
+        torch.save({"epoch": epoch, "model": model.state_dict(), "seed": SEED}, "best.pt")
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+SYN_TRAIN = r'''"""Training entry point (synthesis; generated by model-scaffold).
+Reproducible: every RNG seeded, cuDNN deterministic, train loader from the TRAIN split.
+Pix2Pix: generator loss = GAN + lambda * L1."""
+import random
+import numpy as np
+import torch
+from torch.utils.data import DataLoader
+
+from dataset import ScaffoldDataset
+from losses import build_losses
+from model import build_model, build_discriminator
+
+SEED = __SEED__
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+LAMBDA_L1 = 100.0
+
+
+__SEED_FN__
+
+
+def main():
+    seed_everything(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    train_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="train")
+    train_loader = DataLoader(train_ds, batch_size=4, shuffle=True, num_workers=4)
+    gen, disc = build_model().to(device), build_discriminator().to(device)
+    gan_loss, l1_loss = build_losses()
+    opt_g = torch.optim.Adam(gen.parameters(), lr=2e-4, betas=(0.5, 0.999))
+    opt_d = torch.optim.Adam(disc.parameters(), lr=2e-4, betas=(0.5, 0.999))
+    for epoch in range(100):
+        gen.train()
+        disc.train()
+        for src, tgt in train_loader:
+            src, tgt = src.to(device), tgt.to(device)
+            fake = gen(src)
+            opt_d.zero_grad()
+            d_real = disc(src, tgt)
+            d_fake = disc(src, fake.detach())
+            loss_d = 0.5 * (gan_loss(d_real, torch.ones_like(d_real)) +
+                            gan_loss(d_fake, torch.zeros_like(d_fake)))
+            loss_d.backward()
+            opt_d.step()
+            opt_g.zero_grad()
+            d_fake = disc(src, fake)
+            loss_g = gan_loss(d_fake, torch.ones_like(d_fake)) + LAMBDA_L1 * l1_loss(fake, tgt)
+            loss_g.backward()
+            opt_g.step()
+        torch.save({"epoch": epoch, "gen": gen.state_dict(), "seed": SEED}, "best.pt")
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+SSL_TRAIN = r'''"""Training entry point (self-supervised pretraining; generated by model-scaffold).
+Reproducible: every RNG seeded, cuDNN deterministic, train loader from the TRAIN split.
+SimCLR NT-Xent over two augmented views; fine-tune the encoder afterwards."""
+import random
+import numpy as np
+import torch
+from torch.utils.data import DataLoader
+
+from dataset import ScaffoldDataset
+from losses import nt_xent
+from model import build_model
+
+SEED = __SEED__
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__SEED_FN__
+
+
+def main():
+    seed_everything(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    train_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="train")
+    train_loader = DataLoader(train_ds, batch_size=32, shuffle=True, num_workers=4)
+    model = build_model().to(device)
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+    for epoch in range(100):
+        model.train()
+        for v1, v2 in train_loader:
+            v1, v2 = v1.to(device), v2.to(device)
+            optimizer.zero_grad()
+            _, z1 = model(v1)
+            _, z2 = model(v2)
+            loss = nt_xent(z1, z2)
+            loss.backward()
+            optimizer.step()
+        torch.save({"epoch": epoch, "model": model.state_dict(), "seed": SEED}, "encoder.pt")
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+# ---- per-task evaluate templates (all use model.eval() + no_grad()) ----
+SEG_EVAL = r'''"""Held-out evaluation (segmentation; generated by model-scaffold).
+Inference under model.eval() + torch.no_grad(); writes per-case predictions. Compute
+Dice + HD95/NSD with CIs downstream via /model-assessment + /analyze-stats."""
+import csv
+import torch
+from torch.utils.data import DataLoader
+from dataset import ScaffoldDataset
+from model import build_model
+
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__CASE_COUNT_FN__
+
+
+def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    test_loader = DataLoader(ScaffoldDataset(MANIFEST, REPO_ROOT, split="test"), batch_size=1, shuffle=False)
+    model = build_model().to(device)
+    model.load_state_dict(torch.load("best.pt", map_location=device)["model"])
+    model.eval()
+    rows = []
+    with torch.no_grad():
+        for i, (x, y) in enumerate(test_loader):
+            probs = torch.sigmoid(model(x.to(device)))
+            rows.append({"index": i, "pred_positive_voxels": int((probs > 0.5).sum().item())})
+    assert_case_count(len(rows), len(test_loader.dataset))
+    with open("predictions.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["index", "pred_positive_voxels"])
+        w.writeheader()
+        w.writerows(rows)
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+CLS_EVAL = r'''"""Held-out evaluation (classification; generated by model-scaffold).
+Inference under model.eval() + torch.no_grad(); writes per-case scores. Compute
+AUROC + AUPRC with CIs downstream via /model-assessment + /analyze-stats."""
+import csv
+import torch
+from torch.utils.data import DataLoader
+from dataset import ScaffoldDataset
+from model import build_model
+
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__CASE_COUNT_FN__
+
+
+def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    test_loader = DataLoader(ScaffoldDataset(MANIFEST, REPO_ROOT, split="test"), batch_size=1, shuffle=False)
+    model = build_model().to(device)
+    model.load_state_dict(torch.load("best.pt", map_location=device)["model"])
+    model.eval()
+    rows = []
+    with torch.no_grad():
+        for i, (x, y) in enumerate(test_loader):
+            scores = torch.sigmoid(model(x.to(device))).squeeze(0).tolist()
+            rows.append({"index": i, "scores": scores})
+    assert_case_count(len(rows), len(test_loader.dataset))
+    with open("predictions.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["index", "scores"])
+        w.writeheader()
+        w.writerows(rows)
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+DET_EVAL = r'''"""Held-out evaluation (detection; generated by model-scaffold).
+Inference under model.eval() + torch.no_grad(); writes detections. Compute FROC/mAP with a
+stated IoU criterion downstream via /model-assessment + /analyze-stats."""
+import json
+import torch
+from torch.utils.data import DataLoader
+from dataset import ScaffoldDataset
+from model import build_model
+
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__CASE_COUNT_FN__
+
+
+def _collate(batch):
+    return tuple(zip(*batch))
+
+
+def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    test_loader = DataLoader(ScaffoldDataset(MANIFEST, REPO_ROOT, split="test"), batch_size=1,
+                             shuffle=False, collate_fn=_collate)
+    model = build_model().to(device)
+    model.load_state_dict(torch.load("best.pt", map_location=device)["model"])
+    model.eval()
+    out = []
+    with torch.no_grad():
+        for i, (images, _) in enumerate(test_loader):
+            preds = model([img.to(device) for img in images])
+            out.append({"index": i, "n_boxes": int(preds[0]["boxes"].shape[0])})
+    assert_case_count(len(out), len(test_loader.dataset))
+    json.dump(out, open("predictions.json", "w"))
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+SYN_EVAL = r'''"""Held-out evaluation (synthesis; generated by model-scaffold).
+Inference under generator.eval() + torch.no_grad(); writes synthesized images. Compute
+SSIM/PSNR + a downstream-task metric via /model-assessment."""
+import torch
+from torch.utils.data import DataLoader
+from dataset import ScaffoldDataset
+from model import build_model
+
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__CASE_COUNT_FN__
+
+
+def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    test_loader = DataLoader(ScaffoldDataset(MANIFEST, REPO_ROOT, split="test"), batch_size=1, shuffle=False)
+    gen = build_model().to(device)
+    gen.load_state_dict(torch.load("best.pt", map_location=device)["gen"])
+    gen.eval()
+    n_predicted = 0
+    with torch.no_grad():
+        for i, (src, tgt) in enumerate(test_loader):
+            fake = gen(src.to(device))
+            torch.save(fake.cpu(), "synth_%d.pt" % i)
+            n_predicted += 1
+    assert_case_count(n_predicted, len(test_loader.dataset))
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+SSL_EVAL = r'''"""Feature extraction (self-supervised; generated by model-scaffold).
+Inference under model.eval() + torch.no_grad(); writes encoder embeddings for a
+downstream linear-probe / fine-tune evaluation."""
+import torch
+from torch.utils.data import DataLoader
+from dataset import ScaffoldDataset
+from model import build_model
+
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__CASE_COUNT_FN__
+
+
+def _identity(x):
+    return x
+
+
+def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    test_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="test", augment=_identity)
+    test_loader = DataLoader(test_ds, batch_size=1, shuffle=False)
+    model = build_model().to(device)
+    model.load_state_dict(torch.load("encoder.pt", map_location=device)["model"])
+    model.eval()
+    feats = []
+    with torch.no_grad():
+        for v1, _ in test_loader:
+            h, _z = model(v1.to(device))
+            feats.append(h.cpu())
+    assert_case_count(sum(f.shape[0] for f in feats), len(test_ds))
+    torch.save(torch.cat(feats, dim=0), "embeddings.pt")
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+# ---- finetune (transfer learning: fine-tune a pretrained backbone) ----
+FT_MODEL = r'''"""Fine-tuning backbone (transfer learning; generated by model-scaffold).
+
+Wraps a PRETRAINED classification backbone with a fresh task head. The default is a small
+CPU-runnable CNN so the forward pass smoke-tests without a GPU or timm; for real transfer
+learning pass pretrained=True to load a `timm` backbone (ResNet/DenseNet/EfficientNet/ViT/
+Swin) — whose weight provenance MUST be recorded in PRETRAINED.md. Freeze the backbone,
+warm up the head, then unfreeze with discriminative learning rates
+(see references/finetuning_guide.md).
+"""
+import torch.nn as nn
+
+# The exact pretrained source, echoed into PRETRAINED.md (provenance). Override via
+# `scaffold.py --from-pretrained ...`; e.g. "timm:resnet50.a1_in1k", "MedSAM", or a URL/DOI.
+PRETRAINED_SOURCE = "__PRETRAINED_SOURCE__"
+
+
+class _SmallBackbone(nn.Module):
+    """CPU-runnable stand-in so the forward pass smoke-tests without timm."""
+
+    def __init__(self, in_channels, base):
+        super().__init__()
+        self.body = nn.Sequential(
+            nn.Conv2d(in_channels, base, 3, padding=1), nn.BatchNorm2d(base), nn.ReLU(True),
+            nn.MaxPool2d(2),
+            nn.Conv2d(base, base * 2, 3, padding=1), nn.BatchNorm2d(base * 2), nn.ReLU(True),
+            nn.AdaptiveAvgPool2d(1),
+        )
+        self.num_features = base * 2
+
+    def forward(self, x):
+        return self.body(x).flatten(1)
+
+
+def _build_backbone(in_channels, base, pretrained):
+    if pretrained:
+        try:
+            import timm
+        except ImportError as e:
+            # Never fall back to a random-init stand-in here: the checkpoint and PRETRAINED.md
+            # would still name PRETRAINED_SOURCE, so the recorded provenance would be false.
+            raise ImportError(
+                "pretrained=True but timm is not installed, so the pretrained weights recorded "
+                "in PRETRAINED.md (" + PRETRAINED_SOURCE + ") cannot be loaded. Install timm, "
+                "or call build_model(pretrained=False) for a random-init smoke test.") from e
+        name = PRETRAINED_SOURCE.split(":", 1)[-1]
+        return timm.create_model(name, pretrained=True, in_chans=in_channels, num_classes=0)
+    return _SmallBackbone(in_channels, base)
+
+
+class FineTuneModel(nn.Module):
+    def __init__(self, in_channels=__IN_CH__, num_classes=__OUT_CH__, base=__BASE__, pretrained=False):
+        super().__init__()
+        self.backbone = _build_backbone(in_channels, base, pretrained)
+        self.head = nn.Linear(self.backbone.num_features, num_classes)
+
+    def set_backbone_trainable(self, trainable):
+        for p in self.backbone.parameters():
+            p.requires_grad = trainable
+
+    def forward(self, x):
+        return self.head(self.backbone(x))
+
+
+def build_model(pretrained=False):
+    return FineTuneModel(pretrained=pretrained)
+'''
+
+FT_LOSSES = r'''"""Fine-tuning loss (generated by model-scaffold)."""
+import torch.nn as nn
+
+
+def build_loss(weight=None):
+    """Single-label multi-class transfer target: CrossEntropy (use weight for imbalance).
+    For multi-label, swap to nn.BCEWithLogitsLoss()."""
+    return nn.CrossEntropyLoss(weight=weight)
+'''
+
+FT_DATASET = r'''"""Dataset reading the FROZEN split (fine-tuning / classification; generated by model-scaffold).
+Replace _load_image/_load_label with your DICOM/NIfTI/TIFF reader."""
+import csv
+from pathlib import Path
+import torch
+from torch.utils.data import Dataset
+
+ID_COL = "__ID_COL__"
+
+
+def _read_split(repo_root):
+    assign = {}
+    with (Path(repo_root) / "splits" / "split_assignment.csv").open(encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            assign[row[ID_COL].strip()] = row["split"]
+    return assign
+
+
+class ScaffoldDataset(Dataset):
+    def __init__(self, manifest_csv, repo_root, split, transform=None):
+        assign = _read_split(repo_root)
+        self.rows = [r for r in csv.DictReader(open(manifest_csv, encoding="utf-8"))
+                     if assign.get((r.get(ID_COL) or "").strip()) == split]
+        self.transform = transform
+
+    def __len__(self):
+        return len(self.rows)
+
+    def _load_image(self, row):
+        raise NotImplementedError("plug in your image reader -> CxHxW float tensor")
+
+    def _load_label(self, row):
+        raise NotImplementedError("plug in your label reader -> int64 class index (single-label)")
+
+    def __getitem__(self, i):
+        row = self.rows[i]
+        x, y = self._load_image(row), self._load_label(row)
+        if self.transform is not None:
+            x = self.transform(x)
+        return x, y
+'''
+
+FT_TRAIN = r'''"""Training entry point (fine-tuning / transfer learning; generated by model-scaffold).
+Reproducible: every RNG seeded, cuDNN deterministic, train loader from the TRAIN split.
+Transfer learning: load the PRETRAINED backbone (source recorded in PRETRAINED.md), freeze
+it and warm up the fresh head, then unfreeze with discriminative learning rates. No metric
+is hard-coded."""
+import random
+import numpy as np
+import torch
+from torch.utils.data import DataLoader
+
+from dataset import ScaffoldDataset
+from losses import build_loss
+from model import build_model, PRETRAINED_SOURCE
+
+SEED = __SEED__
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+FREEZE_EPOCHS = 5      # head-only warmup while the backbone is frozen
+TOTAL_EPOCHS = 50
+HEAD_LR = 1e-3         # discriminative LRs: the fresh head learns fast ...
+BACKBONE_LR = 1e-5     # ... the pretrained backbone adapts slowly
+
+
+__SEED_FN__
+
+
+def main():
+    seed_everything(SEED)
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    train_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="train")
+    val_ds = ScaffoldDataset(MANIFEST, REPO_ROOT, split="val")
+    train_loader = DataLoader(train_ds, batch_size=16, shuffle=True, num_workers=4)
+    val_loader = DataLoader(val_ds, batch_size=16, shuffle=False, num_workers=4)
+    # Load the PRETRAINED backbone (weight provenance is recorded in PRETRAINED.md).
+    model = build_model(pretrained=True).to(device)
+    criterion = build_loss()
+    model.set_backbone_trainable(False)                       # phase 1: head-only warmup
+    optimizer = torch.optim.Adam(model.head.parameters(), lr=HEAD_LR)
+    best_val = float("inf")
+    for epoch in range(TOTAL_EPOCHS):
+        if epoch == FREEZE_EPOCHS:                            # phase 2: unfreeze, discriminative LRs
+            model.set_backbone_trainable(True)
+            optimizer = torch.optim.Adam([
+                {"params": model.backbone.parameters(), "lr": BACKBONE_LR},
+                {"params": model.head.parameters(), "lr": HEAD_LR},
+            ])
+        model.train()
+        for x, y in train_loader:
+            x, y = x.to(device), y.to(device)
+            optimizer.zero_grad()
+            loss = criterion(model(x), y)
+            loss.backward()
+            optimizer.step()
+        model.eval()
+        val_loss = 0.0
+        with torch.no_grad():
+            for x, y in val_loader:
+                x, y = x.to(device), y.to(device)
+                val_loss += criterion(model(x), y).item()
+        val_loss /= max(len(val_loader), 1)
+        if val_loss < best_val:
+            best_val = val_loss
+            torch.save({"epoch": epoch, "model": model.state_dict(),
+                        "seed": SEED, "pretrained_source": PRETRAINED_SOURCE,
+                        "backbone_class": type(model.backbone).__name__}, "best.pt")
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+FT_EVAL = r'''"""Held-out evaluation (fine-tuning / classification; generated by model-scaffold).
+Inference under model.eval() + torch.no_grad(); writes per-case scores. Compute AUROC +
+AUPRC (+ sensitivity/specificity at the deployment prevalence) with CIs downstream via
+/model-assessment + /analyze-stats."""
+import csv
+import torch
+from torch.utils.data import DataLoader
+from dataset import ScaffoldDataset
+from model import build_model
+
+REPO_ROOT = "."
+MANIFEST = "__MANIFEST_NAME__"
+
+
+__CASE_COUNT_FN__
+
+
+def main():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    test_loader = DataLoader(ScaffoldDataset(MANIFEST, REPO_ROOT, split="test"), batch_size=1, shuffle=False)
+    model = build_model().to(device)   # architecture only; weights come from the fine-tuned checkpoint
+    model.load_state_dict(torch.load("best.pt", map_location=device)["model"])
+    model.eval()
+    rows = []
+    with torch.no_grad():
+        for i, (x, y) in enumerate(test_loader):
+            scores = torch.softmax(model(x.to(device)), dim=1).squeeze(0).tolist()
+            rows.append({"index": i, "scores": scores})
+    assert_case_count(len(rows), len(test_loader.dataset))
+    with open("predictions.csv", "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["index", "scores"])
+        w.writeheader()
+        w.writerows(rows)
+
+
+if __name__ == "__main__":
+    main()
+'''
+
+TASKS = {
+    "segmentation": {"model": SEG_MODEL, "dataset": SEG_DATASET, "losses": SEG_LOSSES,
+                     "train": SEG_TRAIN, "evaluate": SEG_EVAL, "arch": "unet"},
+    "finetune": {"model": FT_MODEL, "dataset": FT_DATASET, "losses": FT_LOSSES,
+                 "train": FT_TRAIN, "evaluate": FT_EVAL, "arch": "finetune-backbone"},
+    "classification": {"model": CLS_MODEL, "dataset": CLS_DATASET, "losses": CLS_LOSSES,
+                       "train": CLS_TRAIN, "evaluate": CLS_EVAL, "arch": "cnn"},
+    "detection": {"model": DET_MODEL, "dataset": DET_DATASET, "losses": DET_LOSSES,
+                  "train": DET_TRAIN, "evaluate": DET_EVAL, "arch": "fasterrcnn"},
+    "synthesis": {"model": SYN_MODEL, "dataset": SYN_DATASET, "losses": SYN_LOSSES,
+                  "train": SYN_TRAIN, "evaluate": SYN_EVAL, "arch": "pix2pix"},
+    "ssl": {"model": SSL_MODEL, "dataset": SSL_DATASET, "losses": SSL_LOSSES,
+            "train": SSL_TRAIN, "evaluate": SSL_EVAL, "arch": "simclr"},
+}
+
+CONFIG_YAML = """# Single source of truth for this scaffolded run (generated by model-scaffold).
+task: __TASK__
+arch: __ARCH__
+seed: __SEED__
+id_col: __ID_COL__
+in_channels: __IN_CH__
+out_channels: __OUT_CH__
+base_channels: __BASE__
+split:
+  val_frac: __VAL_FRAC__
+  test_frac: __TEST_FRAC__
+  assignment: splits/split_assignment.csv
+  seed_file: splits/split_seed.txt
+  source: __SPLIT_SOURCE__
+manifest: __MANIFEST_NAME__
+__PRETRAINED_BLOCK____IMAGING_QC_BLOCK__"""
+
+REQUIREMENTS = """# Generated by model-scaffold. Pin exact versions before publishing.
+torch
+numpy
+# Recommended medical-imaging stack (integrate, do not reimplement):
+# monai          # UNet/SegResNet, transforms, metrics (Dice/HD95/NSD)
+# torchvision    # detection (Faster / Mask R-CNN, FPN)
+# timm           # pretrained classification backbones (ResNet/EfficientNet/ViT/Swin)
+# torchio        # 3-D spatial/intensity augmentation
+# nibabel pydicom tifffile   # NIfTI / DICOM / TIFF I/O
+# tensorboard
+"""
+
+REPRO_MD = """# Reproducibility
+
+Generated by `model-scaffold` (task: __TASK__, arch: __ARCH__) with reproducibility baked in.
+
+- **Split**: patient-level, seed-locked (`splits/split_assignment.csv`, seed `__SPLIT_SEED__`);
+  disjoint by construction. Verify with `/model-assessment`
+  (`check_split_leakage.py --splits splits/split_assignment.csv --strict`).
+- **Seed**: `__SEED__` applied to random / numpy / torch / torch.cuda; cuDNN deterministic
+  (`train.py: seed_everything`). Report metrics as mean +/- SD over >= 5 seeds (three runs
+  give a very imprecise SD: 95% CI about 0.5-6 x the observed SD; with five about 0.6-2.9 x).
+- **Model**: `model.py` (`__ARCH__`). Swap in MONAI / nnU-Net / timm / torchvision for production.
+- **Environment** (fill in): python + pip freeze, CUDA / driver, GPU, git commit.
+- **Data**: plug your reader into `dataset.py`.__IMAGING_QC_LINE__
+
+## How to reproduce
+`pip install -r requirements.txt` -> implement `dataset.py` I/O -> `python train.py` ->
+`python evaluate.py` -> metrics + CIs via `/model-assessment` -> `/analyze-stats`.
+"""
+
+METHODS_MD = """# Methods stub (generated by model-scaffold — fill the [VERIFY] placeholders)
+
+A `__ARCH__` model was trained for __TASK__ (in=`__IN_CH__`, out=`__OUT_CH__`, base
+`__BASE__`). Data were split at the **patient level** (val=__VAL_FRAC__, test=__TEST_FRAC__;
+[VERIFY: report n patients per split from splits/split_assignment.csv]) with the assignment
+frozen and seed-locked (seed __SPLIT_SEED__), so no patient contributed images to more than one
+partition. All random number generators (Python, NumPy, PyTorch, CUDA) were seeded and cuDNN
+was set deterministic. Held-out performance is reported as
+[VERIFY: task-correct metrics with patient-level bootstrap 95% CIs on the test split (/model-assessment); seed spread as mean +/- SD over >= 5 seeds].
+"""
+
+# Emitted only for --task finetune: the pretrained-weight provenance record. A fine-tune
+# whose starting checkpoint is unrecorded is not reproducible or auditable — this is the
+# artifact check_training_hygiene looks for (PRETRAINED_PROVENANCE_MISSING).
+PRETRAINED_MD = """# Pretrained-weight provenance (fine-tuning; fill the [VERIFY] fields)
+
+This model was fine-tuned from PRETRAINED weights. For the result to be reproducible the
+exact source of those weights must be recorded here — a fine-tune whose starting checkpoint
+is unknown (ImageNet vs RadImageNet vs a public medical checkpoint) cannot be reproduced or
+audited, and a backbone pretrained on data that overlaps this study's test set is a form of
+leakage no split table can see.
+
+- **Source**: __PRETRAINED_SOURCE__
+  [VERIFY: confirm the exact model + weights tag, e.g. `timm:resnet50.a1_in1k`, `MedSAM`, or a URL/DOI]
+- **Pretraining data**: [VERIFY: dataset the backbone was pretrained on — confirm it does NOT
+  overlap this study's test set (pretraining-set contamination is unseen leakage)]
+- **License**: [VERIFY: license / terms of the pretrained weights]
+- **Checkpoint hash**: [VERIFY: sha256 of the downloaded checkpoint file]
+- **Access date**: [VERIFY: when the weights were downloaded]
+
+Report the fine-tuning schedule (frozen-vs-unfrozen, discriminative learning rates) in
+Methods; see references/finetuning_guide.md.
+"""
+
+
+def _pick_id_col(header, explicit):
+    if explicit:
+        if explicit in header:
+            return explicit
+        sys.stderr.write(f"ERROR: --id-col '{explicit}' not in manifest header {header}\n")
+        sys.exit(2)
+    norm = {h.strip().lower().replace("_", "").replace(" ", ""): h for h in header}
+    for hint in ID_HINTS:
+        if hint.replace("_", "") in norm:
+            return norm[hint.replace("_", "")]
+    sys.stderr.write(f"ERROR: no ID column found in {header}; pass --id-col\n")
+    sys.exit(2)
+
+
+def split_patients(ids, seed, val_frac, test_frac):
+    uniq = sorted(set(ids))
+    rng = np.random.default_rng(seed)
+    order = [uniq[i] for i in rng.permutation(len(uniq))]
+    n = len(order)
+    n_test, n_val = round(n * test_frac), round(n * val_frac)
+    assign = {}
+    for pid in order[:n_test]:
+        assign[pid] = "test"
+    for pid in order[n_test:n_test + n_val]:
+        assign[pid] = "val"
+    for pid in order[n_test + n_val:]:
+        assign[pid] = "train"
+    return assign
+
+
+# The same row rules imaging-data's check_preprocessing_leakage.py applies to split_assignment
+# (its SPLIT_SYNONYM and _patient), so a manifest that gate accepts is read here the same way.
+# Keep the two in step: a row it accepts and this rejects only fails closed (exit 2).
+UPSTREAM_SPLIT_SYNONYM = {
+    "train": "train", "training": "train",
+    "val": "val", "validation": "val", "valid": "val", "dev": "val",
+    "test": "test", "testing": "test", "holdout": "test", "hold-out": "test",
+    "eval": "test", "evaluation": "test",
+}
+UPSTREAM_PATIENT_KEYS = ("patient_id", "subject_id", "patient", "id")
+
+
+def _upstream_patient(r):
+    """The row's patient ID as a stripped string (a numeric 0 is an ID, a blank is not)."""
+    for key in UPSTREAM_PATIENT_KEYS:
+        value = r.get(key)
+        if value is not None and not isinstance(value, (dict, list)) and str(value).strip():
+            return str(value).strip()
+    return None
+
+
+def _upstream_split(r):
+    sp = r.get("split")
+    sp = str(sp).strip().lower() if sp is not None else ""
+    return UPSTREAM_SPLIT_SYNONYM.get(sp, sp)
+
+
+def load_upstream_split(path, ids):
+    """Read the patient-level split from an imaging-data preprocessing_manifest.json so the repo
+    trains on the SAME split that imaging-data's normalisation-leakage gate checked, instead of
+    drawing a new one. Returns (assign, seed); exits 2 on anything it cannot use."""
+    p = Path(path)
+    if not p.is_file():
+        sys.stderr.write(f"ERROR: --preprocessing-manifest not found: {path}\n")
+        sys.exit(2)
+    try:
+        doc = json.loads(p.read_text(encoding="utf-8"))
+    except ValueError as e:
+        sys.stderr.write(f"ERROR: --preprocessing-manifest {path} is not valid JSON: {e}\n")
+        sys.exit(2)
+    rows = doc.get("split_assignment") if isinstance(doc, dict) else None
+    if not isinstance(rows, list) or not rows:
+        sys.stderr.write(f"ERROR: --preprocessing-manifest {path} has no split_assignment rows\n")
+        sys.exit(2)
+    seed = doc.get("split_seed")
+    if isinstance(seed, bool) or not isinstance(seed, int):
+        sys.stderr.write(f"ERROR: --preprocessing-manifest {path} has no integer split_seed; "
+                         "an imported split must be seed-locked\n")
+        sys.exit(2)
+    assign, bad = {}, []
+    for i, r in enumerate(rows):
+        pid = _upstream_patient(r) if isinstance(r, dict) else None
+        sp = _upstream_split(r) if isinstance(r, dict) else None
+        if pid is None or sp not in ("train", "val", "test"):
+            bad.append(i)
+            continue
+        if assign.setdefault(pid, sp) != sp:
+            sys.stderr.write(f"ERROR: --preprocessing-manifest {path}: patient '{pid}' is assigned to "
+                             f"both {assign[pid]} and {sp}; the split is not patient-disjoint\n")
+            sys.exit(2)
+    if bad:
+        sys.stderr.write(f"ERROR: --preprocessing-manifest {path}: {len(bad)} split_assignment row(s) "
+                         "lack a patient ID (patient_id/subject_id/patient/id) or a split that "
+                         "maps to train/val/test "
+                         f"(first: row {bad[0]})\n")
+        sys.exit(2)
+    missing = sorted(set(ids) - set(assign))
+    if missing:
+        sys.stderr.write(f"ERROR: {len(missing)} patient(s) in --manifest have no split in "
+                         f"--preprocessing-manifest (first: '{missing[0]}'); the two describe "
+                         "different cohorts\n")
+        sys.exit(2)
+    return {pid: assign[pid] for pid in set(ids)}, seed
+
+
+# --- imaging-data QC handoff -------------------------------------------------------------------
+# imaging-data's gates write their verdicts to qc/*.json. Until this handoff nothing downstream read
+# them: in demo 05 an INTENSITY_SCALE_INCONSISTENT claim sat in qc/ while the model was built and
+# run. When the scaffold is pointed at imaging-data outputs it now reads those reports, refuses on an
+# unacknowledged Major, and writes every claim it did not stop on into the generated repo.
+# Fail closed throughout: a severity that is not plainly Minor/Flag blocks, a report whose summary
+# counts more Majors than it lists blocks, and a file it cannot read is reported, never dropped.
+IMAGING_QC_DETECTORS = ("check_dataset_profile", "check_preprocessing_leakage",
+                        "check_normalizer_domain")
+NONBLOCKING_SEVERITIES = ("minor", "flag")
+
+
+def _qc_err(msg):
+    sys.stderr.write(f"ERROR: {msg}\n")
+    sys.exit(2)
+
+
+def _one_line(value):
+    """Collapse whitespace and newlines so a value cannot break the IMAGING_QC.md layout."""
+    return "" if value is None else " ".join(str(value).split())
+
+
+def parse_qc_acks(values):
+    """--ack-qc CODE=REASON -> {CODE: REASON}; exits 2 on a malformed code, an empty reason,
+    or a second acknowledgement of the same code."""
+    acks = {}
+    for v in values or []:
+        code, sep, reason = v.partition("=")
+        code, reason = code.strip(), _one_line(reason)
+        if not sep or not code or not code.replace("_", "").isalnum() or code.upper() != code:
+            _qc_err(f"--ack-qc: malformed CODE in {v!r}; expected an upper-case verdict code such "
+                    "as LABEL_EMPTY, then '=reason'")
+        if not reason:
+            _qc_err(f"--ack-qc {code}: the reason is empty; state why it is safe to proceed")
+        if code in acks:
+            _qc_err(f"--ack-qc {code}: duplicate acknowledgement; give one reason per code")
+        acks[code] = reason
+    return acks
+
+
+def _shown(path):
+    """A path as it is shown: relative to the working directory when under it, else absolute."""
+    p = Path(path).resolve()
+    try:
+        return str(p.relative_to(Path.cwd().resolve()))
+    except ValueError:
+        return str(p)
+
+
+def _detector_name(value):
+    """'check_dataset_profile', 'check_dataset_profile.py' or a path to it -> the gate name."""
+    name = str(value).replace("\\", "/").rsplit("/", 1)[-1].strip().lower()
+    name = name[:-3] if name.endswith(".py") else name
+    return name if name in IMAGING_QC_DETECTORS else None
+
+
+def _read_qc_file(path):
+    """('report', doc) for an imaging-data QC report, ('unreadable', why) for a file that cannot be
+    parsed or a gate report of the wrong shape, ('other', None) for unrelated JSON."""
+    try:
+        doc = json.loads(Path(path).read_text(encoding="utf-8-sig"))
+    except (OSError, ValueError) as e:
+        return "unreadable", f"not parseable as JSON ({type(e).__name__})"
+    if not isinstance(doc, dict):
+        return "unreadable", f"top level is a JSON {type(doc).__name__}, not an object"
+    raw_det = doc.get("detector")
+    det = _detector_name(raw_det) if isinstance(raw_det, str) else None
+    if det is None:
+        # Another tool's report (it names its own detector) is not ours to read. A claims list with
+        # no usable detector name may be one of ours with the field lost: report it, never drop it.
+        if isinstance(doc.get("claims"), list) and not (isinstance(raw_det, str) and raw_det.strip()):
+            return "unreadable", "has a claims list but no detector field naming the gate"
+        return "other", None
+    if not isinstance(doc.get("claims"), list):
+        return "unreadable", f"{det} report without a claims list"
+    summary = doc.get("summary")
+    if isinstance(summary, dict) and summary.get("n_major") is not None:
+        n = summary["n_major"]
+        try:
+            n_num = float(n) if not isinstance(n, bool) else None
+        except (TypeError, ValueError):
+            n_num = None
+        if (n_num is None or n_num != n_num or n_num in (float('inf'), float('-inf'))
+                or n_num != int(n_num) or n_num < 0):
+            return "unreadable", f"{det} report with a non-integral summary.n_major ({_one_line(n)!r})"
+        summary = dict(summary, n_major=int(n_num))
+        doc = dict(doc, summary=summary)
+    doc = dict(doc, detector=det)
+    return "report", doc
+
+
+def _leakage_report_other_manifest(report_path, recorded, manifest):
+    """The reason to skip a leakage report, or None to read it. Fail closed: skip ONLY when
+    (1) the recorded manifest's file name differs from the scaffolded manifest's, (2) the recorded
+    path resolves to an existing file, and (3) no base resolves it to a byte-identical copy of the
+    scaffolded manifest. A copied project, a gate run from another directory, or a same-named report from
+    elsewhere is read (and its Major blocks) rather than guessed away."""
+    rec = str(recorded).replace("\\", "/")
+    rec_name = rec.rsplit("/", 1)[-1]
+    if rec_name == manifest.name:
+        return None
+    rd = report_path.resolve().parent
+    bases = [None] if Path(rec).is_absolute() else [rd.parent, rd, manifest.parent, Path.cwd()]
+    try:
+        mine = manifest.read_bytes()
+    except OSError:
+        return None
+    # Every base is tried: one byte-identical candidate anywhere means the report may be about this
+    # manifest, so it is read; it is skipped only when some candidate exists and none is identical.
+    different = None
+    for base in bases:
+        cand = Path(rec) if base is None else base / rec
+        if cand.is_file():
+            try:
+                if cand.read_bytes() == mine:
+                    return None
+            except OSError:
+                return None
+            different = different or cand
+    if different is not None:
+        return (f"audits {_shown(different)} ({rec_name}), a different manifest from "
+                f"{_shown(manifest)}")
+    return None
+
+
+def collect_imaging_qc(qc_paths, preprocessing_manifest):
+    """Locate and read imaging-data QC reports. Returns (reports, searched, skipped, unreadable):
+    reports = [(path_str, doc)], skipped / unreadable = [(path_str, why)]."""
+    candidates, searched = [], []
+    manifest = Path(preprocessing_manifest).resolve() if preprocessing_manifest else None
+    if qc_paths:
+        for raw in qc_paths:
+            p = Path(raw)
+            if p.is_dir():
+                searched.append(str(p))
+                candidates += sorted(p.glob("*.json"))
+            elif p.is_file():
+                kind, why = _read_qc_file(p)
+                if kind != "report":
+                    _qc_err(f"--imaging-qc {raw} is not a readable imaging-data QC report "
+                            f"({why or 'no detector among ' + ', '.join(IMAGING_QC_DETECTORS)})")
+                searched.append(str(p))
+                candidates.append(p)
+            else:
+                _qc_err(f"--imaging-qc not found: {raw}")
+    else:
+        # Resolved first: from inside manifests/, Path("preprocessing_manifest.json").parent is "."
+        # and its parent is "." again, so ../qc was never searched.
+        mdir = manifest.parent
+        for d in (mdir / "qc", mdir.parent / "qc"):
+            if _shown(d) in searched:
+                continue
+            searched.append(_shown(d))
+            if d.is_dir():
+                candidates += sorted(d.glob("*.json"))
+    reports, skipped, unreadable, seen = [], [], [], set()
+    for p in candidates:
+        key = p.resolve()
+        if key in seen:
+            continue
+        seen.add(key)
+        kind, doc = _read_qc_file(p)
+        if kind == "unreadable":
+            unreadable.append((_shown(p), doc))
+            continue
+        if kind != "report":
+            continue
+        if manifest is not None and doc["detector"] == "check_preprocessing_leakage" and doc.get("manifest"):
+            why = _leakage_report_other_manifest(p, doc["manifest"], manifest)
+            if why:
+                skipped.append((_shown(p), why))
+                continue
+        reports.append((_shown(p), doc))
+    return reports, searched, skipped, unreadable
+
+
+def triage_imaging_qc(reports, acks):
+    """Split claims into blocking (unacknowledged Major), acknowledged Major, and carried
+    (Minor / Flag). Any severity that is not plainly Minor or Flag counts as Major. Each item:
+    dict(code, severity, file, detail, reason?)."""
+    blocking, acked, carried = [], [], []
+
+    def place(item, major):
+        if not major:
+            carried.append(item)
+        elif item["code"] in acks:
+            item["reason"] = acks[item["code"]]
+            acked.append(item)
+        else:
+            blocking.append(item)
+
+    for path, doc in reports:
+        n_major_listed = 0
+        for c in doc["claims"]:
+            if not isinstance(c, dict):
+                place({"code": "QC_CLAIM_MALFORMED", "severity": "Major", "file": path,
+                       "detail": f"a claim is not a JSON object: {_one_line(c)[:200]}"}, True)
+                n_major_listed += 1
+                continue
+            sev_raw = _one_line(c.get("severity", ""))
+            major = sev_raw.casefold() not in NONBLOCKING_SEVERITIES
+            item = {"code": _one_line(c.get("verdict", "")) or "?",
+                    "severity": sev_raw or "(missing)", "file": path,
+                    "detail": _one_line(c.get("detail", ""))}
+            where = c.get("split") or c.get("where")
+            if where:
+                item["detail"] = f"[{_one_line(where)}] {item['detail']}"
+            if c.get("cases"):
+                item["detail"] += f" (cases: {_one_line(', '.join(map(str, c['cases'])))})"
+            n_major_listed += major
+            place(item, major)
+        summary = doc.get("summary") if isinstance(doc.get("summary"), dict) else {}
+        n_major_said = summary.get("n_major")
+        if isinstance(n_major_said, int) and not isinstance(n_major_said, bool) \
+                and n_major_said > n_major_listed:
+            place({"code": "QC_REPORT_INCONSISTENT", "severity": "Major", "file": path,
+                   "detail": (f"summary.n_major is {n_major_said} but the report lists "
+                              f"{n_major_listed} Major claim(s); the report is incomplete or "
+                              "edited — re-run the gate")}, True)
+    return blocking, acked, carried
+
+
+def render_imaging_qc_md(source, reports, searched, skipped, unreadable, acked, carried):
+    found = {doc["detector"] for _, doc in reports}
+    lines = [
+        "# Imaging-data QC carried forward (generated by model-scaffold)",
+        "",
+        "These are the `/imaging-data` gate verdicts this repo was built on. A Major claim stopped",
+        "the scaffold unless it was acknowledged below; Minor and Flag claims did not stop it and are",
+        "listed so they reach training, evaluation and the Methods instead of staying in `qc/`.",
+        "",
+        f"- **Located**: {_one_line(source)}",
+        "- **Searched**: " + (", ".join(f"`{s}`" for s in searched) if searched else "(nothing)"),
+        "",
+        "## Reports read",
+    ]
+    if reports:
+        for path, doc in reports:
+            n_major = sum(1 for c in doc["claims"] if not isinstance(c, dict)
+                          or _one_line(c.get("severity", "")).casefold() not in NONBLOCKING_SEVERITIES)
+            lines.append(f"- `{doc['detector']}` — `{path}` ({len(doc['claims'])} claim(s), {n_major} Major)")
+    else:
+        lines.append("- (none)")
+    for path, why in skipped:
+        lines.append(f"- skipped `{path}`: {why}")
+    for path, why in unreadable:
+        lines.append(f"- UNREADABLE `{path}`: {why} — not read; if it is a gate report, that gate "
+                     "is not assessed")
+    lines += ["", "## Not assessed"]
+    missing = [d for d in IMAGING_QC_DETECTORS if d not in found]
+    for d in missing:
+        note = (" (Phase 7; expected only before inference on a new cohort)"
+                if d == "check_normalizer_domain" else "")
+        lines.append(f"- `{d}`: NOT ASSESSED — no readable report found{note}. Absence is not a pass.")
+    for path, _ in unreadable:
+        lines.append(f"- `{path}`: NOT ASSESSED — unreadable, so whatever it reports was not checked.")
+    if not missing and not unreadable:
+        lines.append("- (every imaging-data gate has a report)")
+    lines += ["", "## Acknowledged Major claims (scaffolded on the stated reason)"]
+    lines += ([f"- **{i['code']}** ({i['severity']}, `{i['file']}`): {i['detail']}\n  - Acknowledged: {i['reason']}"
+               for i in acked] or ["- (none)"])
+    lines += ["", "## Carried-forward warnings (not blocking)"]
+    lines += ([f"- **{i['code']}** ({i['severity']}, `{i['file']}`): {i['detail']}" for i in carried]
+              or ["- (none)"])
+    return "\n".join(lines) + "\n"
+
+
+# Values that come from the user's data or command line and land inside a Python string literal
+# (`ID_COL = "__ID_COL__"`). A CSV header or --from-pretrained value containing `"` or `\` used to be
+# pasted in raw: the generated repo did not parse, or ran whatever the value spelled.
+LITERAL_KEYS = ("__ID_COL__", "__MANIFEST_NAME__", "__PRETRAINED_SOURCE__")
+
+
+def render(tmpl, repl):
+    out = tmpl
+    for k in LITERAL_KEYS:
+        # json.dumps writes a double-quoted literal with `"`, `\` and control characters escaped,
+        # all valid Python escapes, and leaves an ordinary value byte-identical ("patient_id").
+        out = out.replace(f'"{k}"', json.dumps(str(repl[k]), ensure_ascii=False))
+    for k, v in repl.items():
+        out = out.replace(k, str(v))
+    return out
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description="Reproducible medical-imaging training-repo scaffold.")
+    ap.add_argument("--manifest", required=True, help="CSV: one row per image, with a patient ID column")
+    ap.add_argument("--id-col", help="patient/subject ID column (auto-detected if omitted)")
+    ap.add_argument("--task", default="segmentation", choices=sorted(TASKS))
+    ap.add_argument("--arch", help="architecture label (defaults to the task's default)")
+    ap.add_argument("--out", default="model_repo", help="output repo directory")
+    ap.add_argument("--seed", type=int, default=42)
+    ap.add_argument("--val-frac", type=float, default=0.15)
+    ap.add_argument("--test-frac", type=float, default=0.15)
+    ap.add_argument("--in-channels", type=int, default=1)
+    ap.add_argument("--out-channels", type=int, default=1)
+    ap.add_argument("--base-channels", type=int, default=16)
+    ap.add_argument("--from-pretrained", default="timm:resnet50.a1_in1k",
+                    help="pretrained-weight source recorded as provenance (--task finetune); "
+                         "e.g. timm:resnet50.a1_in1k, MedSAM, or a URL/DOI")
+    ap.add_argument("--preprocessing-manifest",
+                    help="imaging-data preprocessing_manifest.json: reuse its split_assignment and "
+                         "split_seed instead of drawing a new split (--seed/--val-frac/--test-frac "
+                         "are then not used for the split); also reads imaging-data's QC reports "
+                         "from <manifest dir>/qc/ and <manifest dir>/../qc/")
+    ap.add_argument("--imaging-qc", action="append", metavar="PATH",
+                    help="imaging-data QC report JSON or a directory of them (repeatable); replaces "
+                         "the search next to --preprocessing-manifest. An unacknowledged Major "
+                         "claim refuses the scaffold (exit 1)")
+    ap.add_argument("--ack-qc", action="append", metavar="CODE=REASON",
+                    help="proceed past an unresolved Major imaging-data claim CODE (repeatable); "
+                         "the reason is recorded in IMAGING_QC.md")
+    ap.add_argument("--quiet", action="store_true")
+    args = ap.parse_args()
+
+    if args.task == "finetune" and args.out_channels < 2:
+        # FT_LOSSES is a softmax CrossEntropy: one output gives a constant score of 1.0 and a loss of 0.
+        sys.stderr.write(f"ERROR: --task finetune needs --out-channels >= 2 (the number of classes; "
+                         f"got {args.out_channels}). A binary target is --out-channels 2.\n")
+        return 2
+
+    man = Path(args.manifest)
+    if not man.is_file():
+        sys.stderr.write(f"ERROR: --manifest not found: {args.manifest}\n")
+        return 2
+    with man.open(encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        header = reader.fieldnames or []
+        rows = list(reader)
+    if not rows:
+        sys.stderr.write("ERROR: manifest has no rows\n")
+        return 2
+    id_col = _pick_id_col(header, args.id_col)
+    # IDs are compared after stripping surrounding whitespace ('P01' and 'P01 ' are one patient);
+    # the generated dataset.py looks rows up the same way.
+    ids = [r[id_col].strip() for r in rows if (r.get(id_col) or "").strip()]
+    if not ids:
+        sys.stderr.write(f"ERROR: no values in ID column '{id_col}'\n")
+        return 2
+
+    task = TASKS[args.task]
+    arch = args.arch or task["arch"]
+    if args.preprocessing_manifest:
+        assign, split_seed = load_upstream_split(args.preprocessing_manifest, ids)
+    else:
+        assign, split_seed = split_patients(ids, args.seed, args.val_frac, args.test_frac), args.seed
+
+    # imaging-data QC handoff: decided before anything is written, so a refusal leaves no repo.
+    acks = parse_qc_acks(args.ack_qc)
+    qc_md = None
+    if args.imaging_qc or args.preprocessing_manifest:
+        reports, searched, skipped, unreadable = collect_imaging_qc(args.imaging_qc, args.preprocessing_manifest)
+        blocking, acked, carried = triage_imaging_qc(reports, acks)
+        used = {i["code"] for i in acked}
+        for code in sorted(set(acks) - used):
+            sys.stderr.write(f"WARNING: --ack-qc {code}: no unresolved Major claim with that code; "
+                             "not recorded\n")
+        if blocking:
+            for path, why in unreadable:
+                sys.stderr.write(f"UNREADABLE QC FILE: {path}: {why}\n")
+            sys.stderr.write(f"REFUSED: {len(blocking)} unresolved Major imaging-data QC claim(s); "
+                             "nothing was written.\n")
+            for i in blocking:
+                sys.stderr.write(f"  {i['code']}  ({i['file']})  {i['detail']}\n")
+            sys.stderr.write("Resolve upstream and re-run the imaging-data gate, or acknowledge each "
+                             "with --ack-qc CODE='reason' (recorded in IMAGING_QC.md).\n")
+            return 1
+        source = ("--imaging-qc " + ", ".join(args.imaging_qc) if args.imaging_qc
+                  else f"searched next to --preprocessing-manifest {Path(args.preprocessing_manifest).name}")
+        qc_md = render_imaging_qc_md(source, reports, searched, skipped, unreadable, acked, carried)
+        found = {doc["detector"] for _, doc in reports}
+        not_assessed = [d for d in IMAGING_QC_DETECTORS if d not in found]
+        if not reports:
+            sys.stderr.write("NOTE: no imaging-data QC report found (searched: "
+                             + ", ".join(searched) + "); recorded as NOT ASSESSED in IMAGING_QC.md\n")
+        for path, why in unreadable:
+            sys.stderr.write(f"UNREADABLE QC FILE: {path}: {why}; recorded as NOT ASSESSED\n")
+        for path, why in skipped:
+            sys.stderr.write(f"SKIPPED QC FILE: {path}: {why}\n")
+        for i in carried:
+            sys.stderr.write(f"CARRIED FORWARD: {i['code']} ({i['severity']}, {i['file']})\n")
+        qc_block = (f"imaging_qc:\n  record: IMAGING_QC.md\n  reports: {len(reports)}\n"
+                    f"  major_acknowledged: {len(acked)}\n  carried_forward: {len(carried)}\n"
+                    f"  unreadable: {len(unreadable)}\n"
+                    f"  not_assessed: [{', '.join(not_assessed)}]\n")
+        qc_line = ("\n- **Upstream imaging QC**: `IMAGING_QC.md` — /imaging-data verdicts carried into "
+                   f"this repo ({len(acked)} acknowledged Major, {len(carried)} warning(s), "
+                   f"{len(not_assessed)} gate(s) not assessed). Read it before training.")
+    else:
+        if acks:
+            sys.stderr.write("WARNING: --ack-qc given without --preprocessing-manifest or --imaging-qc; "
+                             "nothing to acknowledge\n")
+        qc_block, qc_line = "", ""
+
+    out = Path(args.out)
+    (out / "splits").mkdir(parents=True, exist_ok=True)
+    with (out / "splits" / "split_assignment.csv").open("w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow([id_col, "split"])
+        for pid in sorted(assign):
+            w.writerow([pid, assign[pid]])
+    (out / "splits" / "split_seed.txt").write_text(f"{split_seed}\n", encoding="utf-8")
+
+    is_finetune = args.task == "finetune"
+    if args.preprocessing_manifest:
+        # The fractions describe the imported split as it is, not the unused --val/--test-frac.
+        n_all = len(assign)
+        val_frac = round(sum(v == "val" for v in assign.values()) / n_all, 3)
+        test_frac = round(sum(v == "test" for v in assign.values()) / n_all, 3)
+        split_source = f"imported from {Path(args.preprocessing_manifest).name} (imaging-data)"
+    else:
+        val_frac, test_frac = args.val_frac, args.test_frac
+        split_source = "drawn by scaffold.py (seeded patient-level permutation)"
+    pretrained_block = (
+        f"pretrained:\n  source: {args.from_pretrained}\n  provenance: PRETRAINED.md\n"
+        if is_finetune else ""
+    )
+    repl = {
+        "__SEED__": args.seed, "__IN_CH__": args.in_channels, "__OUT_CH__": args.out_channels,
+        "__BASE__": args.base_channels, "__TASK__": args.task, "__ARCH__": arch,
+        "__ID_COL__": id_col, "__VAL_FRAC__": val_frac, "__TEST_FRAC__": test_frac,
+        "__SPLIT_SEED__": split_seed, "__SPLIT_SOURCE__": split_source,
+        "__MANIFEST_NAME__": man.name, "__SEED_FN__": SEED_FN, "__CASE_COUNT_FN__": CASE_COUNT_FN,
+        "__PRETRAINED_SOURCE__": args.from_pretrained, "__PRETRAINED_BLOCK__": pretrained_block,
+        "__IMAGING_QC_BLOCK__": qc_block, "__IMAGING_QC_LINE__": qc_line,
+    }
+    files = {
+        "model.py": task["model"], "dataset.py": task["dataset"], "losses.py": task["losses"],
+        "train.py": task["train"], "evaluate.py": task["evaluate"], "config.yaml": CONFIG_YAML,
+        "requirements.txt": REQUIREMENTS, "REPRODUCIBILITY.md": REPRO_MD, "methods_stub.md": METHODS_MD,
+    }
+    if is_finetune:
+        files["PRETRAINED.md"] = PRETRAINED_MD
+    for name, tmpl in files.items():
+        (out / name).write_text(render(tmpl, repl), encoding="utf-8")
+    if qc_md is not None:
+        # Written verbatim, not through render(): claim text is data and must not be templated.
+        (out / "IMAGING_QC.md").write_text(qc_md, encoding="utf-8")
+
+    nt = sum(1 for v in assign.values() if v == "train")
+    nv = sum(1 for v in assign.values() if v == "val")
+    ns = sum(1 for v in assign.values() if v == "test")
+    if not args.quiet:
+        print(f"scaffolded {args.task}/{arch} repo -> {out}/")
+        src = (f"imported from {args.preprocessing_manifest}" if args.preprocessing_manifest
+               else "drawn here")
+        print(f"  patients: {len(assign)} (train={nt} val={nv} test={ns}), split seed={split_seed} ({src})")
+        extra = ["IMAGING_QC.md"] if qc_md is not None else []
+        print("  files: " + ", ".join(sorted(list(files) + extra)
+                                      + ["splits/split_assignment.csv", "splits/split_seed.txt"]))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
