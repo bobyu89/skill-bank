@@ -1,6 +1,6 @@
 # Skill Bank
 
-SKILL 收藏庫，依功能與用途分類，目前共 1184 個。
+SKILL 收藏庫，依功能與用途分類，目前共 1203 個。
 
 **找 SKILL 的方法**：在本頁用 Ctrl/Cmd + F 搜尋關鍵字（中文用途、英文名稱、原始說明都在表格裡），或從下方分類進去。
 
@@ -10,7 +10,7 @@ SKILL 收藏庫，依功能與用途分類，目前共 1184 個。
 
 | 分類 | 收什麼 | 數量 |
 |---|---|---|
-| [研究／學術](#研究學術-research-academic) | 文獻搜尋、論文寫作、APA、統計、EBP、報告指引、同儕審查 | 279 |
+| [研究／學術](#研究學術-research-academic) | 文獻搜尋、論文寫作、APA、統計、EBP、報告指引、同儕審查 | 298 |
 | [臨床／護理](#臨床護理-clinical-nursing) | 臨床照護、護理紀錄、個案報告、考試與臨床教學 | 68 |
 | [技術／開發](#技術開發-tech-dev) | 程式開發、AI/Agent、MCP、自動化、資料分析 | 101 |
 | [創意／設計](#創意設計-creative-design) | 插畫、視覺設計、UI、簡報、品牌、logo、影像 prompt | 234 |
@@ -26,9 +26,11 @@ SKILL 收藏庫，依功能與用途分類，目前共 1184 個。
 | 名稱 | 數量 | 用途 | 關鍵字 | 來源 | 存入日期 |
 |---|---|---|---|---|---|
 | [academic-research-skills](#research-academic-academic-research-skills) | 5 | 學術研究全流程：深度研究、論文寫作、模擬審稿、系統性回顧篩選、整合 pipeline | 查文獻, 寫論文, 模擬審稿, systematic review | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) `c67a7be`（CC BY-NC 4.0） | 2026-11-13 |
+| [bob-research-skills](#research-academic-bob-research-skills) | 9 | BOB 自己的科研 SKILL 集：由 nature-skills 改造成台灣繁中、護理與健康科學、APA 7、國防醫學院碩論語境（寫作、潤稿、引用、統計、圖表、審稿、回覆審查意見、研究日誌） | 自己的, 碩論, 繁中學術寫作, 統計, 圖表, 回覆審稿 | [bobyu89/bob-research-skills](https://github.com/bobyu89/bob-research-skills) `5a700a9`（Apache-2.0） | 2026-11-13 |
 | [dyz-med-paper-skills](#research-academic-dyz-med-paper-skills) | 32 | 醫學論文寫作 32 個 SKILL：選題、PubMed 檢索、中英寫作、選刊投稿、審稿修回（簡體中文） | 醫學論文, PubMed, 選刊, 審稿回覆 | [duyunzhoudyz/dyz-med-paper-skills](https://github.com/duyunzhoudyz/dyz-med-paper-skills) `7e19577`（PolyForm Noncommercial 1.0.0） | 2026-11-13 |
 | [figures4papers](skills/research-academic/figures4papers/SKILL.md) | 1 | 論文用科學圖表製作 | 論文圖表, matplotlib, figure | [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) `e78584f`（CC BY-NC 4.0） | 2026-11-13 |
 | [medsci-skills](#research-academic-medsci-skills) | 62 | 醫學研究全流程 62 個 SKILL：文獻搜尋、報告指引檢核、統計、樣本數、meta-analysis、寫作、審稿、投稿 | 醫學研究, 統計, 樣本數, meta-analysis, 報告指引, 投稿 | [Aperivue/medsci-skills](https://github.com/Aperivue/medsci-skills) `e0ea3b0`（MIT） | 2026-11-13 |
+| [nursing-claude-skills](#research-academic-nursing-claude-skills) | 10 | BOB 自己的護理與生醫研究 SKILL：APA 7 稽核、PRISMA 2020、混合研究法、論文寫作與審稿、文獻驗證、PubMed 每日彙整、醫事國考解題、無標記動作捕捉人因 | 自己的, APA 7, PRISMA, mixed methods, 同儕審查, 國考, 人因工程 | [bobyu89/nursing-claude-skills](https://github.com/bobyu89/nursing-claude-skills) `5964279`（MIT） | 2026-11-13 |
 | [nursing-qualitative-skills](#research-academic-nursing-qualitative-skills) | 1 | 護理質性研究論文寫作與國際期刊投稿 | 質性研究, 護理論文, 投稿, COREQ | [chanyiping/nursing-qualitative-skills](https://github.com/chanyiping/nursing-qualitative-skills) `4609743`（MIT） | 2026-11-13 |
 | [nursing-research-companion](#research-academic-nursing-research-companion) | 1 | 護理科研陪跑：臨床護理師從臨床現象走到論文（選題、設計、統計、寫作），附提示詞卡（簡體中文） | 護理研究, 選題, 研究設計, 統計, 臨床護理師 | [chenpg2/nursing-research-companion](https://github.com/chenpg2/nursing-research-companion) `72c3cbc`（CC BY-NC-SA 4.0） | 2026-11-13 |
 | [scientific-agent-skills](#research-academic-scientific-agent-skills) | 177 | 科研助手合集：生物、化學、醫學資料庫與分析工具、科學寫作與簡報 | 生資, 化學, 資料庫, 統計, 科學寫作 | [K-Dense-AI/scientific-agent-skills](https://github.com/K-Dense-AI/scientific-agent-skills) `2d2065f`（MIT） | 2026-11-13 |
@@ -46,6 +48,24 @@ SKILL 收藏庫，依功能與用途分類，目前共 1184 個。
 | [academic-pipeline](skills/research-academic/academic-research-skills/academic-pipeline/SKILL.md) | Orchestrator for the full academic research pipeline: research -> write -> integrity check -> review -> revise -> re-review -> re-revise -> final integrity check -> finalize. Coor… |
 | [deep-research](skills/research-academic/academic-research-skills/deep-research/SKILL.md) | Universal deep research agent team. 13-agent pipeline for rigorous academic research on any topic. 8 modes: full research, quick brief, paper review, lit-review, fact-check, three… |
 | [sr-screener](skills/research-academic/academic-research-skills/sr-screener/SKILL.md) | Protocol-driven study screening for systematic, scoping and rapid reviews. Turns a proposal or PROSPERO protocol into confirmed eligibility rules, then screens titles/abstracts an… |
+
+<a id="research-academic-bob-research-skills"></a>
+
+### bob-research-skills（9 個）
+
+BOB 自己的科研 SKILL 集：由 nature-skills 改造成台灣繁中、護理與健康科學、APA 7、國防醫學院碩論語境（寫作、潤稿、引用、統計、圖表、審稿、回覆審查意見、研究日誌）。資料夾：[`skills/research-academic/bob-research-skills`](skills/research-academic/bob-research-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/bob-citation](skills/research-academic/bob-research-skills/skills/bob-citation/SKILL.md) | 為論文段落找 PubMed 收錄的同儕審查支持文獻、逐筆查證參考文獻的 DOI 與欄位、 把書目轉成 RIS／BibTeX／nbib 供 EndNote 或 Zotero 手動匯入。三個 workflow： find-support（切句→找文獻→保守評級→對照表）、verify（Crossref／PubMed 欄位比對→ 🔴🟡🟢→報告）、export（轉… |
+| [skills/bob-figure](skills/research-academic/bob-research-skills/skills/bob-figure/SKILL.md) | 規劃、繪製、稽核與匯出研究論文用的資料圖與示意圖，支援 Python（matplotlib／seaborn）或 R（ggplot2／patchwork／ComplexHeatmap）， 兩種交付目標：期刊投稿級（向量 PDF／SVG）與碩論 Word 插圖（300 dpi PNG／TIFF、中文字型）。 Create, revise, audit, and… |
+| [skills/bob-polishing](skills/research-academic/bob-research-skills/skills/bob-polishing/SKILL.md) | 潤飾、重組或翻譯護理與健康科學領域的學術文字（碩士論文章節、期刊投稿稿、摘要、標題），在不改動事實、證據邊界、術語與引用意圖的前提下提升清楚度與論證力；支援學術中文潤飾、中翻英、學術英文潤色、結果段精簡、去 AI 腔、Word 與 LaTeX 排版。Polish, restructure, or translate academic prose for n… |
+| [skills/bob-research-log](skills/research-academic/bob-research-skills/skills/bob-research-log/SKILL.md) | 把零散的文字、照片、語音轉錄整理成帶 YAML frontmatter 的 Markdown 研究日誌， 適用設計本位研究（DBR）迭代紀錄、系統版本（V1 到 V7）紀錄、使用者測試場次、IRB 進度、指導教授會議紀錄。 Turn raw notes, images, and voice transcripts into structured Markd… |
+| [skills/bob-response](skills/research-academic/bob-research-skills/skills/bob-response/SKILL.md) | 擬稿、稽核或改寫期刊修訂回覆包：逐點回覆表（每位審稿人一份、互盲隔離）、rebuttal、修訂版 cover letter、修改處標示（紅字或底線）的修改稿摘錄，以及碩士論文口試後的口試委員意見回覆表。 先解析退修信、確認主要或次要修訂，再把意見編號（E.1／R1.1）、分類動作、建立追蹤表， 防止回覆與修改不一致、防止文稿因審稿而累積贅文。語境為護理、醫… |
+| [skills/bob-reviewer](skills/research-academic/bob-research-skills/skills/bob-reviewer/SKILL.md) | 以審稿人視角（不是作者答辯視角）模擬健康科學／護理／醫學教育／數位健康期刊的投稿前同儕審查， 產出 3 位互盲審稿人報告加 1 份事後綜合，含 Major Concerns、Minor Comments、Blocking 旗標、 claim／evidence pointer，以及繁中「中文核對」區塊（摘要與口試委員最可能追問的三點）。 Simulate t… |
+| [skills/bob-shared](skills/research-academic/bob-research-skills/skills/bob-shared/SKILL.md) | bob-* 科研 skill 集的共享參考包（僅供 bob-writing、bob-polishing、bob-reviewer、bob-response、bob-citation、bob-statistics、bob-figure、bob-research-log 依賴）。Internal shared-reference package for the… |
+| [skills/bob-statistics](skills/research-academic/bob-research-skills/skills/bob-statistics/SKILL.md) | 審查、改寫或起草護理與健康科學論文（碩士論文、期刊投稿）的統計方法與結果報告，採 APA 第七版統計格式， 涵蓋描述統計、t 檢定、ANOVA、卡方、相關、迴歸、信度（Cronbach's α）、效度（CVI、EFA／CFA）、GEE／混合模型、 無母數、G*Power 樣本數、SUS 計分與詮釋、SPSS 報表轉 APA 表格。 Audit, rewri… |
+| [skills/bob-writing](skills/research-academic/bob-research-skills/skills/bob-writing/SKILL.md) | 依作者提供的主張、結果、圖表、筆記或中文草稿，起草、重組或規劃健康科學／護理／醫學教育／數位健康論文的章節、碩士論文各章與首次投稿材料；負責論證架構、段落任務、證據鏈、主文精簡與投稿信。Draft, restructure, or plan manuscript sections, thesis chapters, and first-submission… |
 
 <a id="research-academic-dyz-med-paper-skills"></a>
 
@@ -158,6 +178,25 @@ SKILL 收藏庫，依功能與用途分類，目前共 1184 個。
 | [version-dataset](skills/research-academic/medsci-skills/version-dataset/SKILL.md) | Use when you must prove an analysis ran on the intended data or lock a dataset version. Builds a deterministic content-hash manifest (file SHA-256, schema, per-column value hashes… |
 | [write-paper](skills/research-academic/medsci-skills/write-paper/SKILL.md) | Use when drafting a medical research manuscript or any IMRAD section. Runs an 8-phase pipeline from outline to submission-ready draft for original articles, AI validation studies,… |
 | [write-protocol](skills/research-academic/medsci-skills/write-protocol/SKILL.md) | Use when drafting an IRB or ethics research protocol. Writes Background, Study Design, Sample Size and Statistical Plan in full prose and leaves institution-specific sections as T… |
+
+<a id="research-academic-nursing-claude-skills"></a>
+
+### nursing-claude-skills（10 個）
+
+BOB 自己的護理與生醫研究 SKILL：APA 7 稽核、PRISMA 2020、混合研究法、論文寫作與審稿、文獻驗證、PubMed 每日彙整、醫事國考解題、無標記動作捕捉人因。資料夾：[`skills/research-academic/nursing-claude-skills`](skills/research-academic/nursing-claude-skills)
+
+| SKILL | 原始說明 |
+|---|---|
+| [skills/academic-peer-reviewer](skills/research-academic/nursing-claude-skills/skills/academic-peer-reviewer-v2/SKILL.md) | 學術論文同儕審查（Peer Review）專用 skill。模擬頂級期刊資深審稿人的完整審稿流程， 依據 Novelty、Methodology、Clarity、Significance 四大維度進行系統性評估， 輸出結構化審稿報告（預設 .docx Word 文件），含 Summary、Strengths、Weaknesses（Major/Minor）與… |
+| [skills/academic-writing](skills/research-academic/nursing-claude-skills/skills/academic-writing/SKILL.md) | 醫藥領域學術論文全章節撰寫 skill。支援碩論與期刊投稿，涵蓋 Introduction、Literature Review、Methods、Results、Discussion、Conclusion，APA 7th 格式，內建 AI 痕跡消除，整合 Zotero MCP 與 paper-analysis、mixed-methods-research 產… |
+| [skills/apa7-master](skills/research-academic/nursing-claude-skills/skills/apa7-master/SKILL.md) | APA 第七版參考文獻精修大師（含完整 COT 論文稽核工作流程）。 專為台灣護理/醫學碩士論文、TWNA EBHC 實證報告、期刊投稿與課堂作業設計， 同時支援中文與英文 APA 格式，核心功能為「輸入原始資料 → 自動產生正確格式」， 同時具備完整的四步驟稽核（COT）能力：Reference 校正 → 缺漏搜尋 → Citation 校正 → Dou… |
+| [skills/citation-verifier](skills/research-academic/nursing-claude-skills/skills/citation-verifier/SKILL.md) | 查核文獻/引用/DOI是否為AI幻覺捏造的真偽驗證 skill，主動使用 PubMed 與網路搜尋工具進行實際查證(而非僅產生檢索語法讓使用者自己查)。當使用者要求查核單筆或多筆文獻的真實性時，必須使用此 skill，包括：「這篇文獻是真的嗎」、「幫我查一下這個DOI對不對」、「這個引用是不是AI幻覺生成的」、「幫我核對這份reference list」、… |
+| [skills/markerless-mocap-ergonomics](skills/research-academic/nursing-claude-skills/skills/markerless-mocap-ergonomics/SKILL.md) | Build multi-camera markerless motion capture systems for occupational ergonomics and biomechanical workload assessment using consumer webcams — covers camera capture and LED synch… |
+| [skills/med-licensing-exam](skills/research-academic/nursing-claude-skills/skills/med-licensing-exam/SKILL.md) | 台灣醫師國家考試解題與複習專用 skill。當使用者提出以下任何情況時，必須使用此 skill： - 貼上題目、選項、問「答案是什麼」或「這題怎麼解」 - 提到「國考」、「醫師執照考」、「一階」、「二階」、「醫師國考」、「USMLE」（含類似題型） - 要求「幫我分析這道題」、「為什麼選 A 不選 B」、「這題的機轉是什麼」 - 詢問某疾病在國考的重點、常… |
+| [skills/mixed-methods-research](skills/research-academic/nursing-claude-skills/skills/mixed-methods-research/SKILL.md) | 質性、量性與混合方法研究全流程諮詢 skill，專為碩博士論文研究設計、訪談逐字稿質性編碼、問卷設計與統計分析、以及混合方法整合策略而設計。融合 APA 7th 學術寫作規範、研究倫理提醒，並支援 PubMed 文獻佐證。 當使用者說以下任何一種時，必須使用此 skill： - 「幫我設計研究方法」、「我的研究設計怎麼做」、「論文方法論」 - 「幫我分析訪… |
+| [skills/paper-analysis](skills/research-academic/nursing-claude-skills/skills/paper-analysis/SKILL.md) | 專為學術論文閱讀、分析與文獻整理設計的完整工作流程。適用論文類型包括：學術研究論文、系統性回顧（Systematic Review）、Meta-analysis、RCT、AI 模型開發/驗證研究、診斷準確性研究、觀察性研究，以及投稿期刊論文。 當使用者說以下任何一種時，必須使用此 skill： - 「幫我分析/閱讀這篇論文」 - 「整理文獻」、「文獻回顧」… |
+| [skills/prisma-2020-master](skills/research-academic/nursing-claude-skills/skills/prisma-2020-master/SKILL.md) | PRISMA 2020 系統性文獻回顧（Systematic Review）與統合分析（Meta-Analysis）全流程撰寫、稽核與流程圖規劃大師。嚴格遵循 PRISMA 2020 27項清單（Page et al., BMJ 2021;372:n71），支援 Discovery（選題/PICO確立）、Writing（逐段撰寫）、Audit（投稿前逐項稽… |
+| [skills/pubmed-daily-bundle](skills/research-academic/nursing-claude-skills/skills/pubmed-daily-bundle/SKILL.md) | 每日自動化 PubMed 文獻搜尋、全文抓取、分析與打包的完整排程 skill。 專為 CDSS（臨床決策支援系統）與 AI 輔助護理教育兩大主題設計，限定 PMC 開放全文。 當使用者說以下任何一種時，必須使用此 skill： - 「幫我執行今天的文獻排程」、「執行今日文獻搜尋」 - 「幫我找 PubMed 文獻」、「搜尋 CDSS / 護理教育論文」… |
 
 <a id="research-academic-nursing-qualitative-skills"></a>
 

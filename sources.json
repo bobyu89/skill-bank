@@ -757,6 +757,24 @@
    "date": "2026-11-13",
    "zh": "醫學論文寫作 32 個 SKILL：選題、PubMed 檢索、中英寫作、選刊投稿、審稿修回（簡體中文）",
    "keywords": "醫學論文, PubMed, 選刊, 審稿回覆"
+  },
+  {
+   "path": "research-academic/nursing-claude-skills",
+   "repo": "bobyu89/nursing-claude-skills",
+   "commit": "5964279",
+   "license": "MIT",
+   "date": "2026-11-13",
+   "zh": "BOB 自己的護理與生醫研究 SKILL：APA 7 稽核、PRISMA 2020、混合研究法、論文寫作與審稿、文獻驗證、PubMed 每日彙整、醫事國考解題、無標記動作捕捉人因",
+   "keywords": "自己的, APA 7, PRISMA, mixed methods, 同儕審查, 國考, 人因工程"
+  },
+  {
+   "path": "research-academic/bob-research-skills",
+   "repo": "bobyu89/bob-research-skills",
+   "commit": "5a700a9",
+   "license": "Apache-2.0",
+   "date": "2026-11-13",
+   "zh": "BOB 自己的科研 SKILL 集：由 nature-skills 改造成台灣繁中、護理與健康科學、APA 7、國防醫學院碩論語境（寫作、潤稿、引用、統計、圖表、審稿、回覆審查意見、研究日誌）",
+   "keywords": "自己的, 碩論, 繁中學術寫作, 統計, 圖表, 回覆審稿"
   }
  ],
  "references": [

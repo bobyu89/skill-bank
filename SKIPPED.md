@@ -67,3 +67,10 @@
   - `course/`：課程示範資料，非 SKILL 本體
 - `research-academic/dyz-med-paper-skills`
   - `docs/`：說明文件與圖片，非 SKILL 本體
+- `research-academic/bob-research-skills`（來源 bobyu89/bob-research-skills）
+  - `skills/bob-figure/assets/figures4papers/assets/ImmunoStruct_results_CEDAR.png`：1.3 MB
+  - `skills/bob-figure/assets/figures4papers/figure_brainteaser/figures/correctness_by_subcategory.png`：1.1 MB
+  - `skills/bob-figure/assets/figures4papers/figure_brainteaser/figures/brute_force.png`：1.8 MB
+  - `skills/bob-figure/assets/figures4papers/figure_Cflows/figures/diffusion_swiss_roll.png`：1.8 MB
+  - `skills/bob-figure/assets/figures4papers/figure_VIGIL/figures/concept.png`：1.6 MB
+  - `skills/bob-figure/assets/figures4papers/figure_ImmunoStruct/figures/bars_ablation_IEDB.png`：1.2 MB

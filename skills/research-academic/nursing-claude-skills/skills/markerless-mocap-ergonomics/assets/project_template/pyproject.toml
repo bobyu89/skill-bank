@@ -1,0 +1,40 @@
+[project]
+name = "{{PACKAGE}}"
+version = "0.1.0"
+description = "以網路攝影機建構護理師工作負荷早期預警系統"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "opencv-contrib-python>=4.9",   # contrib 版本含 ChArUco 校正所需的 aruco 模組
+    "pyyaml>=6.0",
+    "pydantic>=2.6",
+]
+
+[project.optional-dependencies]
+pose = [
+    "torch>=2.2",
+    "mmpose>=1.3",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.3",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]

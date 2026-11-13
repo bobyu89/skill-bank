@@ -1,0 +1,27 @@
+# 研究資料不進版控（體積大且含受試者資料）
+data/
+*.avi
+*.mp4
+*.xdf
+
+# 校正與同步結果為衍生產物
+*_timestamps.csv
+sync.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# 模型權重
+*.pth
+*.onnx
+*.engine
+
+# IDE
+.vscode/
+.idea/
