@@ -74,3 +74,5 @@
   - `skills/bob-figure/assets/figures4papers/figure_Cflows/figures/diffusion_swiss_roll.png`：1.8 MB
   - `skills/bob-figure/assets/figures4papers/figure_VIGIL/figures/concept.png`：1.6 MB
   - `skills/bob-figure/assets/figures4papers/figure_ImmunoStruct/figures/bars_ablation_IEDB.png`：1.2 MB
+- `3d-gamedev/anatomy-reveal`
+  - `demo/`：展示用資料夾

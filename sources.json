@@ -775,6 +775,42 @@
    "date": "2026-11-13",
    "zh": "BOB 自己的科研 SKILL 集：由 nature-skills 改造成台灣繁中、護理與健康科學、APA 7、國防醫學院碩論語境（寫作、潤稿、引用、統計、圖表、審稿、回覆審查意見、研究日誌）",
    "keywords": "自己的, 碩論, 繁中學術寫作, 統計, 圖表, 回覆審稿"
+  },
+  {
+   "path": "animation-video/motion-design-skill",
+   "repo": "LottieFiles/motion-design-skill",
+   "commit": "f9a8a04",
+   "license": "MIT",
+   "date": "2026-11-14",
+   "zh": "LottieFiles 動態設計原則：timing、easing、編排、迪士尼 12 項動畫原則",
+   "keywords": "動態設計, easing, timing, 12 principles, lottie"
+  },
+  {
+   "path": "creative-design/hairline",
+   "repo": "lucasmarkes/hairline",
+   "commit": "034f4bf",
+   "license": "MIT",
+   "date": "2026-11-14",
+   "zh": "從一個點子或一張 SVG 做出可互動的細線圖（hairline-create、hairline-adopt）",
+   "keywords": "線條圖, SVG, 互動圖解, 細線插圖"
+  },
+  {
+   "path": "3d-gamedev/anatomy-reveal",
+   "repo": "annnguyentt/anatomy-reveal-skill",
+   "commit": "dd01e1c",
+   "license": "MIT",
+   "date": "2026-11-14",
+   "zh": "產品爆炸圖與揭示動畫 MP4",
+   "keywords": "爆炸圖, 產品拆解, reveal 影片, 3D"
+  },
+  {
+   "path": "3d-gamedev/scenario-skills",
+   "repo": "scenario-labs/skills",
+   "commit": "94cab3f",
+   "license": "MIT",
+   "date": "2026-11-14",
+   "zh": "Scenario 的 SKILL 大全：Blender／Maya／ZBrush 各工種、Godot／Unity／Unreal／Roblox，以及 AI 生圖、影片、音訊、3D 模型（多數需 Scenario 帳號）",
+   "keywords": "blender, maya, zbrush, 3D 生成, 遊戲素材, AI 影片, 貼圖"
   }
  ],
  "references": [
@@ -945,6 +981,104 @@
    "what": "Anthropic 官方 life sciences marketplace（生醫研究外掛）",
    "note": "未檢視內容，僅記連結",
    "date": "2026-11-13"
+  },
+  {
+   "name": "scenario-labs/blender-plugin",
+   "url": "https://github.com/scenario-labs/blender-plugin",
+   "what": "Scenario 的 Blender 外掛與本機 MCP：在 Blender 內用 AI 產生圖像、影片、3D、PBR 材質",
+   "note": "外掛本體（GPL）；對應的 Blender SKILL 已存於 `scenario-skills/dcc/blender`",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "mrdoob/three.js",
+   "url": "https://github.com/mrdoob/three.js",
+   "what": "Three.js：3D 場景與鏡頭運動",
+   "note": "相關 SKILL 見 `openmontage` 的 threejs-*",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "pmndrs/react-three-rapier",
+   "url": "https://github.com/pmndrs/react-three-rapier",
+   "what": "React Three Fiber 的 Rapier 物理引擎",
+   "note": "",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "pmndrs/react-postprocessing",
+   "url": "https://github.com/pmndrs/react-postprocessing",
+   "what": "React Three Fiber 後製：bloom、景深、底片效果",
+   "note": "",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "Alchemist0823/three.quarks",
+   "url": "https://github.com/Alchemist0823/three.quarks",
+   "what": "three.js 粒子系統與 VFX",
+   "note": "",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "cocopon/tweakpane",
+   "url": "https://github.com/cocopon/tweakpane",
+   "what": "即時調整場景參數的控制面板",
+   "note": "",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "greensock/GSAP",
+   "url": "https://github.com/greensock/GSAP",
+   "what": "GSAP 動畫 timeline 函式庫（已完全免費）",
+   "note": "對應的 SKILL 已存為 `gsap-skills`",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "remotion-dev/remotion",
+   "url": "https://github.com/remotion-dev/remotion",
+   "what": "Remotion：React 影片引擎",
+   "note": "對應的 SKILL 已存為 `remotion`",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "ManimCommunity/manim",
+   "url": "https://github.com/ManimCommunity/manim",
+   "what": "Manim：動畫圖解、公式、解說影片",
+   "note": "相關 SKILL 見 `openmontage` 的 manim-*",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "airbnb/lottie-web",
+   "url": "https://github.com/airbnb/lottie-web",
+   "what": "Lottie：輕量向量動畫播放",
+   "note": "相關 SKILL 見 `openmontage` 的 lottie-bodymovin",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "Openverse API",
+   "url": "https://api.openverse.org/v1/",
+   "what": "開放授權的音效、環境音、音樂搜尋 API",
+   "note": "",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "librosa/librosa",
+   "url": "https://github.com/librosa/librosa",
+   "what": "音訊分析：節拍偵測，用於音樂同步動畫",
+   "note": "",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "m-bain/whisperX",
+   "url": "https://github.com/m-bain/whisperX",
+   "what": "逐字時間軸的語音辨識，用於字幕",
+   "note": "",
+   "date": "2026-11-14"
+  },
+  {
+   "name": "FFmpeg/FFmpeg",
+   "url": "https://github.com/FFmpeg/FFmpeg",
+   "what": "影音編碼與輸出",
+   "note": "相關 SKILL 見 `openmontage` 的 ffmpeg",
+   "date": "2026-11-14"
   }
  ]
 }
