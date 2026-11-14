@@ -1,6 +1,6 @@
 # Skill Bank
 
-SKILL 收藏庫，依功能與用途分類，目前共 1379 個。
+SKILL 收藏庫，依功能與用途分類，目前共 1380 個。
 
 **找 SKILL 的方法**：在本頁用 Ctrl/Cmd + F 搜尋關鍵字（中文用途、英文名稱、原始說明都在表格裡），或從下方分類進去。
 
@@ -17,7 +17,7 @@ SKILL 收藏庫，依功能與用途分類，目前共 1379 個。
 | [動畫／影片](#動畫影片-animation-video) | 程式化影片、AI 影片、網頁動效、動畫製作 | 142 |
 | [3D／遊戲](#3d遊戲-3d-gamedev) | 3D 建模與物件、遊戲引擎、遊戲開發與 mod | 268 |
 | [行銷／商務](#行銷商務-marketing-business) | 行銷文案、SEO、廣告、市場與趨勢調研 | 54 |
-| [寫作／溝通](#寫作溝通-writing-communication) | 一般寫作、電子報、內部溝通、語氣潤飾、翻譯 | 27 |
+| [寫作／溝通](#寫作溝通-writing-communication) | 一般寫作、電子報、內部溝通、語氣潤飾、翻譯 | 28 |
 | [效率／工作流](#效率工作流-productivity-workflow) | 筆記、知識管理、排程、文件格式處理 | 183 |
 | [思考／學習](#思考學習-thinking-learning) | 批判思考、學習方法、哲學、決策框架 | 2 |
 
@@ -1660,6 +1660,7 @@ Scenario 的 SKILL 大全：Blender／Maya／ZBrush 各工種、Godot／Unity／
 | [anthropics](#writing-communication-anthropics) | 2 | Anthropic 官方：文件共筆流程、內部溝通文稿 | 共筆, 公告, 週報 | [anthropics/skills](https://github.com/anthropics/skills) `2c5958e`（Apache-2.0） | 2026-11-13 |
 | [caveman](#writing-communication-caveman) | 22 | 讓 AI 用最少的字回答，省 token | 精簡回答, 省 token | [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) `ad47375`（Apache-2.0） | 2026-11-13 |
 | [humanizer](skills/writing-communication/humanizer/SKILL.md) | 1 | 去掉文字裡的 AI 痕跡：套話、固定句式 | 去 AI 味, humanize, 文章潤飾 | [blader/humanizer](https://github.com/blader/humanizer) `b48c832`（MIT） | 2026-11-13 |
+| [humanizer-zh-tw](skills/writing-communication/humanizer-zh-tw/SKILL.md) | 1 | 繁體中文去 AI 味：刪去空話、重複與公式化表達，保留事實與作者聲音；內附子 SKILL text-watermark-cleaner-zh-tw（清理不可見 Unicode 與文字浮水印） | 去 AI 味, 繁體中文, 潤稿, humanizer, 不可見字元, 浮水印 | [kevintsai1202/humanizer-zh-tw](https://github.com/kevintsai1202/humanizer-zh-tw) `e2cb617`（MIT） | 2026-11-14 |
 | [i-have-adhd](#writing-communication-i-have-adhd) | 1 | 先說結論和下一步，再給細節 | 結論先行, ADHD, 回答格式 | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) `1ecea19`（MIT） | 2026-11-13 |
 | [lieflat-less-ai-tone](skills/writing-communication/lieflat-less-ai-tone/SKILL.md) | 1 | 降低中文文字的 AI 腔，附偵測方法與研究筆記 | 去 AI 味, 中文寫作, 潤稿 | [larashero3-dotcom/lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone) `fe77df0`（CC BY-NC 4.0） | 2026-11-13 |
 

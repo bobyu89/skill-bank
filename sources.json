@@ -811,6 +811,15 @@
    "date": "2026-11-14",
    "zh": "Scenario 的 SKILL 大全：Blender／Maya／ZBrush 各工種、Godot／Unity／Unreal／Roblox，以及 AI 生圖、影片、音訊、3D 模型（多數需 Scenario 帳號）",
    "keywords": "blender, maya, zbrush, 3D 生成, 遊戲素材, AI 影片, 貼圖"
+  },
+  {
+   "path": "writing-communication/humanizer-zh-tw",
+   "repo": "kevintsai1202/humanizer-zh-tw",
+   "commit": "e2cb617",
+   "license": "MIT",
+   "date": "2026-11-14",
+   "zh": "繁體中文去 AI 味：刪去空話、重複與公式化表達，保留事實與作者聲音；內附子 SKILL text-watermark-cleaner-zh-tw（清理不可見 Unicode 與文字浮水印）",
+   "keywords": "去 AI 味, 繁體中文, 潤稿, humanizer, 不可見字元, 浮水印"
   }
  ],
  "references": [
